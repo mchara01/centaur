@@ -8,6 +8,7 @@ reentrancy: dataset/reentrancy
 short_addresses: dataset/short_addresses
 time_manipulation: dataset/time_manipulation
 unchecked_ll_calls: dataset/unchecked_low_level_calls
+thesis_testset: dataset/test_dt
 
 # External datasets
 solidiFI: 
