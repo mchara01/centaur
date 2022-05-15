@@ -55,7 +55,7 @@ def arguments():
     group_source_files.add_argument('-f', '--file',
                         nargs='+',
                         default=[],
-                        help='solidity file(s) or directories to be analysed')
+                        help='file(s) or directories to be analysed')
 
     group_source_files.add_argument('-d', '--dataset',
                         metavar='DATASET',
@@ -114,6 +114,10 @@ def arguments():
     info.add_argument('--unique-sarif-output',
                       action='store_true',
                       help='Aggregates all sarif analysis outputs in a single file')
+
+    info.add_argument('-b', '--process-bytecode',
+                        action='store_true',
+                        help='Process bytecodes instead of source files (.bytecode)')
 
     args = parser.parse_args()
     return(vars(args))

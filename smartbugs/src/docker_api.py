@@ -60,7 +60,7 @@ def remove_container(logqueue, container):
         sys.exit(1)
 
 
-def run(logqueue, file, tool, results_folder):
+def run(logqueue, file, tool, results_folder, is_bytecode):
     start_time = time.time()
     results = {
         "contract": file,
@@ -77,16 +77,21 @@ def run(logqueue, file, tool, results_folder):
     working_bin_dir = os.path.join(working_dir, "bin")
     shutil.copy(file, working_dir)
     shutil.copytree(os.path.join(config.TOOLS_CFG_PATH,tool["name"]), working_bin_dir)
-    solc_compiler = solidity.get_solc(file)
-    if not solc_compiler:
-        log.message(logqueue, col.error(f"No compiler found for file '{file}'. Does it contain a version pragma?"))
-        return results, result_log, result_tar
-    shutil.copyfile(solc_compiler, os.path.join(working_bin_dir, "solc"))
+    if not is_bytecode:
+        solc_compiler = solidity.get_solc(file)
+        if not solc_compiler:
+            log.message(logqueue, col.error(f"No compiler found for file '{file}'. Does it contain a version pragma?"))
+            return results, result_log, result_tar
+        shutil.copyfile(solc_compiler, os.path.join(working_bin_dir, "solc"))
     volumes = volume_binding(logqueue, working_dir)
 
+    if is_bytecode:
+        entrypoint = f"/data/bin/run_solidity /data/{os.path.basename(file)} bytecode"
+    else:
+        entrypoint = f"/data/bin/run_solidity /data/{os.path.basename(file)}"
     try:
         container = client.containers.run(tool["docker_image"],
-                                          entrypoint = f"/data/bin/run_solidity /data/{os.path.basename(file)}",
+                                          entrypoint = entrypoint,
                                           detach=True,
                                           user = 0,
                                           # cpu_quota=150000,

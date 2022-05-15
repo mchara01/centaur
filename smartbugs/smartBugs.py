@@ -56,8 +56,9 @@ def process_datasets(logqueue, settings):
 
 def collect_files(logqueue, settings):
     files_to_analyze = set()
+    file_extension = '.sol' if not settings['process_bytecode'] else '.bytecode'
     for file in settings["file"]:
-        if os.path.basename(file).endswith('.sol'):
+        if os.path.basename(file).endswith(file_extension):
             files_to_analyze.add(file)
         # analyse dirs recursively
         elif os.path.isdir(file):
@@ -65,14 +66,15 @@ def collect_files(logqueue, settings):
                 settings["import_path"] = file
             for root, dirs, files in os.walk(file):
                 for name in files:
-                    if name.endswith('.sol'):
+                    if name.endswith(file_extension):
                         # if its running on a windows machine
                         if os.name == 'nt':
                             files_to_analyze.add(os.path.join(root, name).replace('\\', '/'))
                         else:
                             files_to_analyze.add(os.path.join(root, name))
         else:
-            log.message(logqueue, col.warning(f"{file} is neither a directory nor a solidity file"))
+            log.message(logqueue, col.warning(
+                f"{file} is neither a directory nor a {file_extension} file"))
 
     # Use base name as file id if unique, otherwise append md5hash of full file name
     clashes = set()
@@ -125,7 +127,7 @@ def collect_tasks(files_to_analyze, tools_to_use, skip_existing):
 
 
 def analyzer(logqueue, taskqueue, sarifqueue, tasks_started, tasks_completed, total_time,
-        import_path, output_version, n_processes, n_tasks):
+        import_path, output_version, n_processes, n_tasks, is_bytecode):
     while True:
         task = taskqueue.get()
         if task is None:
@@ -137,7 +139,8 @@ def analyzer(logqueue, taskqueue, sarifqueue, tasks_started, tasks_completed, to
             n_started = tasks_started.value
         log.message(logqueue, f"Analyzing file [{n_started}/{n_tasks}]: {col.file(file)} [{col.tool(tool['name'])}]", None)
 
-        results, result_log, result_tar = docker_api.run(logqueue, file, tool, results_folder)
+        results, result_log, result_tar = docker_api.run(
+            logqueue, file, tool, results_folder, is_bytecode)
 
         try:
             results, sarif = parsing.parse_results(logqueue, results, result_log, result_tar, import_path)
@@ -228,6 +231,9 @@ def smartbugs(settings):
         tools_to_use     = collect_tools(logqueue, settings)
         tasks            = collect_tasks(files_to_analyze, tools_to_use, settings["skip_existing"])
 
+        # TODO should check if given tools_to_use support bytecode analysis
+        # in case process_bytecode is True
+
         # parallel execution
         # fill task queue, add sentinels to stop analyzers
         random.shuffle(tasks)
@@ -238,7 +244,9 @@ def smartbugs(settings):
 
         # set up and start analyzers
         shared = (logqueue, taskqueue, sarifqueue, tasks_started, tasks_completed, total_time)
-        constants = (settings["import_path"], settings["output_version"], settings["processes"], len(tasks))
+        constants = (settings["import_path"], settings["output_version"], 
+                     settings["processes"], len(tasks), 
+                     settings["process_bytecode"])
         analyzers = [ mp.Process(target=analyzer, args=shared+constants) for _ in range(settings["processes"]) ]
         for a in analyzers:
             a.start()
