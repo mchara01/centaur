@@ -1,0 +1,12 @@
+{
+  "contract": "dataset/testing_dataset_bc/0x95D34980095380851902ccd9A1Fb4C813C2cb639.bytecode",
+  "tool": "ethainter",
+  "start": 1652895025.2249045,
+  "end": 1652895026.4832401,
+  "exit_code": 0,
+  "duration": 1.2583355903625488,
+  "success": true,
+  "findings": [],
+  "errors": [],
+  "analysis": []
+}

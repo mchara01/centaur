@@ -1,0 +1,11 @@
+Integer 77 does not correspond to opcode!
+Encountered an unknown bytecode, skipping the subsequent after the byte...6037
+error: wrong string provided by `to_number("T")` functor.
+Floating-point arithmetic exception signal in rule:
+State.{ff}(to_number(target),stack) :- 
+   @magic.@interm_out.Target.{ff}(),
+   State.{ff}(pc,[target,stack]),
+   JUMP(pc),
+   JUMPDEST( _tmp_0),
+    _tmp_0 = to_number(target).
+in file  [0:0-0:0]
