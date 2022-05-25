@@ -23,7 +23,7 @@ def create_tasks(conf: 'Execution_Configuration') -> List['Execution_Task']:
         for dataset in conf.datasets:
             base_name = dataset.split('/')[0]
             dataset_info = cfg_dataset[base_name]
-            if is_remote_info(dataset_info):
+            if is_remote_info(dataset_info):  # for remote datasets
                 (url, base_path) = get_remote_info(dataset_info)
 
                 if not os.path.isdir(base_path):
@@ -53,7 +53,7 @@ def create_tasks(conf: 'Execution_Configuration') -> List['Execution_Task']:
             else:
                 conf.files.append(dataset_info)
 
-    for file in conf.files:
+    for file in conf.files:  # Finds and creates a list of the files that are going to be examined.
         if os.path.isdir(file):
             for root, _, files in os.walk(file):
                 for name in files:
@@ -73,7 +73,7 @@ def create_tasks(conf: 'Execution_Configuration') -> List['Execution_Task']:
                 file = file.replace('\\', '/')
             files_to_analyze.append(file)
 
-    tasks = []
+    tasks = [] # Task creation
     for file in files_to_analyze:
         for tool in conf.tools:
             task = Execution_Task(tool, file, conf)
