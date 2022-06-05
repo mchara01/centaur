@@ -4,17 +4,18 @@ import (
 	"fmt" // implements formatted I/O
 	"os"
 //	"strings" // strings manipulation module
-	"context" //
-	"log"
+	"context"
+//	"log"
 	"math/big"
 	"sync"
 	"time"
+	"encoding/hex"
 
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/ethereum/go-ethereum/rpc"
 )
 
-func CrawlTransactionsOverBlock(blockNum int64, client *ethclient.Client) ([]string, []string){
+func CrawlTransactionsOverBlock(blockNum int64, client *ethclient.Client, traceClient *rpc.Client, useTracer bool) ([]string, []string){
 	fmt.Printf("Crawling block %d \n", blockNum)
 	
 	newBlockNum := big.NewInt(blockNum)
@@ -29,35 +30,33 @@ func CrawlTransactionsOverBlock(blockNum int64, client *ethclient.Client) ([]str
 			// Find the Create contract transactions
 			if tx.To() == nil {
 				receipt, err := client.TransactionReceipt(context.Background(), tx.Hash())
-				if err != nil {
-					log.Fatal(err)
-				}
+				check(err)
 				contractAddr := receipt.ContractAddress.Hex()
 				addresses = append(addresses, contractAddr)
-				bytecodeAddr,_ := client.CodeAt(context.Background(), receipt.ContractAddress, newBlockNum).Hex()
-				bytecodes = append(bytecodes, bytecodeAddr)
-			} 
-			// else {
-            //     if useTracer {
-            //         hash := tx.Hash().Hex()
-            //         contractAddresses := tracer.TraceTransaction(hash, traceClient)
-            //         addresses = append(addresses, contractAddresses...)
-            //     }
-			// }
+				bytecodeAddr,err := client.CodeAt(context.Background(), receipt.ContractAddress, newBlockNum)
+				check(err)
+				bytecodes = append(bytecodes, hex.EncodeToString(bytecodeAddr))
+			} else {
+                if useTracer {
+                    hash := tx.Hash().Hex()
+                    contractAddresses := TraceTransaction(hash, traceClient)
+                    addresses = append(addresses, contractAddresses...)
+                }
+			}
 		}
 	}
 
 	return addresses, bytecodes
 }
 
-func workerForCrawlTransactions(clientUrl string, inputChannel <-chan int64, wg *sync.WaitGroup) {
+func workerForCrawlTransactions(clientUrl string, inputChannel <-chan int64, wg *sync.WaitGroup, useTracer bool) {
 	defer wg.Done()
 	var client = ConnectToArchive(clientUrl)
-	//var traceClient = utils.ConnectToRpcClient(clientUrl)
+	var traceClient = ConnectToRpcClient(clientUrl)
 	for block := range inputChannel {
         var results []string
 		var res_bytecodes []string
-		addresses, bytecodes := CrawlTransactionsOverBlock(block, client)
+		addresses, bytecodes := CrawlTransactionsOverBlock(block, client, traceClient, useTracer)
 		results = append(results, addresses...)
 		res_bytecodes = append(res_bytecodes, bytecodes...)
 		fmt.Println(results)
@@ -66,7 +65,7 @@ func workerForCrawlTransactions(clientUrl string, inputChannel <-chan int64, wg 
 	client.Close()
 }
 
-func GetContractAddresses(clientUrl string, blocksSample []int64, numWorkers int64) {
+func GetContractAddresses(clientUrl string, blocksSample []int64, numWorkers int64, useTrace bool) {
 	timer := time.Now()
 
 	blockChannel := make(chan int64, numWorkers)
@@ -80,7 +79,7 @@ func GetContractAddresses(clientUrl string, blocksSample []int64, numWorkers int
 	var i int64
 	for i = 0; i < numWorkers; i++ {
 		workerWaitGroup.Add(1)
-		go workerForCrawlTransactions(clientUrl, blockChannel, &workerWaitGroup)
+		go workerForCrawlTransactions(clientUrl, blockChannel, &workerWaitGroup, useTrace)
 	}
 
 	close(blockChannel)
@@ -121,7 +120,7 @@ func main() {
 
 	ethClientUrl := "ws://192.168.0.31:19545"
 	//archiveNode := ConnectToArchive(ethClientUrl)
-	GetContractAddresses(ethClientUrl, blocksSample, 10)
+	GetContractAddresses(ethClientUrl, blocksSample, 10, true)
 
 	// addresses := CrawlTransactionsOverBlock(11899002,archiveNode)
 	// fmt.Println(addresses)
