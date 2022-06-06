@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 	"bufio"
-    "strconv" // convertings strings
+    "strconv" // converting strings
 
 )
 
@@ -19,10 +19,4 @@ func readFileLines(path string) ([]int64, error) {
         lines = append(lines, value)
     }
     return lines, scanner.Err()
-}
-
-func check(e error) {
-    if e != nil {
-        panic(e)
-    }
 }

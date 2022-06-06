@@ -97,32 +97,31 @@ func ConnectToArchive(ethClientUrl string) *ethclient.Client {
 		fmt.Println("Error detected: ", err)
 		os.Exit(1)
 	}
-	//  else {
-	// 	fmt.Printf("Connected to %s successfully \n", strings.Split(ethClientUrl, "//")[1])
-	// }
 	return archiveNode
 }
 
 func ConnectToRpcClient(ethClientUrl string) *rpc.Client {
 	traceClient, err := rpc.Dial(ethClientUrl)
 	if err != nil {
-		fmt.Println("error: ", err)
+		fmt.Println("Error detected: ", err)
 		os.Exit(1)
 	} 
-	// else {
-	// 	fmt.Printf("Connected to %s successfully \n", strings.Split(ethClientUrl, "//")[1])
-	// }
 	return traceClient
+}
+
+
+func check(e error) {
+    if e != nil {
+        panic(e)
+    }
 }
 
 func main() {
 	blocksSample, _ := readFileLines("scripts/blockNumbers.txt")
 
 	ethClientUrl := "ws://192.168.0.31:19545"
-	//archiveNode := ConnectToArchive(ethClientUrl)
 	GetContractAddresses(ethClientUrl, blocksSample, 10, true)
 
-	// addresses := CrawlTransactionsOverBlock(11899002,archiveNode)
 	// fmt.Println(addresses)
 	os.Exit(0)
 }
