@@ -3,16 +3,26 @@ package main
 import (
 	"fmt" // implements formatted I/O
 	"os"
-//	"strings" // strings manipulation module
+	"strings" // strings manipulation module
 	"context"
-//	"log"
-	"math/big"
 	"sync"
 	"time"
 	"encoding/hex"
+	"math/big"
+	"database/sql"
 
+	arg "github.com/alexflint/go-arg"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/ethereum/go-ethereum/rpc"
+)
+
+const (
+	HOST = "tcp(127.0.0.1:3333)"
+	NAME = "db_blockchain"
+	USER = "root"
+	PASS = "Fm)4dj"
 )
 
 func CrawlTransactionsOverBlock(blockNum int64, client *ethclient.Client, traceClient *rpc.Client, useTracer bool) ([]string, []string){
@@ -24,7 +34,7 @@ func CrawlTransactionsOverBlock(blockNum int64, client *ethclient.Client, traceC
 
 	var addresses []string
 	var bytecodes []string
-
+	//var balances  []big.Int
 	if len(block.Transactions()) > 0 {
 		for _, tx := range block.Transactions() {
 			// Find the Create contract transactions
@@ -36,11 +46,20 @@ func CrawlTransactionsOverBlock(blockNum int64, client *ethclient.Client, traceC
 				bytecodeAddr,err := client.CodeAt(context.Background(), receipt.ContractAddress, newBlockNum)
 				check(err)
 				bytecodes = append(bytecodes, hex.EncodeToString(bytecodeAddr))
+				// balance,err := client.BalanceAt(context.Background(), receipt.ContractAddress, newBlockNum)
+				// check(err)
+				// balances := append(balances, *balance)
+				// fmt.Print(balances)
 			} else {
                 if useTracer {
                     hash := tx.Hash().Hex()
                     contractAddresses := TraceTransaction(hash, traceClient)
                     addresses = append(addresses, contractAddresses...)
+					for _,addr := range contractAddresses {
+						bytecodeAddr,err := client.CodeAt(context.Background(), common.HexToAddress(addr), newBlockNum)
+						check(err)
+						bytecodes = append(bytecodes, hex.EncodeToString(bytecodeAddr))
+					}
                 }
 			}
 		}
@@ -90,9 +109,8 @@ func GetContractAddresses(clientUrl string, blocksSample []int64, numWorkers int
 	fmt.Printf("Running time for crawling txs of %d blocks: %f seconds\n", len(blocksSample), elapsed)
 }
 
-
-func ConnectToArchive(ethClientUrl string) *ethclient.Client {
-	archiveNode, err := ethclient.Dial(ethClientUrl)
+func ConnectToArchive(ClientUrl string) *ethclient.Client {
+	archiveNode, err := ethclient.Dial(ClientUrl)
 	if err != nil {
 		fmt.Println("Error detected: ", err)
 		os.Exit(1)
@@ -100,8 +118,8 @@ func ConnectToArchive(ethClientUrl string) *ethclient.Client {
 	return archiveNode
 }
 
-func ConnectToRpcClient(ethClientUrl string) *rpc.Client {
-	traceClient, err := rpc.Dial(ethClientUrl)
+func ConnectToRpcClient(ClientUrl string) *rpc.Client {
+	traceClient, err := rpc.Dial(ClientUrl)
 	if err != nil {
 		fmt.Println("Error detected: ", err)
 		os.Exit(1)
@@ -109,6 +127,12 @@ func ConnectToRpcClient(ethClientUrl string) *rpc.Client {
 	return traceClient
 }
 
+func checkDBConnection(db *sql.DB) {
+	error := db.Ping()
+	if error != nil {
+		panic(error)
+	} 
+}
 
 func check(e error) {
     if e != nil {
@@ -117,11 +141,33 @@ func check(e error) {
 }
 
 func main() {
-	blocksSample, _ := readFileLines("scripts/blockNumbers.txt")
 
-	ethClientUrl := "ws://192.168.0.31:19545"
-	GetContractAddresses(ethClientUrl, blocksSample, 10, true)
+	var args struct {
+        Check        bool   `help:"Check connection to geth archive and exit"`
+		ClientUrl	 string `default:"ws://192.168.0.31:19545"`
+		Input		 string `default:"scripts/blockNumbers.txt"`
+		Threads      int64  `default:"16"`
+        Tracer       bool   
+	}
 
-	// fmt.Println(addresses)
+    arg.MustParse(&args)
+	
+	// TODO
+	conn := USER + ":" + PASS + "@" + HOST + "/" + NAME + "?charset=utf8"
+	db, err := sql.Open("mysql", conn)
+	if err != nil {
+		panic(err)
+	}
+	defer db.Close()
+
+	if args.Check {
+		ConnectToArchive(args.ClientUrl)
+        fmt.Printf("Connected to %s successfully \n", strings.Split(args.ClientUrl, "//")[1])
+		checkDBConnection(db)
+		fmt.Printf("Connected to %s successfully \n", HOST)
+	} else {
+		blocksSample, _ := readFileLines(args.Input)
+		GetContractAddresses(args.ClientUrl, blocksSample, args.Threads, args.Tracer)
+    }
 	os.Exit(0)
 }

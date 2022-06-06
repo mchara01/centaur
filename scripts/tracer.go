@@ -54,7 +54,7 @@ func ExtractSubCallsOfTransaction(res CallTracesOfTransaction, i int, parentInde
 	return calls
 }
 
-func ProcessTraces(calls []TransactionCall) []string {
+func ProcessTraces(calls []TransactionCall) ([]string){
 	var addresses []string
 	for _, c := range calls {
 		if c.Type == "CREATE" || c.Type == "CREATE2" {
@@ -64,9 +64,8 @@ func ProcessTraces(calls []TransactionCall) []string {
 	return addresses
 }
 
-func TraceTransaction(txHash string, traceClient *rpc.Client) []string {
+func TraceTransaction(txHash string, traceClient *rpc.Client) ([]string) {
 	var res CallTracesOfTransaction
-
 	var rpcParameters TraceConfig
 
 	rpcParameters.Tracer = "callTracer"
@@ -76,6 +75,7 @@ func TraceTransaction(txHash string, traceClient *rpc.Client) []string {
 	if err != nil {
 		fmt.Println(err)
 	}
+
 	calls := ExtractCallsOfTransaction(res)
 	addresses := ProcessTraces(calls)
 	return addresses
