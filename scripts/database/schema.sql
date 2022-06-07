@@ -1,6 +1,6 @@
 CREATE TABLE db_blockchain.`eth` (
     `address_id`                  INTEGER NOT NULL AUTO_INCREMENT,
-    `address`                     TEXT NOT NULL,
+    `address`                     TEXT NOT NULL UNIQUE,
     `nr_transactions`             INTEGER DEFAULT 0,
     `nr_token_transfers`          INTEGER DEFAULT 0,
     `block_number`                INTEGER DEFAULT 0,
@@ -10,7 +10,7 @@ CREATE TABLE db_blockchain.`eth` (
 
 CREATE TABLE db_blockchain.`bsc` (
     `address_id`                  INTEGER NOT NULL AUTO_INCREMENT,
-    `address`                     TEXT NOT NULL,
+    `address`                     TEXT NOT NULL UNIQUE,
     `nr_transactions`             INTEGER DEFAULT 0,
     `nr_token_transfers`          INTEGER DEFAULT 0,
     `block_number`                INTEGER DEFAULT 0,
