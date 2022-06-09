@@ -1,0 +1,2 @@
+etherscan-python==2.1.0
+mysql-connector-python==8.0.29
