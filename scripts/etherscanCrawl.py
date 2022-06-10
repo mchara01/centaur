@@ -61,6 +61,7 @@ def main():
     #print(f"Output file            {output}")
     print()
 
+    ADDRESS_PRINT_INTERVAL = 3
     eth = Etherscan(crawler.api_key)
     values = list()
     balances = eth.get_eth_balance_multiple(addresses)
@@ -72,6 +73,11 @@ def main():
         nr_transactions = 0
         erc20_tokens = 0
         erc721_tokens = 0
+
+        if index % ADDRESS_PRINT_INTERVAL == 0:
+            percent = index / len(addresses) * 100
+            print("Processing address {} / {} ({:.2f}% complete)".format(index, len(addresses), percent))
+
         try:
             nr_transactions = len(eth.get_normal_txs_by_address(address=address, startblock=0, endblock=99999999, sort="asc"))
         except Exception as e:
