@@ -20,10 +20,12 @@ import (
 )
 
 const (
-	HOST = "tcp(127.0.0.1:3333)"
-	NAME = "db_blockchain"
-	USER = "root"
-	PASS = "Fm)4dj"
+	DB_HOST = "tcp(127.0.0.1:3333)"
+	DB_NAME = "db_blockchain"
+	DB_USER = "root"
+	DB_PASS = "Fm)4dj"
+	ETH = "ws://192.168.0.31:19545"
+	BSC = "ws://192.168.0.31:19547"
 )
 
 func CrawlTransactionsOverBlock(blockNum int64, client *ethclient.Client, traceClient *rpc.Client, useTracer bool, stmt *sql.Stmt) ([]string, []string) {
@@ -154,29 +156,39 @@ func check(e error) {
 func main() {
 
 	var args struct {
-		Check     bool   `help:"Check connection to geth archive and exit"`
-		ClientUrl string `default:"ws://192.168.0.31:19545" help:"IP and port of geth archive node"`
+		Check     bool   `help:"Check connection to archive node and exit"`
+		Client	  string `default:"eth" help:"Choice of archive node to connect to (eth or bsc)"`
 		Input     string `default:"scripts/blockNumbers.txt" help:"File that contains the block nubmers to be read"`
 		Threads   int    `default:"16" help:"Number of workers (Goroutines)"`
 		Tracer    bool   `help:"Usage of tracer (significantly slows down process)"`
 	}
-
+	
 	arg.MustParse(&args)
 
-	conn := USER + ":" + PASS + "@" + HOST + "/" + NAME + "?charset=utf8"
+	ClientUrl := ""
+	if args.Client == "eth" {
+		ClientUrl = ETH
+	} else if args.Client == "bsc" {
+		ClientUrl = BSC
+	} else {
+		fmt.Println("Client value must be from range [eth, bsc].")
+		os.Exit(0)
+	}
+
+	conn := DB_USER + ":" + DB_PASS + "@" + DB_HOST + "/" + DB_NAME + "?charset=utf8"
 	db, err := sql.Open("mysql", conn)
 	check(err)
 	defer db.Close()
 
 	if args.Check {
-		ConnectToArchive(args.ClientUrl)
-		fmt.Printf("Connected to %s successfully \n", strings.Split(args.ClientUrl, "//")[1])
+		ConnectToArchive(ClientUrl)
+		fmt.Printf("Connected to %s archive node at %s successfully. \n", args.Client, strings.Split(ClientUrl, "//")[1])
 		checkDBConnection(db)
-		fmt.Printf("Connected to %s successfully \n", HOST)
+		fmt.Printf("Connected to database at %s successfully. \n", DB_HOST)
 	} else {
 		blocksSample, err := readFileLines(args.Input)
 		check(err)
-		GetContractAddresses(args.ClientUrl, blocksSample, args.Threads, args.Tracer, db)
+		GetContractAddresses(ClientUrl, blocksSample, args.Threads, args.Tracer, db)
 	}
 	os.Exit(0)
 }
