@@ -9,11 +9,10 @@ ADDRESS_PRINT_INTERVAL = 3
 
 
 class Crawler:
-    def __init__(self, api_key, chain):
+    def __init__(self, api_key):
         logging.basicConfig(level=logging.INFO,
                             format='[%(asctime)s] %(message)s')
         self.api_key = api_key
-        self.chain = chain
         try:
             # Connect to MariaDB Platform
             self.conn = mysql.connector.connect(
@@ -37,12 +36,10 @@ def get_args():
     # Argument parsing
     args = argparse.ArgumentParser(
         prog="Crawler",
-        description="Crawl blockchain explorer (EtherScan.io or BscScan.io) to get extra details about contracts."
+        description="Crawl the EtherScan.io blockchain explorer to get extra details about contracts."
     )
     args.add_argument("--apikey", dest="api_key",
                       help="API Key of blockchain explorer")
-    args.add_argument("--chain", dest="chain",
-                      help="Name of EVM-based chain to crawl (eth, bsc)", default="eth",)
     #args.add_argument("output", help="JSON file path to save the results")
     return args.parse_args()
 
@@ -54,8 +51,8 @@ def main():
     # Addresses to crawl
     addresses = list()
 
-    crawler = Crawler(args.api_key, args.chain)
-    crawler.cur.execute(f"SELECT address FROM {crawler.chain}")
+    crawler = Crawler(args.api_key)
+    crawler.cur.execute(f"SELECT address FROM eth")
     for address in crawler.cur:
         addresses.append(address[0])
     nr_contracts = len(addresses)
@@ -70,7 +67,7 @@ def main():
     eth = Etherscan(crawler.api_key)
     values = list()
     balances = eth.get_eth_balance_multiple(addresses)
-    sql_stmt = f"UPDATE {crawler.chain} SET nr_transactions = %s, balance = %s, nr_token_transfers = %s WHERE address = %s"
+    sql_stmt = f"UPDATE eth SET nr_transactions = %s, balance = %s, nr_token_transfers = %s WHERE address = %s"
 
     for index, address in enumerate(addresses):
         # Note : Some API endpoint returns a maximum of 10000 records only.
@@ -108,7 +105,8 @@ def main():
 
     crawler.cur.executemany(sql_stmt, values)
     crawler.conn.commit()
-    logging.info(f"{crawler.cur.rowcount} record(s) affected.")
+    print("DONE")
+    print(f"{crawler.cur.rowcount} record(s) affected.")
 
 
 if __name__ == "__main__":
