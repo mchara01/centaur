@@ -71,7 +71,7 @@ def main():
 
     for index, address in enumerate(addresses):
         # Note : Some API endpoint returns a maximum of 10000 records only.
-        # This is fine for us, as we only care if atleast one record exists.
+        # This is fine for us, as we only care if at least one record exists.
         nr_transactions = 0
         erc20_tokens = 0
         erc721_tokens = 0

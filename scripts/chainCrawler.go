@@ -163,31 +163,6 @@ func GetContractAddresses(clientUrl string, blocksSample []int64, numWorkers int
 	fmt.Printf("Running time for crawling txs of %d blocks: %f seconds\n", len(blocksSample), elapsed)
 }
 
-func ConnectToArchive(ClientUrl string) *ethclient.Client {
-	archiveNode, err := ethclient.Dial(ClientUrl)
-	if err != nil {
-		fmt.Println("Error detected: ", err)
-		os.Exit(1)
-	}
-	return archiveNode
-}
-
-func ConnectToRpcClient(ClientUrl string) *rpc.Client {
-	traceClient, err := rpc.Dial(ClientUrl)
-	if err != nil {
-		fmt.Println("Error detected: ", err)
-		os.Exit(1)
-	}
-	return traceClient
-}
-
-func checkDBConnection(db *sql.DB) {
-	err := db.Ping()
-	if err != nil {
-		panic(err)
-	}
-}
-
 func check(e error) {
 	if e != nil {
 		panic(e)
