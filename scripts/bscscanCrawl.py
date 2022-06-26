@@ -37,6 +37,12 @@ async def update(loop, sql, pool, values):
             return cur.rowcount
 
 
+def chunks(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
+
+
 async def main(loop):
     args = get_args()
     # output = args.output
@@ -62,6 +68,8 @@ async def main(loop):
         addresses.append(address[0])
     nr_contracts = len(addresses)
 
+    addresses_in_chunks = [addresses[i:i + 20] for i in range(0, len(addresses), 20)]
+
     # #results = read_json(output)
 
     print(f"BscScan API Key         {api_key}")
@@ -73,8 +81,13 @@ async def main(loop):
     # sql_stmt = f"UPDATE bsc SET nr_transactions = %s, balance = %s, nr_token_transfers = %s WHERE address = %s"
 
     async with BscScan(api_key) as client:
-        balances = await client.get_bnb_balance_multiple(addresses=addresses)
+        # The loop is needed as the method only returns the balance of only the first 20 addresses, so we send them
+        # in batches
+        balances = list()
+        for address_chunk in addresses_in_chunks:
+            balances.append(await client.get_bnb_balance_multiple(addresses=address_chunk))
         print(balances)
+
         for index, address in enumerate(addresses):
             # Note : Some API endpoint returns a maximum of 10000 records only.
             # This is fine for us, as we only care if at least one record exists.
@@ -107,9 +120,9 @@ async def main(loop):
             nr_token_transfers = bep20_tokens + bep721_tokens
 
             index_exists = False
-            for balance in balances:
-                if balance['account'] == address:
-                    values.append((nr_transactions, int(balance['balance']), nr_token_transfers, address))
+            for balance_chunk in balances[int(index / 20)]:
+                if balance_chunk['account'] == address:
+                    values.append((nr_transactions, int(balance_chunk['balance']), nr_token_transfers, address))
                     index_exists = True
                     break
 
