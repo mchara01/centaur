@@ -74,6 +74,7 @@ async def main(loop):
 
     async with BscScan(api_key) as client:
         balances = await client.get_bnb_balance_multiple(addresses=addresses)
+        print(balances)
         for index, address in enumerate(addresses):
             # Note : Some API endpoint returns a maximum of 10000 records only.
             # This is fine for us, as we only care if at least one record exists.
@@ -104,10 +105,16 @@ async def main(loop):
                 logging.info(f"{address} | BEP721 -- {e}")
 
             nr_token_transfers = bep20_tokens + bep721_tokens
-            values.append((nr_transactions, balances[index]['balance'], nr_token_transfers, address))
 
-    # crawler.cur.executemany(sql_stmt, values)
-    # crawler.conn.commit()
+            index_exists = False
+            for balance in balances:
+                if balance['account'] == address:
+                    values.append((nr_transactions, int(balance['balance']), nr_token_transfers, address))
+                    index_exists = True
+                    break
+
+            if not index_exists:
+                values.append((nr_transactions, 0, nr_token_transfers, address))
 
     row_count = await update(loop=loop, sql="UPDATE bsc "
                                             "SET nr_transactions = %s, balance = %s, nr_token_transfers = %s "
@@ -127,4 +134,5 @@ async def main(loop):
 if __name__ == "__main__":
     cur_loop = asyncio.get_event_loop()
     cur_loop.run_until_complete(main(cur_loop))
+    cur_loop.close()
     # asyncio.run(main())
