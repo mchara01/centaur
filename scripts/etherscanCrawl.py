@@ -1,8 +1,9 @@
 import argparse
-import sys
-import mysql.connector
 import logging
+import sys
+import time
 
+import mysql.connector
 from etherscan import Etherscan
 
 ADDRESS_PRINT_INTERVAL = 3
@@ -40,17 +41,17 @@ def get_args():
     )
     args.add_argument("--apikey", dest="api_key",
                       help="API Key of blockchain explorer")
-    #args.add_argument("output", help="JSON file path to save the results")
+    # args.add_argument("output", help="JSON file path to save the results")
     return args.parse_args()
 
 
 def main():
     args = get_args()
-    #output = args.output
+    # output = args.output
 
     # Addresses to crawl
     addresses = list()
-
+    start = time.time()
     crawler = Crawler(args.api_key)
     crawler.cur.execute(f"SELECT address FROM eth")
     for address in crawler.cur:
@@ -61,7 +62,7 @@ def main():
 
     print(f"Etherscan API Key       {crawler.api_key}")
     print(f"No. of contracts        {nr_contracts}")
-    #print(f"Output file            {output}")
+    # print(f"Output file            {output}")
     print()
 
     eth = Etherscan(crawler.api_key)
@@ -79,7 +80,7 @@ def main():
         if index % ADDRESS_PRINT_INTERVAL == 0:
             percent = index / len(addresses) * 100
             print("Processing address {} / {} ({:.2f}% complete)".format(index,
-                  len(addresses), percent))
+                                                                         len(addresses), percent))
 
         try:
             nr_transactions = len(eth.get_normal_txs_by_address(
@@ -105,8 +106,12 @@ def main():
 
     crawler.cur.executemany(sql_stmt, values)
     crawler.conn.commit()
-    print("DONE")
+
+    end = time.time()
+    elapsed = end - start
+    print("Finished crawling etherscan")
     print(f"{crawler.cur.rowcount} record(s) affected.")
+    print(f"Elapsed time: {elapsed} seconds")
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 ## An EVM Cross-chain Vulnerability Analysis
 
-A study on two EVM-based blockchains, namely Ethereum (ETH) and BSC (BNB) to explore their states vulnerability wise
-using automated analysis tools. 
+A study on two EVM-based blockchains, namely Ethereum (ETH) and BSC (BNB) to explore their 
+states vulnerability wise using automated analysis tools. 
 
 ### Prerequisites
 
@@ -23,11 +23,11 @@ passed as arguments: <br>
 (their IP and ports are declared as constants in the scripts) and extracts the contract addresses
 and bytecodes from the transactions of the blocks provided. Client (eth, bsc), input file and
 whether to use the tracer or not are provided as arguments: <br>
-`go run *.go --client eth --input scripts/blockNumbersEth.txt --tracer`
+`go run go-src/*.go --client eth --input scripts/blockNumbersEth.txt --tracer`
 
 
 * Crawl Etherscan or BscScan to gather any other missing data for given smart contract addresses.
 An API key must be provided for this script to work: <br>
-`python3 etherscanCrawl.py --apikey <ENTER_API_KEY_HERE>  --chain "eth" `
+`python etherscanCrawl.py --apikey <ENTER_API_KEY_HERE>`
 
 All data collected is added into a local MariaDb database running over a Docker container.
