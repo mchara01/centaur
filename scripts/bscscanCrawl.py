@@ -86,7 +86,6 @@ async def main(loop):
         balances = list()
         for address_chunk in addresses_in_chunks:
             balances.append(await client.get_bnb_balance_multiple(addresses=address_chunk))
-        print(balances)
 
         for index, address in enumerate(addresses):
             # Note : Some API endpoint returns a maximum of 10000 records only.
@@ -122,7 +121,7 @@ async def main(loop):
             index_exists = False
             for balance_chunk in balances[int(index / 20)]:
                 if balance_chunk['account'] == address:
-                    values.append((nr_transactions, int(balance_chunk['balance']), nr_token_transfers, address))
+                    values.append((nr_transactions, balance_chunk['balance'], nr_token_transfers, address))
                     index_exists = True
                     break
 
