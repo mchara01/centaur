@@ -12,6 +12,34 @@ ADDRESS_PRINT_INTERVAL = 5
 DEBUG = True
 
 
+class LimitChecker:
+    def __init__(self, requests_limit=5, time_limit=1):
+        self.total_requests = 0
+        self.requests_limit = requests_limit
+        self.time_limit = time_limit
+
+        self.round_req = 0
+        self.start_time = None
+
+    def start(self):
+        self.start_time = time.time()
+
+    def check(self):
+        elapsed_time = time.time() - self.start_time
+        if elapsed_time >= self.time_limit:
+            self.start_time = time.time()
+            self.round_req = 0
+        if self.round_req >= self.requests_limit:
+            if DEBUG:
+                print(f"Reach the request limit -- sleep {self.time_limit}sec")
+            time.sleep(self.time_limit)
+        self.round_req += 1
+        self.total_requests += 1
+
+
+LIMIT_CHECKER = LimitChecker()
+
+
 def get_args():
     # Argument parsing
     args = argparse.ArgumentParser(
@@ -99,10 +127,12 @@ async def main(loop):
     values = list()
 
     async with BscScan(api_key) as client:
+        LIMIT_CHECKER.start()
         # The loop is needed as the method only returns the balance of only the first 20 addresses,
         # so we send them in batches of 20
         balances = list()
         for address_chunk in addresses_in_chunks:
+            LIMIT_CHECKER.check()
             balances.append(await client.get_bnb_balance_multiple(addresses=address_chunk))
 
         for index, address in enumerate(addresses):
@@ -123,6 +153,7 @@ async def main(loop):
                 percent = index / len(addresses) * 100
                 print("Processing address {} / {} ({:.2f}% complete)".format(index, len(addresses), percent))
 
+            LIMIT_CHECKER.check()
             try:
                 # Note: The following API endpoint returns a maximum of 10000 records only.
                 # This is fine for us, as we only care if at least one record exists.
@@ -132,6 +163,7 @@ async def main(loop):
                 if DEBUG:
                     logging.info(f"{address} | Normal txs -- {e}")
 
+            LIMIT_CHECKER.check()
             try:
                 bep20_tokens = len(await client.get_bep20_token_transfer_events_by_contract_address_paginated(
                     contract_address=address, page=0, offset=0, sort="asc"))
@@ -139,6 +171,7 @@ async def main(loop):
                 if DEBUG:
                     logging.info(f"{address} | BEP20 -- {e}")
 
+            LIMIT_CHECKER.check()
             try:
                 bep721_tokens = len(await client.get_bep721_token_transfer_events_by_contract_address_paginated(
                     contract_address=address, page=0, offset=0, sort="asc"))
