@@ -2,6 +2,7 @@
 .DS_Store
 go.sum
 dbtest.go
+*.json
 
 ### Go ###
 # Binaries for programs and plugins
