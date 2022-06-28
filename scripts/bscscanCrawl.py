@@ -10,7 +10,7 @@ import aiomysql
 from bscscan import BscScan
 
 ADDRESS_PRINT_INTERVAL = 5
-DEBUG = True
+DEBUG = False
 
 
 class LimitChecker:
@@ -124,8 +124,8 @@ async def main(loop):
     # Divide addresses into lists of 20
     addresses_in_chunks = [addresses[i:i + 20] for i in range(0, len(addresses), 20)]
 
-    results = await read_json(output)
-
+    results_old = await read_json(output)
+    results_new = dict()
     print(f"BscScan API Key         {api_key}")
     print(f"No. of contracts        {nr_contracts}")
     print(f"Output file             {output}")
@@ -143,7 +143,7 @@ async def main(loop):
             balances.append(await client.get_bnb_balance_multiple(addresses=address_chunk))
 
         for index, address in enumerate(addresses):
-            if address in results:  # Info about address has already been crawled
+            if address in results_old:  # Info about address has already been crawled
                 if DEBUG:
                     logging.info(f"Skipping address {address}")
                 continue
@@ -151,7 +151,6 @@ async def main(loop):
             address_result = {'balance': None,
                               'nr_transactions': None,
                               'nr_token_transfers': None}
-
             nr_transactions = 0
             bep20_tokens = 0
             bep721_tokens = 0
@@ -202,7 +201,7 @@ async def main(loop):
 
             address_result["nr_transactions"] = nr_transactions
             address_result["nr_token_transfers"] = nr_token_transfers
-            results[address] = address_result
+            results_new[address] = address_result
 
     row_count = await update(loop=loop, sql="UPDATE bsc "
                                             "SET nr_transactions = %s, balance = %s, nr_token_transfers = %s "
@@ -211,12 +210,12 @@ async def main(loop):
 
     end = time.time()
     elapsed = end - start
-    logging.info("Finished crawling bscscan")
-    logging.info(f"{row_count} record(s) affected.")
-    logging.info(f"Elapsed time: {elapsed:.2f} seconds")
-    logging.info(f"Total requests to BscScan API: {LIMIT_CHECKER.total_requests}")
+    print("Finished crawling bscscan")
+    print(f"{row_count} record(s) affected.")
+    print(f"Elapsed time: {elapsed:.2f} seconds")
+    print(f"Total requests to BscScan API: {LIMIT_CHECKER.total_requests}")
 
-    save_json(output, results)
+    save_json(output, results_new)
 
     pool.close()
     await pool.wait_closed()
