@@ -4,7 +4,8 @@ import json
 import logging
 import os
 import time
-
+import tempfile
+import aiofiles
 import aiomysql
 from bscscan import BscScan
 
@@ -55,22 +56,26 @@ def get_args():
     return args.parse_args()
 
 
-def read_json(path):
+async def read_json(path):
     if os.path.isfile(path):
-        with open(path, 'r') as f:
-            return json.load(f)
+        async with aiofiles.open(path, mode='r') as f:
+            contents = await f.read()
+        return json.loads(contents)
     return {}
 
 
 def save_json(path, res, safe_save=True):
     # First write to a temp file and then to the original
     if safe_save:
-        with open(path + '_temp.json', 'w') as f:
+        temp = tempfile.NamedTemporaryFile(mode="w+")
+        json.dump(res, temp)
+        temp.flush()
+        with open(path, 'w') as f:
             json.dump(res, f)
-    with open(path, 'w') as f:
-        json.dump(res, f)
-    if os.path.exists(path + '_temp.json'):  # Remove temporary file
-        os.remove(path + '_temp.json')
+        temp.close()  # Remove temporary file
+    else:
+        with open(path, 'w') as f:
+            json.dump(res, f)
 
 
 async def select(loop, sql, pool):
@@ -119,7 +124,7 @@ async def main(loop):
     # Divide addresses into lists of 20
     addresses_in_chunks = [addresses[i:i + 20] for i in range(0, len(addresses), 20)]
 
-    results = read_json(output)
+    results = await read_json(output)
 
     print(f"BscScan API Key         {api_key}")
     print(f"No. of contracts        {nr_contracts}")
