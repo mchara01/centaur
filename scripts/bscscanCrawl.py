@@ -17,7 +17,6 @@ class LimitChecker:
         self.total_requests = 0
         self.requests_limit = requests_limit
         self.time_limit = time_limit
-
         self.round_req = 0
         self.start_time = None
 
@@ -26,13 +25,17 @@ class LimitChecker:
 
     def check(self):
         elapsed_time = time.time() - self.start_time
-        if elapsed_time >= self.time_limit:
+        if self.round_req >= self.requests_limit and elapsed_time <= self.time_limit:
+            if DEBUG:
+                print(f"Reached the request limit -- sleep {self.time_limit} sec")
+            time.sleep(self.time_limit)
             self.start_time = time.time()
             self.round_req = 0
-        if self.round_req >= self.requests_limit:
-            if DEBUG:
-                print(f"Reach the request limit -- sleep {self.time_limit}sec")
-            time.sleep(self.time_limit)
+        elif elapsed_time >= self.time_limit:
+            self.start_time = time.time()
+        if self.round_req == self.requests_limit:
+            self.round_req = 0
+
         self.round_req += 1
         self.total_requests += 1
 
@@ -60,8 +63,7 @@ def read_json(path):
 
 
 def save_json(path, res, safe_save=True):
-    # to safely save the file we first write it to a temp file and then
-    # to the original
+    # First write to a temp file and then to the original
     if safe_save:
         with open(path + '_temp.json', 'w') as f:
             json.dump(res, f)
@@ -206,7 +208,8 @@ async def main(loop):
     elapsed = end - start
     logging.info("Finished crawling bscscan")
     logging.info(f"{row_count} record(s) affected.")
-    logging.info(f"Elapsed time: {elapsed} seconds")
+    logging.info(f"Elapsed time: {elapsed:.2f} seconds")
+    logging.info(f"Total requests to BscScan API: {LIMIT_CHECKER.total_requests}")
 
     save_json(output, results)
 
