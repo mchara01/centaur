@@ -9,39 +9,11 @@ import time
 import mysql.connector
 from etherscan import Etherscan
 
+from limitChecker import LimitChecker
+
 ADDRESS_PRINT_INTERVAL = 5
 DEBUG = False
-
-
-class LimitChecker:
-    def __init__(self, requests_limit=5, time_limit=1):
-        self.total_requests = 0
-        self.requests_limit = requests_limit
-        self.time_limit = time_limit
-
-        self.round_req = 0
-        self.start_time = None
-
-    def start(self):
-        self.start_time = time.time()
-
-    def check(self):
-        elapsed_time = time.time() - self.start_time
-        if self.round_req >= self.requests_limit and elapsed_time <= self.time_limit:
-            if DEBUG:
-                print(f"Reached the request limit -- sleep {self.time_limit} sec")
-            time.sleep(self.time_limit)
-            self.start_time = time.time()
-            self.round_req = 0
-        elif elapsed_time >= self.time_limit:
-            self.start_time = time.time()
-        if self.round_req == self.requests_limit:
-            self.round_req = 0
-        self.round_req += 1
-        self.total_requests += 1
-
-
-LIMIT_CHECKER = LimitChecker()
+LIMIT_CHECKER = LimitChecker(debug=DEBUG)
 
 
 class Crawler:
@@ -144,6 +116,7 @@ def main():
     eth = Etherscan(crawler.api_key)
     LIMIT_CHECKER.start()
     values = list()
+    skipped_addresses = 0
 
     # The loop is needed as the method only returns the balance of only the first 20 addresses,
     # so we send them in batches of 20
@@ -156,6 +129,7 @@ def main():
 
     for index, address in enumerate(addresses):
         if address in results_old:  # Info about address has already been crawled
+            skipped_addresses += 1
             if DEBUG:
                 logging.info(f"Skipping address {address}")
             continue
@@ -231,11 +205,13 @@ def main():
     print("Finished crawling Etherscan")
     print(f"{crawler.cur.rowcount} record(s) affected.")
     print(f"Elapsed time: {elapsed:.2f} seconds")
+    print(f"Smart contracts crawled: {nr_contracts - skipped_addresses}")
+    print(f"Smart contracts skipped: {skipped_addresses}")
     print(f"Total requests to Etherscan API: {LIMIT_CHECKER.total_requests}")
     print("=" * 30)
     print()
 
-    save_json(output, results_new)
+    save_json(output, {**results_old, **results_new})
     save_json(errors_src, exceptions_dict)
 
 
