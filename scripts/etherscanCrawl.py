@@ -135,7 +135,7 @@ def main():
     # Divide addresses into lists of 20
     addresses_in_chunks = [addresses[i:i + 20] for i in range(0, len(addresses), 20)]
 
-    print(f"Etherscan API Key       {crawler.api_key}")
+    print(f"Etherscan API Key       {api_key}")
     print(f"No. of contracts        {nr_contracts}")
     print(f"Results file            {output}")
     print(f"Errors file             {errors_src}")

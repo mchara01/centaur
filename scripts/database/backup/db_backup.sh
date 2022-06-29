@@ -4,7 +4,7 @@
 ################################################################
 ################## CONSTANTS DECLARATION  ######################
  
-DB_BACKUP_PATH='/Users/marcoscharalambous/testing/db_blockchain'
+DB_BACKUP_PATH='/Users/marcoscharalambous/thesis_test/db_blockchain'
 MYSQL_HOST='127.0.0.1'
 MYSQL_PORT='3333'
 MYSQL_USER='root'
