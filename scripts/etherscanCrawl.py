@@ -37,7 +37,6 @@ class LimitChecker:
             self.start_time = time.time()
         if self.round_req == self.requests_limit:
             self.round_req = 0
-
         self.round_req += 1
         self.total_requests += 1
 
@@ -77,14 +76,25 @@ def get_args():
     )
     args.add_argument("--apikey", dest="api_key",
                       help="API Key of blockchain explorer")
+    args.add_argument("--invalid", dest="invalid", default="data/logs/exceptions_eth.json",
+                      help="Path to errors JSON file")
     args.add_argument("output", help="JSON file path to save the results")
     return args.parse_args()
 
 
-def read_json(path):
+def read_results_json(path):
     if os.path.isfile(path):
         with open(path, 'r') as f:
             return json.load(f)
+    return {}
+
+
+def read_errors_json(errors_src):
+    directory = os.path.dirname(errors_src)
+    if os.path.exists(errors_src):
+        with open(errors_src, 'r') as fd:
+            return json.load(fd)
+    os.makedirs(directory, exist_ok=True)
     return {}
 
 
@@ -106,7 +116,7 @@ def main():
     args = get_args()
     output = args.output
     api_key = args.api_key
-
+    errors_src = args.invalid
     start = time.time()
 
     # Addresses to crawl
@@ -118,14 +128,17 @@ def main():
         addresses.append(address[0])
     nr_contracts = len(addresses)
 
-    results_old = read_json(output)
+    results_old = read_results_json(output)
     results_new = dict()
+    exceptions_dict = dict()
+
     # Divide addresses into lists of 20
     addresses_in_chunks = [addresses[i:i + 20] for i in range(0, len(addresses), 20)]
 
     print(f"Etherscan API Key       {crawler.api_key}")
     print(f"No. of contracts        {nr_contracts}")
-    print(f"Output file             {output}")
+    print(f"Results file            {output}")
+    print(f"Errors file             {errors_src}")
     print()
 
     eth = Etherscan(crawler.api_key)
@@ -150,6 +163,7 @@ def main():
         address_result = {'balance': None,
                           'nr_transactions': None,
                           'nr_token_transfers': None}
+        exceptions = list()
         nr_transactions = 0
         erc20_tokens = 0
         erc721_tokens = 0
@@ -165,6 +179,7 @@ def main():
             nr_transactions = len(eth.get_normal_txs_by_address(
                 address=address, startblock=0, endblock=99999999, sort="asc"))
         except Exception as e:
+            exceptions.append("Normal txs -- " + str(e))
             if DEBUG:
                 logging.info(f"{address} | Normal txs -- {e}")
 
@@ -173,6 +188,7 @@ def main():
             erc20_tokens = len(eth.get_erc20_token_transfer_events_by_contract_address_paginated(
                 contract_address=address, page=0, offset=0, sort="asc"))
         except Exception as e:
+            exceptions.append("ERC20 -- " + str(e))
             if DEBUG:
                 logging.info(f"{address} | ERC20 -- {e}")
 
@@ -181,6 +197,7 @@ def main():
             erc721_tokens = len(eth.get_erc721_token_transfer_events_by_contract_address_paginated(
                 contract_address=address, page=0, offset=0, sort="asc"))
         except Exception as e:
+            exceptions.append("ERC721 -- " + str(e))
             if DEBUG:
                 logging.info(f"{address} | ERC721 -- {e}")
 
@@ -201,18 +218,25 @@ def main():
         address_result["nr_transactions"] = nr_transactions
         address_result["nr_token_transfers"] = nr_token_transfers
         results_new[address] = address_result
+        exceptions_dict[address] = exceptions
 
     crawler.cur.executemany(sql_stmt, values)
     crawler.conn.commit()
 
     end = time.time()
     elapsed = end - start
-    print("Finished crawling etherscan")
+
+    print()
+    print("=" * 30)
+    print("Finished crawling Etherscan")
     print(f"{crawler.cur.rowcount} record(s) affected.")
     print(f"Elapsed time: {elapsed:.2f} seconds")
-    print(f"Total requests to BscScan API: {LIMIT_CHECKER.total_requests}")
+    print(f"Total requests to Etherscan API: {LIMIT_CHECKER.total_requests}")
+    print("=" * 30)
+    print()
 
     save_json(output, results_new)
+    save_json(errors_src, exceptions_dict)
 
 
 if __name__ == "__main__":

@@ -28,6 +28,6 @@ whether to use the tracer or not are provided as arguments: <br>
 
 * Crawl Etherscan or BscScan to gather any other missing data for given smart contract addresses.
 An API key must be provided for this script to work: <br>
-`python etherscanCrawl.py --apikey <ENTER_API_KEY_HERE>`
+`python etherscanCrawl.py --apikey <ENTER_API_KEY_HERE> data/logs/results_eth.json`
 
 All data collected is added into a local MariaDb database running over a Docker container.
