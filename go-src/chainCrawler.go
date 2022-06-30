@@ -27,7 +27,7 @@ const (
 	DbPass      = "Fm)4dj"
 	ETH         = "ws://192.168.0.31:19545"
 	BSC         = "ws://192.168.0.31:19547"
-	prnInterval = 10
+	prnInterval = 50
 )
 
 type ConcurrentCounter struct {
@@ -102,39 +102,48 @@ func workerForCrawlTransactions(clientUrl string, inputChannel <-chan int64, wg 
 
 	transaction, txError := db.Begin()
 	check(txError)
+	defer func() {
+		if txError != nil {
+			err := transaction.Rollback()
+			if err != nil {
+				return
+			}
+			return
+		}
+		txError = transaction.Commit()
+	}()
+
+	var sqlStr string
+	if chain == "bsc" {
+		sqlStr = "INSERT IGNORE INTO bsc (address, block_number, bytecode) VALUES "
+	} else {
+		sqlStr = "INSERT IGNORE INTO eth (address, block_number, bytecode) VALUES "
+	}
+	var values []interface{}
 
 	for block := range inputChannel {
-		//var resultsAddresses []string
-		//var resultsBytecodes []string
-
 		addresses, bytecodes := CrawlTransactionsOverBlock(block, client, traceClient, useTracer, counter)
-		//resultsAddresses = append(resultsAddresses, addresses...)
-		//resultsBytecodes = append(resultsBytecodes, bytecodes...)
+
 		if addresses == nil || bytecodes == nil {
 			continue
 		}
-		var sqlStr string
-		if chain == "bsc" {
-			sqlStr = "INSERT IGNORE INTO bsc (address, block_number, bytecode) VALUES "
-		} else {
-			sqlStr = "INSERT IGNORE INTO eth (address, block_number, bytecode) VALUES "
-		}
-		var values []interface{}
 
 		for idx, address := range addresses {
 			sqlStr += "(?, ?, ?),"
 			values = append(values, address, block, bytecodes[idx])
 		}
 
-		sqlStr = strings.TrimSuffix(sqlStr, ",") // Remove suffix ,
-		stmt, _ := transaction.Prepare(sqlStr)   // Prepare statement creation
-		_, err := stmt.Exec(values...)           // Format all values at once and execute statement
-		check(err)
-		txCommitError := transaction.Commit()
-		check(txCommitError)
-		err = stmt.Close()
-		check(err)
 	}
+
+	sqlStr = strings.TrimSuffix(sqlStr, ",") // Remove suffix ,
+	stmt, err := transaction.Prepare(sqlStr) // Prepare statement creation
+	check(err)
+	_, err = stmt.Exec(values...) // Format all values at once and execute statement
+	check(err)
+	//txCommitError := transaction.Commit()
+	//check(txCommitError)
+	err = stmt.Close()
+	check(err)
 }
 
 func GetContractAddresses(clientUrl string, blocksSample []int64, numWorkers int, useTrace bool, db *sql.DB) {

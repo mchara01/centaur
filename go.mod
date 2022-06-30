@@ -1,6 +1,6 @@
 module github.com/mchara01/thesis_test.git
 
-go 1.18
+go 1.17
 
 require (
 	github.com/alexflint/go-arg v1.4.3

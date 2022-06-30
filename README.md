@@ -27,7 +27,7 @@ with: <br>
 * Perform random sampling on the blocks of the desired EVM chain (ETH, BNB). Block numbers
 generated are stored in a file for the crawler to read from. Sampling size and output location are
 passed as arguments: <br>
-`python blockNumberGenerator.py --size 100 --chain bsc --output blockNumbersBsc.txt`
+`python scripts/blockNumberGenerator.py --size 1000 --chain eth --output blockNumbersEth.txt`
 
 
 * Run the blockchain crawling script that connects to the Ethereum and BSC archive nodes 
