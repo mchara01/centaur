@@ -1,4 +1,3 @@
-import argparse
 import json
 import logging
 import os
@@ -9,11 +8,7 @@ import time
 import mysql.connector
 from etherscan import Etherscan
 
-from limitChecker import LimitChecker
-
 ADDRESS_PRINT_INTERVAL = 5
-DEBUG = False
-LIMIT_CHECKER = LimitChecker(debug=DEBUG)
 
 
 class Crawler:
@@ -38,20 +33,6 @@ class Crawler:
     def __del__(self):
         self.cur.close()
         self.conn.close()
-
-
-def get_args():
-    # Argument parsing
-    args = argparse.ArgumentParser(
-        prog="Crawler",
-        description="Crawl the EtherScan.io blockchain explorer to get extra details about contracts."
-    )
-    args.add_argument("--apikey", dest="api_key",
-                      help="API Key of blockchain explorer")
-    args.add_argument("--invalid", dest="invalid", default="data/logs/exceptions_eth.json",
-                      help="Path to errors JSON file")
-    args.add_argument("output", help="JSON file path to save the results")
-    return args.parse_args()
 
 
 def read_results_json(path):
@@ -84,11 +65,7 @@ def save_json(path, res, safe_save=True):
             json.dump(res, f)
 
 
-def main():
-    args = get_args()
-    output = args.output
-    api_key = args.api_key
-    errors_src = args.invalid
+def requestor(output, api_key, errors_src, debug, limit_checker):
     start = time.time()
 
     # Addresses to crawl
@@ -100,10 +77,6 @@ def main():
         addresses.append(address[0])
     nr_contracts = len(addresses)
 
-    results_old = read_results_json(output)
-    results_new = dict()
-    exceptions_dict = dict()
-
     # Divide addresses into lists of 20
     addresses_in_chunks = [addresses[i:i + 20] for i in range(0, len(addresses), 20)]
 
@@ -114,15 +87,18 @@ def main():
     print()
 
     eth = Etherscan(crawler.api_key)
-    LIMIT_CHECKER.start()
-    values = list()
+    limit_checker.start()
     skipped_addresses = 0
+    results_old = read_results_json(output)
+    results_new = dict()
+    exceptions_dict = dict()
+    values = list()
 
     # The loop is needed as the method only returns the balance of only the first 20 addresses,
     # so we send them in batches of 20
     balances = list()
     for address_chunk in addresses_in_chunks:
-        LIMIT_CHECKER.check()
+        limit_checker.check()
         balances.append(eth.get_eth_balance_multiple(addresses=address_chunk))
 
     sql_stmt = f"UPDATE eth SET nr_transactions = %s, balance = %s, nr_token_transfers = %s WHERE address = %s"
@@ -130,7 +106,7 @@ def main():
     for index, address in enumerate(addresses):
         if address in results_old:  # Info about address has already been crawled
             skipped_addresses += 1
-            if DEBUG:
+            if debug:
                 logging.info(f"Skipping address {address}")
             continue
 
@@ -146,7 +122,7 @@ def main():
             percent = index / len(addresses) * 100
             print("Processing address {} / {} ({:.2f}% complete)".format(index, len(addresses), percent))
 
-        LIMIT_CHECKER.check()
+        limit_checker.check()
         try:
             # Note: The following API endpoint returns a maximum of 10000 records only.
             # This is fine for us, as we only care if at least one record exists.
@@ -154,25 +130,25 @@ def main():
                 address=address, startblock=0, endblock=99999999, sort="asc"))
         except Exception as e:
             exceptions.append("Normal txs -- " + str(e))
-            if DEBUG:
+            if debug:
                 logging.info(f"{address} | Normal txs -- {e}")
 
-        LIMIT_CHECKER.check()
+        limit_checker.check()
         try:
             erc20_tokens = len(eth.get_erc20_token_transfer_events_by_contract_address_paginated(
                 contract_address=address, page=0, offset=0, sort="asc"))
         except Exception as e:
             exceptions.append("ERC20 -- " + str(e))
-            if DEBUG:
+            if debug:
                 logging.info(f"{address} | ERC20 -- {e}")
 
-        LIMIT_CHECKER.check()
+        limit_checker.check()
         try:
             erc721_tokens = len(eth.get_erc721_token_transfer_events_by_contract_address_paginated(
                 contract_address=address, page=0, offset=0, sort="asc"))
         except Exception as e:
             exceptions.append("ERC721 -- " + str(e))
-            if DEBUG:
+            if debug:
                 logging.info(f"{address} | ERC721 -- {e}")
 
         nr_token_transfers = erc20_tokens + erc721_tokens
@@ -207,13 +183,9 @@ def main():
     print(f"Elapsed time: {elapsed:.2f} seconds")
     print(f"Smart contracts crawled: {nr_contracts - skipped_addresses}")
     print(f"Smart contracts skipped: {skipped_addresses}")
-    print(f"Total requests to Etherscan API: {LIMIT_CHECKER.total_requests}")
+    print(f"Total requests to Etherscan API: {limit_checker.total_requests}")
     print("=" * 30)
     print()
 
     save_json(output, {**results_old, **results_new})
     save_json(errors_src, exceptions_dict)
-
-
-if __name__ == "__main__":
-    main()

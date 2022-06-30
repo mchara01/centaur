@@ -1,4 +1,3 @@
-import argparse
 import asyncio
 import json
 import logging
@@ -10,25 +9,7 @@ import aiofiles
 import aiomysql
 from bscscan import BscScan
 
-from limitChecker import LimitChecker
-
 ADDRESS_PRINT_INTERVAL = 5
-DEBUG = False
-LIMIT_CHECKER = LimitChecker(debug=DEBUG)
-
-
-def get_args():
-    # Argument parsing
-    args = argparse.ArgumentParser(
-        prog="Crawler",
-        description="Crawl the BscScan.io blockchain explorer to get extra details about contracts."
-    )
-    args.add_argument("--apikey", dest="api_key",
-                      help="API Key of blockchain explorer")
-    args.add_argument("--invalid", dest="invalid", default="data/logs/exceptions_bsc.json",
-                      help="Path to errors JSON file")
-    args.add_argument("output", help="JSON file path to save the results")
-    return args.parse_args()
 
 
 async def read_json(path):
@@ -69,13 +50,8 @@ async def update(loop, sql, pool, values):
             return cur.rowcount
 
 
-async def main(loop):
+async def async_requestor(loop, output, api_key, errors_src, debug, limit_checker):
     logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(message)s')
-
-    args = get_args()
-    output = args.output
-    api_key = args.api_key
-    errors_src = args.invalid
 
     addresses = list()  # Addresses to crawl
 
@@ -113,18 +89,18 @@ async def main(loop):
     values = list()
     skipped_addresses = 0
     async with BscScan(api_key) as client:
-        LIMIT_CHECKER.start()
+        limit_checker.start()
         # The loop is needed as the method only returns the balance of only the first 20 addresses,
         # so we send them in batches of 20
         balances = list()
         for address_chunk in addresses_in_chunks:
-            LIMIT_CHECKER.check()
+            limit_checker.check()
             balances.append(await client.get_bnb_balance_multiple(addresses=address_chunk))
 
         for index, address in enumerate(addresses):
             if address in results_old:  # Info about address has already been crawled
                 skipped_addresses += 1
-                if DEBUG:
+                if debug:
                     logging.info(f"Skipping address {address}")
                 continue
 
@@ -140,7 +116,7 @@ async def main(loop):
                 percent = index / len(addresses) * 100
                 print("Processing address {} / {} ({:.2f}% complete)".format(index, len(addresses), percent))
 
-            LIMIT_CHECKER.check()
+            limit_checker.check()
             try:
                 # Note: The following API endpoint returns a maximum of 10000 records only.
                 # This is fine for us, as we only care if at least one record exists.
@@ -148,25 +124,25 @@ async def main(loop):
                     address=address, startblock=0, endblock=99999999, sort="asc"))
             except Exception as e:
                 exceptions.append("Normal txs -- " + str(e))
-                if DEBUG:
+                if debug:
                     logging.info(f"{address} | Normal txs -- {e}")
 
-            LIMIT_CHECKER.check()
+            limit_checker.check()
             try:
                 bep20_tokens = len(await client.get_bep20_token_transfer_events_by_contract_address_paginated(
                     contract_address=address, page=0, offset=0, sort="asc"))
             except Exception as e:
                 exceptions.append("BEP20 -- " + str(e))
-                if DEBUG:
+                if debug:
                     logging.info(f"{address} | BEP20 -- {e}")
 
-            LIMIT_CHECKER.check()
+            limit_checker.check()
             try:
                 bep721_tokens = len(await client.get_bep721_token_transfer_events_by_contract_address_paginated(
                     contract_address=address, page=0, offset=0, sort="asc"))
             except Exception as e:
                 exceptions.append("BEP721 -- " + str(e))
-                if DEBUG:
+                if debug:
                     logging.info(f"{address} | BEP721 -- {e}")
 
             nr_token_transfers = bep20_tokens + bep721_tokens
@@ -203,7 +179,7 @@ async def main(loop):
     print(f"Elapsed time: {elapsed:.2f} seconds")
     print(f"Smart contracts crawled: {nr_contracts - skipped_addresses}")
     print(f"Smart contracts skipped: {skipped_addresses}")
-    print(f"Total requests to BscScan API: {LIMIT_CHECKER.total_requests}")
+    print(f"Total requests to BscScan API: {limit_checker.total_requests}")
     print("=" * 30)
     print()
 
@@ -214,7 +190,7 @@ async def main(loop):
     await pool.wait_closed()
 
 
-if __name__ == "__main__":
+def run_async_requestor(output, api_key, errors_src, debug, limit_checker):
     cur_loop = asyncio.get_event_loop()
-    cur_loop.run_until_complete(main(cur_loop))
+    cur_loop.run_until_complete(async_requestor(cur_loop, output, api_key, errors_src, debug, limit_checker))
     cur_loop.close()

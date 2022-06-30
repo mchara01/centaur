@@ -7,18 +7,19 @@ states vulnerability wise using automated analysis tools.
 
 Before you begin, ensure you have met the following requirements:
 
-* You have installed of all the required Python modules with:  `pip install -r requirements.txt`
+* You have installed of all the required Python dependencies with:  `pip install -r requirements.txt`
 * You are using Python >= 3.8
 * You have created an account on Etherscan and BscScan and generated an API key
 * You have installed [Docker](https://docs.docker.com/get-docker/)
 
 ### Running the scripts
 
-* Prepare the local MariaDB database running over a Docker container creating the files
-*db_password.txt* and *db_root_password.txt* containing the passwords for a normal user 
-and root respectively. Then, start the container using: <br>
+* Prepare the local MariaDB database running over a Docker container;
+  * Create the files *db_password.txt* and *db_root_password.txt* containing the passwords for a normal user 
+and root respectively.
+  * Then, start the container using: <br>
 `docker-compose -f build/database/docker-compose.yaml up -d`  <br>
-After, create the two tables in the database where the collected data will be inserted
+  * After, create the two tables in the database where the collected data will be inserted
 with: <br>
 `docker exec -it <CONTAINER_ID> mysql -u root -p'<ROOT_PASSWORD>' -P 3306 -h 127.0.0.1 < scripts/database/schema.sql`
 
@@ -38,4 +39,4 @@ whether to use the tracer or not are provided as arguments: <br>
 
 * Crawl Etherscan or BscScan to gather any other missing data for given smart contract addresses.
 An API key must be provided for this script to work: <br>
-`python etherscanCrawl.py --apikey <ENTER_API_KEY_HERE> data/logs/results_eth.json`
+`python scripts/mainCrawl.py  --chain eth --apikey <ENTER_API_KEY_HERE> --output data/logs/results_eth.json --invalid data/logs/exceptions_eth.json`
