@@ -27,16 +27,18 @@ with: <br>
 * Perform random sampling on the blocks of the desired EVM chain (ETH, BNB). Block numbers
 generated are stored in a file for the crawler to read from. Sampling size and output location are
 passed as arguments: <br>
-`python blockNumberGenerator.py --size 100 --output blockNumbersEth.txt`
+`python blockNumberGenerator.py --size 100 --chain bsc --output blockNumbersBsc.txt`
 
 
 * Run the blockchain crawling script that connects to the Ethereum and BSC archive nodes 
 (their IP and ports are declared as constants in the scripts) and extracts the contract addresses
 and bytecodes from the transactions of the blocks provided. Client (eth, bsc), input file and
 whether to use the tracer or not are provided as arguments: <br>
-`go run go-src/*.go --client eth --input scripts/blockNumbersEth.txt --tracer`
+`go run go-src/*.go --client eth --input scripts/blockNumbersEth.txt --tracer`  <br>
+To check only the connection to the archive node and the local database execute:  <br>
+`go run go-src/*.go --client eth --check`
 
-
+  
 * Crawl Etherscan or BscScan to gather any other missing data for given smart contract addresses.
 An API key must be provided for this script to work: <br>
 `python scripts/mainCrawl.py  --chain eth --apikey <ENTER_API_KEY_HERE> --output data/logs/results_eth.json --invalid data/logs/exceptions_eth.json`

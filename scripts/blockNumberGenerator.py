@@ -1,8 +1,9 @@
 # Example run: python3 blockNumberGenerator.py --size 100 --chain bsc --output blockNumbersBsc.txt --apikey <API_KEY>
-import requests
-import random
 import argparse
+import random
 import time
+
+import requests
 
 # Argument parsing
 args = argparse.ArgumentParser(
@@ -19,6 +20,7 @@ args = args.parse_args()
 sample_file = args.output
 block_sample_size = int(args.size)
 block_sample = list()
+latest_block = 1
 
 # Detect the latest block of the given blockchain
 if args.chain == "eth":
@@ -46,6 +48,6 @@ with open(sample_file, 'w') as f:
         f.write("%s\n" % str(block))
     print('Saved blocks sample of {} in file {} on disk.'.format(
         len(block_sample), sample_file))
-    percentage = len(block_sample)/latest_block
+    percentage = len(block_sample) / latest_block
     print("Total number of blocks in blockchain: {}".format(latest_block))
     print("Percentage: {:.5f}%".format(percentage))
