@@ -27,6 +27,9 @@ if args.chain == "eth":
     response = requests.get("https://api.blockcypher.com/v1/eth/main")
     latest_block = response.json()["height"]
 elif args.chain == "bsc":
+    if args.apikey is None:
+        print("Please provide an API key to generate block numbers for BSC.")
+        exit()
     timestamp = int(time.time())
     response = requests.get(
         f'https://api.bscscan.com/api?module=block&action=getblocknobytime&timestamp={timestamp}&closest=before&apikey={args.apikey}')

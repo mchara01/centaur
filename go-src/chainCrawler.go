@@ -100,17 +100,17 @@ func workerForCrawlTransactions(clientUrl string, inputChannel <-chan int64, wg 
 		defer traceClient.Close()
 	}
 
-	transaction, txError := db.Begin()
-	check(txError)
+	transaction, err := db.Begin()
+	check(err)
 	defer func() {
-		if txError != nil {
-			err := transaction.Rollback()
+		if err != nil {
+			err = transaction.Rollback()
 			if err != nil {
 				return
 			}
 			return
 		}
-		txError = transaction.Commit()
+		err = transaction.Commit()
 	}()
 
 	var sqlStr string
@@ -123,16 +123,13 @@ func workerForCrawlTransactions(clientUrl string, inputChannel <-chan int64, wg 
 
 	for block := range inputChannel {
 		addresses, bytecodes := CrawlTransactionsOverBlock(block, client, traceClient, useTracer, counter)
-
 		if addresses == nil || bytecodes == nil {
 			continue
 		}
-
 		for idx, address := range addresses {
 			sqlStr += "(?, ?, ?),"
 			values = append(values, address, block, bytecodes[idx])
 		}
-
 	}
 
 	sqlStr = strings.TrimSuffix(sqlStr, ",") // Remove suffix ,
@@ -140,8 +137,7 @@ func workerForCrawlTransactions(clientUrl string, inputChannel <-chan int64, wg 
 	check(err)
 	_, err = stmt.Exec(values...) // Format all values at once and execute statement
 	check(err)
-	//txCommitError := transaction.Commit()
-	//check(txCommitError)
+
 	err = stmt.Close()
 	check(err)
 }
