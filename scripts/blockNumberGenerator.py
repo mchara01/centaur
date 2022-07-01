@@ -1,5 +1,6 @@
 # Example run: python3 blockNumberGenerator.py --size 100 --chain bsc --output blockNumbersBsc.txt --apikey <API_KEY>
 import argparse
+import os
 import random
 import time
 
@@ -45,8 +46,12 @@ else:
 block_range = range(1, latest_block + 1)
 block_sample = sorted(random.sample(block_range, block_sample_size))
 
+# Directory creation for saving the sample
+dirname = "data/block_samples/" + time.strftime("%d%m%Y_%H%M%S")
+os.mkdir(dirname)
+
 # Write block number sample to a file
-with open(sample_file, 'w') as f:
+with open(dirname + "/" + sample_file, 'w') as f:
     for block in block_sample:
         f.write("%s\n" % str(block))
     print('Saved blocks sample of {} in file {} on disk.'.format(
