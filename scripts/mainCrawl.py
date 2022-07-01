@@ -1,3 +1,16 @@
+""" Main Crawling Script
+
+The entry point for executing the blockchain explorer crawling scripts for
+Ethereum and BSC. Here the arguments the user provided are parsed and
+passed to the appropriate script.
+
+The two crawling scripts are imported as modules. An API key must be provided
+and an errors and results file is optional.
+
+Example usage: python scripts/mainCrawl.py --chain eth --apikey <ENTER_API_KEY_HERE> --output data/logs/results_eth.json
+ --invalid data/logs/exceptions_eth.json
+"""
+
 import argparse
 
 from limitChecker import LimitChecker
