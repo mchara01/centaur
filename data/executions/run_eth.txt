@@ -1,3 +1,35 @@
+Random sampling size: 500
+Crawled 50 blocks - (10.00 %)
+Crawled 100 blocks - (20.00 %)
+Crawled 150 blocks - (30.00 %)
+Crawled 200 blocks - (40.00 %)
+Crawled 250 blocks - (50.00 %)
+Crawled 300 blocks - (60.00 %)
+Crawled 350 blocks - (70.00 %)
+Crawled 400 blocks - (80.00 %)
+Crawled 450 blocks - (90.00 %)
+[Block 14514631 does not exist]
+[Block 14572884 does not exist]
+[Block 14573666 does not exist]
+[Block 14577577 does not exist]
+[Block 14623330 does not exist]
+[Block 14630513 does not exist]
+[Block 14631620 does not exist]
+[Block 14679011 does not exist]
+[Block 14682239 does not exist]
+[Block 14684326 does not exist]
+[Block 14690039 does not exist]
+[Block 14706669 does not exist]
+[Block 14738178 does not exist]
+[Block 14755611 does not exist]
+[Block 14763253 does not exist]
+[Block 14772311 does not exist]
+[Block 14848782 does not exist]
+[Block 14926701 does not exist]
+[Block 14952701 does not exist]
+Crawled 500 blocks - (100.00 %)
+Running time for crawling txs of 500 blocks: 118.595897 seconds
+
 Etherscan API Key       Z3VXNJ552CTJ8X1WKGY3D2W2VAD965J45C
 No. of contracts        1834
 Results file            data/logs/results_eth.json
