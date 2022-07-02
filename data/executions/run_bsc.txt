@@ -1,0 +1,60 @@
+marcoscharalambous@mini-watson-1 thesis_test % cat execution_bsc.logs
+Random sampling size: 500
+Crawled 50 blocks - (10.00 %)
+Crawled 100 blocks - (20.00 %)
+Crawled 150 blocks - (30.00 %)
+Crawled 200 blocks - (40.00 %)
+Crawled 250 blocks - (50.00 %)
+Crawled 300 blocks - (60.00 %)
+Crawled 350 blocks - (70.00 %)
+Crawled 400 blocks - (80.00 %)
+Crawled 450 blocks - (90.00 %)
+[Block 17553978 does not exist]
+[Block 17575546 does not exist]
+[Block 17610432 does not exist]
+[Block 17612376 does not exist]
+[Block 17634490 does not exist]
+[Block 17674587 does not exist]
+[Block 17684073 does not exist]
+[Block 17689104 does not exist]
+[Block 17744238 does not exist]
+[Block 17807817 does not exist]
+[Block 17840227 does not exist]
+[Block 17860343 does not exist]
+[Block 17911359 does not exist]
+[Block 17933411 does not exist]
+[Block 17956028 does not exist]
+[Block 17956544 does not exist]
+[Block 17971639 does not exist]
+[Block 18152431 does not exist]
+[Block 18170993 does not exist]
+[Block 18188677 does not exist]
+[Block 18196422 does not exist]
+[Block 18215441 does not exist]
+[Block 18270066 does not exist]
+[Block 18272111 does not exist]
+[Block 18408090 does not exist]
+[Block 18452785 does not exist]
+[Block 18478634 does not exist]
+[Block 18500442 does not exist]
+[Block 18518809 does not exist]
+[Block 18521405 does not exist]
+[Block 18530373 does not exist]
+[Block 18593434 does not exist]
+[Block 18644517 does not exist]
+[Block 18661854 does not exist]
+[Block 18677253 does not exist]
+[Block 18763646 does not exist]
+[Block 18826853 does not exist]
+[Block 18838642 does not exist]
+[Block 18867825 does not exist]
+[Block 18872683 does not exist]
+[Block 18915977 does not exist]
+[Block 18921475 does not exist]
+[Block 18932350 does not exist]
+[Block 18973853 does not exist]
+[Block 19027178 does not exist]
+[Block 19028332 does not exist]
+Crawled 500 blocks - (100.00 %)
+[Block 19147709 does not exist]
+Running time for crawling txs of 500 blocks: 1521.892634 seconds

@@ -1,0 +1,33 @@
+Etherscan API Key       Z3VXNJ552CTJ8X1WKGY3D2W2VAD965J45C
+No. of contracts        1834
+Results file            data/logs/results_eth.json
+Errors file             data/logs/exceptions_eth.json
+
+Processing address 0 / 1834 (0.00% complete)
+Processing address 100 / 1834 (5.45% complete)
+Processing address 200 / 1834 (10.91% complete)
+Processing address 300 / 1834 (16.36% complete)
+Processing address 400 / 1834 (21.81% complete)
+Processing address 500 / 1834 (27.26% complete)
+Processing address 600 / 1834 (32.72% complete)
+Processing address 700 / 1834 (38.17% complete)
+Processing address 800 / 1834 (43.62% complete)
+Processing address 900 / 1834 (49.07% complete)
+Processing address 1000 / 1834 (54.53% complete)
+Processing address 1100 / 1834 (59.98% complete)
+Processing address 1200 / 1834 (65.43% complete)
+Processing address 1300 / 1834 (70.88% complete)
+Processing address 1400 / 1834 (76.34% complete)
+Processing address 1500 / 1834 (81.79% complete)
+Processing address 1600 / 1834 (87.24% complete)
+Processing address 1700 / 1834 (92.69% complete)
+Processing address 1800 / 1834 (98.15% complete)
+
+==============================
+Finished crawling Etherscan
+287 record(s) affected.
+Elapsed time: 5997.95 seconds
+Smart contracts crawled: 1834
+Smart contracts skipped: 0
+Total requests to Etherscan API: 5594
+==============================
