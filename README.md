@@ -34,7 +34,7 @@ passed as arguments: <br>
 (their IP and ports are declared as constants in the scripts) and extracts the contract addresses
 and bytecodes from the transactions of the blocks provided. Client (eth, bsc), input file and
 whether to use the tracer or not are provided as arguments: <br>
-`go run go-src/*.go --client eth --input scripts/blockNumbersEth.txt --tracer`  <br>
+`go run go-src/*.go --client eth --input data/block_samples/<latest_date>/blockNumbersEth.txt --tracer`  <br>
 To check only the connection to the archive node and the local database execute:  <br>
 `go run go-src/*.go --client eth --check`
 

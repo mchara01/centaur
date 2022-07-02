@@ -1,5 +1,5 @@
-// Example run: go run *.go --client eth --input scripts/blockNumbersEth.txt --tracer
-//				go run *.go --client bsc --input scripts/blockNumbersBsc.txt --tracer
+// Example run: go run go-src/*.go --client eth --check
+//				go run go-src/*.go --client eth --input data/block_samples/<latest_date>/blockNumbersEth.txt --tracer
 package main
 
 import (
@@ -20,6 +20,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
+// Database and archive node constant declaration
 const (
 	DbHost      = "tcp(127.0.0.1:3333)"
 	DbName      = "db_blockchain"
@@ -30,6 +31,7 @@ const (
 	prnInterval = 50
 )
 
+// ConcurrentCounter is counter that is goroutine safe
 type ConcurrentCounter struct {
 	mx    sync.Mutex
 	count int64
@@ -40,10 +42,14 @@ var (
 	totalBlocks int
 )
 
+// CrawlTransactionsOverBlock is a helper function that each goroutine calls to extract the contract addresses of a
+// given block number. Using the block number, it accesses the transactions of the block and finds the transactions
+// where the destination is empty. If desired, the tracer is used as well to re-execute transactions and collect
+// smart contracts, however this is a time-consuming process.
 func CrawlTransactionsOverBlock(blockNum int64, client *ethclient.Client, traceClient *rpc.Client, useTracer bool, counter *ConcurrentCounter) ([]string, []string) {
-	//Mutex used only for printing progress
+	// Mutex used only for printing progress
 	counter.mx.Lock()
-	// Lock so only one goroutine at a time can access the counter
+	// Lock so only one goroutine at a time can access the counter and increase it
 	counter.count++
 	if counter.count%prnInterval == 0 {
 		percentage := (float64(counter.count) / float64(totalBlocks)) * 100
@@ -63,17 +69,19 @@ func CrawlTransactionsOverBlock(blockNum int64, client *ethclient.Client, traceC
 
 	if len(block.Transactions()) > 0 {
 		for _, tx := range block.Transactions() {
-			// Find the 'create contract' transactions
+			// Find the 'create contract' transactions (destination of transaction is null)
 			if tx.To() == nil {
 				receipt, err := client.TransactionReceipt(context.Background(), tx.Hash())
 				check(err)
+				// Get the contract address in hex
 				contractAddr := receipt.ContractAddress.Hex()
 				addresses = append(addresses, contractAddr)
+				// Get the bytecode of the contract address
 				bytecodeAtAddress, err := client.CodeAt(context.Background(), receipt.ContractAddress, newBlockNum)
 				check(err)
 				bytecodes = append(bytecodes, hex.EncodeToString(bytecodeAtAddress))
 			} else {
-				if useTracer {
+				if useTracer { // use tracer to re-execute transactions and find contract addresses
 					hash := tx.Hash().Hex()
 					contractAddresses := TraceTransaction(hash, traceClient)
 					addresses = append(addresses, contractAddresses...)
@@ -89,17 +97,26 @@ func CrawlTransactionsOverBlock(blockNum int64, client *ethclient.Client, traceC
 	return addresses, bytecodes
 }
 
-func workerForCrawlTransactions(clientUrl string, inputChannel <-chan int64, wg *sync.WaitGroup, useTracer bool, db *sql.DB, counter *ConcurrentCounter) {
+// WorkerForCrawlTransactions is the code executed by every spawned goroutine. Each goroutine first
+// connects to the archive node of choice and gets a client handler. Then, a transaction to the database
+// is established. A prepared statement is created and the values that will be passed to it are collected
+// by calling the CrawlTransactionsOverBlock() function. The inputChannel works as a queue where a goroutine
+// gets a job (block number) from. After collecting the data to be added for every block that the respective
+// goroutine handles, it proceeds to insert the new data into the database using a prepared statement.
+func WorkerForCrawlTransactions(clientUrl string, inputChannel <-chan int64, wg *sync.WaitGroup, useTracer bool, db *sql.DB, counter *ConcurrentCounter) {
 	defer wg.Done()
+	// Connect to the archive node at the given client of choice
+	// IP and port of client are declared as constants
 	var client = ConnectToArchive(clientUrl)
 	defer client.Close()
 
 	var traceClient *rpc.Client
-	if useTracer {
+	if useTracer { // Check if user wants to use the tracer
 		traceClient = ConnectToRpcClient(clientUrl)
 		defer traceClient.Close()
 	}
 
+	// Start a transaction to the database
 	transaction, err := db.Begin()
 	check(err)
 	defer func() {
@@ -113,6 +130,7 @@ func workerForCrawlTransactions(clientUrl string, inputChannel <-chan int64, wg 
 		err = transaction.Commit()
 	}()
 
+	// String to be used as a prepared statement
 	var sqlStr string
 	if chain == "bsc" {
 		sqlStr = "INSERT IGNORE INTO bsc (address, block_number, bytecode) VALUES "
@@ -121,11 +139,12 @@ func workerForCrawlTransactions(clientUrl string, inputChannel <-chan int64, wg 
 	}
 	var values []interface{}
 
-	for block := range inputChannel {
+	for block := range inputChannel { // Get an available block number from channel
 		addresses, bytecodes := CrawlTransactionsOverBlock(block, client, traceClient, useTracer, counter)
 		if addresses == nil || bytecodes == nil {
 			continue
 		}
+		// Collect values to pass to the prepared statement
 		for idx, address := range addresses {
 			sqlStr += "(?, ?, ?),"
 			values = append(values, address, block, bytecodes[idx])
@@ -133,34 +152,45 @@ func workerForCrawlTransactions(clientUrl string, inputChannel <-chan int64, wg 
 	}
 
 	sqlStr = strings.TrimSuffix(sqlStr, ",") // Remove suffix ,
-	stmt, err := transaction.Prepare(sqlStr) // Prepare statement creation
+	// Prepare statement creation
+	stmt, err := transaction.Prepare(sqlStr)
 	check(err)
-	_, err = stmt.Exec(values...) // Format all values at once and execute statement
+	// Format all values at once and execute statement
+	_, err = stmt.Exec(values...)
 	check(err)
-
 	err = stmt.Close()
 	check(err)
 }
 
+// GetContractAddresses creates a channel that contains the block numbers that will be crawled.
+// The max amount of block numbers that is in the channel at any given time is equal to the
+// number of goroutines. Then, goroutines are created and this channel is passed to them, so they
+// can extract block numbers from it and crawl them. The workerWaitGroup waits for the collection of
+// goroutines to finish, the channel is closed and the amount of time taken for the whole process
+// is printed.
 func GetContractAddresses(clientUrl string, blocksSample []int64, numWorkers int, useTrace bool, db *sql.DB) {
 	timer := time.Now()
 
-	// Buffered channel that contains the block numbers.
+	// Buffered channel that contains the block numbers
 	blockChannel := make(chan int64, numWorkers)
 	counter := ConcurrentCounter{count: 0}
 	var workerWaitGroup sync.WaitGroup
 
+	// Add the number of goroutines we want in the wait group
 	workerWaitGroup.Add(numWorkers)
-	for i := 0; i < numWorkers; i++ { // Goroutine creation, blockChannel passed to them for crawling
-		go workerForCrawlTransactions(clientUrl, blockChannel, &workerWaitGroup, useTrace, db, &counter)
+	for i := 0; i < numWorkers; i++ {
+		// Goroutine creation, blockChannel passed to them to extract blocks for crawling
+		go WorkerForCrawlTransactions(clientUrl, blockChannel, &workerWaitGroup, useTrace, db, &counter)
 	}
 
 	for _, block := range blocksSample {
-		// Send to channel will block only if there's no available buffer to place the value being sent.
+		// Send to channel will block only if there's no available buffer to place the value being sent
 		blockChannel <- block
 	}
 
 	close(blockChannel)
+	// Wait blocks until the workerWaitGroup counter is zero, signaling that all
+	// goroutines are finished
 	workerWaitGroup.Wait()
 
 	elapsed := time.Since(timer).Seconds()
@@ -168,6 +198,9 @@ func GetContractAddresses(clientUrl string, blocksSample []int64, numWorkers int
 	fmt.Printf("Running time for crawling txs of %d blocks: %f seconds\n", len(blocksSample), elapsed)
 }
 
+// check function examines whether the error given as a parameter is nil (0) and
+// stops normal execution otherwise. The function was created to avoid repeating
+// the same error-checking code snippet after every function return.
 func check(e error) {
 	if e != nil {
 		panic(e)
@@ -212,10 +245,10 @@ func main() {
 	if args.Check { // Check connection to archive node of desired chain and local database
 		ConnectToArchive(ClientUrl)
 		fmt.Printf("Connected to %s archive node at %s successfully. \n", args.Client, strings.Split(ClientUrl, "//")[1])
-		checkDBConnection(db)
+		CheckDbConnection(db)
 		fmt.Printf("Connected to database at %s successfully. \n", DbHost)
-	} else { // Main functionality - extract addresses
-		blocksSample, err := readFileLines(args.Input)
+	} else { // Main functionality - extract smart contract addresses
+		blocksSample, err := ReadFileLines(args.Input) // List of blocks to be crawled
 		totalBlocks = len(blocksSample)
 		fmt.Printf("Random sampling size: %d \n", totalBlocks)
 		check(err)

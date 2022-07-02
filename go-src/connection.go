@@ -9,6 +9,7 @@ import (
 	"github.com/ethereum/go-ethereum/rpc"
 )
 
+// ConnectToArchive connects a client to the given URL and return a handler to it.
 func ConnectToArchive(ClientUrl string) *ethclient.Client {
 	archiveNode, err := ethclient.Dial(ClientUrl)
 	if err != nil {
@@ -18,6 +19,8 @@ func ConnectToArchive(ClientUrl string) *ethclient.Client {
 	return archiveNode
 }
 
+// ConnectToRpcClient creates a new client for the given URL and return a handler to it.
+// This client is used for tracing.
 func ConnectToRpcClient(ClientUrl string) *rpc.Client {
 	traceClient, err := rpc.Dial(ClientUrl)
 	if err != nil {
@@ -27,7 +30,8 @@ func ConnectToRpcClient(ClientUrl string) *rpc.Client {
 	return traceClient
 }
 
-func checkDBConnection(db *sql.DB) {
+// CheckDbConnection checks the connection to a given database.
+func CheckDbConnection(db *sql.DB) {
 	err := db.Ping()
 	if err != nil {
 		panic(err)

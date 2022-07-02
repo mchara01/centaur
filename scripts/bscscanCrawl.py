@@ -9,7 +9,7 @@ import aiofiles
 import aiomysql
 from bscscan import BscScan
 
-ADDRESS_PRINT_INTERVAL = 5
+ADDRESS_PRINT_INTERVAL = 100
 
 
 async def read_json(path):
@@ -114,7 +114,7 @@ async def async_requestor(loop, output, api_key, errors_src, debug, limit_checke
 
             if index % ADDRESS_PRINT_INTERVAL == 0:
                 percent = index / len(addresses) * 100
-                print("Processing address {} / {} ({:.2f}% complete)".format(index, len(addresses), percent))
+                print("Processing address {} / {} ({:.2f}%)".format(index, len(addresses), percent))
 
             limit_checker.check()
             try:

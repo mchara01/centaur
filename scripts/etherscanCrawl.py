@@ -8,7 +8,7 @@ import time
 import mysql.connector
 from etherscan import Etherscan
 
-ADDRESS_PRINT_INTERVAL = 5
+ADDRESS_PRINT_INTERVAL = 100
 
 
 class Crawler:
@@ -120,7 +120,7 @@ def requestor(output, api_key, errors_src, debug, limit_checker):
 
         if index % ADDRESS_PRINT_INTERVAL == 0:
             percent = index / len(addresses) * 100
-            print("Processing address {} / {} ({:.2f}% complete)".format(index, len(addresses), percent))
+            print("Processing address {} / {} ({:.2f}%)".format(index, len(addresses), percent))
 
         limit_checker.check()
         try:

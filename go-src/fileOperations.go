@@ -6,7 +6,8 @@ import (
 	"strconv" // converting strings
 )
 
-func readFileLines(path string) ([]int64, error) {
+// ReadFileLines reads every line of a given file, creates an array of them and returns it.
+func ReadFileLines(path string) ([]int64, error) {
 	file, err := os.Open(path)
 	check(err)
 	defer func(file *os.File) {
