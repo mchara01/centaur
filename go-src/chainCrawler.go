@@ -26,7 +26,7 @@ const (
 	DbName      = "db_blockchain"
 	DbUser      = "root"
 	DbPass      = "Fm)4dj"
-	ETH         = "ws://192.168.0.31:19545"
+	ETH         = "ws://192.168.0.70:19545"
 	BSC         = "ws://192.168.0.31:19547"
 	prnInterval = 50
 )
