@@ -58,3 +58,58 @@ Crawled 450 blocks - (90.00 %)
 Crawled 500 blocks - (100.00 %)
 [Block 19147709 does not exist]
 Running time for crawling txs of 500 blocks: 1521.892634 seconds
+
+marcoscharalambous@mini-watson-1 thesis_test % python3 scripts/mainCrawl.py --chain bsc --apikey X --output results_bsc.json --invalid exceptions_bsc.json
+BscScan API Key         K6CDE2MBD5VF1I3AV46RYVUJJ51CD2VCQK
+No. of contracts        3896
+Output file             results_bsc.json
+Errors file             exceptions_bsc.json
+
+Processing address 0 / 3896 (0.00%)
+Processing address 100 / 3896 (2.57%)
+Processing address 200 / 3896 (5.13%)
+Processing address 300 / 3896 (7.70%)
+Processing address 400 / 3896 (10.27%)
+Processing address 500 / 3896 (12.83%)
+Processing address 600 / 3896 (15.40%)
+Processing address 700 / 3896 (17.97%)
+Processing address 800 / 3896 (20.53%)
+Processing address 900 / 3896 (23.10%)
+Processing address 1000 / 3896 (25.67%)
+Processing address 1100 / 3896 (28.23%)
+Processing address 1200 / 3896 (30.80%)
+Processing address 1300 / 3896 (33.37%)
+Processing address 1400 / 3896 (35.93%)
+Processing address 1500 / 3896 (38.50%)
+Processing address 1600 / 3896 (41.07%)
+Processing address 1700 / 3896 (43.63%)
+Processing address 1800 / 3896 (46.20%)
+Processing address 1900 / 3896 (48.77%)
+Processing address 2000 / 3896 (51.33%)
+Processing address 2100 / 3896 (53.90%)
+Processing address 2200 / 3896 (56.47%)
+Processing address 2300 / 3896 (59.03%)
+Processing address 2400 / 3896 (61.60%)
+Processing address 2500 / 3896 (64.17%)
+Processing address 2600 / 3896 (66.74%)
+Processing address 2700 / 3896 (69.30%)
+Processing address 2800 / 3896 (71.87%)
+Processing address 2900 / 3896 (74.44%)
+Processing address 3000 / 3896 (77.00%)
+Processing address 3100 / 3896 (79.57%)
+Processing address 3200 / 3896 (82.14%)
+Processing address 3300 / 3896 (84.70%)
+Processing address 3400 / 3896 (87.27%)
+Processing address 3500 / 3896 (89.84%)
+Processing address 3600 / 3896 (92.40%)
+Processing address 3700 / 3896 (94.97%)
+Processing address 3800 / 3896 (97.54%)
+
+==============================
+Finished crawling BscScan
+152 record(s) affected
+Elapsed time: 3120.21 seconds
+Smart contracts crawled: 3896
+Smart contracts skipped: 0
+Total requests to BscScan API: 11883
+==============================
