@@ -58,8 +58,8 @@ def create_tasks(conf: 'Execution_Configuration') -> List['Execution_Task']:
             for root, _, files in os.walk(file):
                 for name in files:
                     file_path = os.path.join(root, name)
-                    if conf.is_bytecode and not name.endswith(".bytecode"):
-                        logs.print(f"[WARNING] {file_path} is ignored (only .bytecode files are considered)")
+                    if conf.is_bytecode and not name.endswith(".hex"):
+                        logs.print(f"[WARNING] {file_path} is ignored (only .hex files are considered)")
                         continue
                     if not conf.is_bytecode and not name.endswith(".sol"):
                         logs.print(f"[WARNING] {file_path} is ignored (only .sol files are considered)")
