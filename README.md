@@ -42,3 +42,9 @@ To check only the connection to the archive node and the local database execute:
 * Crawl Etherscan or BscScan to gather any other missing data for given smart contract addresses.
 An API key must be provided for this script to work: <br>
 `python scripts/mainCrawl.py --chain eth --apikey <ENTER_API_KEY_HERE> --output data/logs/results_eth.json --invalid data/logs/exceptions_eth.json`
+
+
+* Extract the bytecodes from the database and write them in files on the file system. The bytecodes
+that are selected have either a balance > 0 or number of transactions > 0 or number of token transfers > 0.
+Execute the script to do this with: <br>
+`python scripts/bytecodeCreator.py --chain eth`
