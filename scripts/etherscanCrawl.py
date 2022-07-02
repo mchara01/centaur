@@ -4,6 +4,7 @@ import os
 import sys
 import tempfile
 import time
+from pathlib import Path
 
 import mysql.connector
 from etherscan import Etherscan
@@ -61,8 +62,9 @@ def save_json(path, res, safe_save=True):
             json.dump(res, f)
         temp.close()  # Remove temporary file
     else:
-        with open(path, 'w') as f:
-            json.dump(res, f)
+        output_file = Path(path)
+        output_file.parent.mkdir(exist_ok=True, parents=True)
+        output_file.write_text(json.dumps(res))
 
 
 def requestor(output, api_key, errors_src, debug, limit_checker):
@@ -187,5 +189,5 @@ def requestor(output, api_key, errors_src, debug, limit_checker):
     print("=" * 30)
     print()
 
-    save_json(output, {**results_old, **results_new})
+    save_json(output, {**results_old, **results_new}, safe_save=False)
     save_json(errors_src, exceptions_dict)

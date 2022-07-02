@@ -4,6 +4,7 @@ import logging
 import os
 import tempfile
 import time
+from pathlib import Path
 
 import aiofiles
 import aiomysql
@@ -30,8 +31,9 @@ def save_json(path, res, safe_save=True):
             json.dump(res, f)
         temp.close()  # Remove temporary file
     else:
-        with open(path, 'w') as f:
-            json.dump(res, f)
+        output_file = Path(path)
+        output_file.parent.mkdir(exist_ok=True, parents=True)
+        output_file.write_text(json.dumps(res))
 
 
 async def select(loop, sql, pool):
