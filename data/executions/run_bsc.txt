@@ -60,7 +60,7 @@ Crawled 500 blocks - (100.00 %)
 Running time for crawling txs of 500 blocks: 1521.892634 seconds
 
 marcoscharalambous@mini-watson-1 thesis_test % python3 scripts/mainCrawl.py --chain bsc --apikey X --output results_bsc.json --invalid exceptions_bsc.json
-BscScan API Key         K6CDE2MBD5VF1I3AV46RYVUJJ51CD2VCQK
+BscScan API Key
 No. of contracts        3896
 Output file             results_bsc.json
 Errors file             exceptions_bsc.json

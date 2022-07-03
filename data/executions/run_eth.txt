@@ -30,7 +30,7 @@ Crawled 450 blocks - (90.00 %)
 Crawled 500 blocks - (100.00 %)
 Running time for crawling txs of 500 blocks: 118.595897 seconds
 
-Etherscan API Key       Z3VXNJ552CTJ8X1WKGY3D2W2VAD965J45C
+Etherscan API Key
 No. of contracts        1834
 Results file            data/logs/results_eth.json
 Errors file             data/logs/exceptions_eth.json
