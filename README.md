@@ -44,6 +44,11 @@ An API key must be provided for this script to work: <br>
 `python scripts/mainCrawl.py --chain eth --apikey <ENTER_API_KEY_HERE> --output data/logs/results_eth.json --invalid data/logs/exceptions_eth.json`
 
 
+* At this point, the database is populated with all the required data. If you wish to perform a backup of
+the database, execute the following command: (***mysqldump*** needs to be installed first )<br>
+`bash scripts/database/backup/db_backup.sh`
+
+
 * Extract the bytecodes from the database and write them in files on the file system. The bytecodes
 that are selected have either a balance > 0 or number of transactions > 0 or number of token transfers > 0.
 Execute the script to do this with: <br>
