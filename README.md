@@ -9,7 +9,7 @@ Before you begin, ensure you have met the following requirements:
 
 * You have installed of all the required Python dependencies with:  `pip install -r requirements.txt`
 * You are using Python >= 3.8
-* You have created an account on Etherscan and BscScan and generated an API key
+* You have created an account on Etherscan and BscScan and generated an API key on both
 * You have installed [Docker](https://docs.docker.com/get-docker/)
 
 ### Running the scripts
@@ -52,4 +52,4 @@ the database, execute the following command: (***mysqldump*** needs to be instal
 * Extract the bytecodes from the database and write them in files on the file system. The bytecodes
 that are selected have either a balance > 0 or number of transactions > 0 or number of token transfers > 0.
 Execute the script to do this with: <br>
-`python scripts/bytecodeCreator.py --chain eth`
+`python scripts/bytecodeToFileCreator.py --chain eth`

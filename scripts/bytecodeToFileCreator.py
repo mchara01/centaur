@@ -40,7 +40,7 @@ async def file_writer(loop, chain):
 
     # Store unique bytecodes to the file system
     for address in bytecodes:
-        location = "data/dataset/" + address + ".hex"
+        location = "data/dataset/" + chain + "/" + address + ".hex"
         output_file = Path(location)
         output_file.parent.mkdir(exist_ok=True, parents=True)
         output_file.write_text(bytecodes[address])
