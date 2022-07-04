@@ -11,6 +11,7 @@ Before you begin, ensure you have met the following requirements:
 * You are using Python >= 3.8
 * You have created an account on Etherscan and BscScan and generated an API key on both
 * You have installed [Docker](https://docs.docker.com/get-docker/)
+* You are using a UNIX-like OS
 
 ### Running the scripts
 
