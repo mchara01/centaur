@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 
-import argparse
 import git
 import os
 import pathlib
 import sys
-import yaml
 from typing import List
 
 from src.execution.execution import Execution
@@ -13,8 +11,9 @@ from src.execution.execution_task import Execution_Task
 from src.execution.execution_configuration import Execution_Configuration
 from src.logger import logs
 from src.interface.cli import get_config, cfg_dataset, is_remote_info, get_remote_info
-from src.utils import COLSTATUS,COLRESET,COLERR
+from src.utils import COLSTATUS, COLRESET, COLERR
 from src.execution.docker_api import tool_conf, tool_image, pull_image
+
 
 def create_tasks(conf: 'Execution_Configuration') -> List['Execution_Task']:
     files_to_analyze = []
@@ -28,7 +27,8 @@ def create_tasks(conf: 'Execution_Configuration') -> List['Execution_Task']:
 
                 if not os.path.isdir(base_path):
                     # local copy does not exist; we need to clone it
-                    sys.stdout.write(f"{COLSTATUS}{base_name} is a remote dataset. Do you want to create a local copy? [Y/n]{COLRESET} ")
+                    sys.stdout.write(
+                        f"{COLSTATUS}{base_name} is a remote dataset. Do you want to create a local copy? [Y/n]{COLRESET} ")
                     sys.stdout.flush()
                     answer = input()
                     if answer.lower() in ['yes', 'y', '']:
@@ -37,7 +37,8 @@ def create_tasks(conf: 'Execution_Configuration') -> List['Execution_Task']:
                         git.Repo.clone_from(url, base_path)
                         sys.stdout.write(f"{COLSTATUS}Done.{COLRESET}")
                     else:
-                        logs.print(f"{COLERR}ABORTING: cannot proceed without local copy of remote dataset {base_name}{COLRESET}")
+                        logs.print(
+                            f"{COLERR}ABORTING: cannot proceed without local copy of remote dataset {base_name}{COLRESET}")
                         quit()
                 else:
                     sys.stdout.write(f"{COLSTATUS}Using remote dataset [{base_path} <- {url}]{COLRESET}\n")
@@ -73,7 +74,7 @@ def create_tasks(conf: 'Execution_Configuration') -> List['Execution_Task']:
                 file = file.replace('\\', '/')
             files_to_analyze.append(file)
 
-    tasks = [] # Task creation
+    tasks = []  # Task creation
     for file in files_to_analyze:
         for tool in conf.tools:
             task = Execution_Task(tool, file, conf)
