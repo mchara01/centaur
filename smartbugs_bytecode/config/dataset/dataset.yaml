@@ -9,9 +9,9 @@ short_addresses: dataset/short_addresses
 time_manipulation: dataset/time_manipulation
 unchecked_ll_calls: dataset/unchecked_low_level_calls
 
-thesis_bc: dataset/testing_dataset_bc
-thesis_mix: dataset/testing_dataset
-thesis_sol: dataset/testing_dataset_sol
+test_mix: dataset/testing_dataset
+test_sol: dataset/testing_dataset_sol
+
 
 # External datasets
 solidiFI: 
@@ -28,3 +28,6 @@ solidiFI:
 
 # Bytecode
 bytecode: dataset/bytecode
+test_bc: dataset/testing_dataset_bc
+eth_bc: ../data/dataset/eth
+bsc_bc: ../data/dataset/bsc

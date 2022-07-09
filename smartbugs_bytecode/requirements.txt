@@ -4,4 +4,5 @@ solidity_parser==0.0.7
 GitPython==3.1.5
 sarif-om==1.0.4
 attrs==20.3.0
-pandas
+antlr4-python3-runtime==4.7.2
+pandas==1.4.2
