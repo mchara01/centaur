@@ -1,0 +1,9 @@
+Analysing /data/0x5d314A64C7b7441C8A533fA5eDa137AFf223e9f8.hex...
+Vulnerability: Integer Underflow. Maybe in function: sweep(address). PC: 0x236. Line number: .
+If a = 49
+and b = 50
+Vulnerability: Reentrancy. Maybe in function: sweep(address). PC: 0x1b5. Line number: .
+Vulnerability: Reentrancy. Maybe in function: sweep(address). PC: 0x237. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: sweep(address). PC: 0x1b4. Line number: .
+If a = If(k!9, 50, 49)
+and b = 50

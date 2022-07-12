@@ -1,0 +1,6 @@
+Analysing /data/0x54e82532b552BC488DCa6bDd71712Ba859061bAC.hex...
+Vulnerability: Integer Underflow. Maybe in function: collect(address,address,uint256). PC: 0x1f0. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: collect(address,address,uint256). PC: 0x1f1. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0xff03ad56. PC: 0x2b5. Line number: .

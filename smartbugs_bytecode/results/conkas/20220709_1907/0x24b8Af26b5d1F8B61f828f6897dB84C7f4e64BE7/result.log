@@ -1,0 +1,16 @@
+<SSABasicBlock offset:0x2888 num_insns:1 in: [0x287c] insns:[
+	<0x288f: JUMP(#2772)>
+] fallthrough:None jumps:[0x2772]>
+Traceback (most recent call last):
+  File "conkas.py", line 105, in main
+    ssa = Recover(bytecode, edges=[], optimize=True)
+  File "/conkas/rattle/recover.py", line 768, in __init__
+    self.internal = InternalRecover(filedata, edges, optimize, split_functions)
+  File "/conkas/rattle/recover.py", line 37, in __init__
+    self.guarenteed_optimizations()
+  File "/conkas/rattle/recover.py", line 718, in guarenteed_optimizations
+    next_block.in_edges.remove(block)
+KeyError: <SSABasicBlock offset:0x2888 num_insns:1 in: [0x287c] insns:[
+	<0x288f: JUMP(#2772)>
+] fallthrough:None jumps:[0x2772]>
+Analysing /data/0x24b8Af26b5d1F8B61f828f6897dB84C7f4e64BE7.hex...

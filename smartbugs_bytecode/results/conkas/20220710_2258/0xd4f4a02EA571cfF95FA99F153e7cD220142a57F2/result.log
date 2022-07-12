@@ -1,0 +1,3 @@
+Analysing /data/0xd4f4a02EA571cfF95FA99F153e7cD220142a57F2.hex...
+Vulnerability: Reentrancy. Maybe in function: sell(uint256). PC: 0x64e. Line number: .
+Vulnerability: Reentrancy. Maybe in function: buy(). PC: 0x30b. Line number: .

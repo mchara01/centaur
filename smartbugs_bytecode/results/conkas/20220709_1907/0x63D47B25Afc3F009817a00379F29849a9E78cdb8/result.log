@@ -1,0 +1,15 @@
+Analysing /data/0x63D47B25Afc3F009817a00379F29849a9E78cdb8.hex...
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0xb4. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: execute(address,uint256,bytes). PC: 0x1b2. Line number: .
+If a = 4
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639932
+Vulnerability: Integer Underflow. Maybe in function: execute(address,uint256,bytes). PC: 0x337. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+and b = 128
+Vulnerability: Integer Overflow. Maybe in function: execute(address,uint256,bytes). PC: 0x1b8. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900
+Vulnerability: Integer Overflow. Maybe in function: execute(address,uint256,bytes). PC: 0x328. Line number: .
+If a = 128
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+Vulnerability: Reentrancy. Maybe in function: execute(address,uint256,bytes). PC: 0x33c. Line number: .

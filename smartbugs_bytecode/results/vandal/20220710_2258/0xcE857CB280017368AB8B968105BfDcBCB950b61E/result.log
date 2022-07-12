@@ -1,0 +1,41 @@
++++ dirname /vandal/bin/analyze.sh
+++ cd /vandal/bin
+++ pwd
++ DIR=/vandal/bin
++ rm -rf facts-tmp
++ /vandal/bin/decompile -o CALL JUMPI SSTORE SLOAD MLOAD MSTORE -d -n -t facts-tmp /data/0xcE857CB280017368AB8B968105BfDcBCB950b61E.hex
+/vandal/bin/analyze.sh: line 9:    23 Killed                  $DIR/decompile -o CALL JUMPI SSTORE SLOAD MLOAD MSTORE -d -n -t facts-tmp $1
++ souffle -F facts-tmp /vandal/datalog/demo_analyses.dl
+Warning: Deprecated type declaration used in file types.dl at line 30
+.type Statement
+^---------------
+Warning: Deprecated type declaration used in file types.dl at line 31
+.type Variable
+^--------------
+Warning: Deprecated type declaration used in file types.dl at line 32
+.type Opcode
+^------------
+Warning: Deprecated type declaration used in file types.dl at line 33
+.type Value
+^-----------
+Error loading data: Cannot open fact file edge.facts
+
+Error loading data: Cannot open fact file def.facts
+
+Error loading data: Cannot open fact file use.facts
+
+Error loading data: Cannot open fact file op.facts
+
+Error loading data: Cannot open fact file value.facts
+
+Error loading data: Cannot open fact file op_CALL.facts
+
+Error loading data: Cannot open fact file op_JUMPI.facts
+
+Error loading data: Cannot open fact file op_SSTORE.facts
+
+Error loading data: Cannot open fact file dom.facts
+
+Error loading data: Cannot open fact file pdom.facts
+
++ rm -rf facts-tmp

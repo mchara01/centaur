@@ -1,0 +1,30 @@
+Analysing /data/0x706937dC141231168Be1694d5ea9dCD04739Bb41.hex...
+Vulnerability: Time Manipulation. Maybe in function: 0x22c0d9f. PC: 0x1c70. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0xd505accf. PC: 0x177e. Line number: .
+If a = 482
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639582
+Vulnerability: Time Manipulation. Maybe in function: 0x22c0d9f. PC: 0x1c97. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0xd505accf. PC: 0x1728. Line number: .
+If a = 128
+and b = 352
+Vulnerability: Integer Overflow. Maybe in function: 0xd505accf. PC: 0x1777. Line number: .
+If a = 482
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639904
+Vulnerability: Time Manipulation. Maybe in function: 0x22c0d9f. PC: 0x1c84. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x22c0d9f. PC: 0x1d64. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x22c0d9f. PC: 0x1a4e. Line number: .
+If a = 68
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639904
+Vulnerability: Integer Overflow. Maybe in function: 0xd505accf. PC: 0x172b. Line number: .
+If a = 290
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639712
+Vulnerability: Time Manipulation. Maybe in function: 0xd505accf. PC: 0x1637. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0x22c0d9f. PC: 0x1c65. Line number: .
+If a = 37749764
+and b = 62532279031461752023469774063984881568346645173354801804962211515907899916288
+Vulnerability: Integer Overflow. Maybe in function: 0xd505accf. PC: 0x179c. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639904
+and b = 482
+Vulnerability: Integer Underflow. Maybe in function: 0xd505accf. PC: 0x177b. Line number: .
+If a = 128
+and b = 482

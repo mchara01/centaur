@@ -1,0 +1,10 @@
+Analysing /data/0xcB53a591259c08f8d0759780a17BfdD658B84628.hex...
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0x1c3. Line number: .
+Vulnerability: Reentrancy. Maybe in function: collect(). PC: 0x25e. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x1c2. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x141. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0x142. Line number: .

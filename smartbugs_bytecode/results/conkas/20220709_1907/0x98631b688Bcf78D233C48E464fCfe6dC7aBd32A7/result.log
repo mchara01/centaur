@@ -1,0 +1,31 @@
+Analysing /data/0x98631b688Bcf78D233C48E464fCfe6dC7aBd32A7.hex...
+Vulnerability: Integer Overflow. Maybe in function: submitTransaction(address,uint256,bytes). PC: 0xb9d. Line number: .
+If a = 79228162514264337593543950336
+and b = 102844034832576108385504239361293508403837349743608569425559552
+Vulnerability: Time Manipulation. Maybe in function: calcMaxWithdraw(). PC: 0x27a. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: getTransactionIds(uint256,uint256,bool,bool). PC: 0x4bb. Line number: .
+If a = 32
+and b = 28948022309329048855892746252171976963317496166410141009864396001978282409984
+Vulnerability: Integer Overflow. Maybe in function: getOwners(). PC: 0x41a. Line number: .
+If a = 32
+and b = 18092513943330655534932966407607485602073435104006338131165247501236426506239
+Vulnerability: Integer Overflow. Maybe in function: getOwners(). PC: 0x436. Line number: .
+If a = 32
+and b = 14474011154664524427946373126085988481658748083205070504932198000989141204992
+Vulnerability: Reentrancy. Maybe in function: getConfirmations(uint256). PC: 0x95c. Line number: .
+Vulnerability: Unchecked Low Level Call. Maybe in function: getConfirmations(uint256). PC: 0x95c. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: getConfirmations(uint256). PC: 0x945. Line number: .
+If a = 32
+and b = 10855508365998393320959779844564491361244061062403802878699148500741855903743
+Vulnerability: Integer Overflow. Maybe in function: submitTransaction(address,uint256,bytes). PC: 0xbe2. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+and b = 0
+Vulnerability: Integer Overflow. Maybe in function: getConfirmations(uint256). PC: 0x591. Line number: .
+If a = 32
+and b = 28948022309329048855892746252171976963317496166410141009864396001978282409984
+Vulnerability: Integer Overflow. Maybe in function: transactions(uint256). PC: 0x8b1. Line number: .
+If a = 8
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Integer Overflow. Maybe in function: calcMaxWithdraw(). PC: 0x273. Line number: .
+If a = 86400
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129560576

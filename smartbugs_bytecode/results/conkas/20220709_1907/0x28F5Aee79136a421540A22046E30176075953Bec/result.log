@@ -1,0 +1,14 @@
+Analysing /data/0x28F5Aee79136a421540A22046E30176075953Bec.hex...
+Vulnerability: Time Manipulation. Maybe in function: 0xa4fe8a44. PC: 0xc58. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0xa4fe8a44. PC: 0xc55. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Time Manipulation. Maybe in function: 0xa4fe8a44. PC: 0xc5b. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x29e73df2. PC: 0x720. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x18669938. PC: 0x701. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x29e73df2. PC: 0x582. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x29e73df2. PC: 0xd7b. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x29e73df2. PC: 0xad4. Line number: .
+Vulnerability: Reentrancy. Maybe in function: isContract(address). PC: 0x934. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x29e73df2. PC: 0xd07. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x29e73df2. PC: 0x481. Line number: .

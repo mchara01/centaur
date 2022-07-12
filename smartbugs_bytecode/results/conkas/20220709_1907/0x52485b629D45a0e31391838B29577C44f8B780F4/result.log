@@ -1,0 +1,11 @@
+Analysing /data/0x52485b629D45a0e31391838B29577C44f8B780F4.hex...
+Vulnerability: Reentrancy. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0xf24. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x4cb. Line number: .
+If a = 31
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639905
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x4c5. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x4bf. Line number: .
+If a = 4
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639932

@@ -1,0 +1,10 @@
+Analysing /data/0xa86B32f90d6bA5906B6948Bb12D11fBAD1331F9b.hex...
+Vulnerability: Integer Underflow. Maybe in function: 0xe1aed8a0. PC: 0x291. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: setUserWithdrawalAccount(address). PC: 0x30a. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: _fallthrough. PC: 0x1ce. Line number: .
+If a = If(k!5, 710, 709)
+and b = 710

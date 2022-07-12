@@ -1,0 +1,5 @@
+Analysing /data/0x133723353105C03FfF27e834F83780D2F2B46FD7.hex...
+Vulnerability: Integer Underflow. Maybe in function: _fallthrough. PC: 0x12a. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0x12b. Line number: .

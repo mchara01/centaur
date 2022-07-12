@@ -1,0 +1,11 @@
+Removing working directory .temp
+Processing contract names.
+Setting up workers.
+Analysing...
+
+0: 0x52485b629D45a0e31391838B29577C44f8 completed in 0.06 + 0.04 + 0.09 + 0.02 secs
+
+Finished 1 contracts...
+
+
+Writing results to results.json

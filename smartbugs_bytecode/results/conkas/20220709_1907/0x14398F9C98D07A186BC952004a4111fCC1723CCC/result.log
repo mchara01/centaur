@@ -1,0 +1,9 @@
+Analysing /data/0x14398F9C98D07A186BC952004a4111fCC1723CCC.hex...
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0xaa. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0xb76ea962. PC: 0x45d. Line number: .
+If a = 34709
+and b = 34710
+Vulnerability: Reentrancy. Maybe in function: 0xb76ea962. PC: 0x45e. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0xa9. Line number: .
+If a = If(k!3, 34710, 34709)
+and b = 34710

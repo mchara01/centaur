@@ -1,0 +1,9 @@
+Analysing /data/0xbD30b429FB41ef993eeeB9987B5FAC39455f1204.hex...
+Vulnerability: Unchecked Low Level Call. Maybe in function: _fallthrough. PC: 0x283. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: tokenFallback(address,uint256,bytes). PC: 0x9e. Line number: .
+If a = 4
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639932
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0x283. Line number: .
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0x12e. Line number: .
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0x1ae. Line number: .
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0x229. Line number: .

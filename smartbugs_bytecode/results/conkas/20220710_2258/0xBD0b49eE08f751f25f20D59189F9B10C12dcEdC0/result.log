@@ -1,0 +1,6 @@
+Analysing /data/0xBD0b49eE08f751f25f20D59189F9B10C12dcEdC0.hex...
+Vulnerability: Time Manipulation. Maybe in function: 0x16f462a6. PC: 0xfd. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x16f462a6. PC: 0x68a. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x16f462a6. PC: 0x8c0. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x16f462a6. PC: 0x8a9. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x16f462a6. PC: 0x86a. Line number: .

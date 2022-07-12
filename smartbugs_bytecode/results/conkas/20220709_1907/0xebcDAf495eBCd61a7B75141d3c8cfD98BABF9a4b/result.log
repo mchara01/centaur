@@ -1,0 +1,4 @@
+Analysing /data/0xebcDAf495eBCd61a7B75141d3c8cfD98BABF9a4b.hex...
+Vulnerability: Integer Overflow. Maybe in function: upgradeToAndCall(address,bytes). PC: 0x180. Line number: .
+If a = 36
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900

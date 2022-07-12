@@ -1,0 +1,6 @@
+Analysing /data/0x41af2EF792e06a31E52A7eE4BD072A7f6Ba76e67.hex...
+Vulnerability: Unchecked Low Level Call. Maybe in function: 0x584d733e. PC: 0x7e0. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x57246884. PC: 0x527. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x584d733e. PC: 0x7e0. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0xb90e0bf6. PC: 0xb11. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x900551a8. PC: 0x922. Line number: .

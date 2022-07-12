@@ -1,0 +1,91 @@
+Analysing /data/0xc41Fa4A903cF213e3fc0003d96E678c3cF71473F.hex...
+Vulnerability: Integer Underflow. Maybe in function: revoke(bytes32). PC: 0x466. Line number: .
+If a = 57896044618658097711785492504343953926294709965899343556265417396524796608511
+and b = 57896044618658097711785492504343953926634992332820282019691898515809145716735
+Vulnerability: Integer Overflow. Maybe in function: execute(address,uint256,bytes). PC: 0x2df. Line number: .
+If a = 4
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639932
+Vulnerability: Integer Overflow. Maybe in function: kill(address). PC: 0xb5c. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639840
+Vulnerability: Integer Overflow. Maybe in function: addOwner(address). PC: 0x67e. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639872
+Vulnerability: Integer Overflow. Maybe in function: resetSpentToday(). PC: 0x139a. Line number: .
+If a = 34396799265723567300338619826663514857069533239785953290296875790754157623998
+and b = 81395289971592628123232365182024392996200451425854610749160708217158972015938
+Vulnerability: Integer Overflow. Maybe in function: changeOwner(address,address). PC: 0x4dc. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639840
+Vulnerability: Integer Overflow. Maybe in function: setDailyLimit(uint256). PC: 0xaaa. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639872
+Vulnerability: Integer Underflow. Maybe in function: changeRequirement(uint256). PC: 0x933. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+and b = 96
+Vulnerability: Integer Overflow. Maybe in function: resetSpentToday(). PC: 0xaf8. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+Vulnerability: Integer Overflow. Maybe in function: setDailyLimit(uint256). PC: 0xab3. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+Vulnerability: Integer Underflow. Maybe in function: removeOwner(address). PC: 0x7ea. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+and b = 96
+Vulnerability: Integer Overflow. Maybe in function: revoke(bytes32). PC: 0x454. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Integer Underflow. Maybe in function: kill(address). PC: 0xb70. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+and b = 96
+Vulnerability: Integer Overflow. Maybe in function: resetSpentToday(). PC: 0xaef. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639872
+Vulnerability: Integer Overflow. Maybe in function: resetSpentToday(). PC: 0x14b6. Line number: .
+If a = 115788776399033534852691949790754351010983203293932812549046325030913665598692
+and b = 34396799265723567300338619826663514857069533239785953290296875790754157623998
+Vulnerability: Integer Underflow. Maybe in function: addOwner(address). PC: 0x692. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+and b = 96
+Vulnerability: Integer Overflow. Maybe in function: changeRequirement(uint256). PC: 0x928. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+Vulnerability: Integer Overflow. Maybe in function: resetSpentToday(). PC: 0x137c. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Integer Overflow. Maybe in function: resetSpentToday(). PC: 0x1398. Line number: .
+If a = 34396799265723567300338619826663514857069533239785953290296875790754157623998
+and b = 81395289971592628123232365182024392996200452332366757846032111846658978873344
+Vulnerability: Integer Overflow. Maybe in function: removeOwner(address). PC: 0x7df. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+Vulnerability: Integer Underflow. Maybe in function: setDailyLimit(uint256). PC: 0xabe. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+and b = 96
+Vulnerability: Integer Underflow. Maybe in function: changeOwner(address,address). PC: 0x4f0. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+and b = 96
+Vulnerability: Integer Underflow. Maybe in function: resetSpentToday(). PC: 0x108b. Line number: .
+If a = 34049
+and b = 34050
+Vulnerability: Integer Overflow. Maybe in function: kill(address). PC: 0xb65. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+Vulnerability: Integer Overflow. Maybe in function: execute(address,uint256,bytes). PC: 0x2e5. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900
+Vulnerability: Integer Overflow. Maybe in function: removeOwner(address). PC: 0x7d6. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639840
+Vulnerability: Integer Overflow. Maybe in function: addOwner(address). PC: 0x687. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+Vulnerability: Integer Overflow. Maybe in function: changeRequirement(uint256). PC: 0x91f. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639840
+Vulnerability: Integer Underflow. Maybe in function: resetSpentToday(). PC: 0xb03. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+and b = 96
+Vulnerability: Integer Overflow. Maybe in function: changeOwner(address,address). PC: 0x4e5. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639808

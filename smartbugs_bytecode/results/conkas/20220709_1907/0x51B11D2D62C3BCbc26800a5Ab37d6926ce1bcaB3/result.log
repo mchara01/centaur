@@ -1,0 +1,30 @@
+Analysing /data/0x51B11D2D62C3BCbc26800a5Ab37d6926ce1bcaB3.hex...
+Vulnerability: Time Manipulation. Maybe in function: burn(address). PC: 0x23cd. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0xd505accf. PC: 0x1d03. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639904
+and b = 482
+Vulnerability: Integer Overflow. Maybe in function: 0xd505accf. PC: 0x1cc0. Line number: .
+If a = 482
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639904
+Vulnerability: Integer Overflow. Maybe in function: 0xd505accf. PC: 0x1cc7. Line number: .
+If a = 482
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639582
+Vulnerability: Integer Overflow. Maybe in function: 0xd505accf. PC: 0x1c56. Line number: .
+If a = 290
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639712
+Vulnerability: Integer Overflow. Maybe in function: burn(address). PC: 0x20d4. Line number: .
+If a = 68
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639904
+Vulnerability: Time Manipulation. Maybe in function: burn(address). PC: 0x23b2. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: burn(address). PC: 0x23e7. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0xd505accf. PC: 0x1cc4. Line number: .
+If a = 128
+and b = 482
+Vulnerability: Time Manipulation. Maybe in function: 0xd505accf. PC: 0x1b14. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0xd505accf. PC: 0x1c53. Line number: .
+If a = 128
+and b = 352
+Vulnerability: Integer Underflow. Maybe in function: burn(address). PC: 0x23a7. Line number: .
+If a = 37749764
+and b = 62532279031461752023469774063984881568346645173354801804962211515907899916288
+Vulnerability: Time Manipulation. Maybe in function: burn(address). PC: 0x2552. Line number: .

@@ -1,0 +1,13 @@
+Exception in thread "main" java.lang.BootstrapMethodError: call site initialization exception
+	at java.lang.invoke.CallSite.makeSite(CallSite.java:341)
+	at java.lang.invoke.MethodHandleNatives.linkCallSiteImpl(MethodHandleNatives.java:307)
+	at java.lang.invoke.MethodHandleNatives.linkCallSite(MethodHandleNatives.java:297)
+	at ch.securify.Main.checkInstructions(Main.java:453)
+	at ch.securify.Main.checkPatterns(Main.java:392)
+	at ch.securify.Main.processHexFile(Main.java:151)
+	at ch.securify.Main.main(Main.java:201)
+Caused by: java.lang.AbstractMethodError: java.lang.invoke.MethodType.parameterCount()I
+	at java.lang.invoke.InnerClassLambdaMetafactory.buildCallSite(InnerClassLambdaMetafactory.java:195)
+	at java.lang.invoke.LambdaMetafactory.metafactory(LambdaMetafactory.java:304)
+	at java.lang.invoke.CallSite.makeSite(CallSite.java:302)
+	... 6 more

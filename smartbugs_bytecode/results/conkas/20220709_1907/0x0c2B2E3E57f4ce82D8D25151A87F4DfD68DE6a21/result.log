@@ -1,0 +1,3 @@
+Analysing /data/0x0c2B2E3E57f4ce82D8D25151A87F4DfD68DE6a21.hex...
+Vulnerability: Reentrancy. Maybe in function: isOwner(). PC: 0xe08. Line number: .
+Vulnerability: Reentrancy. Maybe in function: approveAndCall(address,uint256). PC: 0x18fb. Line number: .

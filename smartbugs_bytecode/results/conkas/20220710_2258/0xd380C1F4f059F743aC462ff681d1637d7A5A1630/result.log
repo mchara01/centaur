@@ -1,0 +1,3 @@
+Analysing /data/0xd380C1F4f059F743aC462ff681d1637d7A5A1630.hex...
+Vulnerability: Reentrancy. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x1687. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0xc04365a9. PC: 0x145a. Line number: .

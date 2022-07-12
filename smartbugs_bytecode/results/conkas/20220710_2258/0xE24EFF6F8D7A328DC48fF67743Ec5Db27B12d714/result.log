@@ -1,0 +1,5 @@
+Analysing /data/0xE24EFF6F8D7A328DC48fF67743Ec5Db27B12d714.hex...
+Vulnerability: Reentrancy. Maybe in function: 0xff87fc7c. PC: 0x542. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x66206ce9. PC: 0x5ff. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x9d6b5f21. PC: 0x6c9. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x19db099d. PC: 0x3c2. Line number: .

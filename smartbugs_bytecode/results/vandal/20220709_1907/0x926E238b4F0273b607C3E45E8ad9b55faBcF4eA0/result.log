@@ -1,0 +1,20 @@
++++ dirname /vandal/bin/analyze.sh
+++ cd /vandal/bin
+++ pwd
++ DIR=/vandal/bin
++ rm -rf facts-tmp
++ /vandal/bin/decompile -o CALL JUMPI SSTORE SLOAD MLOAD MSTORE -d -n -t facts-tmp /data/0x926E238b4F0273b607C3E45E8ad9b55faBcF4eA0.hex
++ souffle -F facts-tmp /vandal/datalog/demo_analyses.dl
+Warning: Deprecated type declaration used in file types.dl at line 30
+.type Statement
+^---------------
+Warning: Deprecated type declaration used in file types.dl at line 31
+.type Variable
+^--------------
+Warning: Deprecated type declaration used in file types.dl at line 32
+.type Opcode
+^------------
+Warning: Deprecated type declaration used in file types.dl at line 33
+.type Value
+^-----------
++ rm -rf facts-tmp

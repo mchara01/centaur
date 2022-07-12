@@ -1,0 +1,39 @@
+====================================================================================================
+[94m[ ] Check if contract is SUICIDAL[0m
+
+[ ] Contract address   : 0xaFFECAFEAFfECaFEaFFecAfEAFfecAfEAffEcaFE
+[ ] Contract bytecode  : 6080604052600073ffffffffffffffffffffffffffffffffff...
+[ ] Bytecode length    : 324
+[ ] Blockchain contract: False
+[ ] Debug              : False
+
+[ ][1m Search with call depth: 1   : [0m1
+[ ][1m Search with call depth: 2   : [0m1
+[ ][1m Search with call depth: 3   : [0m1
+[92m[-] No suicidal vulnerability found [0m
+
+====================================================================================================
+[94m[ ] Check if contract is PRODIGAL[0m
+
+[ ] Contract address   : 0xaFFECAFEAFfECaFEaFFecAfEAFfecAfEAffEcaFE
+[ ] Contract bytecode  : 6080604052600073ffffffffffffffffffffffffffffffffff...
+[ ] Bytecode length    : 324
+[ ] Blockchain contract: False
+[ ] Debug              : False
+
+[ ][1m Search with call depth: 1   : [0m1
+[ ][1m Search with call depth: 2   : [0m1
+[ ][1m Search with call depth: 3   : [0m1
+[92m[+] No prodigal vulnerability found [0m
+
+====================================================================================================
+[94m[ ] Check if contract is GREEDY[0m
+
+[ ] Contract address   : 0xaFFECAFEAFfECaFEaFFecAfEAFfecAfEAffEcaFE
+[ ] Contract bytecode  : 6080604052600073ffffffffffffffffffffffffffffffffff...
+[ ] Bytecode length    : 324
+[ ] Debug              : False
+[92m[+][0m [1mContract can receive Ether[0m
+
+[ ][1m Search with call depth: 1   : [0m1
+[92m[+] No locking vulnerability found [0m

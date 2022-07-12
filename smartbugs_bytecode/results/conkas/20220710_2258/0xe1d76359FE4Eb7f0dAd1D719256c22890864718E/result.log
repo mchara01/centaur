@@ -1,0 +1,12 @@
+Analysing /data/0xe1d76359FE4Eb7f0dAd1D719256c22890864718E.hex...
+Vulnerability: Time Manipulation. Maybe in function: getReserves(). PC: 0x2f2f. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0xd505accf. PC: 0x25af. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Integer Underflow. Maybe in function: getReserves(). PC: 0x2f1d. Line number: .
+If a = 37749764
+and b = 62532279031461752023469774063984881568346645173354801804962211515907899916288
+Vulnerability: Time Manipulation. Maybe in function: getReserves(). PC: 0x2f4c. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: getReserves(). PC: 0x2f68. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0xd505accf. PC: 0x24cb. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: getReserves(). PC: 0x30cf. Line number: .

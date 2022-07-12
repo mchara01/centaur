@@ -1,0 +1,55 @@
+====================================================================================================
+[94m[ ] Check if contract is SUICIDAL[0m
+
+[ ] Contract address   : 0xaFFECAFEAFfECaFEaFFecAfEAFfecAfEAffEcaFE
+[ ] Contract bytecode  : 60806040526004361061006d576000357c0100000000000000...
+[ ] Bytecode length    : 2930
+[ ] Blockchain contract: False
+[ ] Debug              : False
+
+[92m[-] The code does not contain SUICIDE instructions, hence it is not vulnerable[0m
+
+====================================================================================================
+[94m[ ] Check if contract is PRODIGAL[0m
+
+[ ] Contract address   : 0xaFFECAFEAFfECaFEaFFecAfEAFfecAfEAffEcaFE
+[ ] Contract bytecode  : 60806040526004361061006d576000357c0100000000000000...
+[ ] Bytecode length    : 2930
+[ ] Blockchain contract: False
+[ ] Debug              : False
+
+[ ][1m Search with call depth: 1   : [0m111111
+[ ][1m Search with call depth: 2   : [0m112222221222222122222212222221
+[ ][1m Search with call depth: 3   : [0m112223333332333333233333321222233333322122222333333212222221
+[92m[+] No prodigal vulnerability found [0m
+
+====================================================================================================
+[94m[ ] Check if contract is GREEDY[0m
+
+[ ] Contract address   : 0xaFFECAFEAFfECaFEaFFecAfEAFfecAfEAffEcaFE
+[ ] Contract bytecode  : 60806040526004361061006d576000357c0100000000000000...
+[ ] Bytecode length    : 2930
+[ ] Debug              : False
+[92m[+][0m [1mContract can receive Ether[0m
+
+[ ][1m Search with call depth: 1   : [0m1111Unknown operation  at pos 1ac
+11
+[ ][1m Search with call depth: 2   : [0m112222Unknown operation  at pos 1ac
+2212222Unknown operation  at pos 1ac
+2212222Unknown operation  at pos 1ac
+22Unknown operation  at pos 1ac
+12222Unknown operation  at pos 1ac
+221
+[ ][1m Search with call depth: 3   : [0m112223333Unknown operation  at pos 1ac
+3323333Unknown operation  at pos 1ac
+33Unknown operation  at pos 1ac
+23333Unknown operation  at pos 1ac
+332122223333Unknown operation  at pos 1ac
+33Unknown operation  at pos 1ac
+2212222Unknown operation  at pos 1ac
+23333Unknown operation  at pos 1ac
+332Unknown operation  at pos 1ac
+12222Unknown operation  at pos 1ac
+221
+
+[91m[-] Locking vulnerability found! [0m

@@ -1,0 +1,4 @@
+Analysing /data/0x48fE4cC18015AA7B495DaD31b596fE1F7b2F3e32.hex...
+Vulnerability: Integer Overflow. Maybe in function: burn(uint256). PC: 0x7e1. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935

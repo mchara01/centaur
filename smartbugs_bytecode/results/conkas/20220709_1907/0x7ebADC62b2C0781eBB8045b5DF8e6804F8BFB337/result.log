@@ -1,0 +1,15 @@
+Analysing /data/0x7ebADC62b2C0781eBB8045b5DF8e6804F8BFB337.hex...
+Vulnerability: Reentrancy. Maybe in function: receiveApproval(address,uint256,address,bytes). PC: 0xdfb. Line number: .
+Vulnerability: Reentrancy. Maybe in function: withdrawEther(uint256). PC: 0xb9b. Line number: .
+Vulnerability: Reentrancy. Maybe in function: getReserveBalances(). PC: 0x136a. Line number: .
+Vulnerability: Reentrancy. Maybe in function: withdrawTokens(uint256). PC: 0xa91. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: getReserveBalances(). PC: 0x13be. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Integer Overflow. Maybe in function: receiveApproval(address,uint256,address,bytes). PC: 0xe5a. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Reentrancy. Maybe in function: receiveApproval(address,uint256,address,bytes). PC: 0xee4. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: receiveApproval(address,uint256,address,bytes). PC: 0xf3d. Line number: .
+If a = 63295462747768798344069584974813767559385353377155971378743333440370041683967
+and b = 28948022336198749857369394211417832403888089455458972847864705059595229331456

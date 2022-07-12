@@ -1,0 +1,9 @@
+Analysing /data/0xF2290f3d663a2b98cFA0B703BEffaA72C7BD1952.hex...
+Vulnerability: Integer Overflow. Maybe in function: _dispatch. PC: 0x105d. Line number: .
+If a = 110349606679412691172957834289542550319383271247755660854362242977991410020067
+and b = 5442482557903504250613150719145359283383550566265974830851826201927440400384
+Vulnerability: Integer Overflow. Maybe in function: _dispatch. PC: 0x158c. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Time Manipulation. Maybe in function: _dispatch. PC: 0x158f. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: unlock(). PC: 0x1331. Line number: .
