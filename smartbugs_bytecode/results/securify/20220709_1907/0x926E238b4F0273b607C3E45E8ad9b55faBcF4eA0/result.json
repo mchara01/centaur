@@ -1,0 +1,15 @@
+{
+  "contract": "../data/dataset/eth/0x926E238b4F0273b607C3E45E8ad9b55faBcF4eA0.hex",
+  "tool": "securify",
+  "start": 1657455862.339042,
+  "end": 1657457662.7518048,
+  "exit_code": null,
+  "duration": 1800.4127628803253,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "problem accessing result in results/securify/20220709_1907/0x926E238b4F0273b607C3E45E8ad9b55faBcF4eA0/result.tar",
+    "Docker container timed out"
+  ],
+  "analysis": null
+}

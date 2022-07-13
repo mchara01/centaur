@@ -1,0 +1,26 @@
+{
+  "contract": "../data/dataset/eth/0xf9b017ecDd0E3b83dAA05D965950C8aE07132E53.hex",
+  "tool": "madmax",
+  "start": 1657450615.622276,
+  "end": 1657450616.779661,
+  "exit_code": 0,
+  "duration": 1.1573848724365234,
+  "success": true,
+  "findings": [],
+  "errors": [],
+  "analysis": [
+    [
+      "0xf9b017ecDd0E3b83dAA05D965950C8aE07132E53.hex",
+      [
+        "bytecode"
+      ],
+      [],
+      {
+        "disassemble_time": 0.0067212581634521484,
+        "decomp_time": 0.02595829963684082,
+        "inline_time": 0.09254837036132812,
+        "client_time": 0.026148557662963867
+      }
+    ]
+  ]
+}

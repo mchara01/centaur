@@ -1,0 +1,12 @@
+{
+  "contract": "../data/dataset/bsc/0x619c16C3Ce850241860573Cd49Ff58c8e9a3EF8a.hex",
+  "tool": "conkas",
+  "start": 1657530350.406272,
+  "end": 1657530370.869181,
+  "exit_code": 0,
+  "duration": 20.46290898323059,
+  "success": true,
+  "findings": [],
+  "errors": [],
+  "analysis": []
+}

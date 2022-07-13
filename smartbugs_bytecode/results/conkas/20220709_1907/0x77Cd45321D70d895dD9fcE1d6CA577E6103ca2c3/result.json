@@ -1,0 +1,46 @@
+{
+  "contract": "../data/dataset/eth/0x77Cd45321D70d895dD9fcE1d6CA577E6103ca2c3.hex",
+  "tool": "conkas",
+  "start": 1657410798.415273,
+  "end": 1657411356.796553,
+  "exit_code": 0,
+  "duration": 558.3812799453735,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Unchecked_Low_Level_Call"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "transfer(address,uint256)",
+      "pc": "0xdc0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "init(uint256,uint256,uint256)",
+      "pc": "0xee2",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Unchecked Low Level Call",
+      "maybe_in_function": "0xd6d2b6ba",
+      "pc": "0x12e9",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "init(uint256,uint256,uint256)",
+      "pc": "0xec5",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x109b1ee6",
+      "pc": "0x9d2",
+      "line_number": ""
+    }
+  ]
+}

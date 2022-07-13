@@ -1,0 +1,67 @@
+{
+  "contract": "../data/dataset/eth/0x79101e2Bcc33A6C09E829830B34FAc67F8742D31.hex",
+  "tool": "mythril",
+  "start": 1657394482.44534,
+  "end": 1657394505.9815738,
+  "exit_code": 0,
+  "duration": 23.53623390197754,
+  "success": true,
+  "findings": [
+    "External_Call_To_User_Supplied_Address"
+  ],
+  "errors": [],
+  "analysis": {
+    "error": null,
+    "issues": [
+      {
+        "address": 372,
+        "contract": "MAIN",
+        "description": "A call to a user-supplied address is executed.\nAn external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.",
+        "function": "sendCoin(address,uint256)",
+        "max_gas_used": 36792,
+        "min_gas_used": 1945,
+        "severity": "Low",
+        "sourceMap": 372,
+        "swc-id": "107",
+        "title": "External Call To User-Supplied Address",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x20000000000000000",
+                "code": "60806040526004361061003b576000357c01000000000000000000000000000000000000000000000000000000009004806390b98a1114610040575b600080fd5b34801561004c57600080fd5b506100996004803603604081101561006357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506100af565b6040518082815260200191505060405180910390f35b60008073822d9f6f6d1e0a9785a8dff3083858e2c888f078905060008490508073ffffffffffffffffffffffffffffffffffffffff1663a9059cbb83866040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050600060405180830381600087803b15801561017157600080fd5b505af1158015610185573d6000803e3d6000fd5b505050506001925050509291505056fea165627a7a723058208a08aac5bfdc83f8f2dca87426dd9f7cddfd43c0557ec62e9abe09aad7e871e90029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x90b98a1100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "input": "0x90b98a1100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "name": "sendCoin(address,uint256)",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            },
+            {
+              "address": "0x0",
+              "calldata": "0x90b98a11000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef0000000000000000000000000000000000000000000000000000000000000000",
+              "input": "0x90b98a11000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef0000000000000000000000000000000000000000000000000000000000000000",
+              "name": "sendCoin(address,uint256)",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            }
+          ]
+        }
+      }
+    ],
+    "success": true
+  }
+}

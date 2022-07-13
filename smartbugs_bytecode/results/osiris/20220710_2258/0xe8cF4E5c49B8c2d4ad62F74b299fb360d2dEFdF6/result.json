@@ -1,0 +1,16 @@
+{
+  "contract": "../data/dataset/bsc/0xe8cF4E5c49B8c2d4ad62F74b299fb360d2dEFdF6.hex",
+  "tool": "osiris",
+  "start": 1657626120.414486,
+  "end": 1657626122.1727948,
+  "exit_code": 1,
+  "duration": 1.7583088874816895,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "Traceback (IndexError: pop from empty list)",
+    "analysis incomplete",
+    "instruction error"
+  ],
+  "analysis": []
+}

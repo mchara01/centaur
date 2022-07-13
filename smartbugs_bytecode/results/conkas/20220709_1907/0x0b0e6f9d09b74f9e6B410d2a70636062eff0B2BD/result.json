@@ -1,0 +1,89 @@
+{
+  "contract": "../data/dataset/eth/0x0b0e6f9d09b74f9e6B410d2a70636062eff0B2BD.hex",
+  "tool": "conkas",
+  "start": 1657436802.189695,
+  "end": 1657436807.488693,
+  "exit_code": 0,
+  "duration": 5.298998117446899,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x70",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "flush()",
+      "pc": "0x301",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x67",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "flushTokens(address)",
+      "pc": "0x1e2",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0xe6",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "flushTokens(address)",
+      "pc": "0x270",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x6f",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "flushTokens(address)",
+      "pc": "0x26f",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0xd6",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "flush()",
+      "pc": "0x302",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "flushTokens(address)",
+      "pc": "0x1e1",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x58",
+      "line_number": ""
+    }
+  ]
+}

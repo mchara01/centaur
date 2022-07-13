@@ -1,0 +1,39 @@
+{
+  "contract": "../data/dataset/bsc/0xB794aA7385Abd9e9fEdC047552B9e378801400E9.hex",
+  "tool": "conkas",
+  "start": 1657532358.6726232,
+  "end": 1657532366.832799,
+  "exit_code": 0,
+  "duration": 8.160175800323486,
+  "success": true,
+  "findings": [
+    "Integer_Overflow"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xd1aa9e7e",
+      "pc": "0x403",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xbc2b405c",
+      "pc": "0x3d0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xbc2b405c",
+      "pc": "0x3b0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x732a2ccf",
+      "pc": "0x332",
+      "line_number": ""
+    }
+  ]
+}

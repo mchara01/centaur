@@ -1,0 +1,15 @@
+{
+  "contract": "../data/dataset/eth/0xD1Dbf21DD45Cd7EcC83666355239eDee342a5847.hex",
+  "tool": "oyente",
+  "start": 1657390254.149587,
+  "end": 1657390258.1578722,
+  "exit_code": 137,
+  "duration": 4.008285284042358,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "analysis incomplete",
+    "instruction error"
+  ],
+  "analysis": []
+}

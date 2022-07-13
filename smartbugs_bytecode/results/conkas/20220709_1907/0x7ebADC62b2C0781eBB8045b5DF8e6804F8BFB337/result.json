@@ -1,0 +1,64 @@
+{
+  "contract": "../data/dataset/eth/0x7ebADC62b2C0781eBB8045b5DF8e6804F8BFB337.hex",
+  "tool": "conkas",
+  "start": 1657450743.37449,
+  "end": 1657450767.413526,
+  "exit_code": 0,
+  "duration": 24.03903603553772,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "receiveApproval(address,uint256,address,bytes)",
+      "pc": "0xdfb",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "withdrawEther(uint256)",
+      "pc": "0xb9b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "getReserveBalances()",
+      "pc": "0x136a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "withdrawTokens(uint256)",
+      "pc": "0xa91",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getReserveBalances()",
+      "pc": "0x13be",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "receiveApproval(address,uint256,address,bytes)",
+      "pc": "0xe5a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "receiveApproval(address,uint256,address,bytes)",
+      "pc": "0xee4",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "receiveApproval(address,uint256,address,bytes)",
+      "pc": "0xf3d",
+      "line_number": ""
+    }
+  ]
+}

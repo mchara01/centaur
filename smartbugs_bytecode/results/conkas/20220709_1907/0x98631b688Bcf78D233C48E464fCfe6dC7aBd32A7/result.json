@@ -1,0 +1,90 @@
+{
+  "contract": "../data/dataset/eth/0x98631b688Bcf78D233C48E464fCfe6dC7aBd32A7.hex",
+  "tool": "conkas",
+  "start": 1657430632.89374,
+  "end": 1657430721.755393,
+  "exit_code": 0,
+  "duration": 88.86165308952332,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Reentrancy",
+    "Time_Manipulation",
+    "Unchecked_Low_Level_Call"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "submitTransaction(address,uint256,bytes)",
+      "pc": "0xb9d",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "calcMaxWithdraw()",
+      "pc": "0x27a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getTransactionIds(uint256,uint256,bool,bool)",
+      "pc": "0x4bb",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getOwners()",
+      "pc": "0x41a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getOwners()",
+      "pc": "0x436",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "getConfirmations(uint256)",
+      "pc": "0x95c",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Unchecked Low Level Call",
+      "maybe_in_function": "getConfirmations(uint256)",
+      "pc": "0x95c",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getConfirmations(uint256)",
+      "pc": "0x945",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "submitTransaction(address,uint256,bytes)",
+      "pc": "0xbe2",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getConfirmations(uint256)",
+      "pc": "0x591",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "transactions(uint256)",
+      "pc": "0x8b1",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "calcMaxWithdraw()",
+      "pc": "0x273",
+      "line_number": ""
+    }
+  ]
+}

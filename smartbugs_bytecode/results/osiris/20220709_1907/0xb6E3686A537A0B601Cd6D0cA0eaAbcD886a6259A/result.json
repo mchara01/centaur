@@ -1,0 +1,29 @@
+{
+  "contract": "../data/dataset/eth/0xb6E3686A537A0B601Cd6D0cA0eaAbcD886a6259A.hex",
+  "tool": "osiris",
+  "start": 1657454004.067678,
+  "end": 1657454006.5980868,
+  "exit_code": 0,
+  "duration": 2.5304088592529297,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "instruction error"
+  ],
+  "analysis": [
+    {
+      "EVM code coverage": "16.9%",
+      "Arithmetic bugs": false,
+      "Overflow bugs": false,
+      "Underflow bugs": false,
+      "Division bugs": false,
+      "Modulo bugs": false,
+      "Truncation bugs": false,
+      "Signedness bugs": false,
+      "Callstack bug": false,
+      "Concurrency bug": false,
+      "Timedependency bug": false,
+      "Reentrancy bug": false
+    }
+  ]
+}

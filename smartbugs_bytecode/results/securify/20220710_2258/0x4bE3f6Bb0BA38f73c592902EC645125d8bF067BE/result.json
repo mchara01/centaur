@@ -1,0 +1,15 @@
+{
+  "contract": "../data/dataset/bsc/0x4bE3f6Bb0BA38f73c592902EC645125d8bF067BE.hex",
+  "tool": "securify",
+  "start": 1657514845.759073,
+  "end": 1657516646.303265,
+  "exit_code": null,
+  "duration": 1800.5441920757294,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "problem accessing result in results/securify/20220710_2258/0x4bE3f6Bb0BA38f73c592902EC645125d8bF067BE/result.tar",
+    "Docker container timed out"
+  ],
+  "analysis": null
+}

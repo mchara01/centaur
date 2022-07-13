@@ -1,0 +1,83 @@
+{
+  "contract": "../data/dataset/eth/0x28F5Aee79136a421540A22046E30176075953Bec.hex",
+  "tool": "conkas",
+  "start": 1657458078.6929762,
+  "end": 1657458098.128221,
+  "exit_code": 0,
+  "duration": 19.43524479866028,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Reentrancy",
+    "Time_Manipulation"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0xa4fe8a44",
+      "pc": "0xc58",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xa4fe8a44",
+      "pc": "0xc55",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0xa4fe8a44",
+      "pc": "0xc5b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x29e73df2",
+      "pc": "0x720",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x18669938",
+      "pc": "0x701",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x29e73df2",
+      "pc": "0x582",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x29e73df2",
+      "pc": "0xd7b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x29e73df2",
+      "pc": "0xad4",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "isContract(address)",
+      "pc": "0x934",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x29e73df2",
+      "pc": "0xd07",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x29e73df2",
+      "pc": "0x481",
+      "line_number": ""
+    }
+  ]
+}

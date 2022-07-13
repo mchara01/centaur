@@ -1,0 +1,21 @@
+{
+  "contract": "../data/dataset/eth/0x260898aB064BB768E3c8a8f9a93b0D2394066688.hex",
+  "tool": "conkas",
+  "start": 1657443691.679808,
+  "end": 1657443767.531948,
+  "exit_code": 0,
+  "duration": 75.85214018821716,
+  "success": true,
+  "findings": [
+    "Time_Manipulation"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x825f38f",
+      "pc": "0xacb",
+      "line_number": ""
+    }
+  ]
+}

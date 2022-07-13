@@ -1,0 +1,27 @@
+{
+  "contract": "../data/dataset/bsc/0x862Bfc0ABd56a833dE0572fE828C9c38BB0d21d2.hex",
+  "tool": "maian",
+  "start": 1657553437.645969,
+  "end": 1657553444.599097,
+  "exit_code": 0,
+  "duration": 6.953128099441528,
+  "success": true,
+  "findings": [
+    "No_Ether_leak_no_send",
+    "No_Ether_lock_Ether_refused",
+    "Not_destructible_no_self_destruct"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "file": "",
+      "contract": "",
+      "findings": [
+        "No Ether leak (no send)",
+        "No Ether lock (Ether refused)",
+        "Not destructible (no self-destruct)"
+      ],
+      "errors": []
+    }
+  ]
+}

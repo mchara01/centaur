@@ -1,0 +1,26 @@
+{
+  "contract": "../data/dataset/bsc/0xf9EEBabde4d4f3c52282d28AF397f1084b8cC1b5.hex",
+  "tool": "madmax",
+  "start": 1657634730.3065379,
+  "end": 1657634731.534626,
+  "exit_code": 0,
+  "duration": 1.228088140487671,
+  "success": true,
+  "findings": [],
+  "errors": [],
+  "analysis": [
+    [
+      "0xf9EEBabde4d4f3c52282d28AF397f1084b8cC1b5.hex",
+      [
+        "bytecode"
+      ],
+      [],
+      {
+        "disassemble_time": 0.04389333724975586,
+        "decomp_time": 0.03011035919189453,
+        "inline_time": 0.09556174278259277,
+        "client_time": 0.02296924591064453
+      }
+    ]
+  ]
+}

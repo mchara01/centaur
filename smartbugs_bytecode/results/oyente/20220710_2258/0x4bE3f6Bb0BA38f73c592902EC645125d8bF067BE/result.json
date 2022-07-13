@@ -1,0 +1,20 @@
+{
+  "contract": "../data/dataset/bsc/0x4bE3f6Bb0BA38f73c592902EC645125d8bF067BE.hex",
+  "tool": "oyente",
+  "start": 1657514827.393108,
+  "end": 1657514832.357784,
+  "exit_code": 0,
+  "duration": 4.964676141738892,
+  "success": true,
+  "findings": [],
+  "errors": [],
+  "analysis": [
+    {
+      "EVM Code Coverage": "0.6%",
+      "Callstack Depth Attack Vulnerability": false,
+      "Transaction-Ordering Dependence (TOD)": false,
+      "Timestamp Dependency": false,
+      "Re-Entrancy Vulnerability": false
+    }
+  ]
+}

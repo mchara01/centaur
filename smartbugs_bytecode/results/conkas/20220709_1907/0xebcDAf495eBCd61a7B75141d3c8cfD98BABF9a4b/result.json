@@ -1,0 +1,21 @@
+{
+  "contract": "../data/dataset/eth/0xebcDAf495eBCd61a7B75141d3c8cfD98BABF9a4b.hex",
+  "tool": "conkas",
+  "start": 1657424504.227715,
+  "end": 1657424509.100432,
+  "exit_code": 0,
+  "duration": 4.872716903686523,
+  "success": true,
+  "findings": [
+    "Integer_Overflow"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "upgradeToAndCall(address,bytes)",
+      "pc": "0x180",
+      "line_number": ""
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "contract": "../data/dataset/bsc/0x8E2Ed39Bd12979ae5010dA32C79dC4aDEeBC8a49.hex",
+  "tool": "conkas",
+  "start": 1657558437.5040262,
+  "end": 1657558446.5628438,
+  "exit_code": 0,
+  "duration": 9.058817625045776,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0xe7f1af9d",
+      "pc": "0x75c",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0xa23dd828",
+      "pc": "0x548",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x19e",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x193",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x225",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0xb243bf23",
+      "pc": "0x8ed",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x1f158bae",
+      "pc": "0x672",
+      "line_number": ""
+    }
+  ]
+}

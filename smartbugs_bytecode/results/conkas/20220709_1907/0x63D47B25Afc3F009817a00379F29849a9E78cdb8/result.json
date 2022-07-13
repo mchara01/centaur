@@ -1,0 +1,53 @@
+{
+  "contract": "../data/dataset/eth/0x63D47B25Afc3F009817a00379F29849a9E78cdb8.hex",
+  "tool": "conkas",
+  "start": 1657421168.582473,
+  "end": 1657421172.832625,
+  "exit_code": 0,
+  "duration": 4.250151872634888,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0xb4",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "execute(address,uint256,bytes)",
+      "pc": "0x1b2",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "execute(address,uint256,bytes)",
+      "pc": "0x337",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "execute(address,uint256,bytes)",
+      "pc": "0x1b8",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "execute(address,uint256,bytes)",
+      "pc": "0x328",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "execute(address,uint256,bytes)",
+      "pc": "0x33c",
+      "line_number": ""
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "contract": "../data/dataset/bsc/0x55151b5Bd4BC1A83833f1eb02cAfb8E6D7B1CA70.hex",
+  "tool": "vandal",
+  "start": 1657521582.4655628,
+  "end": 1657521584.200105,
+  "exit_code": 1,
+  "duration": 1.7345421314239502,
+  "success": true,
+  "findings": [],
+  "errors": [],
+  "analysis": []
+}

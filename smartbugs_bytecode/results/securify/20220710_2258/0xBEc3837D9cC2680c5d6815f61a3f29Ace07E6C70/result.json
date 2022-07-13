@@ -1,0 +1,18 @@
+{
+  "contract": "../data/dataset/bsc/0xBEc3837D9cC2680c5d6815f61a3f29Ace07E6C70.hex",
+  "tool": "securify",
+  "start": 1657604885.890126,
+  "end": 1657606686.374719,
+  "exit_code": null,
+  "duration": 1800.4845929145813,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "Docker container timed out"
+  ],
+  "analysis": {
+    "../data/dataset/bsc/0xBEc3837D9cC2680c5d6815f61a3f29Ace07E6C70.hex:0xBEc3837D9cC2680c5d6815f61a3f29Ace07E6C70": {
+      "results": {}
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "contract": "../data/dataset/bsc/0xF15D00036D29F04aA6F3AbE44a97BA1060e11cad.hex",
+  "tool": "maian",
+  "start": 1657534497.882248,
+  "end": 1657534506.280865,
+  "exit_code": 0,
+  "duration": 8.398617029190063,
+  "success": false,
+  "findings": [
+    "Accepts_Ether",
+    "Ether_lock",
+    "Not_destructible_no_self_destruct"
+  ],
+  "errors": [
+    "Unknown operation"
+  ],
+  "analysis": [
+    {
+      "file": "",
+      "contract": "",
+      "findings": [
+        "Accepts Ether",
+        "Ether lock",
+        "Not destructible (no self-destruct)"
+      ],
+      "errors": [
+        "Unknown operation"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "contract": "../data/dataset/bsc/0x247F3Ae8b5135F4Fb3d6785c36cD95083cDd6779.hex",
+  "tool": "vandal",
+  "start": 1657598520.251395,
+  "end": 1657598787.433415,
+  "exit_code": 0,
+  "duration": 267.18201994895935,
+  "success": true,
+  "findings": [
+    "ReentrantCall",
+    "UncheckedCall"
+  ],
+  "errors": [],
+  "analysis": [
+    "ReentrantCall",
+    "UncheckedCall"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "contract": "../data/dataset/bsc/0x706937dC141231168Be1694d5ea9dCD04739Bb41.hex",
+  "tool": "conkas",
+  "start": 1657636904.0922859,
+  "end": 1657636930.4555058,
+  "exit_code": 0,
+  "duration": 26.36321997642517,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Time_Manipulation"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x22c0d9f",
+      "pc": "0x1c70",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x177e",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x22c0d9f",
+      "pc": "0x1c97",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x1728",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x1777",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x22c0d9f",
+      "pc": "0x1c84",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x22c0d9f",
+      "pc": "0x1d64",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x22c0d9f",
+      "pc": "0x1a4e",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x172b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x1637",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0x22c0d9f",
+      "pc": "0x1c65",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x179c",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x177b",
+      "line_number": ""
+    }
+  ]
+}

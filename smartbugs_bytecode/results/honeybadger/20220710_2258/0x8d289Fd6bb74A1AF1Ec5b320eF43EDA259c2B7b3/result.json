@@ -1,0 +1,14 @@
+{
+  "contract": "../data/dataset/bsc/0x8d289Fd6bb74A1AF1Ec5b320eF43EDA259c2B7b3.hex",
+  "tool": "honeybadger",
+  "start": 1657523291.123714,
+  "end": 1657523420.544897,
+  "exit_code": 137,
+  "duration": 129.42118310928345,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "analysis incomplete"
+  ],
+  "analysis": []
+}

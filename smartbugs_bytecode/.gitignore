@@ -1,22 +1,22 @@
 #Ignore results
-results/conkas/*
-results/oyente/*
-results/honeybadger/*
-results/osiris/*
-results/maian/*
-results/manticore/*
-results/mythril/*
-results/securify/*
-results/smartcheck/*
-results/slither/*
-results/solhint/*
-results/logs/*
-results/pakala/*
-results/vandal/*
-results/easyflow/*
-results/madmax/*
-results/teether/*
-results/ethbmc/*
+#results/conkas/*
+#results/oyente/*
+#results/honeybadger/*
+#results/osiris/*
+#results/maian/*
+#results/manticore/*
+#results/mythril/*
+#results/securify/*
+#results/smartcheck/*
+#results/slither/*
+#results/solhint/*
+#results/logs/*
+#results/pakala/*
+#results/vandal/*
+#results/easyflow/*
+#results/madmax/*
+#results/teether/*
+#results/ethbmc/*
 
 #Keep folders
 !results/conkas/.keep
@@ -54,4 +54,4 @@ dataset/solidiFI
 #Ignore PyCharm files
 venv/
 .idea/
-results/*.*
+#results/*.*

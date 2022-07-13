@@ -1,0 +1,14 @@
+{
+  "contract": "../data/dataset/eth/0x24b8Af26b5d1F8B61f828f6897dB84C7f4e64BE7.hex",
+  "tool": "conkas",
+  "start": 1657394608.972194,
+  "end": 1657394618.0592132,
+  "exit_code": 0,
+  "duration": 9.087019205093384,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "Traceback (KeyError: <SSABasicBlock offset:0x2888 num_insns:1 in: [0x287c] insns:[)"
+  ],
+  "analysis": []
+}

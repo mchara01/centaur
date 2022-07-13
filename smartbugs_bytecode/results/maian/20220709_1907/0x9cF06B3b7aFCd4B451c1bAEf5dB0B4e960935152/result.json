@@ -1,0 +1,25 @@
+{
+  "contract": "../data/dataset/eth/0x9cF06B3b7aFCd4B451c1bAEf5dB0B4e960935152.hex",
+  "tool": "maian",
+  "start": 1657436785.4389398,
+  "end": 1657436792.6698802,
+  "exit_code": 0,
+  "duration": 7.230940341949463,
+  "success": true,
+  "findings": [
+    "Accepts_Ether",
+    "Not_destructible_no_self_destruct"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "file": "",
+      "contract": "",
+      "findings": [
+        "Accepts Ether",
+        "Not destructible (no self-destruct)"
+      ],
+      "errors": []
+    }
+  ]
+}

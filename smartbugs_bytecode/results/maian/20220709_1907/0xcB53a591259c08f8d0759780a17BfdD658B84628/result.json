@@ -1,0 +1,23 @@
+{
+  "contract": "../data/dataset/eth/0xcB53a591259c08f8d0759780a17BfdD658B84628.hex",
+  "tool": "maian",
+  "start": 1657435070.060456,
+  "end": 1657435079.101102,
+  "exit_code": 0,
+  "duration": 9.040646076202393,
+  "success": true,
+  "findings": [
+    "Accepts_Ether"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "file": "",
+      "contract": "",
+      "findings": [
+        "Accepts Ether"
+      ],
+      "errors": []
+    }
+  ]
+}

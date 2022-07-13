@@ -1,0 +1,16 @@
+{
+  "contract": "../data/dataset/bsc/0x48fE4cC18015AA7B495DaD31b596fE1F7b2F3e32.hex",
+  "tool": "osiris",
+  "start": 1657573837.532949,
+  "end": 1657575637.989917,
+  "exit_code": null,
+  "duration": 1800.4569680690765,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "analysis incomplete",
+    "timeout",
+    "Docker container timed out"
+  ],
+  "analysis": []
+}

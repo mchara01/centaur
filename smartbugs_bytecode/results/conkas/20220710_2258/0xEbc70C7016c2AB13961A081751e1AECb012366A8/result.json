@@ -1,0 +1,14 @@
+{
+  "contract": "../data/dataset/bsc/0xEbc70C7016c2AB13961A081751e1AECb012366A8.hex",
+  "tool": "conkas",
+  "start": 1657492634.192675,
+  "end": 1657492656.234953,
+  "exit_code": 0,
+  "duration": 22.042277812957764,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "Traceback (RecursionError: maximum recursion depth exceeded while calling a Python object)"
+  ],
+  "analysis": []
+}

@@ -1,0 +1,27 @@
+{
+  "contract": "../data/dataset/bsc/0x9ef2462c56Cd105652995c6e137Db9FAa129d1b5.hex",
+  "tool": "honeybadger",
+  "start": 1657498780.709961,
+  "end": 1657498783.539197,
+  "exit_code": 0,
+  "duration": 2.8292360305786133,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "instruction error"
+  ],
+  "analysis": [
+    {
+      "EVM code coverage": "0.4%",
+      "Money flow": false,
+      "Balance disorder": false,
+      "Hidden transfer": false,
+      "Inheritance disorder": false,
+      "Uninitialised struct": false,
+      "Type overflow": false,
+      "Skip empty string": false,
+      "Hidden state update": false,
+      "Straw man contract": false
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "contract": "../data/dataset/bsc/0xBD0b49eE08f751f25f20D59189F9B10C12dcEdC0.hex",
+  "tool": "conkas",
+  "start": 1657532043.657411,
+  "end": 1657532265.3164911,
+  "exit_code": 0,
+  "duration": 221.65908002853394,
+  "success": true,
+  "findings": [
+    "Time_Manipulation"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x16f462a6",
+      "pc": "0xfd",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x16f462a6",
+      "pc": "0x68a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x16f462a6",
+      "pc": "0x8c0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x16f462a6",
+      "pc": "0x8a9",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x16f462a6",
+      "pc": "0x86a",
+      "line_number": ""
+    }
+  ]
+}

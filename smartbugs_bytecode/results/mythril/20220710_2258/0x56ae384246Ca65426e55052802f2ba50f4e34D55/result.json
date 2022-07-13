@@ -1,0 +1,16 @@
+{
+  "contract": "../data/dataset/bsc/0x56ae384246Ca65426e55052802f2ba50f4e34D55.hex",
+  "tool": "mythril",
+  "start": 1657502036.1828291,
+  "end": 1657502594.282393,
+  "exit_code": 0,
+  "duration": 558.0995638370514,
+  "success": true,
+  "findings": [],
+  "errors": [],
+  "analysis": {
+    "error": null,
+    "issues": [],
+    "success": true
+  }
+}

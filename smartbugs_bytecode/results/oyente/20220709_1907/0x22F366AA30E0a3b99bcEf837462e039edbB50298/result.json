@@ -1,0 +1,15 @@
+{
+  "contract": "../data/dataset/eth/0x22F366AA30E0a3b99bcEf837462e039edbB50298.hex",
+  "tool": "oyente",
+  "start": 1657458316.978882,
+  "end": 1657458319.182444,
+  "exit_code": 1,
+  "duration": 2.203562021255493,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "Traceback (ValueError: STACK underflow)",
+    "analysis incomplete"
+  ],
+  "analysis": []
+}

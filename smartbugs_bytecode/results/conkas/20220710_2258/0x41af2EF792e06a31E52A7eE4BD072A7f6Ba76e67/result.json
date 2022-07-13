@@ -1,0 +1,46 @@
+{
+  "contract": "../data/dataset/bsc/0x41af2EF792e06a31E52A7eE4BD072A7f6Ba76e67.hex",
+  "tool": "conkas",
+  "start": 1657631824.322499,
+  "end": 1657631880.431448,
+  "exit_code": 0,
+  "duration": 56.108948945999146,
+  "success": true,
+  "findings": [
+    "Reentrancy",
+    "Unchecked_Low_Level_Call"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Unchecked Low Level Call",
+      "maybe_in_function": "0x584d733e",
+      "pc": "0x7e0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x57246884",
+      "pc": "0x527",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x584d733e",
+      "pc": "0x7e0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0xb90e0bf6",
+      "pc": "0xb11",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x900551a8",
+      "pc": "0x922",
+      "line_number": ""
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "contract": "../data/dataset/bsc/0x90131d694380702177D9f4EaabD10046E15E22f8.hex",
+  "tool": "conkas",
+  "start": 1657494943.049581,
+  "end": 1657495335.561892,
+  "exit_code": 0,
+  "duration": 392.5123109817505,
+  "success": true,
+  "findings": [
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0xc04365a9",
+      "pc": "0x145a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x1687",
+      "line_number": ""
+    }
+  ]
+}
