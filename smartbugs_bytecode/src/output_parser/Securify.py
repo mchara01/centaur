@@ -1,12 +1,16 @@
 if __name__ == '__main__':
     import sys
+
     sys.path.append("../..")
 
-
-import numpy,json,os,tarfile
+import json
+import numpy
+import os
+import tarfile
 from sarif_om import Tool, ToolComponent, Run, MultiformatMessageString
-from src.output_parser.Parser import Parser
-from src.output_parser.SarifHolder import parseLogicalLocation, parseArtifact, \
+
+from smartbugs_bytecode.src.output_parser.Parser import Parser
+from smartbugs_bytecode.src.output_parser.SarifHolder import parseLogicalLocation, parseArtifact, \
     parseRule, parseResult, isNotDuplicateLogicalLocation
 
 
@@ -61,8 +65,9 @@ class Securify(Parser):
                     for level, lines in analysisResult.items():
                         if hasattr(lines, "__len__"):
                             for lineNumber in lines:
-                                result = parseResult(tool="securify", vulnerability=vuln, level=level, uri=file_path_in_repo,
-                                                    line=lineNumber)
+                                result = parseResult(tool="securify", vulnerability=vuln, level=level,
+                                                     uri=file_path_in_repo,
+                                                     line=lineNumber)
                                 resultsList.append(result)
 
         artifact = parseArtifact(uri=file_path_in_repo)
@@ -73,7 +78,7 @@ class Securify(Parser):
                                              text="Securify uses formal verification, also relying on static analysis checks. Securify’s analysis consists of two steps. First, it symbolically analyzes the contract’s dependency graph to extract precise semantic information from the code. Then, it checks compliance and violation patterns that capture sufficient conditions for proving if a property holds or not.")))
 
         run = Run(tool=tool, artifacts=[
-                  artifact], logical_locations=logicalLocationsList, results=resultsList)
+            artifact], logical_locations=logicalLocationsList, results=resultsList)
 
         return run
 
@@ -114,5 +119,5 @@ class Securify(Parser):
 
 if __name__ == '__main__':
     import Parser
-    Parser.main(Securify)
 
+    Parser.main(Securify)

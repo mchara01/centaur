@@ -24,7 +24,6 @@ for filename in os.listdir(FULL_PATH):
             result = json.load(f)
             total_time += result['duration']
             if 'analysis' in result and len(result['analysis']) > 0:
-                print(result['analysis'])
                 if result['analysis'][0]['Callstack Depth Attack Vulnerability']:
                     callstack_dept_attack += 1
                 if result['analysis'][0]['Transaction-Ordering Dependence (TOD)']:
