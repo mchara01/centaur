@@ -1,7 +1,9 @@
 import os, yaml
-from src.logger import logs
+from smartbugs_bytecode.src.logger import logs
 
 TOOLS_CFG_PATH = os.path.join(os.path.dirname(__file__), '..', 'config', 'tools')
+print(TOOLS_CFG_PATH)
+exit()
 TOOLS = {}
 for f in os.listdir(TOOLS_CFG_PATH):
     tool_name,ext = os.path.splitext(f)
