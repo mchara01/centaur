@@ -1,6 +1,6 @@
 .idea
 .DS_Store
-go.sum
+go-src/go.sum
 dbtest.go
 *.json
 

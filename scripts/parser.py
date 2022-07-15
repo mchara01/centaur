@@ -1,3 +1,8 @@
+"""
+The main parsing file that calls the result parser of all analysis tools.
+Every tool has a class named after itself, and it is imported here to use the
+parse() method.
+"""
 import argparse
 
 from result_parsing.conkas import Conkas
@@ -12,7 +17,16 @@ from tools import TOOLS
 
 
 def parse_results(tool_name, tool_directory):
-    if tool_name == "conkas":
+    if tool_name == "all":
+        Conkas(tool_directory).parse()
+        Honeybadger(tool_directory).parse()
+        Maian(tool_directory).parse()
+        Mythril(tool_directory).parse()
+        Osiris(tool_directory).parse()
+        Oyente(tool_directory).parse()
+        Securify(tool_directory).parse()
+        Vandal(tool_directory).parse()
+    elif tool_name == "conkas":
         Conkas(tool_directory).parse()
     elif tool_name == "honeybadger":
         Honeybadger(tool_directory).parse()
@@ -42,7 +56,7 @@ def get_args():
                       help="Choice of tool to parse its results.")
     args.add_argument('-d',
                       "--directory",
-                      help="Location where the result.json files reside.")
+                      help="Location where the result.json files reside (should be in the form of date e.g. 20220709_1907)")
     return args.parse_args()
 
 
