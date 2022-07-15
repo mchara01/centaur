@@ -10,9 +10,19 @@
 </a>
 
 A study on two EVM-based blockchains, namely Ethereum (ETH) and BSC (BNB) to explore their 
-states vulnerability wise using smart contract automated analysis tools for EVM bytecode. 
+states vulnerability-wise using smart contract automated analysis tools for EVM bytecode. 
 
-## Prerequisites
+# Table of contents
+1. [Prerequisites](#prerequisites)
+2. [Installation](#installation)
+3. [Step-by-Step Analysis Procedure](#procedure)
+   1. [Database Creation](#database)
+   2. [Data Collection](#data-collection)
+4. [Running the SmartBugs Framework](#smartbugs)
+5. [Parsing the Analysis Tools Results](#parsing)
+6. [Analysis Tools](#analysis-tools)
+
+## Prerequisites <a name="prerequisites"></a>
 
 Before you begin, ensure you have met the following requirements:
 
@@ -23,16 +33,16 @@ Before you begin, ensure you have met the following requirements:
 * You have installed [Docker](https://docs.docker.com/get-docker/)
 * You are using a UNIX-like OS
 
-## Installation
+## Installation <a name="installation"></a>
 
 Once all the above prerequisites are met, you can clone this repository with: <br>
 `git clone https://github.com/mchara01/thesis_test.git`
 
-## Step-by-Step Analysis Procedure
+## Step-by-Step Analysis Procedure <a name="procedure"></a>
 
 The following are the steps required to replicate the process of analysing the EVM bytecode of smart contracts.
 
-### Database Creation
+### Database Creation <a name="database"></a>
 
 * Prepare the local MariaDB database running over a Docker container;
   * Create the files *db_password.txt* and *db_root_password.txt* containing the passwords for a normal user 
@@ -43,7 +53,7 @@ and root respectively.
 with: <br>
 `docker exec -it <CONTAINER_ID> mysql -u root -p'<ROOT_PASSWORD>' -P 3306 -h 127.0.0.1 < scripts/database/schema.sql`
 
-### Data Collection
+### Data Collection <a name="data-collection"></a>
 
 * Perform random sampling on the blocks of the desired EVM chain (ETH, BNB). Block numbers
 generated are stored in a file for the crawler to read from. Sampling size and output location are
@@ -71,8 +81,8 @@ the database, execute the following command: (***mysqldump*** needs to be instal
 `bash scripts/database/backup/db_backup.sh`
 
 
-* Extract the bytecodes from the database and write them in files on the file system. The bytecodes
-that are selected pass one of the following conditions:
+* Extract the bytecodes from the database and write them in files on the file system. The smart contracts of the
+respective bytecodes that are selected must pass one of the following conditions:
   * a balance > 0 **or** 
   * number of transactions > 0 **or** 
   * number of token transfers > 0 <br>
@@ -81,7 +91,7 @@ that are selected pass one of the following conditions:
 `python scripts/bytecodeToFileCreator.py --chain eth`
 
 
-### Running the SmartBugs Framework
+### Running the SmartBugs Framework <a name="smartbugs"></a>
 
 After finishing successfully with the above steps, we have everything we need ready to run the [SmartBugs](https://github.com/smartbugs/smartbugs) framework and execute
 the EVM bytecode analysis tools on the EVM bytecodes we have written on the local file system. We can do this using: <br>
@@ -92,7 +102,7 @@ from the corpus of contracts you will provide to it. Thus, this particular step 
 to complete (in our case it took approximately three days for _334_ contracts). We recommend 
 using a tool such as [tmux](https://github.com/tmux/tmux/wiki) that enable keeping a session alive for long periods of time even when logging out of the machine running the framework.
 
-### Parsing the Analysis Tools Results
+### Parsing the Analysis Tools Results <a name="parsing"></a>
 
 Once SmartBugs has finished, a _result.json_ is created for every contract at the 
 ***smartbugs_bytecode/results/<TOOL_NAME>*** directory. To parse these results, we use
@@ -104,7 +114,7 @@ You can replace the `<TOOL_OF_CHOICE>` placeholder with ***all*** if you want to
 tool and print their results on the screen.
 The amount of time taken to process all contracts by every tool can be found on the last line of `results/logs/SmartBugs_<DATE>.log`
 
-## Analysis Tools
+## Analysis Tools <a name="analysis-tools"></a>
 We have gathered information about plenty of smart contract security analysis tools but only
  a subset of these can be included in our study as we want these tools to fulfil some criteria.
 More specifically, we wanted tools that work on EVM bytecode (not source code only) and 
