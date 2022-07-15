@@ -1,4 +1,13 @@
 # An EVM-based Chain Vulnerability Analysis
+<a href="https://github.com/mchara01/thesis_test#analysis-tools-used">
+        <img alt="Analysis Tools" src="https://img.shields.io/badge/Analysis Tools-8-blue">
+</a>
+<a href="https://github.com/mchara01/thesis_test/tree/main/data/dataset/eth">
+        <img alt="ETH Smart Contracts" src="https://img.shields.io/badge/ETH Smart Contracts-123-blue">
+</a>
+<a href="https://github.com/mchara01/thesis_test/tree/main/data/dataset/bsc">
+        <img alt="BSC Smart Contracts" src="https://img.shields.io/badge/BSC Smart Contracts-111-blue">
+</a>
 
 A study on two EVM-based blockchains, namely Ethereum (ETH) and BSC (BNB) to explore their 
 states vulnerability wise using smart contract automated analysis tools for EVM bytecode. 
@@ -95,7 +104,7 @@ You can replace the `<TOOL_OF_CHOICE>` placeholder with ***all*** if you want to
 tool and print their results on the screen.
 The amount of time taken to process all contracts by every tool can be found on the last line of `results/logs/SmartBugs_<DATE>.log`
 
-## Analysis Tools Used
+## Analysis Tools
 We have gathered information about plenty of smart contract security analysis tools but only
  a subset of these can be included in our study as we want these tools to fulfil some criteria.
 More specifically, we wanted tools that work on EVM bytecode (not source code only) and 
