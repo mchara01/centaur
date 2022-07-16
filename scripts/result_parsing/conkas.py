@@ -2,6 +2,8 @@ import datetime
 import json
 import os
 
+from scripts.colours import ColoredText
+
 
 class Conkas:
 
@@ -19,7 +21,7 @@ class Conkas:
         reentrancy_vulnerability = 0
 
         print()
-        print('*' * 30)
+        print(ColoredText.info('*' * 30))
         print("Tool: Conkas")
 
         for filename in os.listdir(self.full_path):
@@ -44,10 +46,13 @@ class Conkas:
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
         print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
-        print(f"Arithmetic: {arithmetic}")
-        print(f"Unchecked Low Level Call: {unchecked_low_level_calls}")
-        print(f"Transaction-Ordering Dependence (TOD): {tod}")
-        print(f"Time Manipulation: {time_manipulation}")
-        print(f"Re-Entrancy Vulnerability: {reentrancy_vulnerability}")
-        print("*" * 30)
+        print()
+        print("DASP10\tVulnerability: #")
+        print("="*24)
+        print(f"1\tRe-Entrancy Vulnerability: {reentrancy_vulnerability}")
+        print(f"3\tArithmetic: {arithmetic}")
+        print(f"4\tUnchecked Low Level Call: {unchecked_low_level_calls}")
+        print(f"7\tTransaction-Ordering Dependence (TOD): {tod}")
+        print(f"8\tTime Manipulation: {time_manipulation}")
+        print(ColoredText.info('*' * 30))
         print()

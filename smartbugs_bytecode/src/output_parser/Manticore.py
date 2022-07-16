@@ -1,22 +1,19 @@
-if __name__ == '__main__':
-    import sys
-    sys.path.append("../..")
-
-
 import os,re,tarfile
+import src.output_parser.Parser as Parser
 from sarif_om import Tool, ToolComponent, Run, MultiformatMessageString
-from src.output_parser.Parser import Parser, python_errors
 from src.output_parser.SarifHolder import isNotDuplicateRule, parseArtifact, parseRule, parseResult
 
 
-class Manticore(Parser):
+class Manticore(Parser.Parser):
+    NAME = "manticore"
+    VERSION = "2022/07/03"
 
     def __init__(self, task: 'Execution_Task', output: str):
         super().__init__(task, output)
-        if output is None or not output:
+        if not output:
             self._errors.add('output missing')
             return
-        self._errors.update(python_errors(output))
+        self._errors.update(Parser.exceptions(output))
         if 'Invalid solc compilation' in output:
             self._errors.add('solc error')
         result_tar = os.path.join(self._task.result_output_path(), 'result.tar')
@@ -81,9 +78,3 @@ class Manticore(Parser):
         run = Run(tool=tool, artifacts=[artifact], results=resultsList)
 
         return run
-
-
-if __name__ == '__main__':
-    import Parser
-    Parser.main(Manticore)
-

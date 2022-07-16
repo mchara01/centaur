@@ -9,8 +9,8 @@ import os
 import tarfile
 from sarif_om import Tool, ToolComponent, Run, MultiformatMessageString
 
-from smartbugs_bytecode.src.output_parser.Parser import Parser
-from smartbugs_bytecode.src.output_parser.SarifHolder import parseLogicalLocation, parseArtifact, \
+from src.output_parser.Parser import Parser
+from src.output_parser.SarifHolder import parseLogicalLocation, parseArtifact, \
     parseRule, parseResult, isNotDuplicateLogicalLocation
 
 

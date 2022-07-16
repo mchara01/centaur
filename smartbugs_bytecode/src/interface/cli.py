@@ -6,7 +6,7 @@ from time import localtime, strftime
 import yaml
 from src.execution.execution_configuration import Execution_Configuration
 from src.logger import logs
-from smartbugs_bytecode.src.tools import TOOLS
+from src.tools import TOOLS
 from src.utils import COLSTATUS, COLRESET
 
 CONFIG_DATASET_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'config', 'dataset', 'dataset.yaml')
