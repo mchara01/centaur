@@ -80,7 +80,11 @@ An API key must be provided for this script to work: <br>
 
 * At this point, the database is populated with all the required data. If you wish to perform a backup of
 the database, execute the following command: (***mysqldump*** needs to be installed first )<br>
-`bash scripts/database/backup/db_backup.sh`
+`bash scripts/database/backup/db_backup.sh` <br>
+ If you need restore the backup use: <br>
+`bash scripts/database/backup/db_restore.sh` <br>
+ Before using the above two scripts, make sure first you change the ***DB_BACKUP_PATH***
+variable to match the locations on your local file system.
 
 
 * Extract the bytecodes from the database and write them in files on the file system. The smart contracts of the
