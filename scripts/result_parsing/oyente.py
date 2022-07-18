@@ -2,6 +2,10 @@ import datetime
 import json
 import os
 
+import yaml
+
+from scripts.colours import ColoredText
+
 
 class Oyente:
 
@@ -18,8 +22,21 @@ class Oyente:
         reentrancy_vulnerability = 0
 
         print()
-        print('*' * 30)
-        print("Tool: Oyente")
+        print(f"Report for {self.directory}")
+        print(ColoredText.info('*' * 30))
+
+        print("Tool")
+        print("====")
+        print("Name: Oyente")
+
+        # Print information about tool from SmartBugs configurations
+        try:
+            with open("../smartbugs_bytecode/config/tools/oyente.yaml", "r") as stream:
+                print(f"Information: {(yaml.safe_load(stream))['info']}")
+        except Exception:
+            print("Information: N/A")
+
+        print()
 
         for filename in os.listdir(self.full_path):
             total_contracts += 1
@@ -37,12 +54,20 @@ class Oyente:
                         if result['analysis'][0]['Re-Entrancy Vulnerability']:
                             reentrancy_vulnerability += 1
 
+        print("Smart Contract Bytecodes")
+        print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
         print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
-        print(f"Callstack Depth Attack Vulnerability: {callstack_dept_attack}")
-        print(f"Transaction-Ordering Dependence (TOD): {tod}")
-        print(f"Timestamp Dependency: {timestamp_dependency}")
-        print(f"Re-Entrancy Vulnerability: {reentrancy_vulnerability}")
-        print("*" * 30)
+
+        print()
+
+        print("DASP10\tVulnerability: #")
+        print("="*24)
+        print(f"5\tCallstack Depth Attack Vulnerability: {callstack_dept_attack}")
+        print(f"7\tTransaction-Ordering Dependence (TOD): {tod}")
+        print(f"8\tTimestamp Dependency: {timestamp_dependency}")
+        print(f"1\tRe-Entrancy Vulnerability: {reentrancy_vulnerability}")
+
+        print(ColoredText.info('*' * 30))
         print()
