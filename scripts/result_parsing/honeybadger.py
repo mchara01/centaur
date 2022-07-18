@@ -1,6 +1,9 @@
 import datetime
 import json
 import os
+import yaml
+
+from scripts.colours import ColoredText
 
 
 class Honeybadger:
@@ -8,7 +11,7 @@ class Honeybadger:
     def __init__(self, tool_directory):
         self.directory = tool_directory
         self.full_path = "../smartbugs_bytecode/results/honeybadger/" + self.directory
-    
+
     def parse(self):
         total_contracts = 0
         total_time = 0
@@ -23,8 +26,20 @@ class Honeybadger:
         straw_man_contract = 0
 
         print()
-        print('*' * 30)
-        print("Tool: HoneyBadger")
+        print(f"Report for {self.directory}")
+        print(ColoredText.info('*' * 30))
+
+        print("Tool")
+        print("====")
+        print("Name: HoneyBadger")
+        # Print information about tool from SmartBugs configurations
+        try:
+            with open("../smartbugs_bytecode/config/tools/honeybadger.yaml", "r") as stream:
+                print(f"Information: {(yaml.safe_load(stream))['info']}")
+        except Exception:
+            print("Information: N/A")
+
+        print()
 
         for filename in os.listdir(self.full_path):
             total_contracts += 1
@@ -52,9 +67,16 @@ class Honeybadger:
                         if result['analysis'][0]["Straw man contract"]:
                             straw_man_contract += 1
 
+        print("Smart Contract Bytecodes")
+        print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
         print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
+
+        print()
+
+        print("Vulnerabilities")
+        print("===============")
         print(f"Money flow: {money_flow}")
         print(f"Balance disorder: {balance_disorder}")
         print(f"Hidden transfer: {hidden_transfer}")
@@ -65,5 +87,5 @@ class Honeybadger:
         print(f"Hidden state update: {hidden_state_update}")
         print(f"Straw man contract: {straw_man_contract}")
 
-        print("*" * 30)
+        print(ColoredText.info('*' * 30))
         print()

@@ -2,6 +2,10 @@ import datetime
 import json
 import os
 
+import yaml
+
+from scripts.colours import ColoredText
+
 
 class Maian:
 
@@ -17,8 +21,21 @@ class Maian:
         suicidal = 0
 
         print()
-        print('*' * 30)
+        print(f"Report for {self.directory}")
+        print(ColoredText.info('*' * 30))
+
+        print("Tool")
+        print("====")
         print("Tool: Maian")
+
+        # Print information about tool from SmartBugs configurations
+        try:
+            with open("../smartbugs_bytecode/config/tools/maian.yaml", "r") as stream:
+                print(f"Information: {(yaml.safe_load(stream))['info']}")
+        except Exception:
+            print("Information: N/A")
+
+        print()
 
         for filename in os.listdir(self.full_path):
             total_contracts += 1
@@ -38,11 +55,19 @@ class Maian:
                                 result['analysis'][0]['findings']:
                             suicidal += 1
 
+        print("Smart Contract Bytecodes")
+        print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
         print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
-        print(f"Greedy: {greedy}")
-        print(f"Prodigal: {prodigal}")
-        print(f"Suicidal: {suicidal}")
-        print("*" * 30)
+
+        print()
+
+        print("DASP10\tVulnerability: #")
+        print("="*24)
+        print(f"10\tGreedy: {greedy}")
+        print(f"10\tProdigal: {prodigal}")
+        print(f"2\tSuicidal: {suicidal}")
+
+        print(ColoredText.info('*' * 30))
         print()

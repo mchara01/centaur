@@ -1,6 +1,7 @@
 import datetime
 import json
 import os
+import yaml
 
 from scripts.colours import ColoredText
 
@@ -21,8 +22,20 @@ class Conkas:
         reentrancy_vulnerability = 0
 
         print()
+        print(f"Report for {self.directory}")
         print(ColoredText.info('*' * 30))
-        print("Tool: Conkas")
+
+        print("Tool")
+        print("====")
+        print("Name: Conkas")
+        # Print information about tool from SmartBugs configurations
+        try:
+            with open("../smartbugs_bytecode/config/tools/conkas.yaml", "r") as stream:
+                print(f"Information: {(yaml.safe_load(stream))['info']}")
+        except Exception:
+            print("Information: N/A")
+
+        print()
 
         for filename in os.listdir(self.full_path):
             total_contracts += 1
@@ -43,10 +56,14 @@ class Conkas:
                             if vulnerability_dict['vuln_type'] == 'Time Manipulation':
                                 time_manipulation += 1
 
+        print("Smart Contract Bytecodes")
+        print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
         print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
+
         print()
+
         print("DASP10\tVulnerability: #")
         print("="*24)
         print(f"1\tRe-Entrancy Vulnerability: {reentrancy_vulnerability}")
@@ -54,5 +71,6 @@ class Conkas:
         print(f"4\tUnchecked Low Level Call: {unchecked_low_level_calls}")
         print(f"7\tTransaction-Ordering Dependence (TOD): {tod}")
         print(f"8\tTime Manipulation: {time_manipulation}")
+
         print(ColoredText.info('*' * 30))
         print()
