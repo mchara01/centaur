@@ -2,6 +2,10 @@ import datetime
 import json
 import os
 
+import yaml
+
+from scripts.colours import ColoredText
+
 
 class Osiris:
 
@@ -25,8 +29,21 @@ class Osiris:
         reentrancy = 0
 
         print()
-        print('*' * 30)
-        print("Tool: Osiris")
+        print(f"Report for {self.directory}")
+        print(ColoredText.info('*' * 30))
+
+        print("Tool")
+        print("====")
+        print("Name: Osiris")
+
+        # Print information about tool from SmartBugs configurations
+        try:
+            with open("../smartbugs_bytecode/config/tools/osiris.yaml", "r") as stream:
+                print(f"Information: {(yaml.safe_load(stream))['info']}")
+        except Exception:
+            print("Information: N/A")
+
+        print()
 
         for filename in os.listdir(self.full_path):
             total_contracts += 1
@@ -58,19 +75,27 @@ class Osiris:
                         if result['analysis'][0]['Reentrancy bug']:
                             reentrancy += 1
 
+        print("Smart Contract Bytecodes")
+        print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
         print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
-        print(f"Arithmetic bugs: {arithmetic}")
-        print(f"Overflow bugs: {overflow}")
-        print(f"Underflow bugs: {underflow}")
-        print(f"Division bugs: {division}")
-        print(f"Modulo bugs: {modulo}")
-        print(f"Truncation bugs: {truncation}")
-        print(f"Signedness bugs: {signedness}")
-        print(f"Callstack bug: {callstack}")
-        print(f"Concurrency bug: {concurrency}")
-        print(f"Timedependency bug: {timedependency}")
-        print(f"Reentrancy bug: {reentrancy}")
-        print("*" * 30)
+
+        print()
+
+        print("DASP10\tVulnerability: #")
+        print("="*24)
+        print(f"3\tArithmetic bugs: {arithmetic}")
+        print(f"3\tOverflow bugs: {overflow}")
+        print(f"3\tUnderflow bugs: {underflow}")
+        print(f"3\tDivision bugs: {division}")
+        print(f"3\tModulo bugs: {modulo}")
+        print(f"3\tTruncation bugs: {truncation}")
+        print(f"3\tSignedness bugs: {signedness}")
+        print(f"3\tCallstack bug: {callstack}")
+        print(f"7\tConcurrency bug: {concurrency}")
+        print(f"8\tTimedependency bug: {timedependency}")
+        print(f"1\tReentrancy bug: {reentrancy}")
+
+        print(ColoredText.info('*' * 30))
         print()

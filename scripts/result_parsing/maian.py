@@ -26,7 +26,7 @@ class Maian:
 
         print("Tool")
         print("====")
-        print("Tool: Maian")
+        print("Name: Maian")
 
         # Print information about tool from SmartBugs configurations
         try:
