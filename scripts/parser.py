@@ -7,6 +7,7 @@ import argparse
 
 from result_parsing.conkas import Conkas
 from result_parsing.honeybadger import Honeybadger
+from result_parsing.madmax import Madmax
 from result_parsing.maian import Maian
 from result_parsing.mythril import Mythril
 from result_parsing.osiris import Osiris
@@ -20,6 +21,7 @@ def parse_results(tool_name, tool_directory):
     if tool_name == "all":
         Conkas(tool_directory).parse()
         Honeybadger(tool_directory).parse()
+        Madmax(tool_directory).parse()
         Maian(tool_directory).parse()
         Mythril(tool_directory).parse()
         Osiris(tool_directory).parse()
@@ -30,6 +32,8 @@ def parse_results(tool_name, tool_directory):
         Conkas(tool_directory).parse()
     elif tool_name == "honeybadger":
         Honeybadger(tool_directory).parse()
+    elif tool_name == "madmax":
+        Madmax(tool_directory).parse()
     elif tool_name == "maian":
         Maian(tool_directory).parse()
     elif tool_name == "mythril":

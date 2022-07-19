@@ -8,6 +8,9 @@
 <a href="https://github.com/mchara01/thesis_test/tree/main/data/dataset/bsc">
         <img alt="BSC Smart Contracts" src="https://img.shields.io/badge/BSC Smart Contracts-111-green">
 </a>
+<a href="https://github.com/mchara01/thesis_test/">
+        <img alt="Repository Size" src="https://img.shields.io/github/repo-size/mchara01/thesis_test">
+</a>
 
 A study on two EVM-based blockchains, namely Ethereum (ETH) and BSC (BNB) to explore their 
 states vulnerability-wise using smart contract automated analysis tools for EVM bytecode. The
@@ -131,10 +134,11 @@ that pass these requirements along with their open-source repository and paper l
 |-----|--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1   | [Conkas](https://github.com/nveloso/conkas)                  | [link](https://fenix.tecnico.ulisboa.pt/downloadFile/1689244997262417/94080-Nuno-Veloso_resumo.pdf)                                                                                                    |
 | 2   | [HoneyBadger](https://github.com/christoftorres/HoneyBadger) | [link](https://www.usenix.org/system/files/sec19-torres.pdf)                                                                                                                                           |
-| 3   | [Maian](https://github.com/MAIAN-tool/MAIAN)                 | [link](https://arxiv.org/pdf/1802.06038.pdf)                                                                                                                                                           |
-| 4   | [Mythril](https://github.com/ConsenSys/mythril-classic)      | [link](https://conference.hitb.org/hitbsecconf2018ams/materials/WHITEPAPERS/WHITEPAPER%20-%20Bernhard%20Mueller%20-%20Smashing%20Ethereum%20Smart%20Contracts%20for%20Fun%20and%20ACTUAL%20Profit.pdf) |
-| 5   | [Osiris](https://github.com/christoftorres/Osiris)           | [link](https://orbilu.uni.lu/bitstream/10993/36757/1/osiris.pdf)                                                                                                                                       |
-| 6   | [Oyente](https://github.com/melonproject/oyente)             | [link](https://eprint.iacr.org/2016/633.pdf)                                                                                                                                                           |
-| 7   | [Securify](https://github.com/eth-sri/securify2)             | [link](https://arxiv.org/pdf/1806.01143.pdf)                                                                                                                                                           |
-| 8   | [Vandal](https://github.com/usyd-blockchain/vandal)          | [link](https://arxiv.org/pdf/1809.03981.pdf)                                                                                                                                                           |
+| 3   | [MadMax](https://github.com/nevillegrech/MadMax)             | [link](https://dl.acm.org/doi/pdf/10.1145/3276486)                                                                                                                                                     |
+| 4   | [Maian](https://github.com/MAIAN-tool/MAIAN)                 | [link](https://arxiv.org/pdf/1802.06038.pdf)                                                                                                                                                           |
+| 5   | [Mythril](https://github.com/ConsenSys/mythril-classic)      | [link](https://conference.hitb.org/hitbsecconf2018ams/materials/WHITEPAPERS/WHITEPAPER%20-%20Bernhard%20Mueller%20-%20Smashing%20Ethereum%20Smart%20Contracts%20for%20Fun%20and%20ACTUAL%20Profit.pdf) |
+| 6   | [Osiris](https://github.com/christoftorres/Osiris)           | [link](https://orbilu.uni.lu/bitstream/10993/36757/1/osiris.pdf)                                                                                                                                       |
+| 7   | [Oyente](https://github.com/melonproject/oyente)             | [link](https://eprint.iacr.org/2016/633.pdf)                                                                                                                                                           |
+| 8   | [Securify](https://github.com/eth-sri/securify2)             | [link](https://arxiv.org/pdf/1806.01143.pdf)                                                                                                                                                           |
+| 9   | [Vandal](https://github.com/usyd-blockchain/vandal)          | [link](https://arxiv.org/pdf/1809.03981.pdf)                                                                                                                                                           |
 
