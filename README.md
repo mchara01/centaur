@@ -26,6 +26,8 @@ smart contract bytecodes using multiple analysis tools.
 4. [Running the SmartBugs Framework](#smartbugs)
 5. [Parsing the Analysis Tools Results](#parsing)
 6. [Analysis Tools](#analysis-tools)
+7. [Vulnerability Taxonomy](#taxonomy)
+8. [License](#license)
 
 ## Prerequisites <a name="prerequisites"></a>
 
@@ -142,3 +144,14 @@ that pass these requirements along with their open-source repository and paper l
 | 8   | [Securify](https://github.com/eth-sri/securify2)             | [link](https://arxiv.org/pdf/1806.01143.pdf)                                                                                                                                                           |
 | 9   | [Vandal](https://github.com/usyd-blockchain/vandal)          | [link](https://arxiv.org/pdf/1809.03981.pdf)                                                                                                                                                           |
 
+## Vulnerability Taxonomy <a name="taxonomy"></a>
+For categorising the vulnerabilities found by the smart contract analysis tools, we used the [DAPS10](https://dasp.co/) 
+taxonomy. The taxonomy is constituted by the most popular vulnerabilities currently in smart contracts.
+Categories _Bad Randomness_ (6) and _Short Address Attack_ (9) are not discovered by any of the tools that where 
+used in this study and category _Unknown Unknowns_ (10) includes any vulnerabilities that do not
+fall in any other category.
+
+## License <a name="license"></a>
+This project is licensed under the terms of the MIT license, which can be found at the `LICENSE` file. 
+This license applies to the whole codebase except for the SmartBugs framework and .hex and .sol files found
+in the data directory, which are publicly available and retain their original licenses.
