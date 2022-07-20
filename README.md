@@ -145,7 +145,7 @@ that pass these requirements along with their open-source repository and paper l
 | 9   | [Vandal](https://github.com/usyd-blockchain/vandal)          | [link](https://arxiv.org/pdf/1809.03981.pdf)                                                                                                                                                           |
 
 ## Vulnerability Taxonomy <a name="taxonomy"></a>
-For categorising the vulnerabilities found by the smart contract analysis tools, we used the [DAPS10](https://dasp.co/) 
+For categorising the vulnerabilities found by the smart contract analysis tools, we used the [DASP10](https://dasp.co/) 
 taxonomy. The taxonomy is constituted by the most popular vulnerabilities currently in smart contracts.
 Categories _Bad Randomness_ (6) and _Short Address Attack_ (9) are not discovered by any of the tools that where 
 used in this study and category _Unknown Unknowns_ (10) includes any vulnerabilities that do not
