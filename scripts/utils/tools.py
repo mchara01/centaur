@@ -4,7 +4,7 @@ and stores them in TOOLS list to be used by other scripts.
 """
 import os
 
-tools_path = os.path.join(os.path.dirname(__file__), 'result_parsing')
+tools_path = os.path.join(os.path.dirname(__file__), '../result_parsing')
 
 TOOLS = list()
 TOOLS.append("all")

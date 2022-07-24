@@ -3,7 +3,7 @@ import json
 import os
 import yaml
 
-from scripts.colours import ColoredText
+from scripts.utils.colours import ColoredText
 
 
 class Conkas:
