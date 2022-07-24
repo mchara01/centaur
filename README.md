@@ -65,7 +65,7 @@ with: <br>
 * Perform random sampling on the blocks of the desired EVM chain (ETH, BNB). Block numbers
 generated are stored in a file for the crawler to read from. Sampling size and output location are
 passed as arguments: <br>
-`python scripts/blockNumberGenerator.py --size 1000 --chain eth --output blockNumbersEth.txt`
+`python scripts/utils/blockNumberGenerator.py --size 1000 --chain eth --output blockNumbersEth.txt`
 
 
 * Run the blockchain crawling script that connects to the Ethereum and BSC archive nodes 
@@ -80,7 +80,7 @@ To check only the connection to the archive node and the local database execute:
   
 * Crawl Etherscan or BscScan to gather any other missing data for given smart contract addresses.
 An API key must be provided for this script to work: <br>
-`python scripts/mainCrawl.py --chain eth --apikey <ENTER_API_KEY_HERE> --output data/logs/results_eth.json --invalid data/logs/exceptions_eth.json`
+`python scripts/crawl/mainCrawl.py --chain eth --apikey <ENTER_API_KEY_HERE> --output data/logs/results_eth.json --invalid data/logs/exceptions_eth.json`
 
 
 * At this point, the database is populated with all the required data. If you wish to perform a backup of
@@ -98,15 +98,15 @@ respective bytecodes that are selected must pass one of the following conditions
   * number of transactions > 0 **or** 
   * number of token transfers > 0 <br>
 
-  Execute the script to do this with: <br>
-`python scripts/bytecodeToFileCreator.py --chain eth`
+  Execute the script that does this with: <br>
+`python scripts/utils/bytecodeToFileCreator.py --chain eth`
 
 
 ### Running the SmartBugs Framework <a name="smartbugs"></a>
 
 After finishing successfully with the above steps, we have everything we need ready to run the [SmartBugs](https://github.com/smartbugs/smartbugs) framework and execute
 the EVM bytecode analysis tools on the EVM bytecodes we have written on the local file system. We can do this using: <br>
-`python smartBugs.py --tool all --dataset ` <br>
+`python smartbugs_bytecode/smartBugs.py --tool all --dataset eth_bc --bytecode` <br>
 
 **Note**: Bear in mind that SmartBugs will execute 9 tools on every single contract
 from the corpus of contracts you will provide to it. Thus, this particular step may take a significant amount of time 
@@ -121,7 +121,7 @@ Once SmartBugs has finished, a _result.json_ is created for every contract at th
 point to execute every tool result parsers that reside in the ***scripts/result_parsing*** directory.
 To parse a tool's results use: <br>
 `python3 parser.py -t <TOOL_OF_CHOICE> -d <RESULT_DIRECTORY>` <br>
-You can replace the `<TOOL_OF_CHOICE>` placeholder with ***all*** if you want to parse the results of every
+You can replace the `<TOOL_OF_CHOICE>` placeholder with `all` if you want to parse the results of every
 tool and print their results on the screen.
 The amount of time taken to process all contracts by every tool can be found on the last line of `results/logs/SmartBugs_<DATE>.log`
 
