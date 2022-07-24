@@ -27,6 +27,9 @@ figlet "Centaur"
 echo "************************************"
 echo ""
 
+START=$(date +%s.%N)
+
+
 printf "%sDatabase Creation%s\n" "$CYAN" "$ENDCOLOR"
 printf "=================\n"
 
@@ -85,3 +88,7 @@ echo ""
 printf "%sParsing the Analysis Tools Results%s\n" "$CYAN" "$ENDCOLOR"
 printf "==================================\n"
 python3 parser.py -t all -d $RESULTS_DIRECTORY
+
+END=$(date +%s.%N)
+DIFF=$(echo "$END - $START" | bc)
+echo "Time taken: " "$DIFF"
