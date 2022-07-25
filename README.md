@@ -122,7 +122,11 @@ respective bytecodes that are selected must pass one of the following conditions
 
 After finishing successfully with the above steps, we have everything we need ready to run the [SmartBugs](https://github.com/smartbugs/smartbugs) framework and execute
 the EVM bytecode analysis tools on the EVM bytecodes we have written on the local file system. We can do this using: <br>
-`python smartbugs_bytecode/smartBugs.py --tool all --dataset eth_bc --bytecode` <br>
+```bash
+python smartbugs_bytecode/smartBugs.py --tool all --dataset eth_bc --bytecode
+```
+
+Please check the official repository of SmartBugs for more details on how to run the framework.
 
 **Note**: Bear in mind that SmartBugs will execute 9 tools on every single contract
 from the corpus of contracts you will provide to it. Thus, this particular step may take a significant amount of time 
