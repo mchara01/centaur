@@ -12,12 +12,11 @@
         <img alt="Repository Size" src="https://img.shields.io/github/repo-size/mchara01/thesis_test">
 </a>
 
-A study on two EVM-based blockchains, namely Ethereum (ETH) and BSC (BNB) to explore their 
-states vulnerability-wise using smart contract automated analysis tools for EVM bytecode. Our codebase 
-artifact
-is encapsulated into the _**Centaur**_ framework. The
+A study on two EVM-based blockchains, namely Ethereum (ETH) and BSC (BNB). It explores their 
+vulnerability using smart contract automated analysis tools for EVM bytecode. Our codebase 
+artifact is encapsulated into the _**Centaur**_ framework. The
 framework also uses [SmartBugs](https://github.com/smartbugs/smartbugs) for analysing the dataset of
-smart contract bytecodes using multiple analysis tools and it is easy to extend to support other
+smart contract bytecodes using multiple analysis tools and it is easy to extend it to support other
 EVM chains.
 
 ## Table of contents
@@ -54,7 +53,7 @@ Option 1: Once all the above prerequisites are met, you can clone this repositor
 git clone https://github.com/mchara01/thesis_test.git
 ```
 
-Option 2: Use our Docker image
+Option 2: Use our Docker image <a name="option2"></a>
 ```bash
 docker pull mchara01/centaur
 ```
@@ -137,10 +136,25 @@ Once SmartBugs has finished, a _result.json_ is created for every contract at th
 **parser.py** file in the ***scripts*** directory. This file is used as the main
 point to execute every tool result parsers that reside in the ***scripts/result_parsing*** directory.
 To parse a tool's results use: <br>
-`python3 parser.py -t <TOOL_OF_CHOICE> -d <RESULT_DIRECTORY>` <br>
+`python3 scripts/parser.py -t <TOOL_OF_CHOICE> -d <RESULT_DIRECTORY>` <br>
 You can replace the `<TOOL_OF_CHOICE>` placeholder with `all` if you want to parse the results of every
 tool and print their results on the screen.
 The amount of time taken to process all contracts by every tool can be found on the last line of `results/logs/SmartBugs_<DATE>.log`
+
+## Centaur Usage
+As an effort making the above [Step-by-Step Procedure](#procedure) easier, we created the Centaur framework which
+executes all the above steps automatically, printing relevant messages. The easiest way to run Centaur is
+to run it with Docker. To do this, we must first make sure we have the respective image either by pulling it
+(see [Option 2](#option2)) or by building it with:
+```bash
+docker build --no-cache -t centaur:1.0 -f Dockerfile .
+```
+Then, we can run the _Centaur_ script with:
+```bash
+docker run centaur ./run_tool.sh <API_KEY>
+```
+Before running the above command, make sure you have added the desired values for the constants
+in the _**CONSTANTS DECLARATION**_ section.
 
 ## Analysis Tools <a name="analysis-tools"></a>
 We have gathered information about plenty of smart contract security analysis tools but only

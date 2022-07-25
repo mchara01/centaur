@@ -22,7 +22,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Install golang dependencies
-COPY go-src/go.mod ./
+COPY go.mod ./
 RUN go mod download && go mod verify
 
 # Copy codebase into Centaur directory

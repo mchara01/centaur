@@ -1,14 +1,19 @@
 #!/bin/sh
 
-################################################################
-################## CONSTANTS DECLARATION  ######################
-
 # Colour constant declaration
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
 YELLOW=$(tput setaf 3)
 CYAN=$(tput setaf 6)
 ENDCOLOR=$(tput sgr0)
+
+if [ "$#" -ne 1 ]; then
+    printf "%sIllegal number of parameters. Please pass an API_KEY.%s\n" "$RED" "$ENDCOLOR" >&2
+    exit 2
+fi
+
+################################################################
+################## CONSTANTS DECLARATION  ######################
 
 # Constant declaration
 SAMPLE_SIZE=1000
@@ -67,15 +72,24 @@ printf "%s[+] Generating random sample of block numbers...%s\n" "$GREEN" "$ENDCO
 python scripts/utils/blockNumberGenerator.py --size $SAMPLE_SIZE --chain $CHAIN --output $OUTPUT_FILE_NAME
 printf "%sDone%s -> You can find the sample at: data/block_samples/<timestamp>/%s \n" "$GREEN" "$ENDCOLOR" "$OUTPUT_FILE_NAME"
 
+echo ""
 printf "%s[+] Checking the connection to the archive node...%s\n" "$GREEN" "$ENDCOLOR"
+go mod tidy
 go run go-src/*.go --client $CHAIN --check
+if [ $? != 0 ]; then
+  printf "%s[-] Error connecting to archive node\nExiting...%s\n" "$RED" "$ENDCOLOR"
+  exit
+fi
 
+echo ""
 printf "%s[+] Collecting data from the archive node...%s\n" "$GREEN" "$ENDCOLOR"
 go run go-src/*.go --client $CHAIN --input $TIMESTAMP_DIR --tracer
 
+echo ""
 printf "%s[+] Crawling blockchain explorer to gather extra data for the collected smart contract addresses...%s\n" "$GREEN" "$ENDCOLOR"
 python scripts/crawl/mainCrawl.py --chain $CHAIN --apikey "$API_KEY" --output $CRAWL_OUTPUT --invalid $CRAWL_INVALID
 
+echo ""
 printf "%s[+] Extract the bytecodes from the database and write them in files on the file system...%s\n" "$GREEN" "$ENDCOLOR"
 python scripts/utils/bytecodeToFileCreator.py --chain eth
 
