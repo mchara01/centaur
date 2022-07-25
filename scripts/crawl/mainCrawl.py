@@ -7,7 +7,7 @@ passed to the appropriate script.
 The two crawling scripts are imported as modules. An API key must be provided
 and an errors and results file is optional.
 
-Example usage: python scripts/mainCrawl.py --chain eth --apikey <ENTER_API_KEY_HERE> --output data/logs/results_eth.json
+Example usage: python scripts/crawl/mainCrawl.py --chain eth --apikey <ENTER_API_KEY_HERE> --output data/logs/results_eth.json
  --invalid data/logs/exceptions_eth.json
 """
 

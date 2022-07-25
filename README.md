@@ -13,9 +13,12 @@
 </a>
 
 A study on two EVM-based blockchains, namely Ethereum (ETH) and BSC (BNB) to explore their 
-states vulnerability-wise using smart contract automated analysis tools for EVM bytecode. The
-framework uses [SmartBugs](https://github.com/smartbugs/smartbugs) for analysing the dataset of
-smart contract bytecodes using multiple analysis tools.
+states vulnerability-wise using smart contract automated analysis tools for EVM bytecode. Our codebase 
+artifact
+is encapsulated into the _**Centaur**_ framework. The
+framework also uses [SmartBugs](https://github.com/smartbugs/smartbugs) for analysing the dataset of
+smart contract bytecodes using multiple analysis tools and it is easy to extend to support other
+EVM chains.
 
 ## Table of contents
 1. [Prerequisites](#prerequisites)
@@ -41,13 +44,27 @@ Before you begin, ensure you have met the following requirements:
 * You are using a UNIX-like OS
 
 ## Installation <a name="installation"></a>
+> Note: We recommend using _Centaur_ via its Docker image (Option 2) as it encapsulates
+all the required dependencies and allows running the framework without needing to install
+anything on your system.
 
-Once all the above prerequisites are met, you can clone this repository with: <br>
-`git clone https://github.com/mchara01/thesis_test.git`
+
+Option 1: Once all the above prerequisites are met, you can clone this repository with:
+```bash
+git clone https://github.com/mchara01/thesis_test.git
+```
+
+Option 2: Use our Docker image
+```bash
+docker pull mchara01/centaur
+```
+
+Once installed, the `Centaur` CLI framework will be available for usage.
+
 
 ## Step-by-Step Analysis Procedure <a name="procedure"></a>
 
-The following are the steps required to replicate the process of analysing the EVM bytecode of smart contracts.
+The following sections constituted the steps required to replicate the process of analysing the EVM bytecode of smart contracts.
 
 ### Database Creation <a name="database"></a>
 
