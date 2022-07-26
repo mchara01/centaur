@@ -27,9 +27,10 @@ EVM chains.
    2. [Data Collection](#data-collection)
 4. [Running the SmartBugs Framework](#smartbugs)
 5. [Parsing the Analysis Tools Results](#parsing)
-6. [Analysis Tools](#analysis-tools)
-7. [Vulnerability Taxonomy](#taxonomy)
-8. [License](#license)
+6. [Centaur Usage](#usage)
+7. [Analysis Tools](#analysis-tools)
+8. [Vulnerability Taxonomy](#taxonomy)
+9. [License](#license)
 
 ## Prerequisites <a name="prerequisites"></a>
 
@@ -146,10 +147,10 @@ You can replace the `<TOOL_OF_CHOICE>` placeholder with `all` if you want to par
 tool and print their results on the screen.
 The amount of time taken to process all contracts by every tool can be found on the last line of `results/logs/SmartBugs_<DATE>.log`
 
-## Centaur Usage
+## Centaur Usage <a name="usage"></a>
 As an effort making the above [Step-by-Step Procedure](#procedure) easier, we created the Centaur framework which
 executes all the above steps automatically, printing relevant messages. The easiest way to run Centaur is
-to run it with Docker. To do this, we must first make sure we have the respective image either by pulling it
+with Docker. To do this, we must first make sure we have the respective image either by pulling it
 (see [Option 2](#option2)) or by building it with:
 ```bash
 docker build --no-cache -t centaur:1.0 -f Dockerfile .
@@ -159,7 +160,7 @@ Then, we can run the _Centaur_ script with:
 docker run centaur ./run_tool.sh <API_KEY>
 ```
 Before running the above command, make sure you have added the desired values for the constants
-in the _**CONSTANTS DECLARATION**_ section.
+in the _**CONSTANTS DECLARATION**_ section in the _run_tool.sh_ script.
 
 ## Analysis Tools <a name="analysis-tools"></a>
 We have gathered information about plenty of smart contract security analysis tools but only

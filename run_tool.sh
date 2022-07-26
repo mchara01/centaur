@@ -39,8 +39,6 @@ printf "%sDatabase Creation%s\n" "$CYAN" "$ENDCOLOR"
 printf "=================\n"
 
 printf "%s[+] Deploying a MariaDB database instance with name db_blockchain...%s\n" "$GREEN" "$ENDCOLOR"
-
-
 # Check if container is not running or has exited
 if [ ! "$(docker ps -q -f name=db_blockchain)" ]; then
     if [ "$(docker ps -aq -f status=exited -f name=db_blockchain)" ]; then
