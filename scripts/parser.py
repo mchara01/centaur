@@ -14,7 +14,7 @@ from result_parsing.osiris import Osiris
 from result_parsing.oyente import Oyente
 from result_parsing.securify import Securify
 from result_parsing.vandal import Vandal
-from scripts.utils.tools import TOOLS
+from utils.tools import TOOLS
 
 
 def parse_results(tool_name, tool_directory):

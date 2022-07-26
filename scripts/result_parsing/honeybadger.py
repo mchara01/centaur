@@ -3,14 +3,14 @@ import json
 import os
 import yaml
 
-from scripts.utils.colours import ColoredText
+from utils.colours import ColoredText
 
 
 class Honeybadger:
 
     def __init__(self, tool_directory):
         self.directory = tool_directory
-        self.full_path = "../smartbugs_bytecode/results/honeybadger/" + self.directory
+        self.full_path = "smartbugs_bytecode/results/honeybadger/" + self.directory
 
     def parse(self):
         total_contracts = 0
@@ -34,7 +34,7 @@ class Honeybadger:
         print("Name: HoneyBadger")
         # Print information about tool from SmartBugs configurations
         try:
-            with open("../smartbugs_bytecode/config/tools/honeybadger.yaml", "r") as stream:
+            with open("smartbugs_bytecode/config/tools/honeybadger.yaml", "r") as stream:
                 print(f"Information: {(yaml.safe_load(stream))['info']}")
         except Exception:
             print("Information: N/A")

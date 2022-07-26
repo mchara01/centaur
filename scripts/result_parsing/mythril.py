@@ -4,14 +4,14 @@ import os
 
 import yaml
 
-from scripts.utils.colours import ColoredText
+from utils.colours import ColoredText
 
 
 class Mythril:
 
     def __init__(self, tool_directory):
         self.directory = tool_directory
-        self.full_path = "../smartbugs_bytecode/results/mythril/" + self.directory
+        self.full_path = "smartbugs_bytecode/results/mythril/" + self.directory
 
     def parse(self):
         total_contracts = 0
@@ -28,7 +28,7 @@ class Mythril:
 
         # Print information about tool from SmartBugs configurations
         try:
-            with open("../smartbugs_bytecode/config/tools/mythril.yaml", "r") as stream:
+            with open("smartbugs_bytecode/config/tools/mythril.yaml", "r") as stream:
                 print(f"Information: {(yaml.safe_load(stream))['info']}")
         except Exception:
             print("Information: N/A")

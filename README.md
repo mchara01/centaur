@@ -19,7 +19,7 @@ framework also uses [SmartBugs](https://github.com/smartbugs/smartbugs) for anal
 smart contract bytecodes using multiple analysis tools and it is easy to extend it to support other
 EVM chains.
 
-## Table of contents
+## Table of Contents
 1. [Prerequisites](#prerequisites)
 2. [Installation](#installation)
 3. [Step-by-Step Analysis Procedure](#procedure)
@@ -148,7 +148,7 @@ tool and print their results on the screen.
 The amount of time taken to process all contracts by every tool can be found on the last line of `results/logs/SmartBugs_<DATE>.log`
 
 ## Centaur Usage <a name="usage"></a>
-As an effort making the above [Step-by-Step Procedure](#procedure) easier, we created the Centaur framework which
+As an attempt to make the above [Step-by-Step Procedure](#procedure) easier, we created the Centaur framework which
 executes all the above steps automatically, printing relevant messages. The easiest way to run Centaur is
 with Docker. To do this, we must first make sure we have the respective image either by pulling it
 (see [Option 2](#option2)) or by building it with:
