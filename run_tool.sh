@@ -48,10 +48,11 @@ if [ ! "$(docker ps -q -f name=db_blockchain)" ]; then
 
     # Deploy container
     if docker-compose -f build/database/docker-compose.yaml up -d ; then
-        printf "Successfully deployed!\n"
+      sleep 10 # DB needs some time to deploy
+      printf "Successfully deployed!\n"
     else
-        printf "%s[-] Failure to Deploy Database%s\n" "$RED" "$ENDCOLOR"
-        printf "%s[-] Exiting...%s\n" "$RED" "$ENDCOLOR"
+      printf "%s[-] Failure to Deploy Database%s\n" "$RED" "$ENDCOLOR"
+      printf "%s[-] Exiting...%s\n" "$RED" "$ENDCOLOR"
     fi
 else
   printf "%sWarning:%s db_blockchain database is already running!\n" "$YELLOW" "$ENDCOLOR"
@@ -75,7 +76,7 @@ printf "%sData Collection%s\n" "$CYAN" "$ENDCOLOR"
 printf "===============\n"
 
 printf "%s[+] Generating random sample of block numbers...%s\n" "$GREEN" "$ENDCOLOR"
-python scripts/utils/blockNumberGenerator.py --size $SAMPLE_SIZE --chain $CHAIN --output $OUTPUT_FILE_NAME
+python3 scripts/utils/blockNumberGenerator.py --size $SAMPLE_SIZE --chain $CHAIN --output $OUTPUT_FILE_NAME
 printf "%sDone%s -> You can find the %s block sample at: data/block_samples/<latest_timestamp>/%s \n" "$GREEN" "$ENDCOLOR" "$SAMPLE_SIZE" "$OUTPUT_FILE_NAME"
 
 echo ""
@@ -102,18 +103,18 @@ go run go-src/*.go --client $CHAIN --input "$BLOCK_NUMBERS_FILE" --tracer
 
 echo ""
 printf "%s[+] Crawling the blockchain explorer to gather extra data for the collected smart contract addresses...%s\n" "$GREEN" "$ENDCOLOR"
-python scripts/crawl/mainCrawl.py --chain $CHAIN --apikey "$API_KEY" --output $CRAWL_OUTPUT --invalid $CRAWL_INVALID
+python3 scripts/crawl/mainCrawl.py --chain $CHAIN --apikey "$API_KEY" --output $CRAWL_OUTPUT --invalid $CRAWL_INVALID
 
 echo ""
 printf "%s[+] Extract the bytecodes from the database and write them in files on the file system...%s\n" "$GREEN" "$ENDCOLOR"
-python scripts/utils/bytecodeToFileCreator.py --chain eth
+python3 scripts/utils/bytecodeToFileCreator.py --chain eth
 
 ################## RUN SmartBugs  ######################
 
 echo ""
 printf "%sRunning the SmartBugs Framework%s\n" "$CYAN" "$ENDCOLOR"
 printf "===============================\n"
-python smartbugs_bytecode/smartBugs.py --tool all --dataset $DATASET --bytecode
+python3 smartbugs_bytecode/smartBugs.py --tool all --dataset $DATASET --bytecode
 
 ################## RESULT PARSING  ######################
 
