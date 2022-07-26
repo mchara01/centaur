@@ -8,7 +8,7 @@ CYAN=$(tput setaf 6)
 ENDCOLOR=$(tput sgr0)
 
 if [ "$#" -ne 1 ]; then
-    printf "%sIllegal number of parameters. Please pass an API_KEY.%s\n" "$RED" "$ENDCOLOR" >&2
+    cowsay "${RED} Illegal number of parameters. Please pass an API_KEY.${ENDCOLOR}" >&2
     exit 2
 fi
 
@@ -19,7 +19,6 @@ fi
 SAMPLE_SIZE=1000
 CHAIN=eth
 OUTPUT_FILE_NAME=blockNumbersEth.txt
-TIMESTAMP_DIR=data/block_samples/01072022_161632/blockNumbersEth.txt
 API_KEY="$1"
 CRAWL_OUTPUT=data/logs/results_eth.json
 CRAWL_INVALID=data/logs/exceptions_eth.json
@@ -34,6 +33,7 @@ echo ""
 
 START=$(date +%s.%N)
 
+################## DATABASE CREATION  ######################
 
 printf "%sDatabase Creation%s\n" "$CYAN" "$ENDCOLOR"
 printf "=================\n"
@@ -61,8 +61,16 @@ fi
 
 echo ""
 printf "%s[+] Creation of ETH and BSC tables in db_blockchain...%s\n" "$GREEN" "$ENDCOLOR"
+# Checking if the tables already exist in the db before creating them
+TABLES_IN_DB=$(docker exec "$(docker ps -q -f name=db_blockchain)" mysql -u root -p'Fm)4dj' -P 3306 -h 127.0.0.1 -e "use db_blockchain; show tables;" | awk '{print
+               $1}' | grep -cv "Tables_in_db_blockchain")
+if [ "$TABLES_IN_DB" -ne 2 ]; then
+  docker exec "$(docker ps -q -f name=db_blockchain)" mysql -u root -p'Fm)4dj' -P 3306 -h 127.0.0.1 < scripts/database/schema.sql
+else
+  printf "%sWarning:%s Tables ETH and BSC already exist in db_blockchain!\n" "$YELLOW" "$ENDCOLOR"
+fi
 
-docker exec "$(docker ps -q -f name=db_blockchain)" mysql -u root -p'Fm)4dj' -P 3306 -h 127.0.0.1 < scripts/database/schema.sql
+################## DATA COLLECTION  ######################
 
 echo ""
 printf "%sData Collection%s\n" "$CYAN" "$ENDCOLOR"
@@ -70,7 +78,7 @@ printf "===============\n"
 
 printf "%s[+] Generating random sample of block numbers...%s\n" "$GREEN" "$ENDCOLOR"
 python scripts/utils/blockNumberGenerator.py --size $SAMPLE_SIZE --chain $CHAIN --output $OUTPUT_FILE_NAME
-printf "%sDone%s -> You can find the sample at: data/block_samples/<timestamp>/%s \n" "$GREEN" "$ENDCOLOR" "$OUTPUT_FILE_NAME"
+printf "%sDone%s -> You can find the %s block sample at: data/block_samples/<latest_timestamp>/%s \n" "$GREEN" "$ENDCOLOR" "$SAMPLE_SIZE" "$OUTPUT_FILE_NAME"
 
 echo ""
 printf "%s[+] Checking the connection to the archive node...%s\n" "$GREEN" "$ENDCOLOR"
@@ -82,8 +90,17 @@ if [ $? != 0 ]; then
 fi
 
 echo ""
+BLOCK_NUMBERS_FILE=$( ls -td data/block_samples/*/ | head -1)$OUTPUT_FILE_NAME
+if [ ! -f "$BLOCK_NUMBERS_FILE" ]; then
+  printf "%s[-] Block numbers path %s does not exist...\nExiting%s" "$RED" "$BLOCK_NUMBERS_FILE" "$ENDCOLOR"
+  exit
+else
+  printf "%s[+] Gathering block numbers from %s%s\n" "$GREEN" "$BLOCK_NUMBERS_FILE" "$ENDCOLOR"
+fi
+
+echo ""
 printf "%s[+] Collecting data from the archive node...%s\n" "$GREEN" "$ENDCOLOR"
-go run go-src/*.go --client $CHAIN --input $TIMESTAMP_DIR --tracer
+go run go-src/*.go --client $CHAIN --input "$BLOCK_NUMBERS_FILE" --tracer
 
 echo ""
 printf "%s[+] Crawling blockchain explorer to gather extra data for the collected smart contract addresses...%s\n" "$GREEN" "$ENDCOLOR"
@@ -93,10 +110,14 @@ echo ""
 printf "%s[+] Extract the bytecodes from the database and write them in files on the file system...%s\n" "$GREEN" "$ENDCOLOR"
 python scripts/utils/bytecodeToFileCreator.py --chain eth
 
+################## SmartBugs  ######################
+
 echo ""
 printf "%sRunning the SmartBugs Framework%s\n" "$CYAN" "$ENDCOLOR"
 printf "===============================\n"
 python smartbugs_bytecode/smartBugs.py --tool all --dataset $DATASET --bytecode
+
+################## RESULT PARSING  ######################
 
 echo ""
 printf "%sParsing the Analysis Tools Results%s\n" "$CYAN" "$ENDCOLOR"
@@ -105,4 +126,5 @@ python3 parser.py -t all -d $RESULTS_DIRECTORY
 
 END=$(date +%s.%N)
 DIFF=$(echo "$END - $START" | bc)
+echo ""
 echo "Time taken: " "$DIFF"

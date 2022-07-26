@@ -9,7 +9,7 @@ LABEL creator="Marcos-Antonios Charalambous"
 ENV LANG C.UTF-8
 
 # Install Python and other dependencies
-RUN apt-get -y update && apt-get -y install python3.8 python3-pip curl git wget cowsay figlet
+RUN apt-get -y update && apt-get -y install python3.8 python3-pip git cowsay figlet
 
 # Install Golang by downloading its image
 COPY --from=golang:1.17 /usr/local/go/ /usr/local/go/
