@@ -103,14 +103,14 @@ printf "%s[+] Collecting data from the archive node...%s\n" "$GREEN" "$ENDCOLOR"
 go run go-src/*.go --client $CHAIN --input "$BLOCK_NUMBERS_FILE" --tracer
 
 echo ""
-printf "%s[+] Crawling blockchain explorer to gather extra data for the collected smart contract addresses...%s\n" "$GREEN" "$ENDCOLOR"
+printf "%s[+] Crawling the blockchain explorer to gather extra data for the collected smart contract addresses...%s\n" "$GREEN" "$ENDCOLOR"
 python scripts/crawl/mainCrawl.py --chain $CHAIN --apikey "$API_KEY" --output $CRAWL_OUTPUT --invalid $CRAWL_INVALID
 
 echo ""
 printf "%s[+] Extract the bytecodes from the database and write them in files on the file system...%s\n" "$GREEN" "$ENDCOLOR"
 python scripts/utils/bytecodeToFileCreator.py --chain eth
 
-################## SmartBugs  ######################
+################## RUN SmartBugs  ######################
 
 echo ""
 printf "%sRunning the SmartBugs Framework%s\n" "$CYAN" "$ENDCOLOR"
