@@ -48,7 +48,7 @@ if [ ! "$(docker ps -q -f name=db_blockchain)" ]; then
 
     # Deploy container
     if docker-compose -f build/database/docker-compose.yaml up -d ; then
-      sleep 10 # DB needs some time to deploy
+      sleep 15 # DB needs some time to deploy
       printf "Successfully deployed!\n"
     else
       printf "%s[-] Failure to Deploy Database%s\n" "$RED" "$ENDCOLOR"

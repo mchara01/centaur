@@ -12,11 +12,11 @@
         <img alt="Repository Size" src="https://img.shields.io/github/repo-size/mchara01/thesis_test">
 </a>
 
-A study on two EVM-based blockchains, namely Ethereum (ETH) and BSC (BNB). It explores their 
-vulnerability using smart contract automated analysis tools for EVM bytecode. Our codebase 
+A study on two EVM-based blockchains, namely Ethereum (ETH) and Binance Smart Chain (BSC).
+It explores the existence of vulnerabilities in deployed smart contracts in these two chains using smart contract automated analysis tools for EVM bytecode. Our codebase 
 artifact is encapsulated into the _**Centaur**_ framework. The
-framework also uses [SmartBugs](https://github.com/smartbugs/smartbugs) for analysing the dataset of
-smart contract bytecodes using multiple analysis tools and it is easy to extend it to support other
+framework also extends [SmartBugs](https://github.com/smartbugs/smartbugs) for analysing the dataset of
+smart contract bytecodes using multiple analysis tools and it is easily extendable to support other
 EVM chains.
 
 ## Table of Contents
