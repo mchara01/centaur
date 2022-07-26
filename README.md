@@ -35,11 +35,12 @@ EVM chains.
 
 Before you begin, ensure you have met the following requirements:
 
-* You have installed of all the required Python dependencies with: <br> 
-`pip install -r requirements.txt`
+* You have installed of all the required Python and Shell dependencies with: <br> 
+`pip install -r requirements.txt` and <br>
+`apt-get install -y cowsay figlet`
 * You are using Python >= 3.8 and Golang == 1.17
 * You have created an account on Etherscan and BscScan and generated an API key on both
-* You have installed [Docker](https://docs.docker.com/get-docker/), and docker-compose
+* You have installed [Docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/)
 * You are using a UNIX-like OS
 
 ## Installation <a name="installation"></a>
