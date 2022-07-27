@@ -63,7 +63,7 @@ class Maian:
 
         print()
 
-        print("DASP10\tVulnerability: #")
+        print("DASP10+\tVulnerability: #")
         print("="*24)
         print(f"10\tGreedy: {greedy}")
         print(f"10\tProdigal: {prodigal}")

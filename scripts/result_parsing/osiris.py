@@ -83,7 +83,7 @@ class Osiris:
 
         print()
 
-        print("DASP10\tVulnerability: #")
+        print("DASP10+\tVulnerability: #")
         print("="*24)
         print(f"3\tArithmetic bugs: {arithmetic}")
         print(f"3\tOverflow bugs: {overflow}")

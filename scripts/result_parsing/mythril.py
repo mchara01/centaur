@@ -56,19 +56,29 @@ class Mythril:
 
         print()
 
-        print("DASP10\tVulnerability: #")
+        print("DASP10+\tVulnerability: #")
         print("="*24)
         for k, v in output.items():
             if k == "Integer Arithmetic Bugs":
                 print("3\t" + k + ": " + str(v))
-            elif k == "Unprotected Selfdestruct" or k == "Unprotected Ether Withdrawal" or k == "External Call To User-Supplied Address":
+            elif k in ["Unprotected Selfdestruct", "Unprotected Ether Withdrawal"]:
                 print("2\t" + k + ": " + str(v))
             elif k == "Unchecked return value from external call.":
                 print("4\t" + k + ": " + str(v))
-            elif k == "Multiple Calls in a Single Transaction":
+            elif k in ["State access after external call", "External Call To User-Supplied Address"]:
                 print("1\t" + k + ": " + str(v))
-            elif k == "Exception State":
+            elif k in ["Multiple Calls in a Single Transaction"]:
                 print("5\t" + k + ": " + str(v))
+            elif k in ["Dependence on predictable environment variable"]:
+                print("6 & 8\t" + k + ": " + str(v))
+            elif k in ["Exception State"]:
+                print("12\t" + k + "(Assert Violation)" + ": " + str(v))
+            elif k in ["Delegatecall to user-supplied address"]:
+                print("13\t" + k + ": " + str(v))
+            elif k in ["Write to an arbitrary storage location"]:
+                print("14\t" + k + ": " + str(v))
+            elif k in ["Jump to an arbitrary instruction"]:
+                print("15\t" + k + ": " + str(v))
             else:
                 print("10\t" + k + ": " + str(v))
 

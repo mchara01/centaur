@@ -64,7 +64,7 @@ class Conkas:
 
         print()
 
-        print("DASP10\tVulnerability: #")
+        print("DASP10+\tVulnerability: #")
         print("="*24)
         print(f"1\tRe-Entrancy Vulnerability: {reentrancy_vulnerability}")
         print(f"3\tArithmetic: {arithmetic}")

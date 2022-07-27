@@ -58,17 +58,17 @@ class Securify:
 
         print()
 
-        print("DASP10\tVulnerability: #")
+        print("DASP10+\tVulnerability: #")
         print("="*24)
         for k, v in output.items():
             if k == "DAO" or k == "DAOConstantGas":
                 print("1\t" + k + ": " + str(v))
-            elif k == "MissingInputValidation":
+            elif k in ["MissingInputValidation", "UnrestrictedEtherFlow"]:
                 print("2\t" + k + ": " + str(v))
             elif k in ["TODAmount", "TODReceiver", "TODTransfer"]:
                 print("7\t" + k + ": " + str(v))
             elif k == "UnhandledException":
-                print("4\t" + k + ": " + str(v))
+                print("5\t" + k + ": " + str(v))
             else:
                 print("10\t" + k + ": " + str(v))
 

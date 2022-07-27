@@ -56,13 +56,15 @@ class Vandal:
 
         print()
 
-        print("DASP10\tVulnerability: #")
+        print("DASP10+\tSWC\tVulnerability: #")
         print("="*24)
         for k, v in output.items():
-            if k == "ReentrantCall":
+            if k in ["ReentrantCall", "CheckedCallStateUpdate"]:
                 print("1\t" + k + ": " + str(v))
-            elif k in ["Destroyable", "OriginUsed", "UnsecuredValueSend"]:
+            elif k in ["Destroyable", "UnsecuredValueSend"]:
                 print("2\t" + k + ": " + str(v))
+            elif k == "OriginUsed":
+                print("2\t" + "115\t" + k + ": " + str(v))
             elif k == "UncheckedCall":
                 print("4\t" + k + ": " + str(v))
             else:

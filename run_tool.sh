@@ -8,7 +8,8 @@ CYAN=$(tput setaf 6)
 ENDCOLOR=$(tput sgr0)
 
 if [ "$#" -ne 1 ]; then
-    cowsay "${RED} Illegal number of parameters. Please pass an API_KEY.${ENDCOLOR}" >&2
+    #cowsay "${RED} Illegal number of parameters. Please pass an API_KEY.${ENDCOLOR}" >&2
+    printf "%sIllegal number of parameters. Please pass an API_KEY.%s" "${RED}" "${ENDCOLOR}"
     exit 2
 fi
 
@@ -27,7 +28,8 @@ RESULTS_DIRECTORY=20220710_2258
 
 #################################################################
 
-figlet "Centaur"
+#figlet "Centaur"
+echo "Welcome to Centaur"
 echo "************************************"
 echo ""
 

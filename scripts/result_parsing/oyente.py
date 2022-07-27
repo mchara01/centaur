@@ -62,7 +62,7 @@ class Oyente:
 
         print()
 
-        print("DASP10\tVulnerability: #")
+        print("DASP10+\tVulnerability: #")
         print("="*24)
         print(f"5\tCallstack Depth Attack Vulnerability: {callstack_dept_attack}")
         print(f"7\tTransaction-Ordering Dependence (TOD): {tod}")
