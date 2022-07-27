@@ -71,7 +71,7 @@ class Honeybadger:
         print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
-        print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
+        print(f"Average Time per Contract: {(total_time / total_contracts):.2f} sec")
 
         print()
 

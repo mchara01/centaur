@@ -5,6 +5,7 @@ import os
 import yaml
 
 from utils.colours import ColoredText
+from utils.swc_map import SWC_TO_TITLE
 
 
 class Vandal:
@@ -52,23 +53,39 @@ class Vandal:
         print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
-        print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
+        print(f"Average Time per Contract: {(total_time / total_contracts):.2f} sec")
 
         print()
 
-        print("DASP10+\tSWC\tVulnerability: #")
-        print("="*24)
+        print("DASP10+\tSWC_ID\tVulnerability: #")
+        print("="*32)
+        swc_found = set()
         for k, v in output.items():
             if k in ["ReentrantCall", "CheckedCallStateUpdate"]:
-                print("1\t" + k + ": " + str(v))
-            elif k in ["Destroyable", "UnsecuredValueSend"]:
-                print("2\t" + k + ": " + str(v))
+                swc_found.add('107')
+                print("1\t" + "107\t" + k + ": " + str(v))
+            elif k == "Destroyable":
+                swc_found.add('106')
+                print("2\t" + "106\t" + k + ": " + str(v))
+            elif k == "UnsecuredValueSend":
+                swc_found.add('105')
+                print("2\t" + "105\t" + k + ": " + str(v))
             elif k == "OriginUsed":
+                swc_found.add('115')
                 print("2\t" + "115\t" + k + ": " + str(v))
             elif k == "UncheckedCall":
-                print("4\t" + k + ": " + str(v))
+                swc_found.add('104')
+                print("4\t" + "104\t" + k + ": " + str(v))
             else:
-                print("10\t" + k + ": " + str(v))
+                print("NA\t" + "NA\t" + k + ": " + str(v))
+
+        print()
+
+        print("SWC_ID\tVulnerability_Description")
+        print("="*34)
+        swc_sorted = sorted(swc_found)
+        for swc_id in swc_sorted:
+            print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
         print(ColoredText.info('*' * 30))
         print()

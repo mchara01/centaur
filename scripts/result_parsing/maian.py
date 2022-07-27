@@ -5,6 +5,7 @@ import os
 import yaml
 
 from utils.colours import ColoredText
+from utils.swc_map import SWC_TO_TITLE
 
 
 class Maian:
@@ -59,15 +60,24 @@ class Maian:
         print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
-        print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
+        print(f"Average Time per Contract: {(total_time / total_contracts):.2f} sec")
 
         print()
 
-        print("DASP10+\tVulnerability: #")
-        print("="*24)
-        print(f"10\tGreedy: {greedy}")
-        print(f"10\tProdigal: {prodigal}")
-        print(f"2\tSuicidal: {suicidal}")
+        print("DASP10+\tSWC_ID\tVulnerability: #")
+        print("=" * 32)
+        print(f"12\tNA\tGreedy: {greedy}")
+        print(f"2\t105\tProdigal: {prodigal}")
+        print(f"2\t106\tSuicidal: {suicidal}")
+
+        print()
+
+        print("SWC_ID\tVulnerability_Description")
+        print("="*34)
+        swc_found = ('106', '105')
+        for swc_id in swc_found:
+            if swc_id in SWC_TO_TITLE:
+                print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
         print(ColoredText.info('*' * 30))
         print()

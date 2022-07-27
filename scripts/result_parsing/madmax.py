@@ -6,6 +6,8 @@ import yaml
 
 from utils.colours import ColoredText
 
+from utils.swc_map import SWC_TO_TITLE
+
 
 class Madmax:
 
@@ -54,15 +56,25 @@ class Madmax:
         print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
-        print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
+        print(f"Average Time per Contract: {(total_time / total_contracts):.2f} sec")
 
         print()
 
-        print("DASP10+\tVulnerability: #")
-        print("="*24)
-        print(f"3\tOverflowLoopIterator: {OverflowLoopIterator}")
-        print(f"5\tUnboundedMassOp: {UnboundedMassOp}")
-        print(f"10\tWalletGriefing: {WalletGriefing}")
+        print("DASP10+\tSWC_ID\tVulnerability: #")
+        print("=" * 32)
+        print(f"3\t101\tOverflowLoopIterator: {OverflowLoopIterator}")
+        print(f"5\t113\tUnboundedMassOp: {UnboundedMassOp}")
+        print(f"10\t126\tWalletGriefing: {WalletGriefing}")
+
+        print()
+
+        print("SWC_ID\tVulnerability_Description")
+        print("="*34)
+        swc_found = ('101', '113', '126')
+        for swc_id in sorted(swc_found):
+            if swc_id in SWC_TO_TITLE:
+                print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
         print(ColoredText.info('*' * 30))
         print()
+

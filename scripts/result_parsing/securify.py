@@ -3,8 +3,8 @@ import json
 import os
 
 import yaml
-
 from utils.colours import ColoredText
+from utils.swc_map import SWC_TO_TITLE
 
 
 class Securify:
@@ -54,23 +54,41 @@ class Securify:
         print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
-        print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
+        print(f"Average Time per Contract: {(total_time / total_contracts):.2f} sec")
 
         print()
 
-        print("DASP10+\tVulnerability: #")
-        print("="*24)
+        print("DASP10+\tSWC_ID\tVulnerability: #")
+        print("=" * 32)
+        swc_found = set()
         for k, v in output.items():
-            if k == "DAO" or k == "DAOConstantGas":
-                print("1\t" + k + ": " + str(v))
-            elif k in ["MissingInputValidation", "UnrestrictedEtherFlow"]:
-                print("2\t" + k + ": " + str(v))
+            if k == "DAO":
+                swc_found.add('107')
+                print("1\t" + "107\t" + k + ": " + str(v))
+            elif k == "DAOConstantGas":
+                swc_found.add('134')
+                print("17\t" + "134\t" + k + ": " + str(v))
+            elif k == "MissingInputValidation":
+                print("2\t" + "NA\t" + k + ": " + str(v))
+            elif k == "UnrestrictedEtherFlow":
+                print("2\t" + "105\t" + k + ": " + str(v))
             elif k in ["TODAmount", "TODReceiver", "TODTransfer"]:
-                print("7\t" + k + ": " + str(v))
+                swc_found.add('114')
+                print("7\t" + "114\t" + k + ": " + str(v))
             elif k == "UnhandledException":
-                print("5\t" + k + ": " + str(v))
+                swc_found.add('113')
+                print("5\t" + "113\t" + k + ": " + str(v))
             else:
-                print("10\t" + k + ": " + str(v))
+                print("NA\t" + "NA\t" + k + ": " + str(v))
+
+        print()
+
+        print("SWC_ID\tVulnerability_Description")
+        print("=" * 34)
+        swc_sorted = sorted(swc_found)
+        for swc_id in swc_sorted:
+            if swc_id in SWC_TO_TITLE:
+                print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
         print(ColoredText.info('*' * 30))
         print()

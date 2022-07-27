@@ -4,6 +4,7 @@ import os
 import yaml
 
 from utils.colours import ColoredText
+from utils.swc_map import SWC_TO_TITLE
 
 
 class Conkas:
@@ -60,17 +61,26 @@ class Conkas:
         print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
-        print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
+        print(f"Average Time per Contract: {(total_time / total_contracts):.2f} sec")
 
         print()
 
-        print("DASP10+\tVulnerability: #")
-        print("="*24)
-        print(f"1\tRe-Entrancy Vulnerability: {reentrancy_vulnerability}")
-        print(f"3\tArithmetic: {arithmetic}")
-        print(f"4\tUnchecked Low Level Call: {unchecked_low_level_calls}")
-        print(f"7\tTransaction-Ordering Dependence (TOD): {tod}")
-        print(f"8\tTime Manipulation: {time_manipulation}")
+        print("DASP10+\tSWC_ID\tVulnerability: #")
+        print("=" * 32)
+        print(f"1\t107\tRe-Entrancy Vulnerability: {reentrancy_vulnerability}")
+        print(f"3\t101\tArithmetic: {arithmetic}")
+        print(f"4\t104\tUnchecked Low Level Call: {unchecked_low_level_calls}")
+        print(f"7\t114\tTransaction-Ordering Dependence (TOD): {tod}")
+        print(f"8\t116\tTime Manipulation: {time_manipulation}")
+
+        print()
+
+        print("SWC_ID\tVulnerability_Description")
+        print("="*34)
+        swc_found = ('101', '107', '104', '114', '116')
+        for swc_id in sorted(swc_found):
+            if swc_id in SWC_TO_TITLE:
+                print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
         print(ColoredText.info('*' * 30))
         print()

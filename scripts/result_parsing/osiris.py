@@ -5,6 +5,7 @@ import os
 import yaml
 
 from utils.colours import ColoredText
+from utils.swc_map import SWC_TO_TITLE
 
 
 class Osiris:
@@ -79,23 +80,32 @@ class Osiris:
         print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
-        print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
+        print(f"Average Time per Contract: {(total_time / total_contracts):.2f} sec")
 
         print()
 
-        print("DASP10+\tVulnerability: #")
-        print("="*24)
-        print(f"3\tArithmetic bugs: {arithmetic}")
-        print(f"3\tOverflow bugs: {overflow}")
-        print(f"3\tUnderflow bugs: {underflow}")
-        print(f"3\tDivision bugs: {division}")
-        print(f"3\tModulo bugs: {modulo}")
-        print(f"3\tTruncation bugs: {truncation}")
-        print(f"3\tSignedness bugs: {signedness}")
-        print(f"3\tCallstack bug: {callstack}")
-        print(f"7\tConcurrency bug: {concurrency}")
-        print(f"8\tTimedependency bug: {timedependency}")
-        print(f"1\tReentrancy bug: {reentrancy}")
+        print("DASP10+\tSWC_ID\tVulnerability: #")
+        print("=" * 32)
+        print(f"3\t101\tArithmetic bugs: {arithmetic}")
+        print(f"3\t101\tOverflow bugs: {overflow}")
+        print(f"3\t101\tUnderflow bugs: {underflow}")
+        print(f"3\t101\tDivision bugs: {division}")
+        print(f"3\t101\tModulo bugs: {modulo}")
+        print(f"3\t101\tTruncation bugs: {truncation}")
+        print(f"3\t101\tSignedness bugs: {signedness}")
+        print(f"3\t101\tCallstack bug: {callstack}")
+        print(f"7\t114\tConcurrency bug: {concurrency}")
+        print(f"8\t116\tTimedependency bug: {timedependency}")
+        print(f"1\t107\tReentrancy bug: {reentrancy}")
+
+        print()
+        swc_found = ('101', '107', '114', '116')
+        print("SWC_ID\tVulnerability_Description")
+        print("=" * 34)
+        swc_sorted = sorted(swc_found)
+        for swc_id in swc_sorted:
+            if swc_id in SWC_TO_TITLE:
+                print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
         print(ColoredText.info('*' * 30))
         print()

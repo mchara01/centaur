@@ -5,6 +5,7 @@ import os
 import yaml
 
 from utils.colours import ColoredText
+from utils.swc_map import SWC_TO_TITLE
 
 
 class Oyente:
@@ -58,16 +59,25 @@ class Oyente:
         print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
-        print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
+        print(f"Average Time per Contract: {(total_time / total_contracts):.2f} sec")
 
         print()
 
-        print("DASP10+\tVulnerability: #")
-        print("="*24)
-        print(f"5\tCallstack Depth Attack Vulnerability: {callstack_dept_attack}")
-        print(f"7\tTransaction-Ordering Dependence (TOD): {tod}")
-        print(f"8\tTimestamp Dependency: {timestamp_dependency}")
-        print(f"1\tRe-Entrancy Vulnerability: {reentrancy_vulnerability}")
+        print("DASP10+\tSWC_ID\tVulnerability: #")
+        print("=" * 32)
+        print(f"5\tNA\tCallstack Depth Attack Vulnerability: {callstack_dept_attack}")
+        print(f"7\t114\tTransaction-Ordering Dependence (TOD): {tod}")
+        print(f"8\t116\tTimestamp Dependency: {timestamp_dependency}")
+        print(f"1\t107\tRe-Entrancy Vulnerability: {reentrancy_vulnerability}")
+
+        print()
+        swc_found = ('114', '116', '107')
+        print("SWC_ID\tVulnerability_Description")
+        print("=" * 34)
+        swc_sorted = sorted(swc_found)
+        for swc_id in swc_sorted:
+            if swc_id in SWC_TO_TITLE:
+                print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
         print(ColoredText.info('*' * 30))
         print()

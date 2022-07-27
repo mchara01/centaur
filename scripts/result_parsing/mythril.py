@@ -5,6 +5,7 @@ import os
 import yaml
 
 from utils.colours import ColoredText
+from utils.swc_map import SWC_TO_TITLE
 
 
 class Mythril:
@@ -52,35 +53,58 @@ class Mythril:
         print("========================")
         print(f"Total Contracts Analysed: {total_contracts}")
         print(f"Total Execution Time: {str(datetime.timedelta(seconds=round(total_time)))}")
-        print(f"Average Time per Contract: {(total_time / total_contracts):.2f}")
+        print(f"Average Time per Contract: {(total_time / total_contracts):.2f} sec")
 
         print()
 
-        print("DASP10+\tVulnerability: #")
-        print("="*24)
+        print("DASP10+\tSWC_ID\tVulnerability: #")
+        print("=" * 32)
+        swc_found = set()
         for k, v in output.items():
             if k == "Integer Arithmetic Bugs":
-                print("3\t" + k + ": " + str(v))
-            elif k in ["Unprotected Selfdestruct", "Unprotected Ether Withdrawal"]:
-                print("2\t" + k + ": " + str(v))
+                swc_found.add('101')
+                print("3\t101\t" + k + ": " + str(v))
+            elif k == "Unprotected Selfdestruct":
+                swc_found.add('106')
+                print("2\t106\t" + k + ": " + str(v))
+            elif k == "Unprotected Ether Withdrawal":
+                swc_found.add('105')
+                print("2\t105\t" + k + ": " + str(v))
             elif k == "Unchecked return value from external call.":
-                print("4\t" + k + ": " + str(v))
+                swc_found.add('104')
+                print("4\t104\t" + k + ": " + str(v))
             elif k in ["State access after external call", "External Call To User-Supplied Address"]:
-                print("1\t" + k + ": " + str(v))
+                swc_found.add('107')
+                print("1\t107\t" + k + ": " + str(v))
             elif k in ["Multiple Calls in a Single Transaction"]:
-                print("5\t" + k + ": " + str(v))
+                swc_found.add('113')
+                print("5\t113\t" + k + ": " + str(v))
             elif k in ["Dependence on predictable environment variable"]:
-                print("6 & 8\t" + k + ": " + str(v))
+                swc_found.add('116')
+                swc_found.add('120')
+                print("6|8\t116|120\t" + k + ": " + str(v))
             elif k in ["Exception State"]:
-                print("12\t" + k + "(Assert Violation)" + ": " + str(v))
+                swc_found.add('110')
+                print("12\t110\t" + k + "(Assert Violation)" + ": " + str(v))
             elif k in ["Delegatecall to user-supplied address"]:
-                print("13\t" + k + ": " + str(v))
+                swc_found.add('112')
+                print("15\t112\t" + k + ": " + str(v))
             elif k in ["Write to an arbitrary storage location"]:
-                print("14\t" + k + ": " + str(v))
+                swc_found.add('124')
+                print("16\t124\t" + k + ": " + str(v))
             elif k in ["Jump to an arbitrary instruction"]:
-                print("15\t" + k + ": " + str(v))
+                swc_found.add('127')
+                print("18\t127\t" + k + ": " + str(v))
             else:
-                print("10\t" + k + ": " + str(v))
+                print("NA\t" + "NA\t" + k + ": " + str(v))
+
+        print()
+        print("SWC_ID\tVulnerability_Description")
+        print("=" * 34)
+        swc_sorted = sorted(swc_found)
+        for swc_id in swc_sorted:
+            if swc_id in SWC_TO_TITLE:
+                print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
         print(ColoredText.info('*' * 30))
         print()
