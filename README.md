@@ -184,7 +184,7 @@ that pass these requirements along with their open-source repository and paper l
 ## Vulnerability Taxonomy <a name="taxonomy"></a>
 For categorising the vulnerabilities found by the smart contract analysis tools, we used the [DASP10](https://dasp.co/) 
 taxonomy. The taxonomy is constituted by the most popular vulnerabilities currently in smart contracts.
-Categories _Bad Randomness_ (6) and _Short Address Attack_ (9) are not discovered by any of the tools that where 
+Category _Short Address Attack_ (9) is not discovered by any of the tools that where 
 used in this study and category _Unknown Unknowns_ (10) includes any vulnerabilities that do not
 fall in any other category.
 

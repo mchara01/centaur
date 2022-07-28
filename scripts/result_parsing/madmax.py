@@ -64,7 +64,7 @@ class Madmax:
         print("=" * 32)
         print(f"3\t101\tOverflowLoopIterator: {OverflowLoopIterator}")
         print(f"5\t113\tUnboundedMassOp: {UnboundedMassOp}")
-        print(f"10\t126\tWalletGriefing: {WalletGriefing}")
+        print(f"11\t126\tWalletGriefing: {WalletGriefing}")
 
         print()
 

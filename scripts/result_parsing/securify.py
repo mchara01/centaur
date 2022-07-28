@@ -67,10 +67,11 @@ class Securify:
                 print("1\t" + "107\t" + k + ": " + str(v))
             elif k == "DAOConstantGas":
                 swc_found.add('134')
-                print("17\t" + "134\t" + k + ": " + str(v))
+                print("16\t" + "134\t" + k + ": " + str(v))
             elif k == "MissingInputValidation":
                 print("2\t" + "NA\t" + k + ": " + str(v))
             elif k == "UnrestrictedEtherFlow":
+                swc_found.add('105')
                 print("2\t" + "105\t" + k + ": " + str(v))
             elif k in ["TODAmount", "TODReceiver", "TODTransfer"]:
                 swc_found.add('114')

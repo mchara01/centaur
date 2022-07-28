@@ -74,7 +74,7 @@ class Maian:
 
         print("SWC_ID\tVulnerability_Description")
         print("="*34)
-        swc_found = ('106', '105')
+        swc_found = ('105', '106')
         for swc_id in swc_found:
             if swc_id in SWC_TO_TITLE:
                 print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])

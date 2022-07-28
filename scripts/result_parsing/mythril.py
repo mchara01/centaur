@@ -82,19 +82,19 @@ class Mythril:
             elif k in ["Dependence on predictable environment variable"]:
                 swc_found.add('116')
                 swc_found.add('120')
-                print("6|8\t116|120\t" + k + ": " + str(v))
+                print("6|8\t120|116\t" + k + ": " + str(v))
             elif k in ["Exception State"]:
                 swc_found.add('110')
-                print("12\t110\t" + k + "(Assert Violation)" + ": " + str(v))
+                print("13\t110\t" + k + ": " + str(v))
             elif k in ["Delegatecall to user-supplied address"]:
                 swc_found.add('112')
-                print("15\t112\t" + k + ": " + str(v))
+                print("14\t112\t" + k + ": " + str(v))
             elif k in ["Write to an arbitrary storage location"]:
                 swc_found.add('124')
-                print("16\t124\t" + k + ": " + str(v))
+                print("15\t124\t" + k + ": " + str(v))
             elif k in ["Jump to an arbitrary instruction"]:
                 swc_found.add('127')
-                print("18\t127\t" + k + ": " + str(v))
+                print("17\t127\t" + k + ": " + str(v))
             else:
                 print("NA\t" + "NA\t" + k + ": " + str(v))
 

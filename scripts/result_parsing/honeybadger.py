@@ -87,5 +87,7 @@ class Honeybadger:
         print(f"10\tHidden state update: {hidden_state_update}")
         print(f"10\tStraw man contract: {straw_man_contract}")
 
+        print()
+        print(ColoredText.warning('Note: ') + "Honeypot contracts do not have an SWC entry.")
         print(ColoredText.info('*' * 30))
         print()
