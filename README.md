@@ -1,6 +1,6 @@
 # An EVM-based Chain Vulnerability Analysis
 <a href="https://github.com/mchara01/thesis_test#analysis-tools-used">
-        <img alt="Analysis Tools" src="https://img.shields.io/badge/Analysis Tools-8-green">
+        <img alt="Analysis Tools" src="https://img.shields.io/badge/Analysis Tools-9-green">
 </a>
 <a href="https://github.com/mchara01/thesis_test/tree/main/data/dataset/eth">
         <img alt="ETH Smart Contracts" src="https://img.shields.io/badge/ETH Smart Contracts-123-green">
@@ -29,7 +29,7 @@ EVM chains.
 5. [Parsing the Analysis Tools Results](#parsing)
 6. [Centaur Usage](#usage)
 7. [Analysis Tools](#analysis-tools)
-8. [Vulnerability Taxonomy](#taxonomy)
+8. [Vulnerability Categorisation](#taxonomy)
 9. [License](#license)
 
 ## Prerequisites <a name="prerequisites"></a>
@@ -157,15 +157,16 @@ docker build --no-cache -t centaur:1.0 -f Dockerfile .
 ```
 Then, we can run the _Centaur_ script with:
 ```bash
-docker run centaur ./run_tool.sh <API_KEY>
+docker run centaur ./run_main.sh <API_KEY>
 ```
 Before running the above command, make sure you have added the desired values for the constants
-in the _**CONSTANTS DECLARATION**_ section in the _run_tool.sh_ script.
+in the _**CONSTANTS DECLARATION**_ section of the _config_ file, as this file is sourced into the main 
+script.
 
 ## Analysis Tools <a name="analysis-tools"></a>
 We have gathered information about plenty of smart contract security analysis tools but only
  a subset of these can be included in our study as we want these tools to fulfil some criteria.
-More specifically, we wanted tools that work on EVM bytecode (not source code only) and 
+More specifically, we wanted tools that work on EVM bytecode (not source code only), are open source and 
 can execute without the need of human interaction (e.g. no GUI). The list of tools
 that pass these requirements along with their open-source repository and paper link are the following:
 
@@ -181,12 +182,14 @@ that pass these requirements along with their open-source repository and paper l
 | 8   | [Securify](https://github.com/eth-sri/securify2)             | [link](https://arxiv.org/pdf/1806.01143.pdf)                                                                                                                                                           |
 | 9   | [Vandal](https://github.com/usyd-blockchain/vandal)          | [link](https://arxiv.org/pdf/1809.03981.pdf)                                                                                                                                                           |
 
-## Vulnerability Taxonomy <a name="taxonomy"></a>
-For categorising the vulnerabilities found by the smart contract analysis tools, we used the [DASP10](https://dasp.co/) 
-taxonomy. The taxonomy is constituted by the most popular vulnerabilities currently in smart contracts.
-Category _Short Address Attack_ (9) is not discovered by any of the tools that where 
-used in this study and category _Unknown Unknowns_ (10) includes any vulnerabilities that do not
-fall in any other category.
+## Vulnerability Categorisation <a name="taxonomy"></a>
+For categorising the vulnerabilities found by the smart contract analysis tools, we extended the [DASP10](https://dasp.co/) 
+taxonomy to replace category _Unknown Unknowns_ (10), which includes any vulnerabilities that do not
+fall in any other category, with each one of this uncategorised vulnerabilities. Category _Short Address Attack_ (9) is not discovered by any of the tools that where
+used in this study.  
+To enrich the vulnerability categorisation, we have used also the [Smart Contract Weakness Classification (SWC Registry)](https://swcregistry.io/) to map found vulnerabilities
+to an SWC id, which can help users learn more (e.g. description, remediation, code examples) about a specific vulnerability.
+ 
 
 ## License <a name="license"></a>
 This project is licensed under the terms of the MIT license, which can be found at the `LICENSE` file. 
