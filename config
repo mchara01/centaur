@@ -1,0 +1,13 @@
+################################################################
+################## CONSTANTS DECLARATION  ######################
+
+SAMPLE_SIZE=1000
+CHAIN=eth
+OUTPUT_FILE_NAME=blockNumbersEth.txt
+API_KEY="$1"
+CRAWL_OUTPUT=data/logs/results_eth.json
+CRAWL_INVALID=data/logs/exceptions_eth.json
+DATASET=eth_bc
+RESULTS_DIRECTORY=20220710_2258
+
+#################################################################
