@@ -4,7 +4,7 @@
 ################################################################
 ################## CONSTANTS DECLARATION  ######################
  
-DB_BACKUP_PATH='/Users/marcoscharalambous/thesis_test/build/database/<INSERT DATE>'
+DB_BACKUP_PATH="$HOME/Desktop/thesis_test/build/database/03_Jul_2022"
 MYSQL_HOST='127.0.0.1'
 MYSQL_PORT='3333'
 MYSQL_USER='root'
@@ -20,7 +20,7 @@ myloader -h ${MYSQL_HOST} \
    -u ${MYSQL_USER} \
    --password ${MYSQL_PASSWORD} \
    --threads=8 \
-   --directory=${DB_BACKUP_PATH}
+   --directory="${DB_BACKUP_PATH}"
 
 if [ $? -eq 0 ]; then
   echo "Database restoration successfully completed"
