@@ -20,6 +20,7 @@ smart contract bytecodes using multiple analysis tools and it is easily extendab
 EVM chains.
 
 ## Table of Contents
+0. [Repository Overview](#overview)
 1. [Prerequisites](#prerequisites)
 2. [Installation](#installation)
 3. [Step-by-Step Analysis Procedure](#procedure)
@@ -30,7 +31,48 @@ EVM chains.
 6. [Centaur Usage](#usage)
 7. [Analysis Tools](#analysis-tools)
 8. [Vulnerability Categorisation](#taxonomy)
-9. [License](#license)
+9. [Experiment Setup](#setup)
+10. [License](#license)
+
+## Repository Overview <a name="prerequisites"></a>
+<!-- Command to reprodcue: tree -L 2 --dirsfirst -I 'smartbugs_bytecode|venv') -->
+```bash                                                                                                                 marcos-antonioscharalambous@mchara01
+Centaur
+├── build
+│   └── database
+├── data
+│   ├── block_samples
+│   ├── dataset
+│   ├── executions
+│   ├── logs
+│   └── mix_dataset_test
+├── go-src
+│   ├── chainCrawler.go
+│   ├── connection.go
+│   ├── fileOperations.go
+│   ├── tracer.go
+│   └── tracerConfig.go
+├── scripts
+│   ├── crawl
+│   ├── database
+│   ├── result_parsing
+│   ├── utils
+│   ├── README.md
+│   ├── __init__.py
+│   ├── parser.py
+│   └── result.json
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── config
+├── go.mod
+├── go.sum
+├── queries.py
+├── requirements.txt
+└── run_main.sh
+
+14 directories, 18 files
+```
 
 ## Prerequisites <a name="prerequisites"></a>
 
@@ -189,7 +231,10 @@ fall in any other category, with each one of this uncategorised vulnerabilities.
 used in this study.  
 To enrich the vulnerability categorisation, we have used also the [Smart Contract Weakness Classification (SWC Registry)](https://swcregistry.io/) to map found vulnerabilities
 to an SWC id, which can help users learn more (e.g. description, remediation, code examples) about a specific vulnerability.
- 
+
+## Experiment Setup <a name="setup"></a>
+This artifact has been tested on a 64-bits 20.04 Ubuntu machine and an Apple M1 Mac mini 12.3.1, both with 8 cores and 16GB of RAM. 
+However, our Docker image can be used on any machine that has Docker installed.
 
 ## License <a name="license"></a>
 This project is licensed under the terms of the MIT license, which can be found at the `LICENSE` file. 
