@@ -9,12 +9,12 @@ import os
 import tarfile
 from sarif_om import Tool, ToolComponent, Run, MultiformatMessageString
 
-from src.output_parser.Parser import Parser
+import src.output_parser.Parser as Parser
 from src.output_parser.SarifHolder import parseLogicalLocation, parseArtifact, \
     parseRule, parseResult, isNotDuplicateLogicalLocation
 
 
-class Securify(Parser):
+class Securify(Parser.Parser):
 
     def __init__(self, task: 'Execution_Task', output: str):
         super().__init__(task, output)

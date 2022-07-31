@@ -4,11 +4,11 @@ if __name__ == '__main__':
 
 
 from sarif_om import *
-from src.output_parser.Parser import Parser
+import src.output_parser.Parser as Parser
 from src.output_parser.SarifHolder import isNotDuplicateRule, parseArtifact, parseRule, parseResult, parseLogicalLocation
 
 
-class Smartcheck(Parser):
+class Smartcheck(Parser.Parser):
 
     @staticmethod
     def extract_result_line(line):
