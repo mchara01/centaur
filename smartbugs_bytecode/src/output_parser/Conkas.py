@@ -1,25 +1,26 @@
 if __name__ == '__main__':
     import sys
+
     sys.path.append("../..")
 
-
 import re
+
+import src.output_parser.Parser as Parser
 from sarif_om import Tool, ToolComponent, MultiformatMessageString, Run
-from src.output_parser.Parser import Parser, python_errors
+from src.execution.execution_task import Execution_Task
 from src.output_parser.SarifHolder import parseRule, parseResult, isNotDuplicateRule, parseArtifact, \
     parseLogicalLocation, isNotDuplicateLogicalLocation
-from src.execution.execution_task import Execution_Task
 
 ERRORS = (
-        ('PHI instruction need arguments but ', 'PHI error'),
-        ('solcx.exceptions.SolcError:', 'solc error'),
-        ('CREATE2 instruction needs ', 'CREATE2 error'),
-        ('JUMPDEST instruction should not be reached', 'JUMPDEST error'),
-        ('PUSH instruction needs ', 'PUSH error'),
+    ('PHI instruction need arguments but ', 'PHI error'),
+    ('solcx.exceptions.SolcError:', 'solc error'),
+    ('CREATE2 instruction needs ', 'CREATE2 error'),
+    ('JUMPDEST instruction should not be reached', 'JUMPDEST error'),
+    ('PUSH instruction needs ', 'PUSH error'),
 )
 
 
-class Conkas(Parser):
+class Conkas(Parser.Parser):
 
     @staticmethod
     def __parse_vuln(line: str):
@@ -39,8 +40,8 @@ class Conkas(Parser):
         if output is None or not output:
             self._errors.add('output missing')
             return
-        self._errors.update(python_errors(re.sub('Analysing .*\.\.\.\n','',output)))
-        for indicator,error in ERRORS:
+        self._errors.update(Parser.exceptions(re.sub('Analysing .*?\.\.\.\n', '', output)))
+        for indicator, error in ERRORS:
             if indicator in output:
                 self._errors.add(error)
         self._analysis = []
@@ -49,7 +50,7 @@ class Conkas(Parser):
                 issue = Conkas.__parse_vuln(line)
                 self._analysis.append(issue)
                 self._findings.add(issue['vuln_type'])
-    
+
     def parseSarif(self, conkas_output_results, file_path_in_repo):
         resultsList = []
         rulesList = []
@@ -88,5 +89,5 @@ class Conkas(Parser):
 
 if __name__ == '__main__':
     import Parser
-    Parser.main(Conkas)
 
+    Parser.main(Conkas)

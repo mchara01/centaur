@@ -7,7 +7,7 @@ from datetime import timedelta
 from multiprocessing import Pool, Manager
 
 from src import output_parser
-from src.output_parser.Parser import Parser
+import src.output_parser.Parser as Parser
 from src.tools import TOOLS
 from src.execution.execution_task import Execution_Task
 from src.logger import logs, Logger

@@ -5,11 +5,11 @@ if __name__ == '__main__':
 
 import os,json,tarfile
 from sarif_om import Tool, ToolComponent, Run, MultiformatMessageString, Location, PhysicalLocation, ArtifactLocation, Region, LogicalLocation, ArtifactContent
-from src.output_parser.Parser import Parser
+import src.output_parser.Parser as Parser
 from src.output_parser.SarifHolder import isNotDuplicateRule, parseRule, parseArtifact, parseResult
 
 
-class Slither(Parser):
+class Slither(Parser.Parser):
 
     def __init__(self, task: 'Execution_Task', output: str):
         super().__init__(task, output)
