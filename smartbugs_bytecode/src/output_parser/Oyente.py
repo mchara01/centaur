@@ -4,7 +4,7 @@ if __name__ == '__main__':
     sys.path.append("../..")
 
 from sarif_om import *
-from src.output_parser.Parser import Parser, python_errors
+import src.output_parser.Parser as Parser
 from src.output_parser.SarifHolder import isNotDuplicateRule, parseRule, parseResult, \
     parseArtifact, parseLogicalLocation, isNotDuplicateLogicalLocation
 from src.execution.execution_task import Execution_Task
@@ -18,7 +18,7 @@ ERRORS = (
 )
 
 
-class Oyente(Parser):
+class Oyente(Parser.Parser):
     NAME = "oyente"
     VERSION = "2022/07/23"
     PORTFOLIO = {
