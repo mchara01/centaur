@@ -20,6 +20,16 @@ ERRORS = (
 
 
 class Conkas(Parser):
+    NAME = "conkas"
+    VERSION = "2022/07/23"
+    PORTFOLIO = {
+        "Integer Overflow",
+        "Integer Underflow",
+        "Reentrancy",
+        "Time Manipulation",
+        "Transaction Ordering Dependence",
+        "Unchecked Low Level Call"
+    }
 
     @staticmethod
     def __parse_vuln(line: str):

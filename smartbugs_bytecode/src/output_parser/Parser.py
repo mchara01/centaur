@@ -1,20 +1,24 @@
-import re, json, importlib
+import importlib
+import json
+import os
+import re
 from typing import List
+
 import src.execution.execution_configuration as execution_configuration
 import src.execution.execution_task as execution_task
-import os
-
 
 
 class Parser:
     """Base class of all output parsers."""
 
     def __init__(self, task: 'execution_task.Execution_Task', output: str):
-        self._task     = task
-        self._lines    = [] if output is None else sanitized(output.splitlines())
+        self._task = task
+        self._lines = [] if output is None else sanitized(output.splitlines())
         self._findings = set()
-        self._errors   = set()
+        self._errors = set()
         self._analysis = None
+        if task.exit_code is None:
+            self._errors.add('DOCKER_TIMEOUT')
 
     def findings(self) -> List[str]:
         return sorted([str2label(f) for f in self._findings])
@@ -32,12 +36,11 @@ class Parser:
             "findings": self.findings(),
             "errors": self.errors(),
             "analysis": self.analysis(),
-            "parser": { "name": self.NAME, "version": self.VERSION }
+            "parser": {"name": self.NAME, "version": self.VERSION}
         }
 
     def parseSarif(self, str, file_path_in_repo):
         pass
-
 
 
 ######################################################
@@ -49,18 +52,20 @@ RUBBISH = (
 )
 ANSI = re.compile('\x1b\[[^m]*m')
 
+
 def is_rubbish(line):
     for r in RUBBISH:
         if r in line:
             return True
     return False
 
+
 def sanitized(lines):
     """Remove rubbish and ANSI color escapes."""
     slines = []
     for line in lines:
         if not is_rubbish(line):
-            slines.append(ANSI.sub('',line))
+            slines.append(ANSI.sub('', line))
     return slines
 
 
@@ -75,8 +80,8 @@ def str2label(s):
     l = []
     sep = False
     ch = False
-    for c in s: # or "in s.lower()" (convert to lowercase)?
-        if c.isalnum(): # "or c in '-'", to allow for - and maybe other characters?
+    for c in s:  # or "in s.lower()" (convert to lowercase)?
+        if c.isalnum():  # "or c in '-'", to allow for - and maybe other characters?
             if sep:
                 l.append('_')
                 sep = False
@@ -86,15 +91,18 @@ def str2label(s):
             sep = ch
     return ''.join(l)
 
+
 def truncate_message(m, length=205):
-    half_length = (length-5)//2
-    return m if len(m) <= length else m[:half_length]+' ... '+m[-half_length:]
+    half_length = (length - 5) // 2
+    return m if len(m) <= length else m[:half_length] + ' ... ' + m[-half_length:]
 
 
 EXCEPTIONS = (
-    ("Traceback (most recent call last):", re.compile(f"(?s:Traceback \(most recent call last\).*?)\n(?=\S)(.*)")), # Python
-    ("Exception in thread", re.compile(f'Exception in thread "[^"]*" (.*)')) # Java
+    ("Traceback (most recent call last):", re.compile(f"(?s:Traceback \(most recent call last\).*?)\n(?=\S)(.*)")),
+    # Python
+    ("Exception in thread", re.compile(f'Exception in thread "[^"]*" (.*)'))  # Java
 )
+
 
 def exceptions(output):
     """Detect uncaught exceptions in output."""
@@ -107,7 +115,6 @@ def exceptions(output):
             else:
                 exceptions.add("exception")
     return exceptions
-
 
 
 ################################################
@@ -138,10 +145,10 @@ def reparse(output_parser, log_name, json_name):
         result_json = {}
 
     # dummy config
-    path,_ = os.path.split(os.path.abspath(log_name))
-    path,file_name = os.path.split(path)
-    path,execution_name = os.path.split(path)
-    output_folder,tool = os.path.split(path)
+    path, _ = os.path.split(os.path.abspath(log_name))
+    path, file_name = os.path.split(path)
+    path, execution_name = os.path.split(path)
+    output_folder, tool = os.path.split(path)
     exec_cfg = execution_configuration.Execution_Configuration(
         output_folder, execution_name,
         None, None, None, None, None, None, None, None, None, None, None, None)
@@ -152,7 +159,7 @@ def reparse(output_parser, log_name, json_name):
         module = importlib.import_module(f"src.output_parser.{output_parser}")
         output_parser = getattr(module, output_parser)
     p = output_parser(exec_task, result_log)
-    for k,v in p.result().items():
+    for k, v in p.result().items():
         result_json[k] = v
 
     return result_json

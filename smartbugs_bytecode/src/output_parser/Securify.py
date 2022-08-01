@@ -15,6 +15,18 @@ from src.output_parser.SarifHolder import parseLogicalLocation, parseArtifact, \
 
 
 class Securify(Parser):
+    NAME = "securify"
+    VERSION = "2022/07/23"
+    PORTFOLIO = {
+        "DAO",
+        "DAOConstantGas",
+        "MissingInputValidation",
+        "TODAmount",
+        "TODReceiver",
+        "TODTransfer",
+        "UnhandledException",
+        "UnrestrictedEtherFlow"
+    }
 
     def __init__(self, task: 'Execution_Task', output: str):
         super().__init__(task, output)

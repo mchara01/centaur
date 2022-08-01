@@ -1,18 +1,19 @@
 if __name__ == '__main__':
     import sys
+
     sys.path.append("../..")
 
 import re
 
 from sarif_om import Tool, ToolComponent, MultiformatMessageString, Run
 from src.output_parser.Parser import Parser, python_errors
-from src.output_parser.SarifHolder import parseRule, parseResult, isNotDuplicateRule, parseArtifact, parseLogicalLocation, isNotDuplicateLogicalLocation
-
+from src.output_parser.SarifHolder import parseRule, parseResult, isNotDuplicateRule, parseArtifact, \
+    parseLogicalLocation, isNotDuplicateLogicalLocation
 
 FINDINGS = (
     ('checkedCallStateUpdate.csv', 'CheckedCallStateUpdate'),
     ('destroyable.csv', 'Destroyable'),
-    ('originUsed.csv',  'OriginUsed'),
+    ('originUsed.csv', 'OriginUsed'),
     ('reentrantCall.csv', 'ReentrantCall'),
     ('unsecuredValueSend.csv', 'UnsecuredValueSend'),
     ('uncheckedCall.csv', 'UncheckedCall')
@@ -29,7 +30,11 @@ ERRORS = (
     ('Killed', 'exception occurred'),
 )
 
+
 class Vandal(Parser):
+    NAME = "vandal"
+    VERSION = "2022/07/23"
+    PORTFOLIO = {f[1] for f in FINDINGS}
 
     def __init__(self, task: 'Execution_Task', output: str):
         super().__init__(task, output)
@@ -39,14 +44,13 @@ class Vandal(Parser):
         self._errors.update(python_errors(output))
         if not ANALYSIS_COMPLETE.match(output):
             self._errors.add('analysis incomplete')
-        for indicator,error in ERRORS:
+        for indicator, error in ERRORS:
             if indicator in output:
                 self._errors.add(error)
-        for indicator,finding in FINDINGS:
+        for indicator, finding in FINDINGS:
             if indicator in output:
                 self._findings.add(finding)
         self._analysis = sorted(self._findings)
-
 
     ## TODO: Sarif
     def parseSarif(self, conkas_output_results, file_path_in_repo):
@@ -86,12 +90,12 @@ class Vandal(Parser):
                                              text="Conkas is based on symbolic execution, determines which inputs cause which program branches to execute, to find potential security vulnerabilities. Conkas uses rattle to lift bytecode to a high level representation.")))
 
         run = Run(tool=tool, artifacts=[
-                  artifact], logical_locations=logicalLocationsList, results=resultsList)
+            artifact], logical_locations=logicalLocationsList, results=resultsList)
 
         return run
 
 
 if __name__ == '__main__':
     import Parser
-    Parser.main(Vandal)
 
+    Parser.main(Vandal)
