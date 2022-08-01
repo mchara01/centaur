@@ -33,7 +33,7 @@ class Oyente(Parser.Parser):
         if output is None or not output:
             self._errors.add('output missing')
             return
-        self._errors.update(python_errors(output))
+        self._errors.update(Parser.exceptions(output))
         for indicator, error in ERRORS:
             if indicator in output:
                 self._errors.add(error)
