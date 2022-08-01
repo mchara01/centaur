@@ -34,8 +34,8 @@ EVM chains.
 9. [Experiment Setup](#setup)
 10. [License](#license)
 
-## Repository Overview <a name="prerequisites"></a>
-<!-- Command to reprodcue: tree -L 2 --dirsfirst -I 'smartbugs_bytecode|venv') -->
+## Repository Overview <a name="overview"></a>
+<!-- Command to reproduce: tree -L 2 --dirsfirst -I 'smartbugs_bytecode|venv') -->
 ```bash                                                                                                                 marcos-antonioscharalambous@mchara01
 Centaur
 ├── build

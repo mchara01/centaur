@@ -5,7 +5,7 @@ if __name__ == '__main__':
 
 import re
 from sarif_om import Tool, ToolComponent, MultiformatMessageString, Run
-from src.output_parser.Parser import Parser, python_errors
+import src.output_parser.Parser as Parser
 from src.output_parser.SarifHolder import parseRule, parseResult, isNotDuplicateRule, parseArtifact, \
     parseLogicalLocation, isNotDuplicateLogicalLocation
 
@@ -13,7 +13,7 @@ FINDING = re.compile('.*pakala\.analyzer\[.*\] INFO Found (.*) bug\.')
 COVERAGE = re.compile('Symbolic execution finished with coverage (.*).')
 FINISHED = re.compile('Nothing to report.|======> Bug found! Need .* transactions. <======')
 
-class Pakala(Parser):
+class Pakala(Parser.Parser):
 
     def __init__(self, task: 'Execution_Task', output: str):
         super().__init__(task, output)

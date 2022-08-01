@@ -4,11 +4,11 @@ if __name__ == '__main__':
 
 
 from sarif_om import *
-from src.output_parser.Parser import Parser
+import src.output_parser.Parser as Parser
 from src.output_parser.SarifHolder import isNotDuplicateRule, parseRule, parseResult, parseArtifact, parseLogicalLocation
 
 
-class Solhint(Parser):
+class Solhint(Parser.Parser):
 
     def __init__(self, task: 'Execution_Task', output: str):
         super().__init__(task, output)
