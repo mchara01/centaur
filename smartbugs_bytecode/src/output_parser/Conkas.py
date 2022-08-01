@@ -21,6 +21,16 @@ ERRORS = (
 
 
 class Conkas(Parser.Parser):
+    NAME = "conkas"
+    VERSION = "2022/07/23"
+    PORTFOLIO = {
+        "Integer Overflow",
+        "Integer Underflow",
+        "Reentrancy",
+        "Time Manipulation",
+        "Transaction Ordering Dependence",
+        "Unchecked Low Level Call"
+    }
 
     @staticmethod
     def __parse_vuln(line: str):
@@ -40,7 +50,7 @@ class Conkas(Parser.Parser):
         if output is None or not output:
             self._errors.add('output missing')
             return
-        self._errors.update(Parser.exceptions(re.sub('Analysing .*?\.\.\.\n', '', output)))
+        self._errors.update(Parser.exceptions(re.sub('Analysing .*\.\.\.\n', '', output)))
         for indicator, error in ERRORS:
             if indicator in output:
                 self._errors.add(error)

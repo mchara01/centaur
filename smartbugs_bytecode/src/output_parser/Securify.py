@@ -4,17 +4,29 @@ if __name__ == '__main__':
     sys.path.append("../..")
 
 import json
-import numpy
 import os
 import tarfile
-from sarif_om import Tool, ToolComponent, Run, MultiformatMessageString
 
+import numpy
 import src.output_parser.Parser as Parser
+from sarif_om import Tool, ToolComponent, Run, MultiformatMessageString
 from src.output_parser.SarifHolder import parseLogicalLocation, parseArtifact, \
     parseRule, parseResult, isNotDuplicateLogicalLocation
 
 
 class Securify(Parser.Parser):
+    NAME = "securify"
+    VERSION = "2022/07/23"
+    PORTFOLIO = {
+        "DAO",
+        "DAOConstantGas",
+        "MissingInputValidation",
+        "TODAmount",
+        "TODReceiver",
+        "TODTransfer",
+        "UnhandledException",
+        "UnrestrictedEtherFlow"
+    }
 
     def __init__(self, task: 'Execution_Task', output: str):
         super().__init__(task, output)

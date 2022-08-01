@@ -3,13 +3,28 @@ if __name__ == '__main__':
     sys.path.append("../..")
 
 
-import src.output_parser.Oyente as Oyente
+from src.output_parser.Oyente import Oyente
 from sarif_om import *
 from src.execution.execution_task import Execution_Task
 from src.output_parser.SarifHolder import isNotDuplicateRule, parseRule, parseResult, parseArtifact, parseLogicalLocation, isNotDuplicateLogicalLocation
 
 
-class Osiris(Oyente.Oyente):
+class Osiris(Oyente):
+    NAME = "osiris"
+    VERSION = "2022/07/23"
+    PORTFOLIO = {
+        "Arithmetic bugs",
+        "Overflow bugs",
+        "Underflow bugs",
+        "Division bugs",
+        "Modulo bugs",
+        "Truncation bugs",
+        "Signedness bugs",
+        "Callstack bug",
+        "Concurrency bug",
+        "Timedependency bug",
+        "Reentrancy bug",
+    }
 
     def parseSarif(self, osiris_output_results, file_path_in_repo):
         resultsList = []

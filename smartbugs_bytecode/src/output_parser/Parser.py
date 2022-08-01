@@ -17,6 +17,8 @@ class Parser:
         self._findings = set()
         self._errors = set()
         self._analysis = None
+        if task.exit_code is None:
+            self._errors.add('DOCKER_TIMEOUT')
 
     def findings(self) -> List[str]:
         return sorted([str2label(f) for f in self._findings])
@@ -34,6 +36,7 @@ class Parser:
             "findings": self.findings(),
             "errors": self.errors(),
             "analysis": self.analysis(),
+            "parser": {"name": self.NAME, "version": self.VERSION}
         }
 
     def parseSarif(self, str, file_path_in_repo):
@@ -95,8 +98,9 @@ def truncate_message(m, length=205):
 
 
 EXCEPTIONS = (
-    ("Traceback (most recent call last):", re.compile(f"(?s:Traceback \(most recent call last\).*?)\n(?=\S)(.*)")), # Python
-    ("Exception in thread", re.compile(f'Exception in thread "[^"]*" (.*)')) # Java
+    ("Traceback (most recent call last):", re.compile(f"(?s:Traceback \(most recent call last\).*?)\n(?=\S)(.*)")),
+    # Python
+    ("Exception in thread", re.compile(f'Exception in thread "[^"]*" (.*)'))  # Java
 )
 
 
@@ -107,14 +111,10 @@ def exceptions(output):
         if indicator in output:
             es = re_exception.findall(output)
             if es:
-                exceptions.update({f"exception ({e})" for e in es})
+                exceptions.update({f"exception ({truncate_message(e)})" for e in es})
             else:
                 exceptions.add("exception")
     return exceptions
-
-
-################################################
-# Running parser standalone
 
 
 ################################################

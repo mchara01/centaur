@@ -9,5 +9,11 @@ QUERIES = {
     "filtered_records_bsc": "SELECT address,balance,nr_token_transfers,nr_transactions FROM db_blockchain.bsc WHERE balance > 0 or nr_token_transfers > 0 or nr_transactions > 0;",
 
     "find_unique_bytecodes_eth": "SELECT COUNT(DISTINCT(bytecode)) FROM eth;",
-    "find_unique_bytecodes_bsc": "SELECT COUNT(DISTINCT(bytecode)) FROM bsc;"
+    "find_unique_bytecodes_bsc": "SELECT COUNT(DISTINCT(bytecode)) FROM bsc;",
+
+    "contracts_with_balance_eth": "SELECT address,balance FROM eth WHERE balance > 0;",
+    "contracts_with_balance_bsc": "SELECT address,balance FROM bsc WHERE balance > 0;",
+
+    "top_balance_eth": "SELECT address, balance FROM eth WHERE balance > 0 ORDER BY balance DESC LIMIT 10",
+    "top_balance_bsc": "SELECT address, balance FROM bsc WHERE balance > 0 ORDER BY balance DESC LIMIT 10",
 }

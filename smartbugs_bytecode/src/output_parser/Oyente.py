@@ -1,9 +1,8 @@
-
 if __name__ == '__main__':
     import sys
+
     sys.path.append("../..")
 
-import re
 from sarif_om import *
 import src.output_parser.Parser as Parser
 from src.output_parser.SarifHolder import isNotDuplicateRule, parseRule, parseResult, \
@@ -20,13 +19,22 @@ ERRORS = (
 
 
 class Oyente(Parser.Parser):
+    NAME = "oyente"
+    VERSION = "2022/07/23"
+    PORTFOLIO = {
+        "Callstack Depth Attack Vulnerability",
+        "Transaction-Ordering Dependence (TOD)",
+        "Timestamp Dependency",
+        "Re-Entrancy Vulnerability",
+    }
+
     def __init__(self, task: 'Execution_Task', output: str):
         super().__init__(task, output)
         if output is None or not output:
             self._errors.add('output missing')
             return
-        self._errors.update(Parser.exceptions(re.sub("(888 |`88b|!!! ).*?\n","",output)))
-        for indicator,error in ERRORS:
+        self._errors.update(Parser.exceptions(output))
+        for indicator, error in ERRORS:
             if indicator in output:
                 self._errors.add(error)
         (self._analysis, self._findings, analysis_completed) = Oyente.__parse(self._lines)
@@ -40,13 +48,13 @@ class Oyente(Parser.Parser):
         analysis_completed = False
         contract = None
         for line in lines:
-            fields = [ f.strip().replace('└> ','') for f in line.split(':') ]
+            fields = [f.strip().replace('└> ', '') for f in line.split(':')]
             if (line.startswith('INFO:root:contract') or line.startswith('INFO:root:Contract')) and len(fields) >= 4:
                 # INFO:root:contract <filename>:<contract name>:
                 if contract is not None:
                     analysis.append(contract)
                 contract = {
-                    'file': fields[2].replace('contract ', '').replace('Contract ',''),
+                    'file': fields[2].replace('contract ', '').replace('Contract ', ''),
                     'contract': fields[3]
                 }
                 key = None
@@ -79,17 +87,17 @@ class Oyente(Parser.Parser):
                 if line.startswith(f"INFO:symExec:{fn}") and len(fields) >= 7:
                     # INFO:symExec:<filename>:<line>:<column>:<level>:<message>
                     contract['issues'].append({
-                        'line':    int(fields[3]),
-                        'column':  int(fields[4]),
-                        'level':   fields[5],
+                        'line': int(fields[3]),
+                        'column': int(fields[4]),
+                        'level': fields[5],
                         'message': fields[6]
                     })
                 elif line.startswith(fn) and len(fields) >= 5:
                     # <filename>:<line>:<column>:<level>:<message>
                     contract['issues'].append({
-                        'line':    int(fields[1]),
-                        'column':  int(fields[2]),
-                        'level':   fields[3],
+                        'line': int(fields[1]),
+                        'column': int(fields[2]),
+                        'level': fields[3],
                         'message': fields[4]
                     })
                 elif line.startswith(fn) and len(fields) >= 4:
@@ -97,13 +105,13 @@ class Oyente(Parser.Parser):
                     assert 'contract' in contract and contract['contract'] == fields[1]
                     assert key is not None and val == 'True'
                     contract['issues'].append({
-                        'line':    int(fields[2]),
-                        'column':  int(fields[3]),
+                        'line': int(fields[2]),
+                        'column': int(fields[3]),
                         'message': key
                     })
         if contract is not None:
             analysis.append(contract)
-        return (analysis,findings,analysis_completed)
+        return (analysis, findings, analysis_completed)
 
     def parseSarif(self, oyente_output_results, file_path_in_repo):
         resultsList = []
@@ -141,4 +149,5 @@ class Oyente(Parser.Parser):
 
 if __name__ == '__main__':
     import Parser
+
     Parser.main(Oyente)
