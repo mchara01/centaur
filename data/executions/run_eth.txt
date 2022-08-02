@@ -63,3 +63,82 @@ Smart contracts crawled: 1834
 Smart contracts skipped: 0
 Total requests to Etherscan API: 5594
 ==============================
+
+EXPERIMENT 2
+************
+Random sampling size: 1000
+Crawled 50 blocks - (5.00 %)
+Crawled 100 blocks - (10.00 %)
+Crawled 150 blocks - (15.00 %)
+Crawled 200 blocks - (20.00 %)
+Crawled 250 blocks - (25.00 %)
+Crawled 300 blocks - (30.00 %)
+method handler crashed
+method handler crashed
+method handler crashed
+method handler crashed
+method handler crashed
+Crawled 350 blocks - (35.00 %)
+method handler crashed
+Crawled 400 blocks - (40.00 %)
+Crawled 450 blocks - (45.00 %)
+Crawled 500 blocks - (50.00 %)
+Crawled 550 blocks - (55.00 %)
+Crawled 600 blocks - (60.00 %)
+Crawled 650 blocks - (65.00 %)
+Crawled 700 blocks - (70.00 %)
+Crawled 750 blocks - (75.00 %)
+Crawled 800 blocks - (80.00 %)
+Crawled 850 blocks - (85.00 %)
+Crawled 900 blocks - (90.00 %)
+Crawled 950 blocks - (95.00 %)
+Crawled 1000 blocks - (100.00 %)
+Running time for crawling txs of 1000 blocks: 220.354928 seconds
+
+
+Etherscan API Key
+No. of contracts        3189
+Results file            data/logs/results_eth.json
+Errors file             data/logs/exceptions_eth.json
+
+Processing address 0 / 3189 (0.00%)
+Processing address 100 / 3189 (3.14%)
+Processing address 200 / 3189 (6.27%)
+Processing address 300 / 3189 (9.41%)
+Processing address 400 / 3189 (12.54%)
+Processing address 500 / 3189 (15.68%)
+Processing address 600 / 3189 (18.81%)
+Processing address 700 / 3189 (21.95%)
+Processing address 800 / 3189 (25.09%)
+Processing address 900 / 3189 (28.22%)
+Processing address 1000 / 3189 (31.36%)
+Processing address 1100 / 3189 (34.49%)
+Processing address 1200 / 3189 (37.63%)
+Processing address 1300 / 3189 (40.77%)
+Processing address 1400 / 3189 (43.90%)
+Processing address 1500 / 3189 (47.04%)
+Processing address 1600 / 3189 (50.17%)
+Processing address 1700 / 3189 (53.31%)
+Processing address 1800 / 3189 (56.44%)
+Processing address 1900 / 3189 (59.58%)
+Processing address 2000 / 3189 (62.72%)
+Processing address 2100 / 3189 (65.85%)
+Processing address 2200 / 3189 (68.99%)
+Processing address 2300 / 3189 (72.12%)
+Processing address 2400 / 3189 (75.26%)
+Processing address 2500 / 3189 (78.39%)
+Processing address 2600 / 3189 (81.53%)
+Processing address 2700 / 3189 (84.67%)
+Processing address 2800 / 3189 (87.80%)
+Processing address 2900 / 3189 (90.94%)
+Processing address 3000 / 3189 (94.07%)
+Processing address 3100 / 3189 (97.21%)
+
+==============================
+Finished crawling Etherscan
+612 record(s) affected.
+Elapsed time: 9856.73 seconds
+Smart contracts crawled: 3189
+Smart contracts skipped: 0
+Total requests to Etherscan API: 9727
+==============================
