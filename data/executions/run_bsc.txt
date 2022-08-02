@@ -113,3 +113,230 @@ Smart contracts crawled: 3896
 Smart contracts skipped: 0
 Total requests to BscScan API: 11883
 ==============================
+
+
+EXPERIMENT 2
+************
+Random sampling size: 1000
+Crawled 50 blocks - (5.00 %)
+Crawled 100 blocks - (10.00 %)
+Crawled 150 blocks - (15.00 %)
+Crawled 200 blocks - (20.00 %)
+Crawled 250 blocks - (25.00 %)
+Crawled 300 blocks - (30.00 %)
+execution timeout
+Crawled 350 blocks - (35.00 %)
+Crawled 400 blocks - (40.00 %)
+Crawled 450 blocks - (45.00 %)
+Crawled 500 blocks - (50.00 %)
+Crawled 550 blocks - (55.00 %)
+execution timeout
+Crawled 600 blocks - (60.00 %)
+execution timeout
+Crawled 650 blocks - (65.00 %)
+execution timeout
+execution timeout
+execution timeout
+Crawled 700 blocks - (70.00 %)
+execution timeout
+Crawled 750 blocks - (75.00 %)
+execution timeout
+Crawled 800 blocks - (80.00 %)
+Crawled 850 blocks - (85.00 %)
+[Block 17540277 does not exist]
+[Block 17566284 does not exist]
+[Block 17566520 does not exist]
+[Block 17573372 does not exist]
+[Block 17581093 does not exist]
+[Block 17589390 does not exist]
+[Block 17592880 does not exist]
+[Block 17606476 does not exist]
+[Block 17636605 does not exist]
+[Block 17661811 does not exist]
+[Block 17663630 does not exist]
+Crawled 900 blocks - (90.00 %)
+[Block 17673579 does not exist]
+[Block 17708496 does not exist]
+[Block 17719930 does not exist]
+[Block 17753623 does not exist]
+[Block 17754604 does not exist]
+[Block 17770414 does not exist]
+[Block 17836109 does not exist]
+[Block 17860217 does not exist]
+[Block 17931558 does not exist]
+[Block 17937642 does not exist]
+[Block 17944931 does not exist]
+[Block 17951157 does not exist]
+[Block 17977801 does not exist]
+[Block 17985677 does not exist]
+[Block 18015668 does not exist]
+[Block 18036006 does not exist]
+[Block 18044306 does not exist]
+[Block 18053727 does not exist]
+[Block 18065459 does not exist]
+[Block 18067475 does not exist]
+[Block 18068342 does not exist]
+[Block 18090245 does not exist]
+[Block 18123298 does not exist]
+[Block 18137535 does not exist]
+[Block 18147719 does not exist]
+[Block 18149874 does not exist]
+[Block 18194697 does not exist]
+[Block 18200410 does not exist]
+[Block 18220538 does not exist]
+[Block 18234045 does not exist]
+[Block 18265947 does not exist]
+[Block 18285612 does not exist]
+[Block 18294513 does not exist]
+[Block 18427463 does not exist]
+[Block 18452487 does not exist]
+[Block 18465142 does not exist]
+[Block 18486655 does not exist]
+[Block 18550949 does not exist]
+[Block 18596352 does not exist]
+[Block 18607692 does not exist]
+[Block 18623427 does not exist]
+[Block 18625309 does not exist]
+[Block 18679400 does not exist]
+[Block 18684213 does not exist]
+[Block 18684316 does not exist]
+[Block 18744894 does not exist]
+[Block 18767595 does not exist]
+[Block 18770871 does not exist]
+[Block 18780071 does not exist]
+[Block 18786738 does not exist]
+Crawled 950 blocks - (95.00 %)
+[Block 18843192 does not exist]
+[Block 18845835 does not exist]
+[Block 18846462 does not exist]
+[Block 18849112 does not exist]
+[Block 18852704 does not exist]
+[Block 18873098 does not exist]
+[Block 18905531 does not exist]
+[Block 18911766 does not exist]
+[Block 18935404 does not exist]
+[Block 18967323 does not exist]
+[Block 18987861 does not exist]
+[Block 19027359 does not exist]
+[Block 19028610 does not exist]
+[Block 19078362 does not exist]
+[Block 19120706 does not exist]
+[Block 19211619 does not exist]
+[Block 19247387 does not exist]
+[Block 19271202 does not exist]
+[Block 19301273 does not exist]
+[Block 19306104 does not exist]
+[Block 19336387 does not exist]
+[Block 19348818 does not exist]
+[Block 19357081 does not exist]
+[Block 19376156 does not exist]
+[Block 19403948 does not exist]
+[Block 19414657 does not exist]
+[Block 19451069 does not exist]
+[Block 19451477 does not exist]
+[Block 19452219 does not exist]
+[Block 19479766 does not exist]
+[Block 19506126 does not exist]
+[Block 19593595 does not exist]
+[Block 19606086 does not exist]
+[Block 19609284 does not exist]
+[Block 19674438 does not exist]
+[Block 19699933 does not exist]
+[Block 19716330 does not exist]
+[Block 19720922 does not exist]
+[Block 19727165 does not exist]
+[Block 19729424 does not exist]
+[Block 19735354 does not exist]
+[Block 19757734 does not exist]
+[Block 19808309 does not exist]
+[Block 19811296 does not exist]
+[Block 19878582 does not exist]
+[Block 19907839 does not exist]
+[Block 19914456 does not exist]
+[Block 19922643 does not exist]
+[Block 20007087 does not exist]
+[Block 20023722 does not exist]
+Crawled 1000 blocks - (100.00 %)
+[Block 20067076 does not exist]
+Running time for crawling txs of 1000 blocks: 2972.386906 seconds
+
+
+BscScan API Key
+No. of contracts        6460
+Output file             data/logs/results_bsc.json
+Errors file             data/logs/exceptions_bsc.json
+
+Processing address 0 / 6460 (0.00%)
+Processing address 100 / 6460 (1.55%)
+Processing address 200 / 6460 (3.10%)
+Processing address 300 / 6460 (4.64%)
+Processing address 400 / 6460 (6.19%)
+Processing address 500 / 6460 (7.74%)
+Processing address 600 / 6460 (9.29%)
+Processing address 700 / 6460 (10.84%)
+Processing address 800 / 6460 (12.38%)
+Processing address 900 / 6460 (13.93%)
+Processing address 1000 / 6460 (15.48%)
+Processing address 1100 / 6460 (17.03%)
+Processing address 1200 / 6460 (18.58%)
+Processing address 1300 / 6460 (20.12%)
+Processing address 1400 / 6460 (21.67%)
+Processing address 1500 / 6460 (23.22%)
+Processing address 1600 / 6460 (24.77%)
+Processing address 1700 / 6460 (26.32%)
+Processing address 1800 / 6460 (27.86%)
+Processing address 1900 / 6460 (29.41%)
+Processing address 2000 / 6460 (30.96%)
+Processing address 2100 / 6460 (32.51%)
+Processing address 2200 / 6460 (34.06%)
+Processing address 2300 / 6460 (35.60%)
+Processing address 2400 / 6460 (37.15%)
+Processing address 2500 / 6460 (38.70%)
+Processing address 2600 / 6460 (40.25%)
+Processing address 2700 / 6460 (41.80%)
+Processing address 2800 / 6460 (43.34%)
+Processing address 2900 / 6460 (44.89%)
+Processing address 3000 / 6460 (46.44%)
+Processing address 3100 / 6460 (47.99%)
+Processing address 3200 / 6460 (49.54%)
+Processing address 3300 / 6460 (51.08%)
+Processing address 3400 / 6460 (52.63%)
+Processing address 3500 / 6460 (54.18%)
+Processing address 3600 / 6460 (55.73%)
+Processing address 3700 / 6460 (57.28%)
+Processing address 3800 / 6460 (58.82%)
+Processing address 3900 / 6460 (60.37%)
+Processing address 4000 / 6460 (61.92%)
+Processing address 4100 / 6460 (63.47%)
+Processing address 4200 / 6460 (65.02%)
+Processing address 4300 / 6460 (66.56%)
+Processing address 4400 / 6460 (68.11%)
+Processing address 4500 / 6460 (69.66%)
+Processing address 4600 / 6460 (71.21%)
+Processing address 4700 / 6460 (72.76%)
+Processing address 4800 / 6460 (74.30%)
+Processing address 4900 / 6460 (75.85%)
+Processing address 5000 / 6460 (77.40%)
+Processing address 5100 / 6460 (78.95%)
+Processing address 5200 / 6460 (80.50%)
+Processing address 5300 / 6460 (82.04%)
+Processing address 5400 / 6460 (83.59%)
+Processing address 5500 / 6460 (85.14%)
+Processing address 5600 / 6460 (86.69%)
+Processing address 5700 / 6460 (88.24%)
+Processing address 5800 / 6460 (89.78%)
+Processing address 5900 / 6460 (91.33%)
+Processing address 6000 / 6460 (92.88%)
+Processing address 6100 / 6460 (94.43%)
+Processing address 6200 / 6460 (95.98%)
+Processing address 6300 / 6460 (97.52%)
+Processing address 6400 / 6460 (99.07%)
+
+==============================
+Finished crawling BscScan
+175 record(s) affected
+Elapsed time: 10185.47 seconds
+Smart contracts crawled: 6460
+Smart contracts skipped: 0
+Total requests to BscScan API: 19703
+==============================
