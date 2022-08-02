@@ -1,0 +1,66 @@
+Removing working directory .temp
+Processing contract names.
+Setting up workers.
+Analysing...
+
+0: 0x3f87d1428e2396514606D7261431fEf0c4 completed in 0.01 + 0.78 + 0.02 + 0.01 secs
+
+Finished 1 contracts...
+
+
+
+--------------------------------------------------------------------------------
+Analytics
+--------------------------------------------------------------------------------
+  Analytics_BlockHasNoIRBlock: 0
+  Analytics_BlockInMultipleFunctions: 0
+  Analytics_BlockInNoFunctions: 0
+  Analytics_BlockIsEmpty: 0
+  Analytics_Blocks: 38
+  Analytics_BlocksLocalOrNot: 0
+  Analytics_BlocksReachableInGlobalButNotInTAC: 0
+  Analytics_CallWithSig: 0
+  Analytics_DeadBlocks: 0
+  Analytics_DoubleDef: 0
+  Analytics_ERC20ApproveCall: 0
+  Analytics_ERC20TransferCall: 0
+  Analytics_ERC20TransferFromCall: 0
+  Analytics_FunctionCall: 9
+  Analytics_FunctionCallWithReturn: 2
+  Analytics_FunctionWithMultipleReturns: 0
+  Analytics_Functions: 9
+  Analytics_InexactFunctionArguments: 0
+  Analytics_InexactFunctionCallArguments: 0
+  Analytics_InexactFunctionReturnArguments: 0
+  Analytics_InitiallyMissedCycleEntry: 0
+  Analytics_JumpToMany: 0
+  Analytics_JumpToManyNonPopBlock: 0
+  Analytics_JumpToManyWithoutGlobalImprecision: 0
+  Analytics_Jumps: 28
+  Analytics_LenVarHasManyVars: 0
+  Analytics_MemConsStmtUsesFromDistinctPaths: 0
+  Analytics_MissingImplementation: 0
+  Analytics_MissingJumpTarget: 4
+  Analytics_NonModeledMLOAD: 0
+  Analytics_NonModeledMSTORE: 0
+  Analytics_PolymorphicTarget: 0
+  Analytics_PolymorphicTargetSameCtx: 0
+  Analytics_PublicFunction: 7
+  Analytics_PublicFunctionArg: 4
+  Analytics_PublicFunctionArrayArg: 0
+  Analytics_PublicFunctionNameResolved: 1
+  Analytics_ReachableBlocks: 31
+  Analytics_ReachableBlocksInTAC: 31
+  Analytics_StmtMissingOperand: 0
+  Analytics_UnknownOperand: 0
+  Analytics_UnreachableBlock: 7
+
+
+--------------------------------------------------------------------------------
+Summary (flagged contracts)
+--------------------------------------------------------------------------------
+  OverflowLoopIterator: 0.00%
+  UnboundedMassOp: 0.00%
+  WalletGriefing: 0.00%
+
+Writing results to results.json

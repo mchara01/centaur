@@ -1,0 +1,42 @@
+Analysing /data/0xFE34CC70b85fDEe0399D0FABF892a501D550b510.hex...
+Vulnerability: Reentrancy. Maybe in function: burn(address,uint256). PC: 0x868. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: components(uint256). PC: 0x96b. Line number: .
+If a = 75276140696391174450305814049576319106646922510300487059720162673006384432776
+and b = 40515948540925020973265170959111588746867229676712581465979162207820751845376
+Vulnerability: Integer Overflow. Maybe in function: getUnits(). PC: 0x493. Line number: .
+If a = 32
+and b = 3618502788666131106986593281521497120414687020801267626233049500247285301247
+Vulnerability: Integer Overflow. Maybe in function: getComponents(). PC: 0x7bb. Line number: .
+If a = 32
+and b = 10855508365998393320959779844564491361244061062403802878699148500741855903739
+Vulnerability: Integer Overflow. Maybe in function: getComponents(). PC: 0x7df. Line number: .
+If a = 160
+and b = 3618502788666131106986593281521497120414687020801267626233049500247285301247
+Vulnerability: Integer Overflow. Maybe in function: getUnits(). PC: 0x4b2. Line number: .
+If a = 32
+and b = 10855508365998393320959779844564491361244061062403802878699148500741855903743
+Vulnerability: Integer Overflow. Maybe in function: 0xe5fba6cc. PC: 0x9bd. Line number: .
+If a = 110349606679412691172957834289542550319383271247755660854362242977991410020067
+and b = 5442482557903504250613150719145357533886713417884903185095341029921719619870
+Vulnerability: Reentrancy. Maybe in function: mint(address,uint256). PC: 0x698. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: getComponents(). PC: 0x7be. Line number: .
+If a = 32
+and b = 3618502788666131106986593281521497120414687020801267626233049500247285301247
+Vulnerability: Integer Overflow. Maybe in function: getComponents(). PC: 0x15b. Line number: .
+If a = 32566525097995179962879339533693474083732183187211408636097445502225567711231
+and b = 32
+Vulnerability: Integer Overflow. Maybe in function: getUnits(). PC: 0x499. Line number: .
+If a = 128
+and b = 3618502788666131106986593281521497120414687020801267626233049500247285301243
+Vulnerability: Integer Overflow. Maybe in function: getUnits(). PC: 0x4b4. Line number: .
+If a = 160
+and b = 3618502788666131106986593281521497120414687020801267626233049500247285301247
+Vulnerability: Integer Overflow. Maybe in function: getUnits(). PC: 0x490. Line number: .
+If a = 32
+and b = 61514547407324228818772085785865451047049679353621549645961841504203850121215
+Vulnerability: Integer Overflow. Maybe in function: getComponents(). PC: 0x7dd. Line number: .
+If a = 32
+and b = 10855508365998393320959779844564491361244061062403802878699148500741855903743
+Vulnerability: Integer Overflow. Maybe in function: getComponents(). PC: 0x7c4. Line number: .
+If a = 128
+and b = 3618502788666131106986593281521497120414687020801267626233049500247285301243

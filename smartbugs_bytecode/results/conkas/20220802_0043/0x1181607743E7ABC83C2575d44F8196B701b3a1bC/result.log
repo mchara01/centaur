@@ -1,0 +1,8 @@
+Analysing /data/0x1181607743E7ABC83C2575d44F8196B701b3a1bC.hex...
+Vulnerability: Reentrancy. Maybe in function: execute(address,uint256,bytes). PC: 0x1dd. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: execute(address,uint256,bytes). PC: 0x1dc. Line number: .
+If a = 34709
+and b = 34710
+Vulnerability: Integer Overflow. Maybe in function: execute(address,uint256,bytes). PC: 0xc9. Line number: .
+If a = 4
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639932

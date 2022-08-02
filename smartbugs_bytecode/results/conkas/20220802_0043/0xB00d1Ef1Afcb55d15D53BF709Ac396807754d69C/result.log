@@ -1,0 +1,6 @@
+Analysing /data/0xB00d1Ef1Afcb55d15D53BF709Ac396807754d69C.hex...
+Vulnerability: Time Manipulation. Maybe in function: lockOver(). PC: 0x174. Line number: .
+Vulnerability: Reentrancy. Maybe in function: lockOver(). PC: 0x304. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: lockOver(). PC: 0x4d4. Line number: .
+Vulnerability: Reentrancy. Maybe in function: lockOver(). PC: 0x42d. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: lockOver(). PC: 0x280. Line number: .

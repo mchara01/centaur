@@ -1,0 +1,6 @@
+Analysing /data/0xe0c72010EcbD0B5415163e8795441913778626F1.hex...
+Vulnerability: Time Manipulation. Maybe in function: _fallthrough. PC: 0x4ba. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x18669938. PC: 0x34f. Line number: .
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0xb07. Line number: .
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0xab7. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: _fallthrough. PC: 0x4c8. Line number: .

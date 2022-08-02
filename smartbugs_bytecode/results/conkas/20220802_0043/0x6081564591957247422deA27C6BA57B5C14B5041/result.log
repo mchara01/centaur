@@ -1,0 +1,17 @@
+Analysing /data/0x6081564591957247422deA27C6BA57B5C14B5041.hex...
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x4ed. Line number: .
+If a = 31
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639912
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x4e7. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x4e1. Line number: .
+If a = 4
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639932
+Vulnerability: Integer Overflow. Maybe in function: transfer(address,uint256). PC: 0xd57. Line number: .
+If a = 97248412314669330735363801430047985324915859036365852965459338508112226871959
+and b = 70371453081375550086459855715014846308096429829641909587469912489465900333783
+Vulnerability: Reentrancy. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x105a. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: transferFrom(address,address,uint256). PC: 0x86f. Line number: .
+If a = 14986358112015705057545690290608139686599350264201312717244250739427346028346
+and b = 101786841151422658262900167321957143559671268995048110630283302141471392794418

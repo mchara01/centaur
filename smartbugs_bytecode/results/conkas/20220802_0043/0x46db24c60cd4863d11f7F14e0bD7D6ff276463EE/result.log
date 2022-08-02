@@ -1,0 +1,14 @@
+Analysing /data/0x46db24c60cd4863d11f7F14e0bD7D6ff276463EE.hex...
+Vulnerability: Integer Underflow. Maybe in function: burn(uint256). PC: 0x4d1. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639934
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x2bb. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639748
+Vulnerability: Reentrancy. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x756. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: burnFrom(address,uint256). PC: 0x5b3. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639934
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x2de. Line number: .
+If a = 36
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900

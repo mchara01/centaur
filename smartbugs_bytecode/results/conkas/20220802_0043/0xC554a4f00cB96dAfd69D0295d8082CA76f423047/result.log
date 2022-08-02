@@ -1,0 +1,7 @@
+Analysing /data/0xC554a4f00cB96dAfd69D0295d8082CA76f423047.hex...
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0x7e. Line number: .
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0x22b. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0xb76ea962. PC: 0x16a. Line number: .
+If a = 36
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900
+Vulnerability: Reentrancy. Maybe in function: 0xb76ea962. PC: 0x2de. Line number: .

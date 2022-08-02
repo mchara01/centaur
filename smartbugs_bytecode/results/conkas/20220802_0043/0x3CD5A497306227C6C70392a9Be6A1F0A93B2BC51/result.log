@@ -1,0 +1,4 @@
+Analysing /data/0x3CD5A497306227C6C70392a9Be6A1F0A93B2BC51.hex...
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x25. Line number: .
+If a = 709
+and b = 710

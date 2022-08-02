@@ -1,0 +1,29 @@
+Analysing /data/0xe0174071abc682Eaa1191fFcb7dE71b1F4b6F903.hex...
+Vulnerability: Integer Overflow. Maybe in function: _dispatch. PC: 0x4c1. Line number: .
+If a = 2
+and b = 75749877807375921817729446941836257986631110587357380876543044658183157250436
+Vulnerability: Integer Overflow. Maybe in function: bets(uint256). PC: 0x302. Line number: .
+If a = 57890744074936265073014197904142686601675805623885311452221241180259447209900
+and b = 80084422859880547211683076133703299733277748156566366325829078699459944778998
+Vulnerability: Integer Underflow. Maybe in function: 0xf14a8863. PC: 0x42d. Line number: .
+If a = 0
+and b = 2
+Vulnerability: Integer Overflow. Maybe in function: 0xf14a8863. PC: 0x283. Line number: .
+If a = 2
+and b = 57896044619010647074109825192702471667016374543373552369948266849716712505345
+Vulnerability: Integer Overflow. Maybe in function: bets(uint256). PC: 0x301. Line number: .
+If a = 2
+and b = 57896044618658097711785492504343953926634992332820282019728792003956564819968
+Vulnerability: Transaction Ordering Dependence. Maybe in function: withdrawPrize(). PC: 0x38f. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x125. Line number: .
+If a = 0
+and b = 1
+Vulnerability: Integer Overflow. Maybe in function: 0xf14a8863. PC: 0x414. Line number: .
+If a = 2
+and b = 75589662928634823697411121665834699566724935245537645605951588903442184142848
+Vulnerability: Integer Overflow. Maybe in function: _dispatch. PC: 0x20b. Line number: .
+If a = 2
+and b = 75749877807375921817729446941836257986631110587357380876543044658183157250436
+Vulnerability: Integer Overflow. Maybe in function: _dispatch. PC: 0x4bd. Line number: .
+If a = 2
+and b = 75749877807375921817729446941836257986631110587357380876543044658183157250436

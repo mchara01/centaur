@@ -1,0 +1,5 @@
+Analysing /data/0x2ca1671ae14E4579597341439Ffba15B037e971E.hex...
+Vulnerability: Reentrancy. Maybe in function: 0xf0e3c0b0. PC: 0x55e. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0xb031e4b0. PC: 0x33f. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0xb031e4b0. PC: 0x41b. Line number: .
+Vulnerability: Reentrancy. Maybe in function: sendToAddress(address,address,uint256). PC: 0x6a3. Line number: .

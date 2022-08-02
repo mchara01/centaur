@@ -1,0 +1,5 @@
+Analysing /data/0x2975a61926d80AaD1678F7A16529405c71CF9E80.hex...
+Vulnerability: Reentrancy. Maybe in function: burnTokens(uint256). PC: 0x267. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: burnTokens(uint256). PC: 0x266. Line number: .
+If a = 709
+and b = 710

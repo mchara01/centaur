@@ -1,0 +1,11 @@
+Analysing /data/0xC34381b7dd3aF497f6604769d26CF5C89d6d08Fe.hex...
+Vulnerability: Integer Overflow. Maybe in function: _dispatch. PC: 0x106. Line number: .
+If a = 262143
+and b = 59712467910336714908845809754332403740653895460918134662016203514955257057894
+Vulnerability: Integer Overflow. Maybe in function: _dispatch. PC: 0x100. Line number: .
+If a = 2319850333348765187420082452294472768672216104696683999102220037721728000
+and b = 114023796570369928555993549781214662944074983504890759445346668879450021822489
+Vulnerability: Integer Overflow. Maybe in function: _dispatch. PC: 0xa8. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639920
+and b = 27
+Vulnerability: Time Manipulation. Maybe in function: _dispatch. PC: 0x12c. Line number: .

@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "conkas.py", line 105, in main
+    ssa = Recover(bytecode, edges=[], optimize=True)
+  File "/conkas/rattle/recover.py", line 768, in __init__
+    self.internal = InternalRecover(filedata, edges, optimize, split_functions)
+  File "/conkas/rattle/recover.py", line 37, in __init__
+    self.guarenteed_optimizations()
+  File "/conkas/rattle/recover.py", line 674, in guarenteed_optimizations
+    if reader.insn.is_push and reader.replace_uses_with(item):
+  File "/conkas/rattle/ssa.py", line 397, in replace_uses_with
+    reader.replace_argument(self.return_value, sv)
+  File "/conkas/rattle/ssa.py", line 289, in replace_argument
+    assert (self.insn.pops == len(self.arguments) or
+AssertionError
+Analysing /data/0x9117BDaC4daa50735b67894ef008599884531FFc.hex...

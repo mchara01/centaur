@@ -1,0 +1,6 @@
+Analysing /data/0xdb11250dC0368565EDd1603c7Ca767D80b420557.hex...
+Vulnerability: Reentrancy. Maybe in function: drainETH(). PC: 0x815. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x178bff94. PC: 0x1e1. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0xd9f37cfa. PC: 0x3f4. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x178bff94. PC: 0x236. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0xe0b22c4c. PC: 0x667. Line number: .

@@ -1,0 +1,35 @@
+Analysing /data/0xE574DeaA6272E4bA070e909f49daE440cdf6596D.hex...
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0xad. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x356. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: transferToken(address,address,uint256). PC: 0x56f. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x82b5b8ab. PC: 0x6b6. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0x486b03c2. PC: 0x4d4. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0x3e6. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x6bbe0bab. PC: 0x607. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x486b03c2. PC: 0x4d5. Line number: .
+Vulnerability: Unchecked Low Level Call. Maybe in function: 0x82b5b8ab. PC: 0x6b6. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0x6bbe0bab. PC: 0x606. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: transferTokenFrom(address,address,address,uint256). PC: 0x7bd. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Overflow. Maybe in function: 0x82b5b8ab. PC: 0x66c. Line number: .
+If a = 64
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639836
+Vulnerability: Reentrancy. Maybe in function: sweep(). PC: 0x446. Line number: .
+Vulnerability: Unchecked Low Level Call. Maybe in function: sweep(). PC: 0x446. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: transferToken(address,address,uint256). PC: 0x56e. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: 0x82b5b8ab. PC: 0x6b5. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x3e5. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: transferTokenFrom(address,address,address,uint256). PC: 0x7be. Line number: .

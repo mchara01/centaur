@@ -1,0 +1,11 @@
+Analysing /data/0xE6c1ee5E47d2693c20F8640FaA12C219B855a6d1.hex...
+Vulnerability: Integer Overflow. Maybe in function: 0xff8bce6e. PC: 0x45a. Line number: .
+If a = 32
+and b = 3618502788666131106986593281521497120414687020801267626233049500247285301241
+Vulnerability: Integer Overflow. Maybe in function: 0xff8bce6e. PC: 0x455. Line number: .
+If a = 32
+and b = 3618502788666131106986593281521497120414687020801267626233049500247285301242
+Vulnerability: Reentrancy. Maybe in function: returnEther(). PC: 0x3c2. Line number: .
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0x24f. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x97849c5d. PC: 0x35b. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0xff8bce6e. PC: 0x4ca. Line number: .

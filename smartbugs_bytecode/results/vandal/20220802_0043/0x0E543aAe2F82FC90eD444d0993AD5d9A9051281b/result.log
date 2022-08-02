@@ -1,0 +1,58 @@
++++ dirname /vandal/bin/analyze.sh
+++ cd /vandal/bin
+++ pwd
++ DIR=/vandal/bin
++ rm -rf facts-tmp
++ /vandal/bin/decompile -o CALL JUMPI SSTORE SLOAD MLOAD MSTORE -d -n -t facts-tmp /data/0x0E543aAe2F82FC90eD444d0993AD5d9A9051281b.hex
+Traceback (most recent call last):
+  File "/vandal/bin/decompile", line 224, in <module>
+    dataflow.analyse_graph(cfg)
+  File "/vandal/bin/../src/dataflow.py", line 102, in analyse_graph
+    stack_analysis(cfg)
+  File "/vandal/bin/../src/dataflow.py", line 306, in stack_analysis
+    curr_block.apply_operations(settings.set_valued_ops)
+  File "/vandal/bin/../src/tac_cfg.py", line 1189, in apply_operations
+    op.lhs.values = mem.Variable.arith_op(op.opcode.name, rhs).values
+  File "/vandal/bin/../src/memtypes.py", line 270, in arith_op
+    result = ssle.cartesian_map(getattr(cls, opname), args)
+  File "/vandal/bin/../src/lattice.py", line 316, in cartesian_map
+    return cls([f(*args) for args in prod])
+  File "/vandal/bin/../src/lattice.py", line 316, in <listcomp>
+    return cls([f(*args) for args in prod])
+  File "/vandal/bin/../src/memtypes.py", line 325, in EXP
+    return b ** e
+MemoryError
++ souffle -F facts-tmp /vandal/datalog/demo_analyses.dl
+Warning: Deprecated type declaration used in file types.dl at line 30
+.type Statement
+^---------------
+Warning: Deprecated type declaration used in file types.dl at line 31
+.type Variable
+^--------------
+Warning: Deprecated type declaration used in file types.dl at line 32
+.type Opcode
+^------------
+Warning: Deprecated type declaration used in file types.dl at line 33
+.type Value
+^-----------
+Error loading data: Cannot open fact file edge.facts
+
+Error loading data: Cannot open fact file def.facts
+
+Error loading data: Cannot open fact file use.facts
+
+Error loading data: Cannot open fact file op.facts
+
+Error loading data: Cannot open fact file value.facts
+
+Error loading data: Cannot open fact file op_CALL.facts
+
+Error loading data: Cannot open fact file op_JUMPI.facts
+
+Error loading data: Cannot open fact file op_SSTORE.facts
+
+Error loading data: Cannot open fact file dom.facts
+
+Error loading data: Cannot open fact file pdom.facts
+
++ rm -rf facts-tmp

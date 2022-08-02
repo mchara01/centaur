@@ -1,0 +1,29 @@
+Analysing /data/0xE366eAD20ba1Bf0914AF5b5d275c005CD04240bb.hex...
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0x71. Line number: .
+Vulnerability: Reentrancy. Maybe in function: flushTokens(address). PC: 0x1e0. Line number: .
+Vulnerability: Reentrancy. Maybe in function: flushTokens(address). PC: 0x26e. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: _fallthrough. PC: 0x68. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639840
+and b = 96
+Vulnerability: Integer Underflow. Maybe in function: _fallthrough. PC: 0x70. Line number: .
+If a = 34709
+and b = 34710
+Vulnerability: Integer Underflow. Maybe in function: _fallthrough. PC: 0xe7. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639712
+and b = 96
+Vulnerability: Integer Overflow. Maybe in function: _fallthrough. PC: 0xd7. Line number: .
+If a = 224
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+Vulnerability: Integer Underflow. Maybe in function: flush(). PC: 0x2fd. Line number: .
+If a = 34709
+and b = 34710
+Vulnerability: Integer Underflow. Maybe in function: flushTokens(address). PC: 0x26d. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: flushTokens(address). PC: 0x1df. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: flush(). PC: 0x2fe. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: _fallthrough. PC: 0x59. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639840

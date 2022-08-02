@@ -1,0 +1,3 @@
+Analysing /data/0xaA977E57A5d9EcBBC8F05B8907f8375589c35dDf.hex...
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0x21d. Line number: .
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0x17f. Line number: .

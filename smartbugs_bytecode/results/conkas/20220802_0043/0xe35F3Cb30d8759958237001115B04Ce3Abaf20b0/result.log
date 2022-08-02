@@ -1,0 +1,83 @@
+Analysing /data/0xe35F3Cb30d8759958237001115B04Ce3Abaf20b0.hex...
+Vulnerability: Reentrancy. Maybe in function: createCrowdsale(uint256,uint256,uint256,uint256). PC: 0xcc6. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: createCrowdsale(uint256,uint256,uint256,uint256). PC: 0xcc5. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: createCrowdsale(uint256,uint256,uint256,uint256). PC: 0xb2f. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x1918a54b. PC: 0xdd2. Line number: .
+Vulnerability: Reentrancy. Maybe in function: stop(). PC: 0xa10. Line number: .
+Vulnerability: Reentrancy. Maybe in function: createForecasting(uint256,uint256,uint256). PC: 0x1095. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x4be4c893. PC: 0x13bb. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: createCrowdsale(uint256,uint256,uint256,uint256). PC: 0xb2e. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: 0x1918a54b. PC: 0xdd1. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: stop(). PC: 0xa0f. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: createForecasting(uint256,uint256,uint256). PC: 0x1094. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: createCrowdsale(uint256,uint256,uint256,uint256). PC: 0xbfb. Line number: .
+Vulnerability: Reentrancy. Maybe in function: stop(). PC: 0x98b. Line number: .
+Vulnerability: Reentrancy. Maybe in function: createCrowdsale(uint256,uint256,uint256,uint256). PC: 0xc62. Line number: .
+Vulnerability: Reentrancy. Maybe in function: createForecasting(uint256,uint256,uint256). PC: 0x120b. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0x4be4c893. PC: 0x13ba. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: createCrowdsale(uint256,uint256,uint256,uint256). PC: 0xbfa. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Time Manipulation. Maybe in function: 0x71036c30. PC: 0x15f2. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: stop(). PC: 0x98a. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: 0x4be4c893. PC: 0x143b. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: createCrowdsale(uint256,uint256,uint256,uint256). PC: 0xc61. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Overflow. Maybe in function: 0x71036c30. PC: 0x165d. Line number: .
+If a = 219103759744602787845374529945364140239661442531867908427700147238507380735
+and b = 3600
+Vulnerability: Integer Underflow. Maybe in function: 0x4be4c893. PC: 0x143a. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Overflow. Maybe in function: 0x8b1e67d4. PC: 0x18df. Line number: .
+If a = 49791959467252497455735130940088646708311117250336157395101362029847983277999
+and b = 66000129770063697967835854068599261144958867415304406644371931135938058518528
+Vulnerability: Reentrancy. Maybe in function: createForecasting(uint256,uint256,uint256). PC: 0x1194. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x71036c30. PC: 0x166c. Line number: .
+Vulnerability: Reentrancy. Maybe in function: createCrowdsale(uint256,uint256,uint256,uint256). PC: 0xb99. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x71036c30. PC: 0x15e0. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x71036c30. PC: 0x1640. Line number: .
+Vulnerability: Reentrancy. Maybe in function: stop(). PC: 0x8d5. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: createForecasting(uint256,uint256,uint256). PC: 0x1193. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: createCrowdsale(uint256,uint256,uint256,uint256). PC: 0xb98. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: createForecasting(uint256,uint256,uint256). PC: 0x110e. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: update(bytes32). PC: 0x1856. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0x71036c30. PC: 0x15df. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: stop(). PC: 0x8d4. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: 0x71036c30. PC: 0x163f. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: createForecasting(uint256,uint256,uint256). PC: 0x110d. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Overflow. Maybe in function: 0x71036c30. PC: 0x1669. Line number: .
+If a = 3888000
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Reentrancy. Maybe in function: 0x71036c30. PC: 0x16bb. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x71036c30. PC: 0x1664. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0x71036c30. PC: 0x16ba. Line number: .
+If a = 709
+and b = 710

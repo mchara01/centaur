@@ -1,0 +1,9 @@
+Analysing /data/0xbb296e4acAcD9d5Fea45F073e833b86cCeD6abe2.hex...
+Vulnerability: Integer Overflow. Maybe in function: withdraw(address,address,uint256,uint256,address). PC: 0x1db. Line number: .
+If a = 128
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+Vulnerability: Integer Underflow. Maybe in function: withdraw(address,address,uint256,uint256,address). PC: 0x1ea. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639808
+and b = 128
+Vulnerability: Unchecked Low Level Call. Maybe in function: withdraw(address,address,uint256,uint256,address). PC: 0x1ee. Line number: .
+Vulnerability: Reentrancy. Maybe in function: withdraw(address,address,uint256,uint256,address). PC: 0x17e. Line number: .

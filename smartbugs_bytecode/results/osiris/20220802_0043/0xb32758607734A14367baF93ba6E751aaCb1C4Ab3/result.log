@@ -1,0 +1,78 @@
+INFO:symExec:Running, please wait...
+Exception ctypes.ArgumentError: "argument 2: <type 'exceptions.Exception'>: timeout" in <bound method FuncDeclRef.__del__ of some_var_15> ignored
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM code coverage: 	 69.2%
+INFO:symExec:	  Arithmetic bugs: 	 True
+INFO:symExec:	  └> Overflow bugs: 	 True
+Opcode: ADD
+Input: [68 + Id_27 + Id_29 + Id_31, Id_32]
+Output: [68 + Id_27 + Id_29 + Id_31 + Id_32]
+INFO:symExec:	  └> Underflow bugs: 	 False
+INFO:symExec:	  └> Division bugs: 	 False
+INFO:symExec:	  └> Modulo bugs:   	 False
+INFO:symExec:	  └> Truncation bugs: 	 False
+INFO:symExec:	  └> Signedness bugs: 	 True
+Opcode: SLT
+Input: [115792089237316195423570985008687907853269984665640564039457584007913129639932 +
+Id_size, 32]
+Output: [If(32 <=
+   115792089237316195423570985008687907853269984665640564039457584007913129639932 +
+   Id_size,
+   0,
+   1)]
+Opcode: SLT
+Input: [115792089237316195423570985008687907853269984665640564039457584007913129639932 +
+Id_size, 128]
+Output: [If(128 <=
+   115792089237316195423570985008687907853269984665640564039457584007913129639932 +
+   Id_size,
+   0,
+   1)]
+Opcode: SLT
+Input: [115792089237316195423570985008687907853269984665640564039457584007913129639932 +
+Id_size, 128]
+Output: [If(128 <=
+   115792089237316195423570985008687907853269984665640564039457584007913129639932 +
+   Id_size,
+   0,
+   1)]
+Opcode: SLT
+Input: [115792089237316195423570985008687907853269984665640564039457584007913129639932 +
+Id_size, 32]
+Output: [If(32 <=
+   115792089237316195423570985008687907853269984665640564039457584007913129639932 +
+   Id_size,
+   0,
+   1)]
+Opcode: SLT
+Input: [115792089237316195423570985008687907853269984665640564039457584007913129639932 +
+Id_size, 32]
+Output: [If(32 <=
+   115792089237316195423570985008687907853269984665640564039457584007913129639932 +
+   Id_size,
+   0,
+   1)]
+Opcode: SLT
+Input: [115792089237316195423570985008687907853269984665640564039457584007913129639932 +
+Id_size, 32]
+Output: [If(32 <=
+   115792089237316195423570985008687907853269984665640564039457584007913129639932 +
+   Id_size,
+   0,
+   1)]
+INFO:symExec:	  Callstack bug: 	 False
+INFO:symExec:	  Concurrency bug: 	 False
+INFO:symExec:	  Timedependency bug: 	 False
+INFO:symExec:	  Reentrancy bug: 	 False
+INFO:symExec:	 --- 50.0705640316 seconds ---
+INFO:symExec:	====== Analysis Completed ======
+
+  .oooooo.             o8o            o8o          
+ d8P'  `Y8b            `"'            `"'          
+888      888  .oooo.o oooo  oooo d8b oooo   .oooo.o
+888      888 d88(  "8 `888  `888""8P `888  d88(  "8
+888      888 `"Y88b.   888   888      888  `"Y88b. 
+`88b    d88' o.  )88b  888   888      888  o.  )88b
+ `Y8bood8P'  8""888P' o888o d888b    o888o 8""888P'
+
+!!! SYMBOLIC EXECUTION TIMEOUT !!!

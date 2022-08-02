@@ -1,0 +1,4 @@
+Analysing /data/0x1Baef458c515c4251E496F01A6e992704c4BBD9B.hex...
+Vulnerability: Integer Underflow. Maybe in function: calculatePrice(uint256,uint256,uint256,address,uint256). PC: 0x2cd. Line number: .
+If a = 709
+and b = 710

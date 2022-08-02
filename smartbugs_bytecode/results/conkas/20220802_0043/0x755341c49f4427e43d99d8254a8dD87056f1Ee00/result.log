@@ -1,0 +1,15 @@
+Analysing /data/0x755341c49f4427e43d99d8254a8dD87056f1Ee00.hex...
+Vulnerability: Integer Underflow. Maybe in function: totalSupply(). PC: 0x5b5. Line number: .
+If a = 0
+and b = 1
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x37f. Line number: .
+If a = 128
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639840
+Vulnerability: Reentrancy. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0xb0c. Line number: .
+Vulnerability: Reentrancy. Maybe in function: transferAnyERC20Token(address,uint256). PC: 0xc19. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x3a7. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x370. Line number: .
+If a = 4
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639932

@@ -1,0 +1,9 @@
+Analysing /data/0x2408F3F3de090c432efc29B00C39229EC48367cf.hex...
+Vulnerability: Integer Underflow. Maybe in function: closeDeed(uint256). PC: 0x3c6. Line number: .
+If a = 1000
+and b = 1002
+Vulnerability: Integer Overflow. Maybe in function: closeDeed(uint256). PC: 0x3d2. Line number: .
+If a = 56921960333636771482459809608603423068049688875561436939442042006025904586741
+and b = 51878749162681619768859051568640696525704786281963095495611786119540798680273
+Vulnerability: Reentrancy. Maybe in function: destroyDeed(). PC: 0x20b. Line number: .
+Vulnerability: Reentrancy. Maybe in function: setBalance(uint256,bool). PC: 0x361. Line number: .

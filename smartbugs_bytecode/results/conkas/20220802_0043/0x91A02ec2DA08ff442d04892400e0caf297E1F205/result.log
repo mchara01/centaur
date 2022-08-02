@@ -1,0 +1,17 @@
+Analysing /data/0x91A02ec2DA08ff442d04892400e0caf297E1F205.hex...
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x26f. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0x96. Line number: .
+Vulnerability: Reentrancy. Maybe in function: transferEther(uint256). PC: 0x43c. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x315. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0x270. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: transferEther(uint256). PC: 0x43b. Line number: .
+If a = 34709
+and b = 34710
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0x316. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x95. Line number: .
+If a = 34709
+and b = 34710

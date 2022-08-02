@@ -1,0 +1,5 @@
+Analysing /data/0xB673120D852FC25C5e4CFb7c89cb9D0A778A5546.hex...
+Vulnerability: Integer Overflow. Maybe in function: isValidSignature(bytes,bytes). PC: 0x4fd. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+and b = 452312848583266388373324160190187140051835877600158453279131187530910662656
+Vulnerability: Reentrancy. Maybe in function: executeTransaction(address,uint256,bytes). PC: 0x6b7. Line number: .

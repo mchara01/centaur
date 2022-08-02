@@ -1,0 +1,17 @@
+Analysing /data/0x711A053BFe93faDBe42827801c8e7c2123c5C2C4.hex...
+Vulnerability: Integer Overflow. Maybe in function: 0x109b1ee6. PC: 0x988. Line number: .
+If a = 28948248814240967125606312677745019094258246047851640725803417889488240583761
+and b = 1000000000000000000
+Vulnerability: Integer Overflow. Maybe in function: transferFrom(address,address,uint256). PC: 0xccc. Line number: .
+If a = 115792089237316195423570985008687907852589419931798687112567728281179832534231
+and b = 28948022309329048855892746252171976963317496166410141009809055769748563512825
+Vulnerability: Integer Overflow. Maybe in function: init(uint256,uint256,uint256). PC: 0xe21. Line number: .
+If a = 28948300539399712663546102101472310784648451346894727733341096756369039534400
+and b = 1000000000000000000
+Vulnerability: Unchecked Low Level Call. Maybe in function: 0xd6d2b6ba. PC: 0x1245. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: init(uint256,uint256,uint256). PC: 0xe3e. Line number: .
+If a = 28948326850680342060190976880995744426069935234177822035865624908737642796221
+and b = 1000000000000000000
+Vulnerability: Integer Overflow. Maybe in function: transferFrom(address,address,uint256). PC: 0xd1c. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935

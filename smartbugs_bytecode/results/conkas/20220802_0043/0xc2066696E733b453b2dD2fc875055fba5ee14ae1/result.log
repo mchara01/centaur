@@ -1,0 +1,4 @@
+Analysing /data/0xc2066696E733b453b2dD2fc875055fba5ee14ae1.hex...
+Vulnerability: Reentrancy. Maybe in function: withdrawERC20Token(address,uint256). PC: 0x36c. Line number: .
+Vulnerability: Reentrancy. Maybe in function: _fallthrough. PC: 0xd4. Line number: .
+Vulnerability: Reentrancy. Maybe in function: withdraw(uint256). PC: 0x1ee. Line number: .

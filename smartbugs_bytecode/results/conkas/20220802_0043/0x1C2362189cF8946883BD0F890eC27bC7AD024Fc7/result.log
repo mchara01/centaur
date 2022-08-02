@@ -1,0 +1,6 @@
+Analysing /data/0x1C2362189cF8946883BD0F890eC27bC7AD024Fc7.hex...
+Vulnerability: Reentrancy. Maybe in function: 0xcbf9b84b. PC: 0x1f8. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0xcbf9b84b. PC: 0x1f7. Line number: .
+If a = 25709
+and b = 25710
+Vulnerability: Unchecked Low Level Call. Maybe in function: 0xcbf9b84b. PC: 0x1f8. Line number: .

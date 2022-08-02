@@ -1,0 +1,9 @@
+Analysing /data/0x3ddacD69EdF7d146fb31Cd136E02D492a75a43b5.hex...
+Vulnerability: Reentrancy. Maybe in function: 0x8fc1038e. PC: 0x8f0. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x8fc1038e. PC: 0xa11. Line number: .
+Vulnerability: Reentrancy. Maybe in function: sweep(address,uint256). PC: 0x603. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0xc18cfe86. PC: 0xd54. Line number: .
+Vulnerability: Unchecked Low Level Call. Maybe in function: sendEther(address,uint256). PC: 0xb72. Line number: .
+Vulnerability: Reentrancy. Maybe in function: sweep(address,uint256). PC: 0x6f0. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0xc18cfe86. PC: 0xe14. Line number: .
+Vulnerability: Reentrancy. Maybe in function: sendEther(address,uint256). PC: 0xb72. Line number: .

@@ -1,0 +1,107 @@
+Analysing /data/0xEFD5F7C67Ab554d199d8fb9419fA98C0972Ca13D.hex...
+Vulnerability: Integer Overflow. Maybe in function: 0x62441aee. PC: 0x1f4. Line number: .
+If a = 31
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639912
+Vulnerability: Reentrancy. Maybe in function: 0x62441aee. PC: 0x7ef. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x229320ca. PC: 0x47d. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x54a38006. PC: 0x177. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900
+Vulnerability: Integer Overflow. Maybe in function: 0x62441aee. PC: 0x203. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639824
+Vulnerability: Reentrancy. Maybe in function: 0x62441aee. PC: 0x7ae. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x229320ca. PC: 0x4be. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639776
+Vulnerability: Integer Overflow. Maybe in function: 0x229320ca. PC: 0x475. Line number: .
+If a = 31
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639912
+Vulnerability: Integer Overflow. Maybe in function: 0x54a38006. PC: 0x1cb. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639776
+Vulnerability: Reentrancy. Maybe in function: 0x54a38006. PC: 0x651. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x62441aee. PC: 0x7a6. Line number: .
+If a = 31
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639912
+Vulnerability: Reentrancy. Maybe in function: 0x229320ca. PC: 0x4d6. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x54a38006. PC: 0x649. Line number: .
+If a = 31
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639912
+Vulnerability: Integer Overflow. Maybe in function: 0x229320ca. PC: 0x4ce. Line number: .
+If a = 31
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639912
+Vulnerability: Integer Overflow. Maybe in function: 0x229320ca. PC: 0x10b. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900
+Vulnerability: Integer Overflow. Maybe in function: 0x229320ca. PC: 0xd5. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639880
+Vulnerability: Integer Overflow. Maybe in function: 0x62441aee. PC: 0x1ec. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900
+Vulnerability: Integer Underflow. Maybe in function: 0x229320ca. PC: 0x518. Line number: .
+If a = 25049
+and b = 25050
+Vulnerability: Reentrancy. Maybe in function: 0x229320ca. PC: 0x519. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x54a38006. PC: 0x188. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639880
+Vulnerability: Integer Overflow. Maybe in function: 0x229320ca. PC: 0xbe. Line number: .
+If a = 4
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639932
+Vulnerability: Integer Overflow. Maybe in function: 0x229320ca. PC: 0xcc. Line number: .
+If a = 31
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639912
+Vulnerability: Integer Overflow. Maybe in function: 0x229320ca. PC: 0xdb. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639856
+Vulnerability: Integer Overflow. Maybe in function: 0x229320ca. PC: 0x11c. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639880
+Vulnerability: Integer Underflow. Maybe in function: 0x54a38006. PC: 0x692. Line number: .
+If a = 25049
+and b = 25050
+Vulnerability: Integer Underflow. Maybe in function: validate(address). PC: 0x367. Line number: .
+If a = 25049
+and b = 25050
+Vulnerability: Integer Underflow. Maybe in function: 0xcd143d45. PC: 0x91f. Line number: .
+If a = 25049
+and b = 25050
+Vulnerability: Integer Overflow. Maybe in function: 0x54a38006. PC: 0x171. Line number: .
+If a = 4
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639932
+Vulnerability: Integer Overflow. Maybe in function: 0x62441aee. PC: 0x1fd. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639880
+Vulnerability: Integer Overflow. Maybe in function: 0x62441aee. PC: 0x1e6. Line number: .
+If a = 4
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639932
+Vulnerability: Reentrancy. Maybe in function: 0xcd143d45. PC: 0x920. Line number: .
+Vulnerability: Reentrancy. Maybe in function: validate(address). PC: 0x368. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x54a38006. PC: 0x17f. Line number: .
+If a = 31
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639912
+Vulnerability: Reentrancy. Maybe in function: 0x54a38006. PC: 0x693. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x54a38006. PC: 0x18e. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639824
+Vulnerability: Integer Overflow. Maybe in function: 0x229320ca. PC: 0xc4. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900
+Vulnerability: Unchecked Low Level Call. Maybe in function: 0x229320ca. PC: 0x4d6. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x229320ca. PC: 0x105. Line number: .
+If a = 4
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639932
+Vulnerability: Unchecked Low Level Call. Maybe in function: 0x229320ca. PC: 0x47d. Line number: .
+Vulnerability: Unchecked Low Level Call. Maybe in function: 0x62441aee. PC: 0x7ae. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0x62441aee. PC: 0x7ee. Line number: .
+If a = 25049
+and b = 25050
+Vulnerability: Integer Overflow. Maybe in function: 0x229320ca. PC: 0x113. Line number: .
+If a = 31
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639912
+Vulnerability: Unchecked Low Level Call. Maybe in function: 0x54a38006. PC: 0x651. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x62441aee. PC: 0x237. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639776

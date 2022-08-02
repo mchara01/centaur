@@ -1,0 +1,46 @@
+====================================================================================================
+[94m[ ] Check if contract is SUICIDAL[0m
+
+[ ] Contract address   : 0xaFFECAFEAFfECaFEaFFecAfEAFfecAfEAffEcaFE
+[ ] Contract bytecode  : 6080604052600436106100d0576000357c0100000000000000...
+[ ] Bytecode length    : 12054
+[ ] Blockchain contract: False
+[ ] Debug              : False
+
+[92m[-] The code does not contain SUICIDE instructions, hence it is not vulnerable[0m
+
+====================================================================================================
+[94m[ ] Check if contract is PRODIGAL[0m
+
+[ ] Contract address   : 0xaFFECAFEAFfECaFEaFFecAfEAFfecAfEAffEcaFE
+[ ] Contract bytecode  : 6080604052600436106100d0576000357c0100000000000000...
+[ ] Bytecode length    : 12054
+[ ] Blockchain contract: False
+[ ] Debug              : False
+
+[ ][1m Search with call depth: 1   : [0m11Unknown operation  at pos 66a
+111111
+[ ][1m Search with call depth: 2   : [0m1122Unknown operation  at pos 66a
+222222Unknown operation  at pos 66a
+11122Unknown operation  at pos 66a
+222222122Unknown operation  at pos 66a
+2222
+[ ][1m Search with call depth: 3   : [0m1122Unknown operation  at pos 66a
+222233Unknown operation  at pos 66a
+33333322Unknown operation  at pos 66a
+11122Unknown operation  at pos 66a
+222233Unknown operation  at pos 66a
+
+[92m[+] No prodigal vulnerability found [0m
+
+====================================================================================================
+[94m[ ] Check if contract is GREEDY[0m
+
+[ ] Contract address   : 0xaFFECAFEAFfECaFEaFFecAfEAFfecAfEAffEcaFE
+[ ] Contract bytecode  : 6080604052600436106100d0576000357c0100000000000000...
+[ ] Bytecode length    : 12054
+[ ] Debug              : False
+[92m[+][0m [1mContract can receive Ether[0m
+
+[ ][1m Search with call depth: 1   : [0m111
+[92m[+] No locking vulnerability found [0m

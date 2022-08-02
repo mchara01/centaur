@@ -1,0 +1,17 @@
+JUMPDEST instruction should not be reached
+
+Traceback (most recent call last):
+  File "conkas.py", line 108, in main
+    traces = sym_exec.execute()
+  File "/conkas/sym_exec/symbolic_executor.py", line 51, in execute
+    new_traces = self.__sym_exec_traces(traces_to_execute)
+  File "/conkas/sym_exec/symbolic_executor.py", line 64, in __sym_exec_traces
+    new_blocks = self.__sym_exec_block(block_to_analyse, trace.state)
+  File "/conkas/sym_exec/symbolic_executor.py", line 93, in __sym_exec_block
+    new_blocks = self.__sym_exec_instruction(instruction, state)
+  File "/conkas/sym_exec/symbolic_executor.py", line 116, in __sym_exec_instruction
+    return func(instruction, state)
+  File "/conkas/sym_exec/instructions/storage_execution.py", line 225, in inst_jumpdest
+    raise Exception
+Exception
+Analysing /data/0xe85d76F9c392a3F3e1d27c989a3a3CE0F583730e.hex...

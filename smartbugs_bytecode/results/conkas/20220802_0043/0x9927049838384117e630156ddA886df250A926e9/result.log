@@ -1,0 +1,5 @@
+Analysing /data/0x9927049838384117e630156ddA886df250A926e9.hex...
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x9e. Line number: .
+If a = 49
+and b = 50
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0x9f. Line number: .

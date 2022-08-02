@@ -1,0 +1,6 @@
+Exception in thread "main" java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at ch.securify.CompilationHelpers.extractBinaryFromHexFile(CompilationHelpers.java:53)
+	at ch.securify.Main.processHexFile(Main.java:124)
+	at ch.securify.Main.main(Main.java:201)

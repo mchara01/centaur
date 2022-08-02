@@ -1,0 +1,32 @@
+Analysing /data/0xa3d793E09d25dAaeBb32A460DE68C1684f01057D.hex...
+Vulnerability: Integer Overflow. Maybe in function: tokenFallback(address,uint256,bytes). PC: 0x1d1. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639809
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x283. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0x16b. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x2c6. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639840
+and b = 96
+Vulnerability: Integer Overflow. Maybe in function: tokenFallback(address,uint256,bytes). PC: 0x1c5. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639932
+and b = 4
+Vulnerability: Integer Overflow. Maybe in function: tokenFallback(address,uint256,bytes). PC: 0x1d3. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639777
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0xb5. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: _dispatch. PC: 0x2b7. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639840
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0xb4. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x2cd. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0x284. Line number: .
+Vulnerability: Reentrancy. Maybe in function: _dispatch. PC: 0xe3. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: _dispatch. PC: 0x16a. Line number: .
+If a = 709
+and b = 710

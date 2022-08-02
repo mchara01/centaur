@@ -1,0 +1,4 @@
+Analysing /data/0x47D3837D34542848553c55a04F0a7CBb9D6A1aEd.hex...
+Vulnerability: Reentrancy. Maybe in function: claim(). PC: 0x938. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: claim(). PC: 0x5e5. Line number: .
+Vulnerability: Reentrancy. Maybe in function: transferOwnership(address). PC: 0xe39. Line number: .

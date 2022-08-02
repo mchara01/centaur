@@ -1,0 +1,46 @@
+Analysing /data/0x32d55157bd2aE652F4B6be48Ee4a7a1686d28A3f.hex...
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x1127. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639713
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x116b. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639617
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x1159. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639681
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x65b. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639900
+Vulnerability: Integer Overflow. Maybe in function: mintToken(address,uint256). PC: 0xc99. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x115d. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639649
+Vulnerability: Integer Underflow. Maybe in function: burn(uint256). PC: 0xb6c. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639934
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Integer Overflow. Maybe in function: sell(uint256). PC: 0x1233. Line number: .
+If a = 620406993911562843916865817683780741165859940375893274432165921157055250436
+and b = 21470494439402516647976059496259727124297070814823018715957298028239355117569
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x66a. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639873
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x1121. Line number: .
+If a = 32
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639745
+Vulnerability: Integer Overflow. Maybe in function: mintToken(address,uint256). PC: 0xc89. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x661. Line number: .
+If a = 31
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639905
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x655. Line number: .
+If a = 4
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639932
+Vulnerability: Integer Underflow. Maybe in function: burnFrom(address,uint256). PC: 0xf14. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639934
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Integer Overflow. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x670. Line number: .
+If a = 96
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639777

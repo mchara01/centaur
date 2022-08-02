@@ -1,0 +1,3 @@
+Analysing /data/0x96Bfe646B506635c277E84AfBe07D7195f90766A.hex...
+Vulnerability: Reentrancy. Maybe in function: approveAndCall(address,uint256,bytes). PC: 0x126a. Line number: .
+Vulnerability: Reentrancy. Maybe in function: transferAnyERC20Token(address,uint256). PC: 0x13d4. Line number: .

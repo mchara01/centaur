@@ -1,0 +1,16 @@
+Analysing /data/0xE36094501ABC1feB5F4b42122796F92b2441AdB0.hex...
+Vulnerability: Integer Overflow. Maybe in function: symbol(). PC: 0xe11. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+and b = 0
+Vulnerability: Integer Underflow. Maybe in function: transferFrom(address,address,uint256). PC: 0x815. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: totalSupply(). PC: 0x93f. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: destroyBlackFunds(address). PC: 0xd32. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Reentrancy. Maybe in function: totalSupply(). PC: 0x940. Line number: .
+Vulnerability: Reentrancy. Maybe in function: destroyBlackFunds(address). PC: 0xd33. Line number: .
+Vulnerability: Reentrancy. Maybe in function: transferFrom(address,address,uint256). PC: 0x816. Line number: .

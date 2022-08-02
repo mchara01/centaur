@@ -1,0 +1,71 @@
+Analysing /data/0x5eeC3124c6E544AAD65958c5c0853a170f59864e.hex...
+Vulnerability: Integer Overflow. Maybe in function: 0x5f2ef085. PC: 0x835. Line number: .
+If a = 111174123969367264028065915707193276445825178923892133134603145214135037603428
+and b = 62514009886607029107290561805838585334079798074568712924583230797734656856475
+Vulnerability: Integer Overflow. Maybe in function: 0x5f2ef085. PC: 0x783. Line number: .
+If a = 71638317991332891224001749995103890636461783889318371155123640950846450314852
+and b = 62514009886607029107290561805838585334079798074568712924583230797734656856475
+Vulnerability: Integer Overflow. Maybe in function: 0x5f2ef085. PC: 0x6a5. Line number: .
+If a = 14537660159819516956015298077754517894122406897429764644369955763976935866723
+and b = 1000
+Vulnerability: Time Manipulation. Maybe in function: 0x5f2ef085. PC: 0x6f0. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x5f2ef085. PC: 0x876. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x5f2ef085. PC: 0x6dd. Line number: .
+If a = 7418723150778060877676412918
+and b = 1461501637330902918203684832716283019655932542976000
+Vulnerability: Time Manipulation. Maybe in function: 0x5f2ef085. PC: 0x76f. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x5f2ef085. PC: 0x860. Line number: .
+If a = 83076749785839687892839207976738094
+and b = 1461501637330902918203684832716283019655932542976000
+Vulnerability: Integer Overflow. Maybe in function: 0x5f2ef085. PC: 0x75e. Line number: .
+If a = 7664901771228777413448107653
+and b = 1461501637330902918203684832716283019655932542976000
+Vulnerability: Time Manipulation. Maybe in function: 0x5f2ef085. PC: 0x7ff. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x53ecaf83. PC: 0x1d6. Line number: .
+If a = 18446744073709551616
+and b = 38053250310217530109724901707196528230519368137697274576267116340804596254466
+Vulnerability: Integer Overflow. Maybe in function: _dispatch. PC: 0x122. Line number: .
+If a = 269577091287354554086130535120993889768844555907552154458000909649294932311
+and b = 1000
+Vulnerability: Integer Overflow. Maybe in function: getHistory(uint256). PC: 0x5e8. Line number: .
+If a = 62514009886607029107290561805838585334079798074568712924583230797734656856475
+and b = 102109625567672387175425192686923164171489934820405495538097612399807991647840
+Vulnerability: Integer Overflow. Maybe in function: 0x5f2ef085. PC: 0x79b. Line number: .
+If a = 2188610547224844424403381302595066476924921740555873243698785969175194718337
+and b = 1000
+Vulnerability: Integer Overflow. Maybe in function: 0x877d0cd7. PC: 0x510. Line number: .
+If a = 541322885865143614737651590620230162810010183903784825018327735574867783692
+and b = 1000
+Vulnerability: Integer Overflow. Maybe in function: 0x53ecaf83. PC: 0x1fc. Line number: .
+If a = 737367451235992929000234109422468045350599464284028941028707780222237250634
+and b = 1000
+Vulnerability: Integer Overflow. Maybe in function: getHistory(uint256). PC: 0x5ae. Line number: .
+If a = 115792086817654412883487057262881355101864047046791037397111916546339607887848
+and b = 62514009886607029107290561805838585334079798074568712924583230797734656856475
+Vulnerability: Integer Overflow. Maybe in function: 0x5f2ef085. PC: 0x68d. Line number: .
+If a = 114877435417142757582872507268750433654999585171743430470826031812044368653924
+and b = 62514009886607029107290561805838585334079798074568712924583230797734656856475
+Vulnerability: Integer Overflow. Maybe in function: 0x5f2ef085. PC: 0x7d3. Line number: .
+If a = 4959139321467482357214657370
+and b = 1461501637330902918203684832716283019655932542976000
+Vulnerability: Time Manipulation. Maybe in function: 0x877d0cd7. PC: 0x513. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0x53ecaf83. PC: 0x1ff. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x5f2ef085. PC: 0x279. Line number: .
+If a = 1498665906981143392494945192202420145988367961646517370868646575890887610940
+and b = 1000
+Vulnerability: Time Manipulation. Maybe in function: _dispatch. PC: 0x125. Line number: .
+Vulnerability: Unchecked Low Level Call. Maybe in function: get(). PC: 0x436. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x53ecaf83. PC: 0x1cb. Line number: .
+If a = 7364287754223746917023502923751907944476964589549403277055757958535805552797
+and b = 3879644418652075903199166295784373442812381087881978970112
+Vulnerability: Integer Overflow. Maybe in function: 0x5f2ef085. PC: 0x71b. Line number: .
+If a = 1289072867263002262611787733038879814311978167090099175413051762428661186821
+and b = 1000
+Vulnerability: Integer Overflow. Maybe in function: 0x5f2ef085. PC: 0x825. Line number: .
+If a = 10078795028241995473132538780427490175178066829772223481780773489980268946446
+and b = 1000
+Vulnerability: Time Manipulation. Maybe in function: 0x5f2ef085. PC: 0x27c. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: getHistory(uint256). PC: 0x634. Line number: .
+If a = 62514009886607029107290561805838585334079798074568712924583230797734656856475
+and b = 57896044624344961462034844110293955380326705570476585480985659608565127580256
+Vulnerability: Reentrancy. Maybe in function: get(). PC: 0x436. Line number: .

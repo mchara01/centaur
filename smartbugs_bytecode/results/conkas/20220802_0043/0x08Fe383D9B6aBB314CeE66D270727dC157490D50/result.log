@@ -1,0 +1,9 @@
+Analysing /data/0x08Fe383D9B6aBB314CeE66D270727dC157490D50.hex...
+Vulnerability: Reentrancy. Maybe in function: 0xb8dc491b. PC: 0x28a. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0xb8dc491b. PC: 0x1cb. Line number: .
+Vulnerability: Integer Underflow. Maybe in function: 0xb8dc491b. PC: 0x289. Line number: .
+If a = 709
+and b = 710
+Vulnerability: Integer Underflow. Maybe in function: 0xb8dc491b. PC: 0x1ca. Line number: .
+If a = 709
+and b = 710
