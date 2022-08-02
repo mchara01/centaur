@@ -1,4 +1,4 @@
-marcoscharalambous@mini-watson-1 thesis_test % cat execution_bsc.logs
+marcoscharalambous@mini-watson-1 centaur % cat execution_bsc.logs
 Random sampling size: 500
 Crawled 50 blocks - (10.00 %)
 Crawled 100 blocks - (20.00 %)
@@ -59,7 +59,7 @@ Crawled 500 blocks - (100.00 %)
 [Block 19147709 does not exist]
 Running time for crawling txs of 500 blocks: 1521.892634 seconds
 
-marcoscharalambous@mini-watson-1 thesis_test % python3 scripts/mainCrawl.py --chain bsc --apikey X --output results_bsc.json --invalid exceptions_bsc.json
+marcoscharalambous@mini-watson-1 centaur % python3 scripts/mainCrawl.py --chain bsc --apikey X --output results_bsc.json --invalid exceptions_bsc.json
 BscScan API Key
 No. of contracts        3896
 Output file             results_bsc.json

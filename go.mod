@@ -1,4 +1,4 @@
-module github.com/mchara01/thesis_test.git
+module github.com/mchara01/centaur.git
 
 go 1.17
 

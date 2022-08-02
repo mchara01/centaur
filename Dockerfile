@@ -3,7 +3,7 @@
 FROM ubuntu:20.04
 
 LABEL name=Centaur
-LABEL src="https://github.com/mchara01/thesis_test.git"
+LABEL src="https://github.com/mchara01/centaur.git"
 LABEL creator="Marcos-Antonios Charalambous"
 
 ENV LANG C.UTF-8

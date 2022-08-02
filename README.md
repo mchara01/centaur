@@ -1,15 +1,15 @@
-# An EVM-based Chain Vulnerability Analysis
-<a href="https://github.com/mchara01/thesis_test#analysis-tools-used">
+# Centaur: An EVM-based Chain Vulnerability Analysis
+<a href="https://github.com/mchara01/centaur#analysis-tools-used">
         <img alt="Analysis Tools" src="https://img.shields.io/badge/Analysis Tools-9-green">
 </a>
-<a href="https://github.com/mchara01/thesis_test/tree/main/data/dataset/eth">
+<a href="https://github.com/mchara01/centaur/tree/main/data/dataset/eth">
         <img alt="ETH Smart Contracts" src="https://img.shields.io/badge/ETH Smart Contracts-123-green">
 </a>
-<a href="https://github.com/mchara01/thesis_test/tree/main/data/dataset/bsc">
+<a href="https://github.com/mchara01/centaur/tree/main/data/dataset/bsc">
         <img alt="BSC Smart Contracts" src="https://img.shields.io/badge/BSC Smart Contracts-111-green">
 </a>
-<a href="https://github.com/mchara01/thesis_test/">
-        <img alt="Repository Size" src="https://img.shields.io/github/repo-size/mchara01/thesis_test">
+<a href="https://github.com/mchara01/centaur/">
+        <img alt="Repository Size" src="https://img.shields.io/github/repo-size/mchara01/centaur">
 </a>
 
 A study on two EVM-based blockchains, namely Ethereum (ETH) and Binance Smart Chain (BSC).
@@ -94,12 +94,12 @@ anything on your system.
 
 Option 1: Once all the above prerequisites are met, you can clone this repository with:
 ```bash
-git clone https://github.com/mchara01/thesis_test.git
+git clone https://github.com/mchara01/centaur.git
 ```
 
 Option 2: Use our Docker image <a name="option2"></a>
 ```bash
-docker pull mchara01/centaur
+docker pull mchara01/centaur:1.0
 ```
 
 Once installed, the `Centaur` CLI framework will be available for usage.

@@ -4,7 +4,7 @@
 ################################################################
 ################## CONSTANTS DECLARATION  ######################
  
-DB_BACKUP_PATH="$HOME/Desktop/thesis_test/build/database/03_Jul_2022"
+DB_BACKUP_PATH="$HOME/Desktop/centaur/build/database/03_Jul_2022"
 MYSQL_HOST='127.0.0.1'
 MYSQL_PORT='3333'
 MYSQL_USER='root'
