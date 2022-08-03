@@ -1,0 +1,77 @@
+{
+  "contract": "../data/dataset/eth2/0xe0174071abc682Eaa1191fFcb7dE71b1F4b6F903.hex",
+  "tool": "conkas",
+  "start": 1659450665.7861512,
+  "end": 1659450686.943185,
+  "exit_code": 0,
+  "duration": 21.157033920288086,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Transaction_Ordering_Dependence"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x4c1",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "bets(uint256)",
+      "pc": "0x302",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0xf14a8863",
+      "pc": "0x42d",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xf14a8863",
+      "pc": "0x283",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "bets(uint256)",
+      "pc": "0x301",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Transaction Ordering Dependence",
+      "maybe_in_function": "withdrawPrize()",
+      "pc": "0x38f",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x125",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xf14a8863",
+      "pc": "0x414",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x20b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x4bd",
+      "line_number": ""
+    }
+  ]
+}

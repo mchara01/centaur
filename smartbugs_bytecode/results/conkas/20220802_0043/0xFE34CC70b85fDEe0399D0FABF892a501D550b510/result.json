@@ -1,0 +1,106 @@
+{
+  "contract": "../data/dataset/eth2/0xFE34CC70b85fDEe0399D0FABF892a501D550b510.hex",
+  "tool": "conkas",
+  "start": 1659399647.1097503,
+  "end": 1659399766.3049357,
+  "exit_code": 0,
+  "duration": 119.19518542289734,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "burn(address,uint256)",
+      "pc": "0x868",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "components(uint256)",
+      "pc": "0x96b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getUnits()",
+      "pc": "0x493",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getComponents()",
+      "pc": "0x7bb",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getComponents()",
+      "pc": "0x7df",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getUnits()",
+      "pc": "0x4b2",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xe5fba6cc",
+      "pc": "0x9bd",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "mint(address,uint256)",
+      "pc": "0x698",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getComponents()",
+      "pc": "0x7be",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getComponents()",
+      "pc": "0x15b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getUnits()",
+      "pc": "0x499",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getUnits()",
+      "pc": "0x4b4",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getUnits()",
+      "pc": "0x490",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getComponents()",
+      "pc": "0x7dd",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getComponents()",
+      "pc": "0x7c4",
+      "line_number": ""
+    }
+  ]
+}

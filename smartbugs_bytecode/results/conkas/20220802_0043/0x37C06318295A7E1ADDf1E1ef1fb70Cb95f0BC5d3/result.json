@@ -1,0 +1,33 @@
+{
+  "contract": "../data/dataset/eth2/0x37C06318295A7E1ADDf1E1ef1fb70Cb95f0BC5d3.hex",
+  "tool": "conkas",
+  "start": 1659449282.0004914,
+  "end": 1659449285.1160793,
+  "exit_code": 0,
+  "duration": 3.1155879497528076,
+  "success": true,
+  "findings": [
+    "Integer_Underflow"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0xe1aed8a0",
+      "pc": "0x291",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "setUserWithdrawalAccount(address)",
+      "pc": "0x30a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x1ce",
+      "line_number": ""
+    }
+  ]
+}

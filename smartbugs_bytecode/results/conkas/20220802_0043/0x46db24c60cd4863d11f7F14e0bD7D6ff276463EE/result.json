@@ -1,0 +1,47 @@
+{
+  "contract": "../data/dataset/eth2/0x46db24c60cd4863d11f7F14e0bD7D6ff276463EE.hex",
+  "tool": "conkas",
+  "start": 1659456347.6605346,
+  "end": 1659456421.9991236,
+  "exit_code": 0,
+  "duration": 74.33858895301819,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "burn(uint256)",
+      "pc": "0x4d1",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x2bb",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x756",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "burnFrom(address,uint256)",
+      "pc": "0x5b3",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x2de",
+      "line_number": ""
+    }
+  ]
+}

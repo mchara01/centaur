@@ -1,0 +1,15 @@
+{
+  "contract": "../data/dataset/eth2/0x5577fC1C7466502FbD9BbcF59Dbf9Df047282149.hex",
+  "tool": "vandal",
+  "start": 1659422857.1112142,
+  "end": 1659422858.4649243,
+  "exit_code": 1,
+  "duration": 1.3537101745605469,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "exception (ValueError: max() arg is an empty sequence)",
+    "internal error"
+  ],
+  "analysis": []
+}

@@ -1,0 +1,479 @@
+{
+  "contract": "../data/dataset/eth2/0x0b38f5c444876431a037E6116682EAAAd7045649.hex",
+  "tool": "mythril",
+  "start": 1659452588.9987214,
+  "end": 1659452742.7499685,
+  "exit_code": 0,
+  "duration": 153.75124716758728,
+  "success": true,
+  "findings": [
+    "External_Call_To_User_Supplied_Address",
+    "Multiple_Calls_in_a_Single_Transaction",
+    "State_access_after_external_call",
+    "Unchecked_return_value_from_external_call",
+    "Unprotected_Ether_Withdrawal"
+  ],
+  "errors": [],
+  "analysis": {
+    "error": null,
+    "issues": [
+      {
+        "address": 430,
+        "contract": "MAIN",
+        "description": "A call to a user-supplied address is executed.\nAn external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.",
+        "function": "fallback",
+        "max_gas_used": 114198,
+        "min_gas_used": 6081,
+        "severity": "Low",
+        "sourceMap": 430,
+        "swc-id": "107",
+        "title": "External Call To User-Supplied Address",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x1",
+                "code": "6060604052600436106100325763ffffffff60e060020a60003504166362c067678114610034578063c0ee0b8a14610070575b005b341561003f57600080fd5b61005c600160a060020a03600435811690602435166044356100d5565b604051901515815260200160405180910390f35b341561007b57600080fd5b61003260048035600160a060020a03169060248035919060649060443590810190830135806020601f8201819004810201604051908101604052818152929190602084018383808284375094965061029895505050505050565b60008054819081908190600160a060020a0316637bd163f33360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561012c57600080fd5b5af1151561013957600080fd5b505050604051805190501561028e5760009250600160a060020a038716156102455786915081600160a060020a03166370a082313060405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b15156101ac57600080fd5b5af115156101b957600080fd5b505050604051805190508511156101d3576000935061028e565b81600160a060020a031663a9059cbb878760405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b151561022757600080fd5b5af1151561023457600080fd5b50505060405180519050925061028a565b5083600160a060020a03301631811115610262576000935061028e565b600160a060020a03861681156108fc0282604051600060405180830381858888f19650505050505b8293505b5050509392505050565b5050505600a165627a7a7230582046a5a4b3a9b14ddd4256f8e7eb73e2c2bbd4c592872abc481eac2c78cc12de470029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x1",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x62c0676700000000000000000000000001",
+              "input": "0x62c0676700000000000000000000000001",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "value": "0x0"
+            },
+            {
+              "address": "0x0",
+              "calldata": "0x62c06767000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "input": "0x62c06767000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 430,
+        "contract": "MAIN",
+        "description": "Multiple calls are executed in the same transaction.\nThis call is executed following another call within the same transaction. It is possible that the call never gets executed if a prior call fails permanently. This might be caused intentionally by a malicious callee. If possible, refactor the code such that each transaction only executes one external call or make sure that all callees can be trusted (i.e. they\u2019re part of your own codebase).",
+        "function": "fallback",
+        "max_gas_used": 114198,
+        "min_gas_used": 6081,
+        "severity": "Low",
+        "sourceMap": 430,
+        "swc-id": "113",
+        "title": "Multiple Calls in a Single Transaction",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "6060604052600436106100325763ffffffff60e060020a60003504166362c067678114610034578063c0ee0b8a14610070575b005b341561003f57600080fd5b61005c600160a060020a03600435811690602435166044356100d5565b604051901515815260200160405180910390f35b341561007b57600080fd5b61003260048035600160a060020a03169060248035919060649060443590810190830135806020601f8201819004810201604051908101604052818152929190602084018383808284375094965061029895505050505050565b60008054819081908190600160a060020a0316637bd163f33360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561012c57600080fd5b5af1151561013957600080fd5b505050604051805190501561028e5760009250600160a060020a038716156102455786915081600160a060020a03166370a082313060405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b15156101ac57600080fd5b5af115156101b957600080fd5b505050604051805190508511156101d3576000935061028e565b81600160a060020a031663a9059cbb878760405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b151561022757600080fd5b5af1151561023457600080fd5b50505060405180519050925061028a565b5083600160a060020a03301631811115610262576000935061028e565b600160a060020a03861681156108fc0282604051600060405180830381858888f19650505050505b8293505b5050509392505050565b5050505600a165627a7a7230582046a5a4b3a9b14ddd4256f8e7eb73e2c2bbd4c592872abc481eac2c78cc12de470029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x1",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x62c0676701010101010101010101010101",
+              "input": "0x62c0676701010101010101010101010101",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 430,
+        "contract": "MAIN",
+        "description": "Any sender can withdraw Ether from the contract account.\nArbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.",
+        "function": "fallback",
+        "max_gas_used": 114198,
+        "min_gas_used": 6081,
+        "severity": "High",
+        "sourceMap": 430,
+        "swc-id": "105",
+        "title": "Unprotected Ether Withdrawal",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x40000200100000404",
+                "code": "6060604052600436106100325763ffffffff60e060020a60003504166362c067678114610034578063c0ee0b8a14610070575b005b341561003f57600080fd5b61005c600160a060020a03600435811690602435166044356100d5565b604051901515815260200160405180910390f35b341561007b57600080fd5b61003260048035600160a060020a03169060248035919060649060443590810190830135806020601f8201819004810201604051908101604052818152929190602084018383808284375094965061029895505050505050565b60008054819081908190600160a060020a0316637bd163f33360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561012c57600080fd5b5af1151561013957600080fd5b505050604051805190501561028e5760009250600160a060020a038716156102455786915081600160a060020a03166370a082313060405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b15156101ac57600080fd5b5af115156101b957600080fd5b505050604051805190508511156101d3576000935061028e565b81600160a060020a031663a9059cbb878760405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b151561022757600080fd5b5af1151561023457600080fd5b50505060405180519050925061028a565b5083600160a060020a03301631811115610262576000935061028e565b600160a060020a03861681156108fc0282604051600060405180830381858888f19650505050505b8293505b5050509392505050565b5050505600a165627a7a7230582046a5a4b3a9b14ddd4256f8e7eb73e2c2bbd4c592872abc481eac2c78cc12de470029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x10000000000000000",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x62c067670000000000000000000000000000000000000000000000000000000000000000000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef000000000000000000000000000000000000000000000002",
+              "input": "0x62c067670000000000000000000000000000000000000000000000000000000000000000000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef000000000000000000000000000000000000000000000002",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "value": "0x0"
+            },
+            {
+              "address": "0x0",
+              "calldata": "0x62c06767bebebebebebebebebebebebe01",
+              "input": "0x62c06767bebebebebebebebebebebebe01",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 553,
+        "contract": "MAIN",
+        "description": "A call to a user-supplied address is executed.\nAn external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.",
+        "function": "fallback",
+        "max_gas_used": 114198,
+        "min_gas_used": 6081,
+        "severity": "Low",
+        "sourceMap": 553,
+        "swc-id": "107",
+        "title": "External Call To User-Supplied Address",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x1",
+                "code": "6060604052600436106100325763ffffffff60e060020a60003504166362c067678114610034578063c0ee0b8a14610070575b005b341561003f57600080fd5b61005c600160a060020a03600435811690602435166044356100d5565b604051901515815260200160405180910390f35b341561007b57600080fd5b61003260048035600160a060020a03169060248035919060649060443590810190830135806020601f8201819004810201604051908101604052818152929190602084018383808284375094965061029895505050505050565b60008054819081908190600160a060020a0316637bd163f33360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561012c57600080fd5b5af1151561013957600080fd5b505050604051805190501561028e5760009250600160a060020a038716156102455786915081600160a060020a03166370a082313060405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b15156101ac57600080fd5b5af115156101b957600080fd5b505050604051805190508511156101d3576000935061028e565b81600160a060020a031663a9059cbb878760405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b151561022757600080fd5b5af1151561023457600080fd5b50505060405180519050925061028a565b5083600160a060020a03301631811115610262576000935061028e565b600160a060020a03861681156108fc0282604051600060405180830381858888f19650505050505b8293505b5050509392505050565b5050505600a165627a7a7230582046a5a4b3a9b14ddd4256f8e7eb73e2c2bbd4c592872abc481eac2c78cc12de470029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x1",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x62c0676700000000000000000000000001",
+              "input": "0x62c0676700000000000000000000000001",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "value": "0x0"
+            },
+            {
+              "address": "0x0",
+              "calldata": "0x62c06767000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "input": "0x62c06767000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 553,
+        "contract": "MAIN",
+        "description": "Multiple calls are executed in the same transaction.\nThis call is executed following another call within the same transaction. It is possible that the call never gets executed if a prior call fails permanently. This might be caused intentionally by a malicious callee. If possible, refactor the code such that each transaction only executes one external call or make sure that all callees can be trusted (i.e. they\u2019re part of your own codebase).",
+        "function": "fallback",
+        "max_gas_used": 114198,
+        "min_gas_used": 6081,
+        "severity": "Low",
+        "sourceMap": 553,
+        "swc-id": "113",
+        "title": "Multiple Calls in a Single Transaction",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x1",
+                "code": "6060604052600436106100325763ffffffff60e060020a60003504166362c067678114610034578063c0ee0b8a14610070575b005b341561003f57600080fd5b61005c600160a060020a03600435811690602435166044356100d5565b604051901515815260200160405180910390f35b341561007b57600080fd5b61003260048035600160a060020a03169060248035919060649060443590810190830135806020601f8201819004810201604051908101604052818152929190602084018383808284375094965061029895505050505050565b60008054819081908190600160a060020a0316637bd163f33360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561012c57600080fd5b5af1151561013957600080fd5b505050604051805190501561028e5760009250600160a060020a038716156102455786915081600160a060020a03166370a082313060405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b15156101ac57600080fd5b5af115156101b957600080fd5b505050604051805190508511156101d3576000935061028e565b81600160a060020a031663a9059cbb878760405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b151561022757600080fd5b5af1151561023457600080fd5b50505060405180519050925061028a565b5083600160a060020a03301631811115610262576000935061028e565b600160a060020a03861681156108fc0282604051600060405180830381858888f19650505050505b8293505b5050509392505050565b5050505600a165627a7a7230582046a5a4b3a9b14ddd4256f8e7eb73e2c2bbd4c592872abc481eac2c78cc12de470029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x62c0676700000000000000000000000001",
+              "input": "0x62c0676700000000000000000000000001",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "value": "0x0"
+            },
+            {
+              "address": "0x0",
+              "calldata": "0x62c0676700000000000000000000000001",
+              "input": "0x62c0676700000000000000000000000001",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 553,
+        "contract": "MAIN",
+        "description": "Any sender can withdraw Ether from the contract account.\nArbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.",
+        "function": "fallback",
+        "max_gas_used": 114198,
+        "min_gas_used": 6081,
+        "severity": "High",
+        "sourceMap": 553,
+        "swc-id": "105",
+        "title": "Unprotected Ether Withdrawal",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x22900120100000001",
+                "code": "6060604052600436106100325763ffffffff60e060020a60003504166362c067678114610034578063c0ee0b8a14610070575b005b341561003f57600080fd5b61005c600160a060020a03600435811690602435166044356100d5565b604051901515815260200160405180910390f35b341561007b57600080fd5b61003260048035600160a060020a03169060248035919060649060443590810190830135806020601f8201819004810201604051908101604052818152929190602084018383808284375094965061029895505050505050565b60008054819081908190600160a060020a0316637bd163f33360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561012c57600080fd5b5af1151561013957600080fd5b505050604051805190501561028e5760009250600160a060020a038716156102455786915081600160a060020a03166370a082313060405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b15156101ac57600080fd5b5af115156101b957600080fd5b505050604051805190508511156101d3576000935061028e565b81600160a060020a031663a9059cbb878760405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b151561022757600080fd5b5af1151561023457600080fd5b50505060405180519050925061028a565b5083600160a060020a03301631811115610262576000935061028e565b600160a060020a03861681156108fc0282604051600060405180830381858888f19650505050505b8293505b5050509392505050565b5050505600a165627a7a7230582046a5a4b3a9b14ddd4256f8e7eb73e2c2bbd4c592872abc481eac2c78cc12de470029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x80",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x62c067670000000000000000000000000000000000000000000000000000000000000000000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef000000000000000000000000000000000000000000000002",
+              "input": "0x62c067670000000000000000000000000000000000000000000000000000000000000000000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef000000000000000000000000000000000000000000000002",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            },
+            {
+              "address": "0x0",
+              "calldata": "0x62c0676702020202020202020202020202",
+              "input": "0x62c0676702020202020202020202020202",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 643,
+        "contract": "MAIN",
+        "description": "Multiple calls are executed in the same transaction.\nThis call is executed following another call within the same transaction. It is possible that the call never gets executed if a prior call fails permanently. This might be caused intentionally by a malicious callee. If possible, refactor the code such that each transaction only executes one external call or make sure that all callees can be trusted (i.e. they\u2019re part of your own codebase).",
+        "function": "fallback",
+        "max_gas_used": 76091,
+        "min_gas_used": 4327,
+        "severity": "Low",
+        "sourceMap": 643,
+        "swc-id": "113",
+        "title": "Multiple Calls in a Single Transaction",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x1",
+                "code": "6060604052600436106100325763ffffffff60e060020a60003504166362c067678114610034578063c0ee0b8a14610070575b005b341561003f57600080fd5b61005c600160a060020a03600435811690602435166044356100d5565b604051901515815260200160405180910390f35b341561007b57600080fd5b61003260048035600160a060020a03169060248035919060649060443590810190830135806020601f8201819004810201604051908101604052818152929190602084018383808284375094965061029895505050505050565b60008054819081908190600160a060020a0316637bd163f33360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561012c57600080fd5b5af1151561013957600080fd5b505050604051805190501561028e5760009250600160a060020a038716156102455786915081600160a060020a03166370a082313060405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b15156101ac57600080fd5b5af115156101b957600080fd5b505050604051805190508511156101d3576000935061028e565b81600160a060020a031663a9059cbb878760405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b151561022757600080fd5b5af1151561023457600080fd5b50505060405180519050925061028a565b5083600160a060020a03301631811115610262576000935061028e565b600160a060020a03861681156108fc0282604051600060405180830381858888f19650505050505b8293505b5050509392505050565b5050505600a165627a7a7230582046a5a4b3a9b14ddd4256f8e7eb73e2c2bbd4c592872abc481eac2c78cc12de470029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x62c06767",
+              "input": "0x62c06767",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 643,
+        "contract": "MAIN",
+        "description": "Write to persistent state following external call\nThe contract account state is accessed after an external call to a fixed address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.",
+        "function": "fallback",
+        "max_gas_used": 114198,
+        "min_gas_used": 6081,
+        "severity": "Low",
+        "sourceMap": 643,
+        "swc-id": "107",
+        "title": "State access after external call",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "6060604052600436106100325763ffffffff60e060020a60003504166362c067678114610034578063c0ee0b8a14610070575b005b341561003f57600080fd5b61005c600160a060020a03600435811690602435166044356100d5565b604051901515815260200160405180910390f35b341561007b57600080fd5b61003260048035600160a060020a03169060248035919060649060443590810190830135806020601f8201819004810201604051908101604052818152929190602084018383808284375094965061029895505050505050565b60008054819081908190600160a060020a0316637bd163f33360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561012c57600080fd5b5af1151561013957600080fd5b505050604051805190501561028e5760009250600160a060020a038716156102455786915081600160a060020a03166370a082313060405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b15156101ac57600080fd5b5af115156101b957600080fd5b505050604051805190508511156101d3576000935061028e565b81600160a060020a031663a9059cbb878760405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b151561022757600080fd5b5af1151561023457600080fd5b50505060405180519050925061028a565b5083600160a060020a03301631811115610262576000935061028e565b600160a060020a03861681156108fc0282604051600060405180830381858888f19650505050505b8293505b5050509392505050565b5050505600a165627a7a7230582046a5a4b3a9b14ddd4256f8e7eb73e2c2bbd4c592872abc481eac2c78cc12de470029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x62c0676701010101010101010101010101",
+              "input": "0x62c0676701010101010101010101010101",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 643,
+        "contract": "MAIN",
+        "description": "The return value of a message call is not checked.\nExternal calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.",
+        "function": "fallback",
+        "max_gas_used": 76091,
+        "min_gas_used": 4327,
+        "severity": "Medium",
+        "sourceMap": 643,
+        "swc-id": "104",
+        "title": "Unchecked return value from external call.",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x1",
+                "code": "6060604052600436106100325763ffffffff60e060020a60003504166362c067678114610034578063c0ee0b8a14610070575b005b341561003f57600080fd5b61005c600160a060020a03600435811690602435166044356100d5565b604051901515815260200160405180910390f35b341561007b57600080fd5b61003260048035600160a060020a03169060248035919060649060443590810190830135806020601f8201819004810201604051908101604052818152929190602084018383808284375094965061029895505050505050565b60008054819081908190600160a060020a0316637bd163f33360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561012c57600080fd5b5af1151561013957600080fd5b505050604051805190501561028e5760009250600160a060020a038716156102455786915081600160a060020a03166370a082313060405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b15156101ac57600080fd5b5af115156101b957600080fd5b505050604051805190508511156101d3576000935061028e565b81600160a060020a031663a9059cbb878760405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b151561022757600080fd5b5af1151561023457600080fd5b50505060405180519050925061028a565b5083600160a060020a03301631811115610262576000935061028e565b600160a060020a03861681156108fc0282604051600060405180830381858888f19650505050505b8293505b5050509392505050565b5050505600a165627a7a7230582046a5a4b3a9b14ddd4256f8e7eb73e2c2bbd4c592872abc481eac2c78cc12de470029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x3",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x62c0676700000000000000000000000001",
+              "input": "0x62c0676700000000000000000000000001",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            },
+            {
+              "address": "0x0",
+              "calldata": "0x62c06767",
+              "input": "0x62c06767",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 643,
+        "contract": "MAIN",
+        "description": "Any sender can withdraw Ether from the contract account.\nArbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.",
+        "function": "fallback",
+        "max_gas_used": 76091,
+        "min_gas_used": 4327,
+        "severity": "High",
+        "sourceMap": 643,
+        "swc-id": "105",
+        "title": "Unprotected Ether Withdrawal",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x11000002238010081",
+                "code": "6060604052600436106100325763ffffffff60e060020a60003504166362c067678114610034578063c0ee0b8a14610070575b005b341561003f57600080fd5b61005c600160a060020a03600435811690602435166044356100d5565b604051901515815260200160405180910390f35b341561007b57600080fd5b61003260048035600160a060020a03169060248035919060649060443590810190830135806020601f8201819004810201604051908101604052818152929190602084018383808284375094965061029895505050505050565b60008054819081908190600160a060020a0316637bd163f33360405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561012c57600080fd5b5af1151561013957600080fd5b505050604051805190501561028e5760009250600160a060020a038716156102455786915081600160a060020a03166370a082313060405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b15156101ac57600080fd5b5af115156101b957600080fd5b505050604051805190508511156101d3576000935061028e565b81600160a060020a031663a9059cbb878760405160e060020a63ffffffff8516028152600160a060020a0390921660048301526024820152604401602060405180830381600087803b151561022757600080fd5b5af1151561023457600080fd5b50505060405180519050925061028a565b5083600160a060020a03301631811115610262576000935061028e565b600160a060020a03861681156108fc0282604051600060405180830381858888f19650505050505b8293505b5050509392505050565b5050505600a165627a7a7230582046a5a4b3a9b14ddd4256f8e7eb73e2c2bbd4c592872abc481eac2c78cc12de470029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x20000000000020",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x62c0676700000000000000000000000008",
+              "input": "0x62c0676700000000000000000000000008",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "value": "0x0"
+            },
+            {
+              "address": "0x0",
+              "calldata": "0x62c067670404040404040404040404040000000000000000000000000000000000000000040404040404040404040404deadbeefdeadbeefdeadbeefdeadbeefdeadbeef000000000000000000000000000000000000000000000001",
+              "input": "0x62c067670404040404040404040404040000000000000000000000000000000000000000040404040404040404040404deadbeefdeadbeefdeadbeefdeadbeefdeadbeef000000000000000000000000000000000000000000000001",
+              "name": "sweep(address,address,uint256)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
+      }
+    ],
+    "success": true
+  }
+}

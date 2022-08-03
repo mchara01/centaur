@@ -1,0 +1,35 @@
+{
+  "contract": "../data/dataset/eth2/0x1C2362189cF8946883BD0F890eC27bC7AD024Fc7.hex",
+  "tool": "conkas",
+  "start": 1659437551.3044612,
+  "end": 1659437554.527504,
+  "exit_code": 0,
+  "duration": 3.2230427265167236,
+  "success": true,
+  "findings": [
+    "Integer_Underflow",
+    "Reentrancy",
+    "Unchecked_Low_Level_Call"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0xcbf9b84b",
+      "pc": "0x1f8",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0xcbf9b84b",
+      "pc": "0x1f7",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Unchecked Low Level Call",
+      "maybe_in_function": "0xcbf9b84b",
+      "pc": "0x1f8",
+      "line_number": ""
+    }
+  ]
+}

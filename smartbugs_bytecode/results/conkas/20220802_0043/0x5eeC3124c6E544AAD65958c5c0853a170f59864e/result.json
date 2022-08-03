@@ -1,0 +1,198 @@
+{
+  "contract": "../data/dataset/eth2/0x5eeC3124c6E544AAD65958c5c0853a170f59864e.hex",
+  "tool": "conkas",
+  "start": 1659449474.6962483,
+  "end": 1659449606.8487358,
+  "exit_code": 0,
+  "duration": 132.1524875164032,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Reentrancy",
+    "Time_Manipulation",
+    "Unchecked_Low_Level_Call"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x835",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x783",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x6a5",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x6f0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x876",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x6dd",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x76f",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x860",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x75e",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x7ff",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x53ecaf83",
+      "pc": "0x1d6",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x122",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getHistory(uint256)",
+      "pc": "0x5e8",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x79b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x877d0cd7",
+      "pc": "0x510",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x53ecaf83",
+      "pc": "0x1fc",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getHistory(uint256)",
+      "pc": "0x5ae",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x68d",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x7d3",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x877d0cd7",
+      "pc": "0x513",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x53ecaf83",
+      "pc": "0x1ff",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x279",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x125",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Unchecked Low Level Call",
+      "maybe_in_function": "get()",
+      "pc": "0x436",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x53ecaf83",
+      "pc": "0x1cb",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x71b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x825",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x5f2ef085",
+      "pc": "0x27c",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "getHistory(uint256)",
+      "pc": "0x634",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "get()",
+      "pc": "0x436",
+      "line_number": ""
+    }
+  ]
+}

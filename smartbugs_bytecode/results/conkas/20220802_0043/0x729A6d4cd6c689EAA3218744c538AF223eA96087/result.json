@@ -1,0 +1,108 @@
+{
+  "contract": "../data/dataset/eth2/0x729A6d4cd6c689EAA3218744c538AF223eA96087.hex",
+  "tool": "conkas",
+  "start": 1659458336.788162,
+  "end": 1659458374.5297537,
+  "exit_code": 0,
+  "duration": 37.741591691970825,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Reentrancy",
+    "Unchecked_Low_Level_Call"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "transfer(address,uint256)",
+      "pc": "0x3b9",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x411",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x5af",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "version()",
+      "pc": "0x62a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "version()",
+      "pc": "0x281",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x42e",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x5ae",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Unchecked Low Level Call",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x56c",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Unchecked Low Level Call",
+      "maybe_in_function": "version()",
+      "pc": "0x62a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x413",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "transferFrom(address,address,uint256)",
+      "pc": "0x1f3",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0xae",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x405",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "symbol()",
+      "pc": "0x310",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x564",
+      "line_number": ""
+    }
+  ]
+}

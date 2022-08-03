@@ -1,0 +1,89 @@
+{
+  "contract": "../data/dataset/eth2/0xC346DD03625cfDb328212fDfe19CAdfEA9C51975.hex",
+  "tool": "conkas",
+  "start": 1659402887.4019816,
+  "end": 1659402890.6206453,
+  "exit_code": 0,
+  "duration": 3.2186636924743652,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "flush()",
+      "pc": "0x2ff",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x59",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x71",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x68",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "flush()",
+      "pc": "0x2fe",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "flushTokens(address)",
+      "pc": "0x1e0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "flushTokens(address)",
+      "pc": "0x26e",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x70",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0xe7",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "flushTokens(address)",
+      "pc": "0x1df",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "flushTokens(address)",
+      "pc": "0x26d",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0xd7",
+      "line_number": ""
+    }
+  ]
+}

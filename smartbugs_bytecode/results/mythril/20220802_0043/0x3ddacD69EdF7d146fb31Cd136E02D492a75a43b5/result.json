@@ -1,0 +1,16 @@
+{
+  "contract": "../data/dataset/eth2/0x3ddacD69EdF7d146fb31Cd136E02D492a75a43b5.hex",
+  "tool": "mythril",
+  "start": 1659450354.0878828,
+  "end": 1659450362.0343065,
+  "exit_code": 0,
+  "duration": 7.946423768997192,
+  "success": true,
+  "findings": [],
+  "errors": [],
+  "analysis": {
+    "error": null,
+    "issues": [],
+    "success": true
+  }
+}

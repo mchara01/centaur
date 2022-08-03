@@ -1,0 +1,64 @@
+{
+  "contract": "../data/dataset/eth2/0x5DB2bA88Ca18bdC85E49463420AA2b1D6F02f5De.hex",
+  "tool": "conkas",
+  "start": 1659427531.4796329,
+  "end": 1659427550.9192383,
+  "exit_code": 0,
+  "duration": 19.439605474472046,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "changeOwner(address,address)",
+      "pc": "0x1317",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "execute(address,uint256,bytes)",
+      "pc": "0x3d9",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "isOwner(address)",
+      "pc": "0x1655",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "revoke(bytes32)",
+      "pc": "0x1100",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "revoke(bytes32)",
+      "pc": "0x1110",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "isOwner(address)",
+      "pc": "0x154c",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "changeOwner(address,address)",
+      "pc": "0x1324",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "execute(address,uint256,bytes)",
+      "pc": "0x3df",
+      "line_number": ""
+    }
+  ]
+}

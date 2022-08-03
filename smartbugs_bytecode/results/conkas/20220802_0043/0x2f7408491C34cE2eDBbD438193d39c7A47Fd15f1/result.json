@@ -1,0 +1,65 @@
+{
+  "contract": "../data/dataset/eth2/0x2f7408491C34cE2eDBbD438193d39c7A47Fd15f1.hex",
+  "tool": "conkas",
+  "start": 1659411050.6736023,
+  "end": 1659411053.65431,
+  "exit_code": 0,
+  "duration": 2.9807076454162598,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x1d7",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x1d0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x180",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x181",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "tokenFallback(address,uint256,bytes)",
+      "pc": "0xb6",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x1c1",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "tokenFallback(address,uint256,bytes)",
+      "pc": "0xa8",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "tokenFallback(address,uint256,bytes)",
+      "pc": "0xb4",
+      "line_number": ""
+    }
+  ]
+}

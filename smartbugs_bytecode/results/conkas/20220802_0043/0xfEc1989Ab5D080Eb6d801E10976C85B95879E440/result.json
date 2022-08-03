@@ -1,0 +1,28 @@
+{
+  "contract": "../data/dataset/eth2/0xfEc1989Ab5D080Eb6d801E10976C85B95879E440.hex",
+  "tool": "conkas",
+  "start": 1659414105.6373293,
+  "end": 1659414110.617066,
+  "exit_code": 0,
+  "duration": 4.979736566543579,
+  "success": true,
+  "findings": [
+    "Integer_Underflow",
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x12a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x12b",
+      "line_number": ""
+    }
+  ]
+}

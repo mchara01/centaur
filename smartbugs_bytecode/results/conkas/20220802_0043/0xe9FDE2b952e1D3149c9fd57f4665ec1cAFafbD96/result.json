@@ -1,0 +1,196 @@
+{
+  "contract": "../data/dataset/eth2/0xe9FDE2b952e1D3149c9fd57f4665ec1cAFafbD96.hex",
+  "tool": "conkas",
+  "start": 1659412193.113355,
+  "end": 1659412215.996432,
+  "exit_code": 0,
+  "duration": 22.883077144622803,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "execute(address,uint256,bytes)",
+      "pc": "0x2df",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "revoke(bytes32)",
+      "pc": "0x466",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "kill(address)",
+      "pc": "0xb5c",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "addOwner(address)",
+      "pc": "0x67e",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "addOwner(address)",
+      "pc": "0x687",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "resetSpentToday()",
+      "pc": "0x139a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "setDailyLimit(uint256)",
+      "pc": "0xaaa",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "changeOwner(address,address)",
+      "pc": "0x4dc",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "changeRequirement(uint256)",
+      "pc": "0x933",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "resetSpentToday()",
+      "pc": "0xaf8",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "removeOwner(address)",
+      "pc": "0x7ea",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "revoke(bytes32)",
+      "pc": "0x454",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "kill(address)",
+      "pc": "0xb70",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "resetSpentToday()",
+      "pc": "0x14b6",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "removeOwner(address)",
+      "pc": "0x7d6",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "resetSpentToday()",
+      "pc": "0xaef",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "resetSpentToday()",
+      "pc": "0x1398",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "addOwner(address)",
+      "pc": "0x692",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "removeOwner(address)",
+      "pc": "0x7df",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "changeOwner(address,address)",
+      "pc": "0x4e5",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "changeOwner(address,address)",
+      "pc": "0x4f0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "setDailyLimit(uint256)",
+      "pc": "0xabe",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "changeRequirement(uint256)",
+      "pc": "0x928",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "resetSpentToday()",
+      "pc": "0x137c",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "resetSpentToday()",
+      "pc": "0x108b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "execute(address,uint256,bytes)",
+      "pc": "0x2e5",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "changeRequirement(uint256)",
+      "pc": "0x91f",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "kill(address)",
+      "pc": "0xb65",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "resetSpentToday()",
+      "pc": "0xb03",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "setDailyLimit(uint256)",
+      "pc": "0xab3",
+      "line_number": ""
+    }
+  ]
+}

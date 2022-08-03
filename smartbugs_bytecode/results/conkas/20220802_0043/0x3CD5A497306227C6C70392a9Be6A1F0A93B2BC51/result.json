@@ -1,0 +1,21 @@
+{
+  "contract": "../data/dataset/eth2/0x3CD5A497306227C6C70392a9Be6A1F0A93B2BC51.hex",
+  "tool": "conkas",
+  "start": 1659422889.6629238,
+  "end": 1659422892.24566,
+  "exit_code": 0,
+  "duration": 2.5827362537384033,
+  "success": true,
+  "findings": [
+    "Integer_Underflow"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x25",
+      "line_number": ""
+    }
+  ]
+}

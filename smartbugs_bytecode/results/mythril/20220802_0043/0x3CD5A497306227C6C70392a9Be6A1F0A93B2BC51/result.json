@@ -1,0 +1,59 @@
+{
+  "contract": "../data/dataset/eth2/0x3CD5A497306227C6C70392a9Be6A1F0A93B2BC51.hex",
+  "tool": "mythril",
+  "start": 1659422895.865697,
+  "end": 1659422902.3692534,
+  "exit_code": 0,
+  "duration": 6.503556489944458,
+  "success": true,
+  "findings": [
+    "Exception_State"
+  ],
+  "errors": [],
+  "analysis": {
+    "error": null,
+    "issues": [
+      {
+        "address": 44,
+        "contract": "MAIN",
+        "description": "An assertion violation was triggered.\nIt is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+        "function": "fallback",
+        "max_gas_used": 37085,
+        "min_gas_used": 781,
+        "severity": "Medium",
+        "sourceMap": 44,
+        "swc-id": "110",
+        "title": "Exception State",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "366000803760206000366000735b9e8728e316bbeb692d22daaab74f6cbf2c46916102c65a03f41515602d57fe5b60206000f3",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x",
+              "input": "0x",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            }
+          ]
+        }
+      }
+    ],
+    "success": true
+  }
+}

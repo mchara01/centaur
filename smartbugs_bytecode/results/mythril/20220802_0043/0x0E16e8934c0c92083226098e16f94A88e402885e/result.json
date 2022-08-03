@@ -1,0 +1,99 @@
+{
+  "contract": "../data/dataset/eth2/0x0E16e8934c0c92083226098e16f94A88e402885e.hex",
+  "tool": "mythril",
+  "start": 1659398769.4403343,
+  "end": 1659398775.380879,
+  "exit_code": 0,
+  "duration": 5.940544605255127,
+  "success": true,
+  "findings": [
+    "Exception_State"
+  ],
+  "errors": [],
+  "analysis": {
+    "error": null,
+    "issues": [
+      {
+        "address": 58,
+        "contract": "MAIN",
+        "description": "An assertion violation was triggered.\nIt is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+        "function": "fallback",
+        "max_gas_used": 159,
+        "min_gas_used": 64,
+        "severity": "Medium",
+        "sourceMap": 58,
+        "swc-id": "110",
+        "title": "Exception State",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "60606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063e4ad4bd71461003b575bfe5b341561004357fe5b61004b6100d4565b604051808060200182810382528381815181526020019150805190602001908083836000831461009a575b80518252602083111561009a57602082019150602081019050602083039250610076565b505050905090810190601f1680156100c65780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100dc610165565b608060405190810160405280605181526020017f69643a313036362c20736571486173683a37344536464533443038434541453981526020017f383535354441383844344541413136434638393135323034384236323841383281526020017f334443433033303038413736303034414600000000000000000000000000000081525090505b90565b6020604051908101604052806000815250905600a165627a7a7230582011cbec6c318dbe84b3d7ca1ba5c35af0513b87a2d34b47acd1dde48fe0a826620029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x",
+              "input": "0x",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 66,
+        "contract": "MAIN",
+        "description": "An assertion violation was triggered.\nIt is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+        "function": "_function_0xe4ad4bd7",
+        "max_gas_used": 177,
+        "min_gas_used": 82,
+        "severity": "Medium",
+        "sourceMap": 66,
+        "swc-id": "110",
+        "title": "Exception State",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "60606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063e4ad4bd71461003b575bfe5b341561004357fe5b61004b6100d4565b604051808060200182810382528381815181526020019150805190602001908083836000831461009a575b80518252602083111561009a57602082019150602081019050602083039250610076565b505050905090810190601f1680156100c65780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100dc610165565b608060405190810160405280605181526020017f69643a313036362c20736571486173683a37344536464533443038434541453981526020017f383535354441383844344541413136434638393135323034384236323841383281526020017f334443433033303038413736303034414600000000000000000000000000000081525090505b90565b6020604051908101604052806000815250905600a165627a7a7230582011cbec6c318dbe84b3d7ca1ba5c35af0513b87a2d34b47acd1dde48fe0a826620029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0xe4ad4bd7",
+              "input": "0xe4ad4bd7",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x1"
+            }
+          ]
+        }
+      }
+    ],
+    "success": true
+  }
+}

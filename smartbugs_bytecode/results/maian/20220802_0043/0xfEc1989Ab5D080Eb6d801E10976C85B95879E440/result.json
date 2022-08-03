@@ -1,0 +1,23 @@
+{
+  "contract": "../data/dataset/eth2/0xfEc1989Ab5D080Eb6d801E10976C85B95879E440.hex",
+  "tool": "maian",
+  "start": 1659414098.8689275,
+  "end": 1659414105.634159,
+  "exit_code": 0,
+  "duration": 6.765231609344482,
+  "success": true,
+  "findings": [
+    "No_Ether_lock_Ether_refused"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "file": "",
+      "contract": "",
+      "findings": [
+        "No Ether lock (Ether refused)"
+      ],
+      "errors": []
+    }
+  ]
+}

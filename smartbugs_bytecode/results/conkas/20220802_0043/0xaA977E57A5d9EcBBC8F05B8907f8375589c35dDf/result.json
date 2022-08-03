@@ -1,0 +1,27 @@
+{
+  "contract": "../data/dataset/eth2/0xaA977E57A5d9EcBBC8F05B8907f8375589c35dDf.hex",
+  "tool": "conkas",
+  "start": 1659437359.7101662,
+  "end": 1659437362.4260962,
+  "exit_code": 0,
+  "duration": 2.7159299850463867,
+  "success": true,
+  "findings": [
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x21d",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x17f",
+      "line_number": ""
+    }
+  ]
+}

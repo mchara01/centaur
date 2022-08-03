@@ -1,0 +1,20 @@
+{
+  "contract": "../data/dataset/eth2/0x7a8eD24cff25BEBfE8178B10A38Df7Cc9340B92c.hex",
+  "tool": "oyente",
+  "start": 1659444711.3525562,
+  "end": 1659444713.2392879,
+  "exit_code": 0,
+  "duration": 1.8867316246032715,
+  "success": true,
+  "findings": [],
+  "errors": [],
+  "analysis": [
+    {
+      "EVM Code Coverage": "100.0%",
+      "Callstack Depth Attack Vulnerability": false,
+      "Transaction-Ordering Dependence (TOD)": false,
+      "Timestamp Dependency": false,
+      "Re-Entrancy Vulnerability": false
+    }
+  ]
+}

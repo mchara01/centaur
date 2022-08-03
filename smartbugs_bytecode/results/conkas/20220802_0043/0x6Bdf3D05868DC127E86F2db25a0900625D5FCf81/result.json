@@ -1,0 +1,12 @@
+{
+  "contract": "../data/dataset/eth2/0x6Bdf3D05868DC127E86F2db25a0900625D5FCf81.hex",
+  "tool": "conkas",
+  "start": 1659411092.4418786,
+  "end": 1659411095.6798139,
+  "exit_code": 0,
+  "duration": 3.2379353046417236,
+  "success": true,
+  "findings": [],
+  "errors": [],
+  "analysis": []
+}

@@ -1,0 +1,95 @@
+{
+  "contract": "../data/dataset/eth2/0xdD7b1B59bD4240697A481A8708F6e3EaDE115Eef.hex",
+  "tool": "conkas",
+  "start": 1659393583.2447422,
+  "end": 1659393592.0938303,
+  "exit_code": 0,
+  "duration": 8.849088191986084,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Time_Manipulation"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x1cc7",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x1d03",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x1cc0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x1c56",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "burn(address)",
+      "pc": "0x20d4",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "burn(address)",
+      "pc": "0x23e7",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x1cc4",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x1b14",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "burn(address)",
+      "pc": "0x23cd",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0xd505accf",
+      "pc": "0x1c53",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "burn(address)",
+      "pc": "0x2552",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "burn(address)",
+      "pc": "0x23a7",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "burn(address)",
+      "pc": "0x23b2",
+      "line_number": ""
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "contract": "../data/dataset/eth2/0x6081564591957247422deA27C6BA57B5C14B5041.hex",
+  "tool": "conkas",
+  "start": 1659423128.436522,
+  "end": 1659423313.6884258,
+  "exit_code": 0,
+  "duration": 185.25190377235413,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x4ed",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x4e7",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x4e1",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "transfer(address,uint256)",
+      "pc": "0xd57",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "approveAndCall(address,uint256,bytes)",
+      "pc": "0x105a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "transferFrom(address,address,uint256)",
+      "pc": "0x86f",
+      "line_number": ""
+    }
+  ]
+}

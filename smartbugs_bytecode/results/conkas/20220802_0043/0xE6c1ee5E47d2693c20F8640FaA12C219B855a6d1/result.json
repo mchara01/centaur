@@ -1,0 +1,52 @@
+{
+  "contract": "../data/dataset/eth2/0xE6c1ee5E47d2693c20F8640FaA12C219B855a6d1.hex",
+  "tool": "conkas",
+  "start": 1659458164.3158648,
+  "end": 1659458168.2401736,
+  "exit_code": 0,
+  "duration": 3.9243087768554688,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xff8bce6e",
+      "pc": "0x45a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0xff8bce6e",
+      "pc": "0x455",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "returnEther()",
+      "pc": "0x3c2",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "_fallthrough",
+      "pc": "0x24f",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x97849c5d",
+      "pc": "0x35b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0xff8bce6e",
+      "pc": "0x4ca",
+      "line_number": ""
+    }
+  ]
+}

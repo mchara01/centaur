@@ -1,0 +1,14 @@
+{
+  "contract": "../data/dataset/eth2/0x5577fC1C7466502FbD9BbcF59Dbf9Df047282149.hex",
+  "tool": "securify",
+  "start": 1659422855.865844,
+  "end": 1659422857.1078863,
+  "exit_code": 1,
+  "duration": 1.2420423030853271,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "problem accessing result in results/securify/20220802_0043/0x5577fC1C7466502FbD9BbcF59Dbf9Df047282149/result.tar"
+  ],
+  "analysis": null
+}

@@ -1,0 +1,59 @@
+{
+  "contract": "../data/dataset/eth2/0xE36094501ABC1feB5F4b42122796F92b2441AdB0.hex",
+  "tool": "conkas",
+  "start": 1659425121.8333278,
+  "end": 1659425202.4221349,
+  "exit_code": 0,
+  "duration": 80.58880710601807,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "symbol()",
+      "pc": "0xe11",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "transferFrom(address,address,uint256)",
+      "pc": "0x815",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "totalSupply()",
+      "pc": "0x93f",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "destroyBlackFunds(address)",
+      "pc": "0xd32",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "totalSupply()",
+      "pc": "0x940",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "destroyBlackFunds(address)",
+      "pc": "0xd33",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "transferFrom(address,address,uint256)",
+      "pc": "0x816",
+      "line_number": ""
+    }
+  ]
+}

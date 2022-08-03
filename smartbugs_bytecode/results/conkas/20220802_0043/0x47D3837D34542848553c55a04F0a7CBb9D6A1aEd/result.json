@@ -1,0 +1,34 @@
+{
+  "contract": "../data/dataset/eth2/0x47D3837D34542848553c55a04F0a7CBb9D6A1aEd.hex",
+  "tool": "conkas",
+  "start": 1659420807.1917768,
+  "end": 1659420812.967644,
+  "exit_code": 0,
+  "duration": 5.775867223739624,
+  "success": true,
+  "findings": [
+    "Reentrancy",
+    "Time_Manipulation"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "claim()",
+      "pc": "0x938",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "claim()",
+      "pc": "0x5e5",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "transferOwnership(address)",
+      "pc": "0xe39",
+      "line_number": ""
+    }
+  ]
+}

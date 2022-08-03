@@ -1,0 +1,15 @@
+{
+  "contract": "../data/dataset/eth2/0x0F837D290E9F9F26E09D73f1FD2c5d4358724416.hex",
+  "tool": "osiris",
+  "start": 1659398675.2072244,
+  "end": 1659398676.8233352,
+  "exit_code": 1,
+  "duration": 1.6161108016967773,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "analysis incomplete",
+    "exception (888      888  .oooo.o oooo  oooo d8b oooo   .oooo.o)"
+  ],
+  "analysis": []
+}

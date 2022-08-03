@@ -1,0 +1,259 @@
+{
+  "contract": "../data/dataset/eth2/0x5598Ed1Ebb0df72163E16B4b16F2112dB1E9d6De.hex",
+  "tool": "mythril",
+  "start": 1659435650.2831638,
+  "end": 1659435658.7915103,
+  "exit_code": 0,
+  "duration": 8.508346557617188,
+  "success": true,
+  "findings": [
+    "Exception_State"
+  ],
+  "errors": [],
+  "analysis": {
+    "error": null,
+    "issues": [
+      {
+        "address": 118,
+        "contract": "MAIN",
+        "description": "An assertion violation was triggered.\nIt is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+        "function": "fallback",
+        "max_gas_used": 132,
+        "min_gas_used": 37,
+        "severity": "Medium",
+        "sourceMap": 118,
+        "swc-id": "110",
+        "title": "Exception State",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "606060405236156100755763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630bf318a38114610077578063614cb9041461008957806382771c8e146100895780639c1e03a0146100d1578063cddaf2411461010a578063f9cb6d7a1461011f575bfe5b341561007f57fe5b610087610143565b005b341561009157fe5b610099610146565b604080519115158252519081900360200190f35b341561009157fe5b610099610146565b604080519115158252519081900360200190f35b34156100d957fe5b6100e1610152565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b341561011257fe5b610087600435610173565b005b341561012757fe5b610099610177565b604080519115158252519081900360200190f35b5b565b60015b90565b60015b90565b600054610100900473ffffffffffffffffffffffffffffffffffffffff1681565b5b50565b60005460ff16815600a165627a7a723058209860e5b68c89f972dd2950f79143f8f3b518526a84b0c933ef44f64b791edee80029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x",
+              "input": "0x",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 126,
+        "contract": "MAIN",
+        "description": "An assertion violation was triggered.\nIt is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+        "function": "fallback",
+        "max_gas_used": 192,
+        "min_gas_used": 97,
+        "severity": "Medium",
+        "sourceMap": 126,
+        "swc-id": "110",
+        "title": "Exception State",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "606060405236156100755763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630bf318a38114610077578063614cb9041461008957806382771c8e146100895780639c1e03a0146100d1578063cddaf2411461010a578063f9cb6d7a1461011f575bfe5b341561007f57fe5b610087610143565b005b341561009157fe5b610099610146565b604080519115158252519081900360200190f35b341561009157fe5b610099610146565b604080519115158252519081900360200190f35b34156100d957fe5b6100e1610152565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b341561011257fe5b610087600435610173565b005b341561012757fe5b610099610177565b604080519115158252519081900360200190f35b5b565b60015b90565b60015b90565b600054610100900473ffffffffffffffffffffffffffffffffffffffff1681565b5b50565b60005460ff16815600a165627a7a723058209860e5b68c89f972dd2950f79143f8f3b518526a84b0c933ef44f64b791edee80029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x0bf318a3",
+              "input": "0x0bf318a3",
+              "name": "finalizeCrowdsale()",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x1"
+            }
+          ]
+        }
+      },
+      {
+        "address": 144,
+        "contract": "MAIN",
+        "description": "An assertion violation was triggered.\nIt is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+        "function": "isSane()",
+        "max_gas_used": 214,
+        "min_gas_used": 119,
+        "severity": "Medium",
+        "sourceMap": 144,
+        "swc-id": "110",
+        "title": "Exception State",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "606060405236156100755763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630bf318a38114610077578063614cb9041461008957806382771c8e146100895780639c1e03a0146100d1578063cddaf2411461010a578063f9cb6d7a1461011f575bfe5b341561007f57fe5b610087610143565b005b341561009157fe5b610099610146565b604080519115158252519081900360200190f35b341561009157fe5b610099610146565b604080519115158252519081900360200190f35b34156100d957fe5b6100e1610152565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b341561011257fe5b610087600435610173565b005b341561012757fe5b610099610177565b604080519115158252519081900360200190f35b5b565b60015b90565b60015b90565b600054610100900473ffffffffffffffffffffffffffffffffffffffff1681565b5b50565b60005460ff16815600a165627a7a723058209860e5b68c89f972dd2950f79143f8f3b518526a84b0c933ef44f64b791edee80029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x614cb904",
+              "input": "0x614cb904",
+              "name": "isFinalizeAgent()",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x1"
+            }
+          ]
+        }
+      },
+      {
+        "address": 216,
+        "contract": "MAIN",
+        "description": "An assertion violation was triggered.\nIt is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+        "function": "crowdsale()",
+        "max_gas_used": 258,
+        "min_gas_used": 163,
+        "severity": "Medium",
+        "sourceMap": 216,
+        "swc-id": "110",
+        "title": "Exception State",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "606060405236156100755763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630bf318a38114610077578063614cb9041461008957806382771c8e146100895780639c1e03a0146100d1578063cddaf2411461010a578063f9cb6d7a1461011f575bfe5b341561007f57fe5b610087610143565b005b341561009157fe5b610099610146565b604080519115158252519081900360200190f35b341561009157fe5b610099610146565b604080519115158252519081900360200190f35b34156100d957fe5b6100e1610152565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b341561011257fe5b610087600435610173565b005b341561012757fe5b610099610177565b604080519115158252519081900360200190f35b5b565b60015b90565b60015b90565b600054610100900473ffffffffffffffffffffffffffffffffffffffff1681565b5b50565b60005460ff16815600a165627a7a723058209860e5b68c89f972dd2950f79143f8f3b518526a84b0c933ef44f64b791edee80029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x9c1e03a0",
+              "input": "0x9c1e03a0",
+              "name": "crowdsale()",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x1"
+            }
+          ]
+        }
+      },
+      {
+        "address": 273,
+        "contract": "MAIN",
+        "description": "An assertion violation was triggered.\nIt is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+        "function": "distributeReservedTokens(uint256)",
+        "max_gas_used": 280,
+        "min_gas_used": 185,
+        "severity": "Medium",
+        "sourceMap": 273,
+        "swc-id": "110",
+        "title": "Exception State",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "606060405236156100755763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630bf318a38114610077578063614cb9041461008957806382771c8e146100895780639c1e03a0146100d1578063cddaf2411461010a578063f9cb6d7a1461011f575bfe5b341561007f57fe5b610087610143565b005b341561009157fe5b610099610146565b604080519115158252519081900360200190f35b341561009157fe5b610099610146565b604080519115158252519081900360200190f35b34156100d957fe5b6100e1610152565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b341561011257fe5b610087600435610173565b005b341561012757fe5b610099610177565b604080519115158252519081900360200190f35b5b565b60015b90565b60015b90565b600054610100900473ffffffffffffffffffffffffffffffffffffffff1681565b5b50565b60005460ff16815600a165627a7a723058209860e5b68c89f972dd2950f79143f8f3b518526a84b0c933ef44f64b791edee80029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0xcddaf241",
+              "input": "0xcddaf241",
+              "name": "distributeReservedTokens(uint256)",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x1"
+            }
+          ]
+        }
+      },
+      {
+        "address": 294,
+        "contract": "MAIN",
+        "description": "An assertion violation was triggered.\nIt is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+        "function": "reservedTokensAreDistributed()",
+        "max_gas_used": 302,
+        "min_gas_used": 207,
+        "severity": "Medium",
+        "sourceMap": 294,
+        "swc-id": "110",
+        "title": "Exception State",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "606060405236156100755763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630bf318a38114610077578063614cb9041461008957806382771c8e146100895780639c1e03a0146100d1578063cddaf2411461010a578063f9cb6d7a1461011f575bfe5b341561007f57fe5b610087610143565b005b341561009157fe5b610099610146565b604080519115158252519081900360200190f35b341561009157fe5b610099610146565b604080519115158252519081900360200190f35b34156100d957fe5b6100e1610152565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b341561011257fe5b610087600435610173565b005b341561012757fe5b610099610177565b604080519115158252519081900360200190f35b5b565b60015b90565b60015b90565b600054610100900473ffffffffffffffffffffffffffffffffffffffff1681565b5b50565b60005460ff16815600a165627a7a723058209860e5b68c89f972dd2950f79143f8f3b518526a84b0c933ef44f64b791edee80029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0xf9cb6d7a",
+              "input": "0xf9cb6d7a",
+              "name": "reservedTokensAreDistributed()",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x1"
+            }
+          ]
+        }
+      }
+    ],
+    "success": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "contract": "../data/dataset/eth2/0xc707b0e5D8b4F78d9f4Bbc6d02bE0c32a29B3b26.hex",
+  "tool": "conkas",
+  "start": 1659404378.3564668,
+  "end": 1659404383.9885054,
+  "exit_code": 0,
+  "duration": 5.632038593292236,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "exception (RecursionError: maximum recursion depth exceeded)"
+  ],
+  "analysis": []
+}

@@ -1,0 +1,126 @@
+{
+  "contract": "../data/dataset/eth2/0xE574DeaA6272E4bA070e909f49daE440cdf6596D.hex",
+  "tool": "conkas",
+  "start": 1659390341.223999,
+  "end": 1659390345.4191186,
+  "exit_code": 0,
+  "duration": 4.195119619369507,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Reentrancy",
+    "Unchecked_Low_Level_Call"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "_dispatch",
+      "pc": "0xad",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x356",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "transferToken(address,address,uint256)",
+      "pc": "0x56f",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x82b5b8ab",
+      "pc": "0x6b6",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0x486b03c2",
+      "pc": "0x4d4",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x3e6",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x6bbe0bab",
+      "pc": "0x607",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x486b03c2",
+      "pc": "0x4d5",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Unchecked Low Level Call",
+      "maybe_in_function": "0x82b5b8ab",
+      "pc": "0x6b6",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0x6bbe0bab",
+      "pc": "0x606",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "transferTokenFrom(address,address,address,uint256)",
+      "pc": "0x7bd",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x82b5b8ab",
+      "pc": "0x66c",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "sweep()",
+      "pc": "0x446",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Unchecked Low Level Call",
+      "maybe_in_function": "sweep()",
+      "pc": "0x446",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "transferToken(address,address,uint256)",
+      "pc": "0x56e",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0x82b5b8ab",
+      "pc": "0x6b5",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x3e5",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "transferTokenFrom(address,address,address,uint256)",
+      "pc": "0x7be",
+      "line_number": ""
+    }
+  ]
+}

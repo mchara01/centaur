@@ -1,0 +1,16 @@
+{
+  "contract": "../data/dataset/eth2/0x755341c49f4427e43d99d8254a8dD87056f1Ee00.hex",
+  "tool": "securify",
+  "start": 1659446259.485076,
+  "end": 1659446261.6730196,
+  "exit_code": 0,
+  "duration": 2.187943696975708,
+  "success": true,
+  "findings": [],
+  "errors": [],
+  "analysis": {
+    "../data/dataset/eth2/0x755341c49f4427e43d99d8254a8dD87056f1Ee00.hex:0x755341c49f4427e43d99d8254a8dD87056f1Ee00": {
+      "results": {}
+    }
+  }
+}

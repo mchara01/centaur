@@ -1,0 +1,12 @@
+{
+  "contract": "../data/dataset/eth2/0x1113320c50aB4eBA3cFe7A396D9c1Bdb6B8C2f60.hex",
+  "tool": "vandal",
+  "start": 1659444722.1993086,
+  "end": 1659444729.886001,
+  "exit_code": 1,
+  "duration": 7.686692476272583,
+  "success": true,
+  "findings": [],
+  "errors": [],
+  "analysis": []
+}

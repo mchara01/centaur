@@ -1,0 +1,15 @@
+{
+  "contract": "../data/dataset/eth2/0xA7Fe849f4Ce8735bfDc1b953df2Bebbc0c563899.hex",
+  "tool": "oyente",
+  "start": 1659399441.317075,
+  "end": 1659399443.387372,
+  "exit_code": 1,
+  "duration": 2.0702970027923584,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "analysis incomplete",
+    "exception (z3.z3types.Z3Exception: canceled)"
+  ],
+  "analysis": []
+}

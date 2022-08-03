@@ -1,0 +1,29 @@
+{
+  "contract": "../data/dataset/eth2/0x5DB2bA88Ca18bdC85E49463420AA2b1D6F02f5De.hex",
+  "tool": "honeybadger",
+  "start": 1659427223.471425,
+  "end": 1659427488.3590405,
+  "exit_code": 0,
+  "duration": 264.887615442276,
+  "success": false,
+  "findings": [
+    "Money_flow"
+  ],
+  "errors": [
+    "timeout"
+  ],
+  "analysis": [
+    {
+      "EVM code coverage": "71.6%",
+      "Money flow": true,
+      "Balance disorder": false,
+      "Hidden transfer": false,
+      "Inheritance disorder": false,
+      "Uninitialised struct": false,
+      "Type overflow": false,
+      "Skip empty string": false,
+      "Hidden state update": false,
+      "Straw man contract": false
+    }
+  ]
+}

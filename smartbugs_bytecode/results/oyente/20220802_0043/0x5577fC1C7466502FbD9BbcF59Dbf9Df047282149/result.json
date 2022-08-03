@@ -1,0 +1,23 @@
+{
+  "contract": "../data/dataset/eth2/0x5577fC1C7466502FbD9BbcF59Dbf9Df047282149.hex",
+  "tool": "oyente",
+  "start": 1659422871.5027416,
+  "end": 1659422872.960602,
+  "exit_code": 1,
+  "duration": 1.4578604698181152,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "analysis incomplete",
+    "exception (NameError: name 'callstack' is not defined)"
+  ],
+  "analysis": [
+    {
+      "EVM code coverage": "0/0",
+      "Callstack bug": false,
+      "Money concurrency bug": false,
+      "Time dependency bug": false,
+      "Reentrancy bug": false
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "contract": "../data/dataset/eth2/0xaf490435D802b30820B8D9C4DFb71E70E4DF2c20.hex",
+  "tool": "mythril",
+  "start": 1659443090.282985,
+  "end": 1659443097.4555876,
+  "exit_code": 0,
+  "duration": 7.172602653503418,
+  "success": true,
+  "findings": [
+    "Dependence_on_predictable_environment_variable"
+  ],
+  "errors": [],
+  "analysis": {
+    "error": null,
+    "issues": [
+      {
+        "address": 187,
+        "contract": "MAIN",
+        "description": "A control flow decision is made based on The block.number environment variable.\nThe block.number environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.",
+        "function": "_function_0x25402e74",
+        "max_gas_used": 1053,
+        "min_gas_used": 958,
+        "severity": "Low",
+        "sourceMap": 187,
+        "swc-id": "120",
+        "title": "Dependence on predictable environment variable",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631291b68e1461005157806325402e7414610086575b600080fd5b341561005c57600080fd5b61006461009b565b604051808263ffffffff1663ffffffff16815260200191505060405180910390f35b341561009157600080fd5b6100996100b0565b005b6000809054906101000a900463ffffffff1681565b600454431115156100c057600080fd5b600143034060015460025460035460405180856000191660001916815260200184600019166000191681526020018381526020018281526020019450505050506040518091039020600190046000806101000a81548163ffffffff021916908363ffffffff1602179055505600a165627a7a723058208d145986f7eabcc303cef5c359f3b9f369a0486c13c8fb9ef20e61a617deeb0e0029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x25402e74",
+              "input": "0x25402e74",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            }
+          ]
+        }
+      }
+    ],
+    "success": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "contract": "../data/dataset/eth2/0xdb11250dC0368565EDd1603c7Ca767D80b420557.hex",
+  "tool": "conkas",
+  "start": 1659402412.8954403,
+  "end": 1659402416.5623474,
+  "exit_code": 0,
+  "duration": 3.6669070720672607,
+  "success": true,
+  "findings": [
+    "Reentrancy",
+    "Time_Manipulation"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "drainETH()",
+      "pc": "0x815",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x178bff94",
+      "pc": "0x1e1",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0xd9f37cfa",
+      "pc": "0x3f4",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x178bff94",
+      "pc": "0x236",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0xe0b22c4c",
+      "pc": "0x667",
+      "line_number": ""
+    }
+  ]
+}

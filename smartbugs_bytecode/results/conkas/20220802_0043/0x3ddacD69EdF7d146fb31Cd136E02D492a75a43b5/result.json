@@ -1,0 +1,64 @@
+{
+  "contract": "../data/dataset/eth2/0x3ddacD69EdF7d146fb31Cd136E02D492a75a43b5.hex",
+  "tool": "conkas",
+  "start": 1659450342.294323,
+  "end": 1659450346.7886608,
+  "exit_code": 0,
+  "duration": 4.494337797164917,
+  "success": true,
+  "findings": [
+    "Reentrancy",
+    "Unchecked_Low_Level_Call"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x8fc1038e",
+      "pc": "0x8f0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x8fc1038e",
+      "pc": "0xa11",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "sweep(address,uint256)",
+      "pc": "0x603",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0xc18cfe86",
+      "pc": "0xd54",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Unchecked Low Level Call",
+      "maybe_in_function": "sendEther(address,uint256)",
+      "pc": "0xb72",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "sweep(address,uint256)",
+      "pc": "0x6f0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0xc18cfe86",
+      "pc": "0xe14",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "sendEther(address,uint256)",
+      "pc": "0xb72",
+      "line_number": ""
+    }
+  ]
+}

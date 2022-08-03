@@ -1,0 +1,270 @@
+{
+  "contract": "../data/dataset/eth2/0xe35F3Cb30d8759958237001115B04Ce3Abaf20b0.hex",
+  "tool": "conkas",
+  "start": 1659453904.905841,
+  "end": 1659454021.7185633,
+  "exit_code": 0,
+  "duration": 116.81272220611572,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Reentrancy",
+    "Time_Manipulation"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "createCrowdsale(uint256,uint256,uint256,uint256)",
+      "pc": "0xcc6",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "createCrowdsale(uint256,uint256,uint256,uint256)",
+      "pc": "0xcc5",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "createCrowdsale(uint256,uint256,uint256,uint256)",
+      "pc": "0xb2f",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x1918a54b",
+      "pc": "0xdd2",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "stop()",
+      "pc": "0xa10",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "createForecasting(uint256,uint256,uint256)",
+      "pc": "0x1095",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x4be4c893",
+      "pc": "0x13bb",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "createCrowdsale(uint256,uint256,uint256,uint256)",
+      "pc": "0xb2e",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0x1918a54b",
+      "pc": "0xdd1",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "stop()",
+      "pc": "0xa0f",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "createForecasting(uint256,uint256,uint256)",
+      "pc": "0x1094",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "createCrowdsale(uint256,uint256,uint256,uint256)",
+      "pc": "0xbfb",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "stop()",
+      "pc": "0x98b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "createCrowdsale(uint256,uint256,uint256,uint256)",
+      "pc": "0xc62",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "createForecasting(uint256,uint256,uint256)",
+      "pc": "0x120b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0x4be4c893",
+      "pc": "0x13ba",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "createCrowdsale(uint256,uint256,uint256,uint256)",
+      "pc": "0xbfa",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x71036c30",
+      "pc": "0x15f2",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "stop()",
+      "pc": "0x98a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x4be4c893",
+      "pc": "0x143b",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "createCrowdsale(uint256,uint256,uint256,uint256)",
+      "pc": "0xc61",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x71036c30",
+      "pc": "0x165d",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0x4be4c893",
+      "pc": "0x143a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x8b1e67d4",
+      "pc": "0x18df",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "createForecasting(uint256,uint256,uint256)",
+      "pc": "0x1194",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x71036c30",
+      "pc": "0x166c",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "createCrowdsale(uint256,uint256,uint256,uint256)",
+      "pc": "0xb99",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x71036c30",
+      "pc": "0x15e0",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x71036c30",
+      "pc": "0x1640",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "stop()",
+      "pc": "0x8d5",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "createForecasting(uint256,uint256,uint256)",
+      "pc": "0x1193",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "createCrowdsale(uint256,uint256,uint256,uint256)",
+      "pc": "0xb98",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "createForecasting(uint256,uint256,uint256)",
+      "pc": "0x110e",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "update(bytes32)",
+      "pc": "0x1856",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0x71036c30",
+      "pc": "0x15df",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "stop()",
+      "pc": "0x8d4",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0x71036c30",
+      "pc": "0x163f",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "createForecasting(uint256,uint256,uint256)",
+      "pc": "0x110d",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "0x71036c30",
+      "pc": "0x1669",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x71036c30",
+      "pc": "0x16bb",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "0x71036c30",
+      "pc": "0x1664",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "0x71036c30",
+      "pc": "0x16ba",
+      "line_number": ""
+    }
+  ]
+}
