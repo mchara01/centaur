@@ -1,0 +1,21 @@
+{
+  "contract": "../data/dataset/bsc2/0x179f2dFe32185ddc642e3E0A805bB49e105d6f1e.hex",
+  "tool": "conkas",
+  "start": 1659472146.909441,
+  "end": 1659472150.1273284,
+  "exit_code": 0,
+  "duration": 3.2178874015808105,
+  "success": true,
+  "findings": [
+    "Transaction_Ordering_Dependence"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Transaction Ordering Dependence",
+      "maybe_in_function": "deposit(address)",
+      "pc": "0x5c7",
+      "line_number": ""
+    }
+  ]
+}

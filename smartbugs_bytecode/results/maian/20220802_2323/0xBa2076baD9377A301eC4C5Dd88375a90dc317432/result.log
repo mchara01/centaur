@@ -1,0 +1,42 @@
+====================================================================================================
+[94m[ ] Check if contract is SUICIDAL[0m
+
+[ ] Contract address   : 0xaFFECAFEAFfECaFEaFFecAfEAFfecAfEAffEcaFE
+[ ] Contract bytecode  : 33ff...
+[ ] Bytecode length    : 4
+[ ] Blockchain contract: False
+[ ] Debug              : False
+
+[ ][1m Search with call depth: 1   : [0m
+
+[91m[-] Suicidal vulnerability found! [0m
+
+    The following 0 transaction(s) will trigger the contract to be killed:
+[94m[-] Cannot confirm the bug because the contract is not deployed on the blockchain.[0m
+
+====================================================================================================
+[94m[ ] Check if contract is PRODIGAL[0m
+
+[ ] Contract address   : 0xaFFECAFEAFfECaFEaFFecAfEAFfecAfEAffEcaFE
+[ ] Contract bytecode  : 33ff...
+[ ] Bytecode length    : 4
+[ ] Blockchain contract: False
+[ ] Debug              : False
+
+[ ][1m Search with call depth: 1   : [0m
+
+[91m[-] Leak vulnerability found! [0m
+
+    The following 0 transaction(s) will trigger the contract to leak:
+[94m[-] Cannot confirm the bug because the contract is not deployed on the blockchain.[0m
+
+====================================================================================================
+[94m[ ] Check if contract is GREEDY[0m
+
+[ ] Contract address   : 0xaFFECAFEAFfECaFEaFFecAfEAFfecAfEAffEcaFE
+[ ] Contract bytecode  : 33ff...
+[ ] Bytecode length    : 4
+[ ] Debug              : False
+1[91m[-][0m [1mContract can receive Ether[0m
+
+[92m[-] No lock vulnerability found because the contract cannot receive Ether [0m

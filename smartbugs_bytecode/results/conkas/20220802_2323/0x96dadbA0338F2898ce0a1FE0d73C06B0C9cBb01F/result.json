@@ -1,0 +1,47 @@
+{
+  "contract": "../data/dataset/bsc2/0x96dadbA0338F2898ce0a1FE0d73C06B0C9cBb01F.hex",
+  "tool": "conkas",
+  "start": 1659560975.7141154,
+  "end": 1659561108.2222385,
+  "exit_code": 0,
+  "duration": 132.50812315940857,
+  "success": true,
+  "findings": [
+    "Integer_Overflow",
+    "Integer_Underflow",
+    "Time_Manipulation"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x2b7f",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "unlock()",
+      "pc": "0x2614",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x2027",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x2b7a",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "_dispatch",
+      "pc": "0x2031",
+      "line_number": ""
+    }
+  ]
+}

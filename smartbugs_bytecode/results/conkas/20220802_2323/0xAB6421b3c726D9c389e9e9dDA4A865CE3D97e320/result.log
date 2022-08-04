@@ -1,0 +1,4 @@
+Analysing /data/0xAB6421b3c726D9c389e9e9dDA4A865CE3D97e320.hex...
+Vulnerability: Integer Overflow. Maybe in function: symbol(). PC: 0x773. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+and b = 16

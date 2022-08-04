@@ -1,0 +1,16 @@
+{
+  "contract": "../data/dataset/bsc2/0x42Cae4b8D649318AEF1b439b2380D557fA849267.hex",
+  "tool": "conkas",
+  "start": 1659505060.2924814,
+  "end": 1659506861.6982722,
+  "exit_code": null,
+  "duration": 1801.4057908058167,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "DOCKER_TIMEOUT",
+    "output missing",
+    "Docker container timed out"
+  ],
+  "analysis": null
+}

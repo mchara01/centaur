@@ -1,0 +1,21 @@
+{
+  "contract": "../data/dataset/bsc2/0xa77c32689E2B31F931c76A75aC0849998c7D1810.hex",
+  "tool": "conkas",
+  "start": 1659543673.6965458,
+  "end": 1659543740.796472,
+  "exit_code": 0,
+  "duration": 67.09992623329163,
+  "success": true,
+  "findings": [
+    "Time_Manipulation"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "transferFrom(address,address,uint256)",
+      "pc": "0x15de",
+      "line_number": ""
+    }
+  ]
+}

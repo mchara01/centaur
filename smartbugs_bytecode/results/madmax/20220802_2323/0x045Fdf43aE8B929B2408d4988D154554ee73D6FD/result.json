@@ -1,0 +1,23 @@
+{
+  "contract": "../data/dataset/bsc2/0x045Fdf43aE8B929B2408d4988D154554ee73D6FD.hex",
+  "tool": "madmax",
+  "start": 1659542730.2091908,
+  "end": 1659542852.1500738,
+  "exit_code": 0,
+  "duration": 121.94088292121887,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "TIMEOUT"
+  ],
+  "analysis": [
+    [
+      "/data/0x045Fdf43aE8B929B2408d4988D154554ee73D6FD.hex",
+      [],
+      [
+        "TIMEOUT"
+      ],
+      {}
+    ]
+  ]
+}

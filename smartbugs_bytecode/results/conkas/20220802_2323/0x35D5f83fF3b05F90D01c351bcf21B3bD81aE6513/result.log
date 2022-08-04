@@ -1,0 +1,12 @@
+Analysing /data/0x35D5f83fF3b05F90D01c351bcf21B3bD81aE6513.hex...
+Vulnerability: Integer Underflow. Maybe in function: 0x3bd5d173. PC: 0x1ba1. Line number: .
+If a = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+and b = 1
+Vulnerability: Time Manipulation. Maybe in function: unlock(). PC: 0x2319. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x3bd5d173. PC: 0x2833. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+Vulnerability: Time Manipulation. Maybe in function: 0x3bd5d173. PC: 0x2838. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: 0x3bd5d173. PC: 0x1bab. Line number: .
+If a = 110349606679412691172957834289542550319383271247755660854362242977991410020067
+and b = 5442482558568151057812810319126309698160641793715837375146730380686140412190

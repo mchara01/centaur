@@ -1,0 +1,21 @@
+{
+  "contract": "../data/dataset/bsc2/0xd117Eb1706e91f6C0b698801132EeA70f04e91B2.hex",
+  "tool": "conkas",
+  "start": 1659492956.0210347,
+  "end": 1659493119.0771046,
+  "exit_code": 0,
+  "duration": 163.05606985092163,
+  "success": true,
+  "findings": [
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "0x1b89b61a",
+      "pc": "0x287",
+      "line_number": ""
+    }
+  ]
+}

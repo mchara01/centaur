@@ -1,0 +1,29 @@
+{
+  "contract": "../data/dataset/bsc2/0xEd1d66AA7EDB44498D656C2303b3D96DAFE65940.hex",
+  "tool": "osiris",
+  "start": 1659545260.3577693,
+  "end": 1659545262.0368438,
+  "exit_code": 0,
+  "duration": 1.6790745258331299,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "instruction error"
+  ],
+  "analysis": [
+    {
+      "EVM code coverage": "2.1%",
+      "Arithmetic bugs": false,
+      "Overflow bugs": false,
+      "Underflow bugs": false,
+      "Division bugs": false,
+      "Modulo bugs": false,
+      "Truncation bugs": false,
+      "Signedness bugs": false,
+      "Callstack bug": false,
+      "Concurrency bug": false,
+      "Timedependency bug": false,
+      "Reentrancy bug": false
+    }
+  ]
+}
