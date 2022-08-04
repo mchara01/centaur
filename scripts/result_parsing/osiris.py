@@ -53,27 +53,27 @@ class Osiris:
                     result = json.load(f)
                     total_time += result['duration']
                     if 'analysis' in result and type(result['analysis']) == list and len(result['analysis']) > 0:
-                        if result['analysis'][0]['Arithmetic bugs']:
+                        if 'Arithmetic bugs' in result['analysis'][0] and result['analysis'][0]['Arithmetic bugs']:
                             arithmetic += 1
-                        if result['analysis'][0]['Overflow bugs']:
+                        if 'Overflow bugs' in result['analysis'][0] and result['analysis'][0]['Overflow bugs']:
                             overflow += 1
-                        if result['analysis'][0]['Underflow bugs']:
+                        if 'Underflow bugs' in result['analysis'][0] and result['analysis'][0]['Underflow bugs']:
                             underflow += 1
-                        if result['analysis'][0]['Division bugs']:
+                        if 'Division bugs' in result['analysis'][0] and result['analysis'][0]['Division bugs']:
                             division += 1
-                        if result['analysis'][0]['Modulo bugs']:
+                        if 'Modulo bugs' in result['analysis'][0] and result['analysis'][0]['Modulo bugs']:
                             modulo += 1
-                        if result['analysis'][0]['Truncation bugs']:
+                        if 'Truncation bugs' in result['analysis'][0] and result['analysis'][0]['Truncation bugs']:
                             truncation += 1
-                        if result['analysis'][0]['Signedness bugs']:
+                        if 'Signedness bugs' in result['analysis'][0] and result['analysis'][0]['Signedness bugs']:
                             signedness += 1
-                        if result['analysis'][0]['Callstack bug']:
+                        if 'Callstack bugs' in result['analysis'][0] and result['analysis'][0]['Callstack bug']:
                             callstack += 1
-                        if result['analysis'][0]['Concurrency bug']:
+                        if 'Concurrency bugs' in result['analysis'][0] and result['analysis'][0]['Concurrency bug']:
                             concurrency += 1
-                        if result['analysis'][0]['Timedependency bug']:
+                        if 'Timedependency bugs' in result['analysis'][0] and result['analysis'][0]['Timedependency bug']:
                             timedependency += 1
-                        if result['analysis'][0]['Reentrancy bug']:
+                        if 'Reentrancy bugs' in result['analysis'][0] and result['analysis'][0]['Reentrancy bug']:
                             reentrancy += 1
 
         print("Smart Contract Bytecodes")

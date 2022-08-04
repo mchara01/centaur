@@ -46,13 +46,13 @@ class Oyente:
                     result = json.load(f)
                     total_time += result['duration']
                     if 'analysis' in result and len(result['analysis']) > 0:
-                        if result['analysis'][0]['Callstack Depth Attack Vulnerability']:
+                        if 'Callstack Depth Attack Vulnerability' in result['analysis'][0] and result['analysis'][0]['Callstack Depth Attack Vulnerability']:
                             callstack_dept_attack += 1
-                        if result['analysis'][0]['Transaction-Ordering Dependence (TOD)']:
+                        if 'Transaction-Ordering Dependence (TOD)' in result['analysis'][0] and result['analysis'][0]['Transaction-Ordering Dependence (TOD)']:
                             tod += 1
-                        if result['analysis'][0]['Timestamp Dependency']:
+                        if 'Timestamp Dependency' in result['analysis'][0] and result['analysis'][0]['Timestamp Dependency']:
                             timestamp_dependency += 1
-                        if result['analysis'][0]['Re-Entrancy Vulnerability']:
+                        if 'Re-Entrancy Vulnerability' in result['analysis'][0] and result['analysis'][0]['Re-Entrancy Vulnerability']:
                             reentrancy_vulnerability += 1
 
         print("Smart Contract Bytecodes")
