@@ -1,0 +1,5 @@
+Analysing /data/0x3f64a0f2F1714C099446D167e94556c03629d3F0.hex...
+Vulnerability: Time Manipulation. Maybe in function: AddLiquidity(uint256). PC: 0x800. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x89806e6. PC: 0x749. Line number: .
+Vulnerability: Reentrancy. Maybe in function: 0x89806e6. PC: 0x3db. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: 0xe50a4f80. PC: 0x5cf. Line number: .

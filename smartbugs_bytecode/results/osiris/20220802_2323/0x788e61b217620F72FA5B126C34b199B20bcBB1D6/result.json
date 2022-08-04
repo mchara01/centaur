@@ -1,0 +1,15 @@
+{
+  "contract": "../data/dataset/bsc2/0x788e61b217620F72FA5B126C34b199B20bcBB1D6.hex",
+  "tool": "osiris",
+  "start": 1659558341.3833401,
+  "end": 1659558344.0886075,
+  "exit_code": 1,
+  "duration": 2.7052674293518066,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "analysis incomplete",
+    "exception (888      888  .oooo.o oooo  oooo d8b oooo   .oooo.o)"
+  ],
+  "analysis": []
+}

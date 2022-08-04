@@ -1,0 +1,15 @@
+{
+  "contract": "../data/dataset/bsc2/0x0000000000000000000000000000000000000000.hex",
+  "tool": "vandal",
+  "start": 1659511975.8356307,
+  "end": 1659511977.1703305,
+  "exit_code": 1,
+  "duration": 1.3346998691558838,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "exception (ValueError: max() arg is an empty sequence)",
+    "internal error"
+  ],
+  "analysis": []
+}

@@ -1,0 +1,27 @@
+{
+  "contract": "../data/dataset/bsc2/0x54A07e11F620D6DD5521172199527a3F9Be2D14e.hex",
+  "tool": "maian",
+  "start": 1659481312.1116,
+  "end": 1659481317.2102354,
+  "exit_code": 0,
+  "duration": 5.09863543510437,
+  "success": false,
+  "findings": [
+    "No_Ether_lock_Ether_refused"
+  ],
+  "errors": [
+    "Unknown operation"
+  ],
+  "analysis": [
+    {
+      "file": "",
+      "contract": "",
+      "findings": [
+        "No Ether lock (Ether refused)"
+      ],
+      "errors": [
+        "Unknown operation"
+      ]
+    }
+  ]
+}

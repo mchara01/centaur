@@ -1,0 +1,33 @@
+{
+  "contract": "../data/dataset/bsc2/0x3eA38f19069661978a9847A4348e4b003F83B93A.hex",
+  "tool": "conkas",
+  "start": 1659510269.4293916,
+  "end": 1659510276.0356152,
+  "exit_code": 0,
+  "duration": 6.6062235832214355,
+  "success": true,
+  "findings": [
+    "Reentrancy"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "deposit(uint256,uint256)",
+      "pc": "0x454",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "transferOwnership(address)",
+      "pc": "0x2af",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Reentrancy",
+      "maybe_in_function": "transferOwnership(address)",
+      "pc": "0x1f9",
+      "line_number": ""
+    }
+  ]
+}

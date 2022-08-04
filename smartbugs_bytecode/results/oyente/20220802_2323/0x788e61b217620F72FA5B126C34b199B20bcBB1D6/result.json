@@ -1,0 +1,15 @@
+{
+  "contract": "../data/dataset/bsc2/0x788e61b217620F72FA5B126C34b199B20bcBB1D6.hex",
+  "tool": "oyente",
+  "start": 1659558361.4232426,
+  "end": 1659558364.3216112,
+  "exit_code": 1,
+  "duration": 2.8983685970306396,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "analysis incomplete",
+    "exception (IndexError: pop from empty list)"
+  ],
+  "analysis": []
+}

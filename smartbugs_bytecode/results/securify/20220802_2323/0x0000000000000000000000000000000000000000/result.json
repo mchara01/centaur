@@ -1,0 +1,14 @@
+{
+  "contract": "../data/dataset/bsc2/0x0000000000000000000000000000000000000000.hex",
+  "tool": "securify",
+  "start": 1659511974.6197166,
+  "end": 1659511975.8331938,
+  "exit_code": 1,
+  "duration": 1.2134771347045898,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "problem accessing result in results/securify/20220802_2323/0x0000000000000000000000000000000000000000/result.tar"
+  ],
+  "analysis": null
+}

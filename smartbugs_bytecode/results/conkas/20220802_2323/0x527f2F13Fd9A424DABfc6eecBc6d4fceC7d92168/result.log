@@ -1,0 +1,4 @@
+Analysing /data/0x527f2F13Fd9A424DABfc6eecBc6d4fceC7d92168.hex...
+Vulnerability: Integer Underflow. Maybe in function: totalSupply(). PC: 0x819. Line number: .
+If a = 0
+and b = 1

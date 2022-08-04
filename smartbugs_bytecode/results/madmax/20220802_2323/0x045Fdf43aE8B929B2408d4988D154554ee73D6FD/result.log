@@ -1,0 +1,17 @@
+Removing working directory .temp
+Processing contract names.
+Setting up workers.
+Analysing...
+
+/data/0x045Fdf43aE8B929B2408d4988D154554ee73D6FD.hex timed out.
+
+Finished 1 contracts...
+
+--------------------------------------------------------------------------------
+Timeouts and Errors
+--------------------------------------------------------------------------------
+  TIMEOUT: 1 of 1 contracts
+
+
+
+Writing results to results.json

@@ -1,0 +1,6 @@
+Analysing /data/0xFb57F6891ad030531bB85552EDb501b4b8678048.hex...
+Vulnerability: Time Manipulation. Maybe in function: unlock(). PC: 0x15c9. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: mint(address,uint256). PC: 0x18d1. Line number: .
+Vulnerability: Integer Overflow. Maybe in function: mint(address,uint256). PC: 0x18cc. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935

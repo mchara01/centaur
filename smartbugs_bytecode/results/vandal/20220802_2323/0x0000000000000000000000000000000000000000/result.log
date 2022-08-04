@@ -1,0 +1,42 @@
++++ dirname /vandal/bin/analyze.sh
+++ cd /vandal/bin
+++ pwd
++ DIR=/vandal/bin
++ rm -rf facts-tmp
++ /vandal/bin/decompile -o CALL JUMPI SSTORE SLOAD MLOAD MSTORE -d -n -t facts-tmp /data/0x0000000000000000000000000000000000000000.hex
+Traceback (most recent call last):
+  File "/vandal/bin/decompile", line 236, in <module>
+    exporter.CFGTsvExporter(cfg).export(output_dir=args.tsv,
+  File "/vandal/bin/../src/exporter.py", line 273, in export
+    self.__generate_entry_exit()
+  File "/vandal/bin/../src/exporter.py", line 136, in __generate_entry_exit
+    exit_points = [(hex(op.pc),) for op in self.source.terminal_ops]
+  File "/vandal/bin/../src/tac_cfg.py", line 139, in terminal_ops
+    last_op = self.last_op
+  File "/vandal/bin/../src/tac_cfg.py", line 133, in last_op
+    return max((b.last_op for b in self.blocks),
+ValueError: max() arg is an empty sequence
++ souffle -F facts-tmp /vandal/datalog/demo_analyses.dl
+Warning: Deprecated type declaration used in file types.dl at line 30
+.type Statement
+^---------------
+Warning: Deprecated type declaration used in file types.dl at line 31
+.type Variable
+^--------------
+Warning: Deprecated type declaration used in file types.dl at line 32
+.type Opcode
+^------------
+Warning: Deprecated type declaration used in file types.dl at line 33
+.type Value
+^-----------
+Error loading data: Cannot open fact file def.facts
+
+Error loading data: Cannot open fact file use.facts
+
+Error loading data: Cannot open fact file value.facts
+
+Error loading data: Cannot open fact file dom.facts
+
+Error loading data: Cannot open fact file pdom.facts
+
++ rm -rf facts-tmp

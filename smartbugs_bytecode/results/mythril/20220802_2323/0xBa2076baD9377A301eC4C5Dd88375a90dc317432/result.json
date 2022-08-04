@@ -1,0 +1,59 @@
+{
+  "contract": "../data/dataset/bsc2/0xBa2076baD9377A301eC4C5Dd88375a90dc317432.hex",
+  "tool": "mythril",
+  "start": 1659491416.2424824,
+  "end": 1659491421.3710563,
+  "exit_code": 0,
+  "duration": 5.128573894500732,
+  "success": true,
+  "findings": [
+    "Unprotected_Selfdestruct"
+  ],
+  "errors": [],
+  "analysis": {
+    "error": null,
+    "issues": [
+      {
+        "address": 1,
+        "contract": "MAIN",
+        "description": "Any sender can cause the contract to self-destruct.\nAny sender can trigger execution of the SELFDESTRUCT instruction to destroy this contract account and withdraw its balance to an arbitrary address. Review the transaction trace generated for this issue and make sure that appropriate security controls are in place to prevent unrestricted access.",
+        "function": "fallback",
+        "max_gas_used": 2,
+        "min_gas_used": 2,
+        "severity": "High",
+        "sourceMap": 1,
+        "swc-id": "106",
+        "title": "Unprotected Selfdestruct",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x0": {
+                "balance": "0x0",
+                "code": "33ff",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x1",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "0x0",
+              "calldata": "0x",
+              "input": "0x",
+              "name": "unknown",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
+      }
+    ],
+    "success": true
+  }
+}

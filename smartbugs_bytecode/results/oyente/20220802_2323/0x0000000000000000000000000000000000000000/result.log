@@ -1,0 +1,20 @@
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM code coverage: 	 0/0
+INFO:symExec:	  Callstack bug: 	 False
+INFO:symExec:	  Money concurrency bug: False
+INFO:symExec:	  Time dependency bug: 	 False
+INFO:symExec:	  Reentrancy bug: 	 False
+Traceback (most recent call last):
+  File "/oyente/oyente/oyente.py", line 232, in <module>
+    main()
+  File "/oyente/oyente/oyente.py", line 221, in main
+    exit_code = analyze_bytecode()
+  File "/oyente/oyente/oyente.py", line 73, in analyze_bytecode
+    result, exit_code = symExec.run(disasm_file=inp['disasm_file'])
+  File "/oyente/oyente/symExec.py", line 2459, in run
+    ret = detect_vulnerabilities()
+  File "/oyente/oyente/symExec.py", line 2316, in detect_vulnerabilities
+    return results, vulnerability_found()
+  File "/oyente/oyente/symExec.py", line 2347, in vulnerability_found
+    vulnerabilities = [callstack, money_concurrency, time_dependency, reentrancy]
+NameError: name 'callstack' is not defined

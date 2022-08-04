@@ -1,0 +1,3 @@
+Analysing /data/0xC607c8e70e2fff9Cb0776537358AC2bC5cf8f371.hex...
+Vulnerability: Unchecked Low Level Call. Maybe in function: owner(). PC: 0x9dd. Line number: .
+Vulnerability: Time Manipulation. Maybe in function: owner(). PC: 0x1155. Line number: .

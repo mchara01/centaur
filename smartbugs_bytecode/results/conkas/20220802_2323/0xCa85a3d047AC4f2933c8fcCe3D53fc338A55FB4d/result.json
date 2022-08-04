@@ -1,0 +1,21 @@
+{
+  "contract": "../data/dataset/bsc2/0xCa85a3d047AC4f2933c8fcCe3D53fc338A55FB4d.hex",
+  "tool": "conkas",
+  "start": 1659514907.9097164,
+  "end": 1659514976.1803942,
+  "exit_code": 0,
+  "duration": 68.2706778049469,
+  "success": true,
+  "findings": [
+    "Integer_Overflow"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Overflow",
+      "maybe_in_function": "burn(uint256)",
+      "pc": "0x7c9",
+      "line_number": ""
+    }
+  ]
+}

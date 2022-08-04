@@ -1,0 +1,21 @@
+{
+  "contract": "../data/dataset/bsc2/0x527f2F13Fd9A424DABfc6eecBc6d4fceC7d92168.hex",
+  "tool": "conkas",
+  "start": 1659560262.9092782,
+  "end": 1659560401.5940192,
+  "exit_code": 0,
+  "duration": 138.68474102020264,
+  "success": true,
+  "findings": [
+    "Integer_Underflow"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Integer Underflow",
+      "maybe_in_function": "totalSupply()",
+      "pc": "0x819",
+      "line_number": ""
+    }
+  ]
+}

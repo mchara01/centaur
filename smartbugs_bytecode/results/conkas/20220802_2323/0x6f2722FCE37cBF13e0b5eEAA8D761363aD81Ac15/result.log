@@ -1,0 +1,4 @@
+Analysing /data/0x6f2722FCE37cBF13e0b5eEAA8D761363aD81Ac15.hex...
+Vulnerability: Integer Overflow. Maybe in function: renounceOwnership(). PC: 0x2e0. Line number: .
+If a = 1
+and b = 115792089237316195423570985008687907853269984665640564039457584007913129639935

@@ -1,0 +1,28 @@
+{
+  "contract": "../data/dataset/bsc2/0xC607c8e70e2fff9Cb0776537358AC2bC5cf8f371.hex",
+  "tool": "conkas",
+  "start": 1659558409.6801388,
+  "end": 1659558536.8094642,
+  "exit_code": 0,
+  "duration": 127.12932538986206,
+  "success": true,
+  "findings": [
+    "Time_Manipulation",
+    "Unchecked_Low_Level_Call"
+  ],
+  "errors": [],
+  "analysis": [
+    {
+      "vuln_type": "Unchecked Low Level Call",
+      "maybe_in_function": "owner()",
+      "pc": "0x9dd",
+      "line_number": ""
+    },
+    {
+      "vuln_type": "Time Manipulation",
+      "maybe_in_function": "owner()",
+      "pc": "0x1155",
+      "line_number": ""
+    }
+  ]
+}

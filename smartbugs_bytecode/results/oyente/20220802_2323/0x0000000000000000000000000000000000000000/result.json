@@ -1,0 +1,23 @@
+{
+  "contract": "../data/dataset/bsc2/0x0000000000000000000000000000000000000000.hex",
+  "tool": "oyente",
+  "start": 1659511989.9490294,
+  "end": 1659511991.6544614,
+  "exit_code": 1,
+  "duration": 1.7054319381713867,
+  "success": false,
+  "findings": [],
+  "errors": [
+    "analysis incomplete",
+    "exception (NameError: name 'callstack' is not defined)"
+  ],
+  "analysis": [
+    {
+      "EVM code coverage": "0/0",
+      "Callstack bug": false,
+      "Money concurrency bug": false,
+      "Time dependency bug": false,
+      "Reentrancy bug": false
+    }
+  ]
+}
