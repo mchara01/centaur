@@ -65,7 +65,7 @@ class Oyente:
 
         print("DASP10+\tSWC_ID\tVulnerability: #")
         print("=" * 32)
-        print(f"5\tNA\tCallstack Depth Attack Vulnerability: {callstack_dept_attack}")
+        print(f"18\tNA\tCallstack Depth Attack Vulnerability: {callstack_dept_attack}")
         print(f"7\t114\tTransaction-Ordering Dependence (TOD): {tod}")
         print(f"8\t116\tTimestamp Dependency: {timestamp_dependency}")
         print(f"1\t107\tRe-Entrancy Vulnerability: {reentrancy_vulnerability}")
