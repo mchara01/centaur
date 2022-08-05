@@ -28,17 +28,19 @@ SmartBugs is an execution framework aiming at simplifying the execution of analy
 
 ## Supported Tools
 
-1. HoneyBadger
-2. Maian
-3. Manticore
-4. Mythril
-5. Osiris
-6. Oyente
-7. Securify
-8. Slither
-9. Smartcheck
-10. Solhint
-11. Conkas
+
+|     | Analysis Tool                                                | Paper                                                                                                                                                                                                  |
+|-----|--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | [Conkas](https://github.com/nveloso/conkas)                  | [link](https://fenix.tecnico.ulisboa.pt/downloadFile/1689244997262417/94080-Nuno-Veloso_resumo.pdf)                                                                                                    |
+| 2   | [HoneyBadger](https://github.com/christoftorres/HoneyBadger) | [link](https://www.usenix.org/system/files/sec19-torres.pdf)                                                                                                                                           |
+| 3   | [MadMax](https://github.com/nevillegrech/MadMax)             | [link](https://dl.acm.org/doi/pdf/10.1145/3276486)                                                                                                                                                     |
+| 4   | [Maian](https://github.com/MAIAN-tool/MAIAN)                 | [link](https://arxiv.org/pdf/1802.06038.pdf)                                                                                                                                                           |
+| 5   | [Mythril](https://github.com/ConsenSys/mythril-classic)      | [link](https://conference.hitb.org/hitbsecconf2018ams/materials/WHITEPAPERS/WHITEPAPER%20-%20Bernhard%20Mueller%20-%20Smashing%20Ethereum%20Smart%20Contracts%20for%20Fun%20and%20ACTUAL%20Profit.pdf) |
+| 6   | [Osiris](https://github.com/christoftorres/Osiris)           | [link](https://orbilu.uni.lu/bitstream/10993/36757/1/osiris.pdf)                                                                                                                                       |
+| 7   | [Oyente](https://github.com/melonproject/oyente)             | [link](https://eprint.iacr.org/2016/633.pdf)                                                                                                                                                           |
+| 8   | [Securify](https://github.com/eth-sri/securify2)             | [link](https://arxiv.org/pdf/1806.01143.pdf)                                                                                                                                                           |
+| 9   | [Vandal](https://github.com/usyd-blockchain/vandal)          | [link](https://arxiv.org/pdf/1809.03981.pdf)                                                                                                                                                           |
+
 
 ## Requirements
 
