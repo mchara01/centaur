@@ -1,7 +1,0 @@
-INFO:symExec:	============ Results ===========
-INFO:symExec:	  EVM Code Coverage: 			 80.8%
-INFO:symExec:	  Callstack Depth Attack Vulnerability:  False
-INFO:symExec:	  Transaction-Ordering Dependence (TOD): True
-INFO:symExec:	  Timestamp Dependency: 		 False
-INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
-INFO:symExec:	====== Analysis Completed ======
