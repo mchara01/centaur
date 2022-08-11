@@ -1,3 +1,5 @@
+csvs/
+.env
 .idea
 .DS_Store
 go.sum
