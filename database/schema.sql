@@ -22,7 +22,7 @@ CREATE TABLE Result (
 
 CREATE TABLE Finding (
     finding_id                  INTEGER PRIMARY KEY,
-    vulnerabiliry               TEXT NOT NULL,
+    vulnerability               TEXT NOT NULL,
     result_id                   INTEGER NOT NULL,
     FOREIGN KEY (result_id) REFERENCES Result (result_id)
 );
