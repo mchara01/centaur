@@ -1,5 +1,5 @@
 csvs/
-.env
+env/
 .idea
 .DS_Store
 go.sum
