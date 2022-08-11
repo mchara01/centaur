@@ -2,6 +2,7 @@
 A one-off script that merges all data to a single SQLite database.
 
 Instructions:
+    rm -rf database/analysis.db
     sqlite3 -init database/schema.sql database/analysis.db .quit
     rm -rf database/csvs
     python scripts/database/create_db.py csvs \
@@ -19,6 +20,60 @@ import json
 import csv
 
 from collections import defaultdict
+
+
+VULNS_LOOKUP = {
+        "Accepts_Ether": None,
+        "Arithmetic_bugs": "Arithmetic Issues",
+        "Callstack_Depth_Attack_Vulnerability": "Callstack Depth Attack Vulnerability",
+        "Callstack_bug": "Arithmetic Issues",
+        "CheckedCallStateUpdate": "Reentrancy",
+        "Concurrency_bug": "",
+        "Delegatecall_to_user_supplied_address": ,
+        "Dependence_on_predictable_environment_variable": ,
+        "Dependence_on_tx_origin": ,
+        "Destroyable": ,
+        "Destructible": ,
+        "Ether_leak": ,
+        "Ether_lock": ,
+        "Ether_lock_Ether_accepted_without_send": ,
+        "Exception_State": ,
+        "External_Call_To_User_Supplied_Address": ,
+        "Integer_Arithmetic_Bugs": ,
+        "Integer_Overflow": ,
+        "Integer_Underflow": ,
+        "Jump_to_an_arbitrary_instruction": ,
+        "Modulo_bugs": ,
+        "Money_flow": ,
+        "Multiple_Calls_in_a_Single_Transaction": ,
+        "No_Ether_leak_no_send": ,
+        "No_Ether_lock_Ether_refused": ,
+        "Not_destructible_no_self_destruct": ,
+        "OriginUsed": ,
+        "OverflowLoopIterator": ,
+        "Overflow_bugs": ,
+        "Re_Entrancy_Vulnerability": ,
+        "Reentrancy": "Reentrancy", 
+        "Reentrancy_bug": "Reentrancy",
+        "ReentrantCall": "Reentrancy",
+        "Signedness_bugs": ,
+        "State_access_after_external_call": ,
+        "Time_Manipulation": ,
+        "Timedependency_bug": ,
+        "Timestamp_Dependency": ,
+        "Transaction_Ordering_Dependence": ,
+        "Transaction_Ordering_Dependence_TOD": ,
+        "Truncation_bugs": ,
+        "UnboundedMassOp": ,
+        "UncheckedCall": ,
+        "Unchecked_Low_Level_Call": ,
+        "Unchecked_return_value_from_external_call": ,
+        "Underflow_bugs": ,
+        "Unprotected_Ether_Withdrawal": ,
+        "Unprotected_Selfdestruct": ,
+        "UnsecuredValueSend": ,
+        "Write_to_an_arbitrary_storage_location": ,
+}
 
 
 def connect(db):
@@ -56,6 +111,14 @@ def create_populate_script(output, results):
 def get_path_and_name_of_csv(directory, name):
     path = os.path.join(directory, f"{name}.csv")
     return [path, name]
+
+
+def canonicalise(vuln):
+    try:
+        return VULNS_LOOKUP[vuln]
+    except KeyError:
+        print(f"Error: {vuln} does not exists in VULNS_LOOKUP")
+        import sys; sys.exit()
 
 
 def get_date_from_path(path):
@@ -158,7 +221,8 @@ def process_results(path, addresses_ids, hashes):
                     exit_code = results['exit_code']
                     duration = results['duration']
                     success = results['success']
-                    vulns = results['findings']
+                    vulns = [canonicalise(v) for v in results['findings']]
+                    vulns = list(filter(lambda x: x is not None, vulns))
                     chain = 'eth' if 'eth' in results['contract'] else None
                     chain = 'bsc' if 'bsc' in results['contract'] else chain
                     try:
