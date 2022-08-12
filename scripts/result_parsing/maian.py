@@ -3,7 +3,6 @@ import json
 import os
 
 import yaml
-
 from utils.colours import ColoredText
 from utils.swc_map import SWC_TO_TITLE
 
@@ -73,7 +72,7 @@ class Maian:
         print()
 
         print("SWC_ID\tVulnerability_Description")
-        print("="*34)
+        print("=" * 34)
         swc_found = ('105', '106')
         for swc_id in swc_found:
             if swc_id in SWC_TO_TITLE:

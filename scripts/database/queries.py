@@ -18,5 +18,8 @@ QUERIES = {
     "contracts_with_balance_bsc": "SELECT address,balance FROM bsc WHERE balance > 0;",
 
     "top_balance_eth": "SELECT address, balance FROM eth WHERE balance > 0 ORDER BY balance DESC LIMIT 10",
-    "top_balance_bsc": "SELECT address, balance FROM bsc WHERE balance > 0 ORDER BY balance DESC LIMIT 10"
+    "top_balance_bsc": "SELECT address, balance FROM bsc WHERE balance > 0 ORDER BY balance DESC LIMIT 10",
+
+    "total_vulnerable_contracts_with_reentrancy_eth": "SELECT COUNT(*) FROM (SELECT DISTINCT a.address FROM Address AS a JOIN Result AS r ON r.address_id = a.address_id JOIN Finding AS f ON f.result_id = r.result_id WHERE chain='eth' AND f.vulnerability='Reentrancy' GROUP BY a.address_id) as results;",  # including duplicates
+    "total_vulnerable_contracts_with_reentrancy_bsc": "SELECT COUNT(*) FROM (SELECT DISTINCT a.address FROM Address AS a JOIN Result AS r ON r.address_id = a.address_id JOIN Finding AS f ON f.result_id = r.result_id WHERE chain='bsc' AND f.vulnerability='Reentrancy' GROUP BY a.address_id) as results;"
 }

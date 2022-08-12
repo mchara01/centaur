@@ -1,2 +1,0 @@
-# Total vulnerable contracts with reentrancy including duplicates
-SELECT COUNT(*) FROM (SELECT DISTINCT a.address FROM Address AS a JOIN Result AS r ON r.address_id = a.address_id JOIN Finding AS f ON f.result_id = r.result_id WHERE chain='eth' AND f.vulnerability='Reentrancy' GROUP BY a.address_id);

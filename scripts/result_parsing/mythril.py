@@ -67,6 +67,9 @@ class Mythril:
             elif k == "Unprotected Selfdestruct":
                 swc_found.add('106')
                 print("2\t106\t" + k + ": " + str(v))
+            elif k == "Dependence on tx.origin":
+                swc_found.add('115')
+                print("2\t115\t" + k + ": " + str(v))
             elif k == "Unprotected Ether Withdrawal":
                 swc_found.add('105')
                 print("2\t105\t" + k + ": " + str(v))
