@@ -233,7 +233,7 @@ To enrich the vulnerability categorisation, we have used also the [Smart Contrac
 to an SWC id, which can help users learn more (e.g. description, remediation, code examples) about a specific vulnerability.
 
 ## Experiment Setup <a name="setup"></a>
-This artifact has been tested on a 64-bits 20.04 Ubuntu machine and an Apple M1 Mac mini 12.3.1, both with 8 cores and 16GB of RAM. 
+This artefact has been tested on a 64-bits 20.04 Ubuntu machine and an Apple M1 Mac mini 12.3.1, both with 8 cores and 16GB of RAM. 
 However, our Docker image can be used on any machine that has Docker installed.
 
 ## License <a name="license"></a>
