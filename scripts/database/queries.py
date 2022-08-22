@@ -33,5 +33,36 @@ QUERIES = {
     "tokens_above_zero_bsc": "SELECT COUNT(address) FROM Address WHERE chain='bsc' and nr_token_transfers > 0;",
 
     "without_anything_eth": "SELECT COUNT(address) FROM Address WHERE chain='eth' and nr_token_transfers = 0 and nr_transactions=0 and balance='0';",
-    "without_anything_bsc": "SELECT COUNT(address) FROM Address WHERE chain='bsc' and nr_token_transfers = 0 and nr_transactions=0 and balance='0'"
+    "without_anything_bsc": "SELECT COUNT(address) FROM Address WHERE chain='bsc' and nr_token_transfers = 0 and nr_transactions=0 and balance='0'",
+
+    "vulnerable_contract_balance_eth": """  SELECT DISTINCT a.address_id, a.balance
+                                            FROM Address AS a
+                                            JOIN Result R on a.address_id = R.address_id
+                                            JOIN Finding F on R.result_id = F.result_id
+                                            WHERE a.chain="eth";""",
+    "vulnerable_contract_balance_bsc": """  SELECT DISTINCT a.address_id, a.balance
+                                            FROM Address AS a
+                                            JOIN Result R on a.address_id = R.address_id
+                                            JOIN Finding F on R.result_id = F.result_id
+                                            WHERE a.chain="bsc";""",
+
+    "total_duplicates_between chains": """SELECT count(DISTINCT bytecode_hash)
+                                            FROM(
+                                            SELECT bytecode_hash, (sum(chain = 'eth') > 0) AS eth, (sum(chain = 'bsc') > 0) AS bsc
+                                            FROM Address
+                                            GROUP BY bytecode_hash)
+                                            WHERE bsc = 1 AND eth = 1""",
+
+
+    "duplicates_between_chains": """SELECT address, chain, bytecode_hash
+                                    FROM Address
+                                    WHERE bytecode_hash IN (
+                                    SELECT bytecode_hash
+                                    FROM(
+                                    SELECT bytecode_hash, (sum(chain = 'eth') > 0) AS eth, (sum(chain = 'bsc') > 0) AS bsc
+                                    FROM Address
+                                    GROUP BY bytecode_hash)
+                                    WHERE bsc = 1 AND eth = 1)
+                                    GROUP BY chain, bytecode_hash"""
+
 }
