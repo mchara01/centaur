@@ -4,7 +4,7 @@ A one-off script that merges all data to a single SQLite database.
 Instructions:
     rm -rf database/analysis.db
     sqlite3 -init database/schema.sql database/analysis.db .quit
-    rm -rf database/csvs
+    rm -rf csvs
     python scripts/database/create_db.py csvs \
             smartbugs_bytecode/results \
             build/database/03_Jul_2022/sqlite/run1.sqlite3 \
@@ -12,15 +12,18 @@ Instructions:
     sqlite3 database/analysis.db < csvs/populate.sql
 """
 import argparse
-import sqlite3
-import re
-import hashlib
-import os
-import json
 import csv
-
+import hashlib
+import json
+import re
+import sqlite3
 from collections import defaultdict
-from scripts.utils.dasp10extended_map import VULNS_LOOKUP
+import sys
+import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+from utils.dasp10extended_map import VULNS_LOOKUP
 
 
 def connect(db):
@@ -65,7 +68,8 @@ def canonicalise(vuln):
         return VULNS_LOOKUP[vuln]
     except KeyError:
         print(f"Error: {vuln} does not exists in VULNS_LOOKUP")
-        import sys; sys.exit()
+        import sys
+        sys.exit()
 
 
 def get_date_from_path(path):
@@ -98,32 +102,36 @@ def get_addresses(databases):
                 'nr_token_transfers', 'bytecode']
     qstring = "SELECT {columns} FROM {table}"
     address_id_counter = 0
+    bytecode_id_counter = 0
     addresses_ids = defaultdict(dict)
     hashes = {'address': defaultdict(dict), 'hash': defaultdict(list)}
     rows = []
+    bytecode_rows = []
 
     def query():
         nonlocal address_id_counter
+        nonlocal bytecode_id_counter
         for chain in ('eth', 'bsc'):
             qset = run_query(db_con, qstring.format(
-                columns=",".join(qcolumns), 
+                columns=",".join(qcolumns),
                 table=chain))
             for row in qset:
                 address = row[1]
-                bytecode_hash = hashlib.sha256(row[-1].encode('utf-8')).hexdigest()
+                bytecode = row[-1]
+                bytecode_hash = hashlib.sha256(bytecode.encode('utf-8')).hexdigest()
                 rows.append(
-                        [address_id_counter] + list(row)[:-1] + [
-                            bytecode_hash,
-                            # chain
-                            chain,
-                            # run date
-                            run_date
-                        ]
+                    [address_id_counter] + list(row)[:-1] + [
+                        bytecode_hash,
+                        chain,
+                        run_date
+                    ]
                 )
+                bytecode_rows.append([bytecode_id_counter, bytecode, address_id_counter])
                 hashes['address'][address][chain] = bytecode_hash
                 hashes['hash'][bytecode_hash].append((chain, address))
                 addresses_ids[address][chain] = address_id_counter
                 address_id_counter += 1
+                bytecode_id_counter += 1
 
     for db in databases:
         print("Processing ", db)
@@ -131,7 +139,7 @@ def get_addresses(databases):
         db_con = connect(db)
         query()
 
-    return rows, addresses_ids, hashes
+    return rows, addresses_ids, hashes, bytecode_rows
 
 
 def process_results(path, addresses_ids, hashes):
@@ -140,7 +148,7 @@ def process_results(path, addresses_ids, hashes):
     Args:
         path: Path of directory that contains the results
         addresses_ids: Lookup from address to id 
-        hashes: A double lookup from hash to addresses and address to hash
+        hashes: A double lookup from hash to address and address to hash
 
     Returns:
         List of lists containing rows of result table.
@@ -165,10 +173,12 @@ def process_results(path, addresses_ids, hashes):
                 result_path = os.path.join(dirpath, filename)
                 with open(result_path, 'r') as f:
                     results = json.load(f)
-                    exit_code = results['exit_code']
-                    duration = results['duration']
-                    success = results['success']
-                    vulns = [canonicalise(v) for v in results['findings']]
+                    if 'contract' not in results:
+                        continue
+                    exit_code = results['exit_code'] if 'exit_code' in results else 0
+                    duration = results['duration'] if 'duration' in results else 0
+                    success = results['success'] if 'success' in results else 0
+                    vulns = [canonicalise(v) for v in results['findings']] if 'findings' in results and results['findings'] else []
                     vulns = list(filter(lambda x: x is not None, vulns))
                     chain = 'eth' if 'eth' in results['contract'] else None
                     chain = 'bsc' if 'bsc' in results['contract'] else chain
@@ -180,31 +190,31 @@ def process_results(path, addresses_ids, hashes):
 
                 for addr_chain, addr in hashes['hash'][addr_hash]:
                     result_rows.append([
-                            result_id_counter, tool_name, duration, exit_code,
-                            success, addresses_ids[addr][addr_chain]
-                        ])
+                        result_id_counter, tool_name, duration, exit_code,
+                        success, addresses_ids[addr][addr_chain]
+                    ])
                     for vuln in vulns:
                         finding_rows.append([
-                                finding_id_counter, vuln, result_id_counter
-                            ])
+                            finding_id_counter, vuln, result_id_counter
+                        ])
                         finding_id_counter += 1
                     result_id_counter += 1
-    return result_rows, finding_rows 
+    return result_rows, finding_rows
 
 
 def get_args():
     parser = argparse.ArgumentParser(
         description='Merge all data to a single SQLite database')
     parser.add_argument(
-        "output", 
+        "output",
         help="Directory to save the results"
     )
     parser.add_argument(
-        "results", 
+        "results",
         help="Directory that contains the results of the analysis tools"
     )
     parser.add_argument(
-        "databases", 
+        "databases",
         nargs='+',
         help="Databases containing the addresses of analyzed contracts"
     )
@@ -213,14 +223,16 @@ def get_args():
 
 def main():
     args = get_args()
-    addresses_rows, addresses_lookup, hashes = get_addresses(args.databases)
+    addresses_rows, addresses_lookup, hashes, bytecode_rows = get_addresses(args.databases)
     result_rows, finding_rows = process_results(
-            args.results, addresses_lookup, hashes) 
+        args.results, addresses_lookup, hashes)
     print("Save results")
     create_dir(args.output)
     results = []
     save_table_file(args.output, 'Address', addresses_rows)
     results.append(get_path_and_name_of_csv(args.output, 'Address'))
+    save_table_file(args.output, 'Bytecode', bytecode_rows)
+    results.append(get_path_and_name_of_csv(args.output, 'Bytecode'))
     save_table_file(args.output, 'Result', result_rows)
     results.append(get_path_and_name_of_csv(args.output, 'Result'))
     save_table_file(args.output, 'Finding', finding_rows)

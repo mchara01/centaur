@@ -10,6 +10,13 @@ CREATE TABLE Address (
     run                         TEXT NOT NULL
 );
 
+CREATE TABLE Bytecode (
+    bytecode_id                 INTEGER PRIMARY KEY,
+    bytecode                   TEXT NOT NULL,
+    address_id                  INTEGER NOT NULL,
+    FOREIGN KEY (address_id) REFERENCES Address (address_id)
+);
+
 CREATE TABLE Result (
     result_id                   INTEGER PRIMARY KEY,
     tool                        TEXT NOT NULL,
