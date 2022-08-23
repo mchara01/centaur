@@ -31,8 +31,9 @@ EVM chains.
 6. [Centaur Usage](#usage)
 7. [Analysis Tools](#analysis-tools)
 8. [Vulnerability Categorisation](#taxonomy)
-9. [Experiment Setup](#setup)
-10. [License](#license)
+9. [Using the SQLite3 Database](#db_usage)
+10. [Experiment Setup](#setup)
+11. [License](#license)
 
 ## Repository Overview <a name="overview"></a>
 <!-- Command to reproduce: tree -L 2 --dirsfirst -I 'smartbugs_bytecode|venv' -->
@@ -283,6 +284,27 @@ fall in any other category, with each one of this uncategorised vulnerabilities.
 used in this study.  
 To enrich the vulnerability categorisation, we have used also the [Smart Contract Weakness Classification (SWC Registry)](https://swcregistry.io/) to map found vulnerabilities
 to an SWC id, which can help users learn more (e.g. description, remediation, code examples) about a specific vulnerability.
+
+## Using the SQLite3 Database <a name="db_usage"></a>
+For convenience, we migrated the data to an sqlite db file located in the database directory.
+The schema of the database can be seen in the schema.pdf file.
+You can run the database file from the command line with: <br>
+```bash
+sqlite3 analysis.db
+```
+We created also a script that automates the process of creating the sqlite db file from the smartbugs
+results. The file is located in `scripts/database/create_db.py`. For creating the db file, follow the steps
+below:
+```bash
+rm -rf database/analysis.db
+sqlite3 -init database/schema.sql database/analysis.db .quit
+rm -rf csvs
+python scripts/database/create_db.py csvs \
+        smartbugs_bytecode/results \
+        build/database/03_Jul_2022/sqlite/run1.sqlite3 \
+        build/database/02_Aug_2022/sqlite/run2.sqlite3
+sqlite3 database/analysis.db < csvs/populate.sql
+```
 
 ## Experiment Setup <a name="setup"></a>
 This artefact has been tested on a 64-bits 20.04 Ubuntu machine and an Apple M1 Mac mini 12.3.1, both with 8 cores and 16GB of RAM. 
