@@ -53,7 +53,6 @@ QUERIES = {
                                             GROUP BY bytecode_hash)
                                             WHERE bsc = 1 AND eth = 1""",
 
-
     "duplicates_between_chains": """SELECT address, chain, bytecode_hash
                                     FROM Address
                                     WHERE bytecode_hash IN (
@@ -64,5 +63,4 @@ QUERIES = {
                                     GROUP BY bytecode_hash)
                                     WHERE bsc = 1 AND eth = 1)
                                     GROUP BY chain, bytecode_hash"""
-
 }
