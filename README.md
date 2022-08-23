@@ -287,8 +287,7 @@ to an SWC id, which can help users learn more (e.g. description, remediation, co
 
 ## Using the SQLite3 Database <a name="db_usage"></a>
 For convenience, we migrated the data to an sqlite db file located in the database directory.
-The schema of the database can be seen in the schema.pdf file.
-You can run the database file from the command line with: <br>
+The schema of the database can be seen in the [schema.pdf](https://github.com/mchara01/centaur/blob/main/database/schema.pdf) file. You can run the database file from the command line with: <br>
 ```bash
 sqlite3 analysis.db
 ```
