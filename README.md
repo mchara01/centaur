@@ -35,17 +35,40 @@ EVM chains.
 10. [License](#license)
 
 ## Repository Overview <a name="overview"></a>
-<!-- Command to reproduce: tree -L 2 --dirsfirst -I 'smartbugs_bytecode|venv') -->
+<!-- Command to reproduce: tree -L 2 --dirsfirst -I 'smartbugs_bytecode|venv' -->
 ```bash                                                                                                                 marcos-antonioscharalambous@mchara01
 Centaur
 ├── build
 │   └── database
+│       ├── 02_Aug_2022
+│       ├── 03_Jul_2022
+│       ├── db_blockchain
+│       ├── db_password.txt
+│       ├── db_root_password.txt
+│       └── docker-compose.yaml
 ├── data
 │   ├── block_samples
+│   │   ├── 01072022_161632
+│   │   ├── 01072022_162400
+│   │   ├── 02082022_001208
+│   │   └── 30072022_170719
 │   ├── dataset
+│   │   ├── bsc
+│   │   ├── bsc2
+│   │   ├── eth
+│   │   └── eth2
 │   ├── executions
+│   │   ├── run_bsc.txt
+│   │   └── run_eth.txt
 │   ├── logs
+│   │   ├── 02072022_184613
+│   │   └── 02072022_214121
 │   └── mix_dataset_test
+│       └── test_dt.xlsx
+├── database
+│   ├── analysis.db
+│   ├── schema.pdf
+│   └── schema.sql
 ├── go-src
 │   ├── chainCrawler.go
 │   ├── connection.go
@@ -54,24 +77,53 @@ Centaur
 │   └── tracerConfig.go
 ├── scripts
 │   ├── crawl
+│   │   ├── __init__.py
+│   │   ├── bscscanCrawl.py
+│   │   ├── etherscanCrawl.py
+│   │   ├── limitChecker.py
+│   │   └── mainCrawl.py
 │   ├── database
+│   │   ├── backup
+│   │   ├── __init__.py
+│   │   ├── create_db.py
+│   │   ├── queries.py
+│   │   └── schema.sql
 │   ├── result_parsing
+│   │   ├── conkas.py
+│   │   ├── honeybadger.py
+│   │   ├── madmax.py
+│   │   ├── maian.py
+│   │   ├── mythril.py
+│   │   ├── osiris.py
+│   │   ├── oyente.py
+│   │   ├── securify.py
+│   │   └── vandal.py
 │   ├── utils
+│   │   ├── __init__.py
+│   │   ├── blockNumberGenerator.py
+│   │   ├── bytecodeToFileCreator.py
+│   │   ├── colours.py
+│   │   ├── dasp10extended_map.py
+│   │   ├── swc_map.py
+│   │   └── tools.py
 │   ├── README.md
 │   ├── __init__.py
+│   ├── dbtest.go
 │   ├── parser.py
 │   └── result.json
 ├── Dockerfile
 ├── LICENSE
 ├── README.md
+├── analysis.db
+├── analysis_results.csv
 ├── config
 ├── go.mod
 ├── go.sum
-├── queries.py
 ├── requirements.txt
+├── resultsToCSV.py
 └── run_main.sh
 
-14 directories, 18 files
+30 directories, 54 files
 ```
 
 ## Prerequisites <a name="prerequisites"></a>

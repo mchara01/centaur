@@ -46,7 +46,7 @@ QUERIES = {
                                             JOIN Finding F on R.result_id = F.result_id
                                             WHERE a.chain="bsc";""",
 
-    "total_duplicates_between chains": """SELECT count(DISTINCT bytecode_hash)
+    "total_duplicates_between chains": """SELECT COUNT(DISTINCT bytecode_hash)
                                             FROM(
                                             SELECT bytecode_hash, (sum(chain = 'eth') > 0) AS eth, (sum(chain = 'bsc') > 0) AS bsc
                                             FROM Address
@@ -62,5 +62,32 @@ QUERIES = {
                                     FROM Address
                                     GROUP BY bytecode_hash)
                                     WHERE bsc = 1 AND eth = 1)
-                                    GROUP BY chain, bytecode_hash"""
+                                    GROUP BY chain, bytecode_hash""",
+
+    "total_selfdestruct": "SELECT COUNT(*) FROM Bytecode WHERE bytecode='';",
+    "total_selfdestruct_eth": """SELECT COUNT(*)
+                                 FROM Bytecode AS b
+                                 JOIN Address AS a on a.address_id = b.address_id
+                                 WHERE b.bytecode = '' and a.'chain' = 'eth';""",
+    "total_selfdestruct_bsc": """SELECT COUNT(*)
+                                 FROM Bytecode AS b
+                                 JOIN Address AS a on a.address_id = b.address_id
+                                 WHERE b.bytecode = '' and a.'chain' = 'bsc';""",
+
+    "total_gastoken_contracts": """ SELECT COUNT(*) 
+                                    FROM Bytecode AS b
+                                    JOIN Address AS a on a.address_id = b.address_id
+                                    WHERE (bytecode LIKE '%b3F879cb30FE243b4Dfee438691c04%' or bytecode LIKE '%4946c0e9f43f4dee607b0ef1fa1c%') and b.bytecode LIKE "%ff";""",
+    "total_gastoken_contracts_eth": """SELECT SUM(total) 
+                                        FROM (
+                                            SELECT COUNT(b.bytecode) as total
+                                            FROM Bytecode AS b
+                                            JOIN Address AS a on a.address_id = b.address_id
+                                            WHERE (bytecode LIKE '%b3F879cb30FE243b4Dfee438691c04%' or bytecode LIKE '%4946c0e9f43f4dee607b0ef1fa1c%') and a.chain='eth' and b.bytecode LIKE "%ff"
+                                            group by b.bytecode
+                                        );""",
+    "total_gastoken_contracts_bsc": """SELECT COUNT(*) 
+                                        FROM Bytecode AS b
+                                        JOIN Address AS a on a.address_id = b.address_id
+                                        WHERE (bytecode LIKE '%b3F879cb30FE243b4Dfee438691c04%' or bytecode LIKE '%4946c0e9f43f4dee607b0ef1fa1c%') and a.chain='bsc' and b.bytecode LIKE "%ff";"""
 }
