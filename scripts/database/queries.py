@@ -35,6 +35,11 @@ QUERIES = {
     "without_anything_eth": "SELECT COUNT(address) FROM Address WHERE chain='eth' and nr_token_transfers = 0 and nr_transactions=0 and balance='0';",
     "without_anything_bsc": "SELECT COUNT(address) FROM Address WHERE chain='bsc' and nr_token_transfers = 0 and nr_transactions=0 and balance='0'",
 
+    "total_vulnerable_contracts": """SELECT COUNT(DISTINCT a.address_id)
+                                        FROM Address AS a
+                                        JOIN Result R on a.address_id = R.address_id
+                                        JOIN Finding F on R.result_id = F.result_id""",
+
     "vulnerable_contract_balance_eth": """  SELECT DISTINCT a.address_id, a.balance
                                             FROM Address AS a
                                             JOIN Result R on a.address_id = R.address_id
