@@ -24,6 +24,7 @@ CREATE TABLE Result (
     exit_code                   INTEGER NOT NULL,
     success                     BOOLEAN NOT NULL,
     address_id                  INTEGER NOT NULL,
+    result_date                 TEXT NOT NULL,
     FOREIGN KEY (address_id) REFERENCES Address (address_id)
 );
 

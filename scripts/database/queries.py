@@ -20,8 +20,22 @@ QUERIES = {
     "top_balance_eth": "SELECT address, balance FROM Address WHERE chain='eth' and balance > 0 ORDER BY balance DESC LIMIT 10",
     "top_balance_bsc": "SELECT address, balance FROM Address WHERE chain='bsc' and balance > 0 ORDER BY balance DESC LIMIT 10",
 
-    "total_vulnerable_contracts_with_reentrancy_eth": "SELECT COUNT(*) FROM (SELECT DISTINCT a.address FROM Address AS a JOIN Result AS r ON r.address_id = a.address_id JOIN Finding AS f ON f.result_id = r.result_id WHERE chain='eth' AND f.vulnerability='Reentrancy' GROUP BY a.address_id) as results;",  # including duplicates
-    "total_vulnerable_contracts_with_reentrancy_bsc": "SELECT COUNT(*) FROM (SELECT DISTINCT a.address FROM Address AS a JOIN Result AS r ON r.address_id = a.address_id JOIN Finding AS f ON f.result_id = r.result_id WHERE chain='bsc' AND f.vulnerability='Reentrancy' GROUP BY a.address_id) as results;",
+    "total_vulnerable_contracts_with_reentrancy_eth": """SELECT COUNT(*) 
+                                                            FROM (
+                                                                SELECT DISTINCT a.address 
+                                                                FROM Address AS a 
+                                                                JOIN Result AS r ON r.address_id = a.address_id 
+                                                                JOIN Finding AS f ON f.result_id = r.result_id 
+                                                                WHERE chain='eth' AND f.vulnerability='Reentrancy' GROUP BY a.address_id
+                                                                ) as results;""",  # including duplicates
+    "total_vulnerable_contracts_with_reentrancy_bsc": """SELECT COUNT(*) 
+                                                            FROM (
+                                                                SELECT DISTINCT a.address 
+                                                                FROM Address AS a 
+                                                                JOIN Result AS r ON r.address_id = a.address_id 
+                                                                JOIN Finding AS f ON f.result_id = r.result_id 
+                                                                WHERE chain='bsc' AND f.vulnerability='Reentrancy' GROUP BY a.address_id
+                                                                ) as results;""",
 
     "balance_above_zero_eth": "SELECT COUNT(address) FROM Address WHERE chain='eth' and balance != '0';",
     "balance_above_zero_bsc": "SELECT COUNT(address) FROM Address WHERE chain='bsc' and balance != '0';",
@@ -88,7 +102,7 @@ QUERIES = {
                                             SELECT COUNT(b.bytecode) as total
                                             FROM Bytecode AS b
                                             JOIN Address AS a on a.address_id = b.address_id
-                                            WHERE (bytecode LIKE '%b3F879cb30FE243b4Dfee438691c04%' or bytecode LIKE '%4946c0e9f43f4dee607b0ef1fa1c%') and a.chain='eth' and b.bytecode LIKE "%ff"
+                                            WHERE (bytecode LIKE '%b3F879cb30FE243b4Dfee438691c04%' or bytecode LIKE '%4946c0e9f43f4dee607b0ef1fa1c%') and a.chain='eth' and b.bytecode LIKE "%ff" # GasToken address and Chi gastocken address 
                                             group by b.bytecode
                                         );""",
     "total_gastoken_contracts_bsc": """SELECT COUNT(*) 

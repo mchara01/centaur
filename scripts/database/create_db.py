@@ -191,7 +191,7 @@ def process_results(path, addresses_ids, hashes):
                 for addr_chain, addr in hashes['hash'][addr_hash]:
                     result_rows.append([
                         result_id_counter, tool_name, duration, exit_code,
-                        success, addresses_ids[addr][addr_chain]
+                        success, addresses_ids[addr][addr_chain], result_date
                     ])
                     for vuln in vulns:
                         finding_rows.append([
