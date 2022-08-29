@@ -15,6 +15,7 @@ class Conkas:
 
     def parse(self):
         total_contracts = 0
+        total_vulnerabilities = 0
         total_time = 0
         arithmetic = 0
         unchecked_low_level_calls = 0
@@ -44,18 +45,18 @@ class Conkas:
                 with open(os.path.join(self.full_path, filename, "result.json"), 'r') as f:
                     result = json.load(f)
                     total_time += result['duration']
-                    if 'analysis' in result and type(result['analysis']) == list and len(result['analysis']) > 0:
-                        for vulnerability_dict in result['analysis']:
-                            if vulnerability_dict['vuln_type'] in ('Integer Overflow', 'Integer Underflow'):
-                                arithmetic += 1
-                            if vulnerability_dict['vuln_type'] == 'Unchecked Low Level Call':
-                                unchecked_low_level_calls += 1
-                            if vulnerability_dict['vuln_type'] == 'Reentrancy':
-                                reentrancy_vulnerability += 1
-                            if vulnerability_dict['vuln_type'] == 'Transaction Ordering Dependence':
-                                tod += 1
-                            if vulnerability_dict['vuln_type'] == 'Time Manipulation':
-                                time_manipulation += 1
+                    for finding in result['findings']:
+                        if finding in ('Integer_Overflow', 'Integer_Underflow'):
+                            arithmetic += 1
+                        elif finding == "Unchecked_Low_Level_Call":
+                            unchecked_low_level_calls += 1
+                        elif finding == "Reentrancy":
+                            reentrancy_vulnerability += 1
+                        elif finding == "Time_Manipulation":
+                            time_manipulation += 1
+                        elif finding == "Transaction_Ordering_Dependence":
+                            tod += 1
+                        total_vulnerabilities += 1
 
         print("Smart Contract Bytecodes")
         print("========================")
@@ -82,5 +83,7 @@ class Conkas:
             if swc_id in SWC_TO_TITLE:
                 print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
+        print()
+        print(f"Total potential vulnerabilities reported by Conkas: {total_vulnerabilities}")
         print(ColoredText.info('*' * 30))
         print()

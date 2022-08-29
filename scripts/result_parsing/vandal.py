@@ -16,6 +16,7 @@ class Vandal:
 
     def parse(self):
         total_contracts = 0
+        total_vulnerabilities = 0
         total_time = 0
         output = dict()
 
@@ -78,7 +79,7 @@ class Vandal:
                 print("4\t" + "104\t" + k + ": " + str(v))
             else:
                 print("NA\t" + "NA\t" + k + ": " + str(v))
-
+            total_vulnerabilities += v
         print()
 
         print("SWC_ID\tVulnerability_Description")
@@ -87,5 +88,7 @@ class Vandal:
         for swc_id in swc_sorted:
             print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
+        print()
+        print(f"Total potential vulnerabilities reported by Vandal: {total_vulnerabilities}")
         print(ColoredText.info('*' * 30))
         print()

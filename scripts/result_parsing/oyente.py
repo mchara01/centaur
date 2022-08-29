@@ -79,5 +79,8 @@ class Oyente:
             if swc_id in SWC_TO_TITLE:
                 print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
+        print()
+        total_vulnerabilities = callstack_dept_attack + tod + timestamp_dependency + reentrancy_vulnerability
+        print(f"Total potential vulnerabilities reported by Oyente: {total_vulnerabilities}")
         print(ColoredText.info('*' * 30))
         print()

@@ -15,6 +15,7 @@ class Securify:
 
     def parse(self):
         total_contracts = 0
+        total_vulnerabilities = 0
         total_time = 0.0
         output = dict()
 
@@ -42,13 +43,13 @@ class Securify:
                     result = json.load(f)
                     total_time += result['duration']
                     if 'analysis' in result and type(result['analysis']) == dict and len(result['analysis']) > 0:
-                        for analysis in result['analysis']:
-                            for tp in result['analysis'][analysis]["results"]:
+                        for contract in result['analysis']:
+                            for tp in result['analysis'][contract]["results"]:
                                 if tp not in output:
-                                    output[tp] = len(result['analysis'][analysis]["results"][tp]['violations'])
-                                else:
+                                    output[tp] = 0
+                                if result['analysis'][contract]["results"][tp]['hasViolations']:
                                     output[tp] = output[tp] + len(
-                                        result['analysis'][analysis]["results"][tp]['violations'])
+                                        result['analysis'][contract]["results"][tp]['violations'])
 
         print("Smart Contract Bytecodes")
         print("========================")
@@ -81,7 +82,7 @@ class Securify:
                 print("5\t" + "113\t" + k + ": " + str(v))
             else:
                 print("NA\t" + "NA\t" + k + ": " + str(v))
-
+            total_vulnerabilities += v
         print()
 
         print("SWC_ID\tVulnerability_Description")
@@ -91,5 +92,7 @@ class Securify:
             if swc_id in SWC_TO_TITLE:
                 print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
+        print()
+        print(f"Total potential vulnerabilities reported by Securify: {total_vulnerabilities}")
         print(ColoredText.info('*' * 30))
         print()

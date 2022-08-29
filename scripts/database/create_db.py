@@ -94,7 +94,7 @@ def get_addresses(databases):
            [id, block_number, address, balance, nr_transactions, 
             nr_token_transfers, bytecode_hash, chain, run]
         A lookup from address hex to address id (addr -> chain -> id)
-        A double lookup from hash to addresses and address to hash
+        A double lookup from hash to address and address to hash
             {'address': {'0x...': {'eth': 'hash_value'}}, 
              'hash': {'hash_value': [('eth', '0x...'), ('bsc', '0x...')]}}
     """

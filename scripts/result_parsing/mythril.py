@@ -16,6 +16,7 @@ class Mythril:
 
     def parse(self):
         total_contracts = 0
+        total_vulnerabilities = 0
         total_time = 0
         output = dict()
 
@@ -42,12 +43,17 @@ class Mythril:
                 with open(os.path.join(self.full_path, filename, "result.json"), 'r') as f:
                     result = json.load(f)
                     total_time += result['duration']
-                    if 'analysis' in result and result['analysis']['issues']:
-                        for issue in result['analysis']['issues']:
-                            if issue['title'] in output:
-                                output[issue['title']] = output[issue['title']] + 1
-                            else:
-                                output[issue['title']] = 1
+                    for finding in result['findings']:
+                        if finding in output:
+                            output[finding] = output[finding] + 1
+                        else:
+                            output[finding] = 1
+                    # if 'analysis' in result and result['analysis']['issues']:
+                    #     for issue in result['analysis']['issues']:
+                    #         if issue['title'] in output:
+                    #             output[issue['title']] = output[issue['title']] + 1
+                    #         else:
+                    #             output[issue['title']] = 1
 
         print("Smart Contract Bytecodes")
         print("========================")
@@ -61,45 +67,46 @@ class Mythril:
         print("=" * 32)
         swc_found = set()
         for k, v in output.items():
-            if k == "Integer Arithmetic Bugs":
+            if k == "Integer_Arithmetic_Bugs":
                 swc_found.add('101')
                 print("3\t101\t" + k + ": " + str(v))
-            elif k == "Unprotected Selfdestruct":
+            elif k == "Unprotected_Selfdestruct":
                 swc_found.add('106')
                 print("2\t106\t" + k + ": " + str(v))
-            elif k == "Dependence on tx.origin":
+            elif k == "Dependence_on_tx_origin":
                 swc_found.add('115')
                 print("2\t115\t" + k + ": " + str(v))
-            elif k == "Unprotected Ether Withdrawal":
+            elif k == "Unprotected_Ether_Withdrawal":
                 swc_found.add('105')
                 print("2\t105\t" + k + ": " + str(v))
-            elif k == "Unchecked return value from external call.":
+            elif k == "Unchecked_return_value_from_external_call":
                 swc_found.add('104')
                 print("4\t104\t" + k + ": " + str(v))
-            elif k in ["State access after external call", "External Call To User-Supplied Address"]:
+            elif k in ["State_access_after_external_call", "External_Call_To_User_Supplied_Address"]:
                 swc_found.add('107')
                 print("1\t107\t" + k + ": " + str(v))
-            elif k in ["Multiple Calls in a Single Transaction"]:
+            elif k in ["Multiple_Calls_in_a_Single_Transaction"]:
                 swc_found.add('113')
                 print("5\t113\t" + k + ": " + str(v))
-            elif k in ["Dependence on predictable environment variable"]:
+            elif k in ["Dependence_on_predictable_environment_variable"]:
                 swc_found.add('116')
                 swc_found.add('120')
                 print("6|8\t120|116\t" + k + ": " + str(v))
-            elif k in ["Exception State"]:
+            elif k in ["Exception_State"]:
                 swc_found.add('110')
                 print("13\t110\t" + k + ": " + str(v))
-            elif k in ["Delegatecall to user-supplied address"]:
+            elif k in ["Delegatecall_to_user_supplied_address"]:
                 swc_found.add('112')
                 print("14\t112\t" + k + ": " + str(v))
-            elif k in ["Write to an arbitrary storage location"]:
+            elif k in ["Write_to_an_arbitrary_storage_location"]:
                 swc_found.add('124')
                 print("15\t124\t" + k + ": " + str(v))
-            elif k in ["Jump to an arbitrary instruction"]:
+            elif k in ["Jump_to_an_arbitrary_instruction"]:
                 swc_found.add('127')
                 print("17\t127\t" + k + ": " + str(v))
             else:
                 print("NA\t" + "NA\t" + k + ": " + str(v))
+            total_vulnerabilities += v
 
         print()
         print("SWC_ID\tVulnerability_Description")
@@ -109,5 +116,7 @@ class Mythril:
             if swc_id in SWC_TO_TITLE:
                 print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
+        print()
+        print(f"Total potential vulnerabilities reported by Mythril: {total_vulnerabilities}")
         print(ColoredText.info('*' * 30))
         print()

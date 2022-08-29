@@ -51,7 +51,7 @@ for dirpath, dirnames, filenames in os.walk(path):
                     continue
 
                 duration = results['duration']
-                if result_date in ["20220709_1907", "20220802_0043"]:
+                if result_date in ["20220709_1907", "20220802_0043"]:  # Ethereum runs
                     total_duration_eth += duration
                 else:
                     total_duration_bsc += duration

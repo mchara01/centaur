@@ -3,7 +3,6 @@ import json
 import os
 
 import yaml
-
 from utils.colours import ColoredText
 from utils.swc_map import SWC_TO_TITLE
 
@@ -16,6 +15,7 @@ class Osiris:
 
     def parse(self):
         total_contracts = 0
+        total_vulnerabilities = 0
         total_time = 0
         arithmetic = 0
         overflow = 0
@@ -71,7 +71,8 @@ class Osiris:
                             callstack += 1
                         if 'Concurrency bugs' in result['analysis'][0] and result['analysis'][0]['Concurrency bug']:
                             concurrency += 1
-                        if 'Timedependency bugs' in result['analysis'][0] and result['analysis'][0]['Timedependency bug']:
+                        if 'Timedependency bugs' in result['analysis'][0] and result['analysis'][0][
+                            'Timedependency bug']:
                             timedependency += 1
                         if 'Reentrancy bugs' in result['analysis'][0] and result['analysis'][0]['Reentrancy bug']:
                             reentrancy += 1
@@ -107,5 +108,9 @@ class Osiris:
             if swc_id in SWC_TO_TITLE:
                 print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
+        print()
+        total_vulnerabilities = arithmetic + overflow + underflow + division + modulo + truncation + signedness + \
+                                callstack + concurrency + timedependency + reentrancy
+        print(f"Total potential vulnerabilities reported by Osiris: {total_vulnerabilities}")
         print(ColoredText.info('*' * 30))
         print()

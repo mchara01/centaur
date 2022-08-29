@@ -67,7 +67,7 @@ class Maian:
         print("=" * 32)
         print(f"12\tNA\tGreedy: {greedy}")
         print(f"2\t105\tProdigal: {prodigal}")
-        print(f"2\t106\tSuicidal: {suicidal}")
+        print(f"2\t106\tSuicidal: {prodigal}")
 
         print()
 
@@ -78,5 +78,8 @@ class Maian:
             if swc_id in SWC_TO_TITLE:
                 print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
+        print()
+        total_vulnerabilities = greedy + prodigal + prodigal
+        print(f"Total potential vulnerabilities reported by Maian: {total_vulnerabilities}")
         print(ColoredText.info('*' * 30))
         print()

@@ -75,6 +75,9 @@ class Madmax:
             if swc_id in SWC_TO_TITLE:
                 print(str(swc_id) + "\t" + SWC_TO_TITLE[swc_id])
 
+        print()
+        total_vulnerabilities = OverflowLoopIterator + UnboundedMassOp + WalletGriefing
+        print(f"Total potential vulnerabilities reported by MadMax: {total_vulnerabilities}")
         print(ColoredText.info('*' * 30))
         print()
 
