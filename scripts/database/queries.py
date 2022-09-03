@@ -108,5 +108,11 @@ QUERIES = {
     "total_gastoken_contracts_bsc": """SELECT COUNT(*) 
                                         FROM Bytecode AS b
                                         JOIN Address AS a on a.address_id = b.address_id
-                                        WHERE (bytecode LIKE '%b3F879cb30FE243b4Dfee438691c04%' or bytecode LIKE '%4946c0e9f43f4dee607b0ef1fa1c%') and a.chain='bsc' and b.bytecode LIKE "%ff";"""
+                                        WHERE (bytecode LIKE '%b3F879cb30FE243b4Dfee438691c04%' or bytecode LIKE '%4946c0e9f43f4dee607b0ef1fa1c%') and a.chain='bsc' and b.bytecode LIKE "%ff";""",
+
+    "timeouts_per_tool": """SELECT r.tool, COUNT(r.duration / 60) as total_timeouts
+                            FROM "Result" r 
+                            WHERE r.duration / 60 >= 30
+                            GROUP BY r.tool
+                            ORDER BY total_timeouts DESC"""
 }
