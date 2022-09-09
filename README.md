@@ -1,11 +1,11 @@
 # Centaur: An EVM-Based Blockchain Vulnerability Analysis Framework
-<a href="https://github.com/mchara01/centaur#analysis-tools-used">
+<a href="https://github.com/mchara01/centaur#analysis-tools">
         <img alt="Analysis Tools" src="https://img.shields.io/badge/Analysis Tools-9-green">
 </a>
-<a href="https://github.com/mchara01/centaur/tree/main/data/dataset/eth">
+<a href="https://github.com/mchara01/centaur/tree/main/data/dataset">
         <img alt="ETH Smart Contracts" src="https://img.shields.io/badge/Ethreum Smart Contracts-7,236-green">
 </a>
-<a href="https://github.com/mchara01/centaur/tree/main/data/dataset/bsc">
+<a href="https://github.com/mchara01/centaur/tree/main/data/dataset">
         <img alt="BSC Smart Contracts" src="https://img.shields.io/badge/BSC Smart Contracts-10,356-green">
 </a>
 <a href="https://github.com/mchara01/centaur/">
