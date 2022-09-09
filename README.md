@@ -1,12 +1,12 @@
-# Centaur: An EVM-based Chain Vulnerability Analysis
+# Centaur: An EVM-Based Blockchain Vulnerability Analysis Framework
 <a href="https://github.com/mchara01/centaur#analysis-tools-used">
         <img alt="Analysis Tools" src="https://img.shields.io/badge/Analysis Tools-9-green">
 </a>
 <a href="https://github.com/mchara01/centaur/tree/main/data/dataset/eth">
-        <img alt="ETH Smart Contracts" src="https://img.shields.io/badge/ETH Smart Contracts-123-green">
+        <img alt="ETH Smart Contracts" src="https://img.shields.io/badge/Ethreum Smart Contracts-7,236-green">
 </a>
 <a href="https://github.com/mchara01/centaur/tree/main/data/dataset/bsc">
-        <img alt="BSC Smart Contracts" src="https://img.shields.io/badge/BSC Smart Contracts-111-green">
+        <img alt="BSC Smart Contracts" src="https://img.shields.io/badge/BSC Smart Contracts-10,356-green">
 </a>
 <a href="https://github.com/mchara01/centaur/">
         <img alt="Repository Size" src="https://img.shields.io/github/repo-size/mchara01/centaur">
@@ -20,7 +20,8 @@ smart contract bytecodes using multiple analysis tools and it is easily extendab
 EVM chains.
 
 ## Table of Contents
-0. [Repository Overview](#overview)
+
+[//]: # (0. [Repository Overview]&#40;#overview&#41;)
 1. [Prerequisites](#prerequisites)
 2. [Installation](#installation)
 3. [Step-by-Step Analysis Procedure](#procedure)
@@ -35,103 +36,192 @@ EVM chains.
 10. [Experiment Setup](#setup)
 11. [License](#license)
 
-## Repository Overview <a name="overview"></a>
-<!-- Command to reproduce: tree -L 2 --dirsfirst -I 'smartbugs_bytecode|venv' -->
-```bash                                                                                                                 marcos-antonioscharalambous@mchara01
-Centaur
-├── build
-│   └── database
-│       ├── 02_Aug_2022
-│       ├── 03_Jul_2022
-│       ├── db_blockchain
-│       ├── db_password.txt
-│       ├── db_root_password.txt
-│       └── docker-compose.yaml
-├── data
-│   ├── block_samples
-│   │   ├── 01072022_161632
-│   │   ├── 01072022_162400
-│   │   ├── 02082022_001208
-│   │   └── 30072022_170719
-│   ├── dataset
-│   │   ├── bsc
-│   │   ├── bsc2
-│   │   ├── eth
-│   │   └── eth2
-│   ├── executions
-│   │   ├── run_bsc.txt
-│   │   └── run_eth.txt
-│   ├── logs
-│   │   ├── 02072022_184613
-│   │   └── 02072022_214121
-│   └── mix_dataset_test
-│       └── test_dt.xlsx
-├── database
-│   ├── analysis.db
-│   ├── schema.pdf
-│   └── schema.sql
-├── go-src
-│   ├── chainCrawler.go
-│   ├── connection.go
-│   ├── fileOperations.go
-│   ├── tracer.go
-│   └── tracerConfig.go
-├── scripts
-│   ├── crawl
-│   │   ├── __init__.py
-│   │   ├── bscscanCrawl.py
-│   │   ├── etherscanCrawl.py
-│   │   ├── limitChecker.py
-│   │   └── mainCrawl.py
-│   ├── database
-│   │   ├── backup
-│   │   ├── __init__.py
-│   │   ├── create_db.py
-│   │   ├── queries.py
-│   │   └── schema.sql
-│   ├── result_parsing
-│   │   ├── conkas.py
-│   │   ├── honeybadger.py
-│   │   ├── madmax.py
-│   │   ├── maian.py
-│   │   ├── mythril.py
-│   │   ├── osiris.py
-│   │   ├── oyente.py
-│   │   ├── securify.py
-│   │   └── vandal.py
-│   ├── utils
-│   │   ├── __init__.py
-│   │   ├── blockNumberGenerator.py
-│   │   ├── bytecodeToFileCreator.py
-│   │   ├── colours.py
-│   │   ├── dasp10extended_map.py
-│   │   ├── swc_map.py
-│   │   └── tools.py
-│   ├── README.md
-│   ├── __init__.py
-│   ├── dbtest.go
-│   ├── parser.py
-│   └── result.json
-├── Dockerfile
-├── LICENSE
-├── README.md
-├── analysis.db
-├── analysis_results.csv
-├── config
-├── go.mod
-├── go.sum
-├── requirements.txt
-├── resultsToCSV.py
-└── run_main.sh
+[//]: # (## Repository Overview <a name="overview"></a>)
 
-30 directories, 54 files
-```
+[//]: # (<!-- Command to reproduce: tree -L 2 --dirsfirst -I 'smartbugs_bytecode|venv' -->)
+
+[//]: # (```bash                                                                                                                 marcos-antonioscharalambous@mchara01)
+
+[//]: # (Centaur)
+
+[//]: # (├── build)
+
+[//]: # (│   └── database)
+
+[//]: # (│       ├── 02_Aug_2022)
+
+[//]: # (│       ├── 03_Jul_2022)
+
+[//]: # (│       ├── db_blockchain)
+
+[//]: # (│       ├── db_password.txt)
+
+[//]: # (│       ├── db_root_password.txt)
+
+[//]: # (│       └── docker-compose.yaml)
+
+[//]: # (├── data)
+
+[//]: # (│   ├── block_samples)
+
+[//]: # (│   │   ├── 01072022_161632)
+
+[//]: # (│   │   ├── 01072022_162400)
+
+[//]: # (│   │   ├── 02082022_001208)
+
+[//]: # (│   │   └── 30072022_170719)
+
+[//]: # (│   ├── dataset)
+
+[//]: # (│   │   ├── bsc)
+
+[//]: # (│   │   ├── bsc2)
+
+[//]: # (│   │   ├── eth)
+
+[//]: # (│   │   └── eth2)
+
+[//]: # (│   ├── executions)
+
+[//]: # (│   │   ├── run_bsc.txt)
+
+[//]: # (│   │   └── run_eth.txt)
+
+[//]: # (│   ├── logs)
+
+[//]: # (│   │   ├── 02072022_184613)
+
+[//]: # (│   │   └── 02072022_214121)
+
+[//]: # (│   └── mix_dataset_test)
+
+[//]: # (│       └── test_dt.xlsx)
+
+[//]: # (├── database)
+
+[//]: # (│   ├── analysis.db)
+
+[//]: # (│   ├── schema.pdf)
+
+[//]: # (│   └── schema.sql)
+
+[//]: # (├── go-src)
+
+[//]: # (│   ├── chainCrawler.go)
+
+[//]: # (│   ├── connection.go)
+
+[//]: # (│   ├── fileOperations.go)
+
+[//]: # (│   ├── tracer.go)
+
+[//]: # (│   └── tracerConfig.go)
+
+[//]: # (├── scripts)
+
+[//]: # (│   ├── crawl)
+
+[//]: # (│   │   ├── __init__.py)
+
+[//]: # (│   │   ├── bscscanCrawl.py)
+
+[//]: # (│   │   ├── etherscanCrawl.py)
+
+[//]: # (│   │   ├── limitChecker.py)
+
+[//]: # (│   │   └── mainCrawl.py)
+
+[//]: # (│   ├── database)
+
+[//]: # (│   │   ├── backup)
+
+[//]: # (│   │   ├── __init__.py)
+
+[//]: # (│   │   ├── create_db.py)
+
+[//]: # (│   │   ├── queries.py)
+
+[//]: # (│   │   └── schema.sql)
+
+[//]: # (│   ├── result_parsing)
+
+[//]: # (│   │   ├── conkas.py)
+
+[//]: # (│   │   ├── honeybadger.py)
+
+[//]: # (│   │   ├── madmax.py)
+
+[//]: # (│   │   ├── maian.py)
+
+[//]: # (│   │   ├── mythril.py)
+
+[//]: # (│   │   ├── osiris.py)
+
+[//]: # (│   │   ├── oyente.py)
+
+[//]: # (│   │   ├── securify.py)
+
+[//]: # (│   │   └── vandal.py)
+
+[//]: # (│   ├── utils)
+
+[//]: # (│   │   ├── __init__.py)
+
+[//]: # (│   │   ├── blockNumberGenerator.py)
+
+[//]: # (│   │   ├── bytecodeToFileCreator.py)
+
+[//]: # (│   │   ├── colours.py)
+
+[//]: # (│   │   ├── dasp10extended_map.py)
+
+[//]: # (│   │   ├── swc_map.py)
+
+[//]: # (│   │   └── tools.py)
+
+[//]: # (│   ├── README.md)
+
+[//]: # (│   ├── __init__.py)
+
+[//]: # (│   ├── dbtest.go)
+
+[//]: # (│   ├── parser.py)
+
+[//]: # (│   └── result.json)
+
+[//]: # (├── Dockerfile)
+
+[//]: # (├── LICENSE)
+
+[//]: # (├── README.md)
+
+[//]: # (├── analysis.db)
+
+[//]: # (├── analysis_results.csv)
+
+[//]: # (├── config)
+
+[//]: # (├── go.mod)
+
+[//]: # (├── go.sum)
+
+[//]: # (├── requirements.txt)
+
+[//]: # (├── resultsToCSV.py)
+
+[//]: # (└── run_main.sh)
+
+[//]: # ()
+[//]: # (30 directories, 54 files)
+
+[//]: # (```)
 
 ## Prerequisites <a name="prerequisites"></a>
 
 Before you begin, ensure you have met the following requirements:
 
-* You have installed of all the required Python and Shell dependencies with: <br> 
+* You have installed all the required Python and Shell dependencies with: <br> 
 `pip install -r requirements.txt` and <br>
 `apt-get install -y cowsay figlet`
 * You are using Python >= 3.8 and Golang == 1.17
