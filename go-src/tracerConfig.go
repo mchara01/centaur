@@ -1,3 +1,4 @@
+// File taken from https://github.com/StefanosChaliasos/inline-assembly/blob/main/go-src/tracer/config.go
 package main
 
 import (

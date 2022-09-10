@@ -1,3 +1,5 @@
+// Block Crawling script
+// File is an extension of https://github.com/StefanosChaliasos/inline-assembly/blob/main/go-src/crawl/crawlTransactions.go
 // Example run: go run go-src/*.go --client eth --check
 //				go run go-src/*.go --client eth --input data/block_samples/<latest_date>/blockNumbersEth.txt --tracer
 package main

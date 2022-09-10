@@ -1,3 +1,11 @@
+"""
+Request limit checker for Etherscan and BscScan to avoid
+breaching request limit imposed by these platforms when using
+their free API.
+
+File is a modification of
+https://github.com/StefanosChaliasos/inline-assembly/blob/464892a71e1161e6812bedcd40eba1388157e97a/scripts/etherscan_crawler.py#L20
+"""
 import time
 
 
@@ -14,6 +22,10 @@ class LimitChecker:
         self.start_time = time.time()
 
     def check(self):
+        # if self.round_req == 4:
+        #     time.sleep(self.time_limit)
+        # self.round_req = 0
+        # return
         elapsed_time = time.time() - self.start_time
         if self.round_req >= self.requests_limit and elapsed_time <= self.time_limit:
             if self.debug:
